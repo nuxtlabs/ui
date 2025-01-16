@@ -13,12 +13,12 @@ const appConfig = _appConfig as AppConfig & { ui: { navigationMenu: Partial<type
 
 const navigationMenu = tv({ extend: tv(theme), ...(appConfig.ui?.navigationMenu || {}) })
 
-export interface NavigationMenuChildItem extends Omit<NavigationMenuItem, 'children'> {
+export interface NavigationMenuChildItem extends Omit<NavigationMenuItem, 'children' | 'type'> {
   /** Description is only used when `orientation` is `horizontal`. */
   description?: string
 }
 
-export interface NavigationMenuItem extends Omit<LinkProps, 'raw' | 'custom'>, Pick<CollapsibleRootProps, 'defaultOpen' | 'open'> {
+export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'custom'>, Pick<CollapsibleRootProps, 'defaultOpen' | 'open'> {
   label?: string
   icon?: string
   avatar?: AvatarProps
@@ -28,6 +28,12 @@ export interface NavigationMenuItem extends Omit<LinkProps, 'raw' | 'custom'>, P
    */
   badge?: string | number | BadgeProps
   trailingIcon?: string
+  /**
+   * The type of the item.
+   * The `label` type only works on `vertical` orientation.
+   * @defaultValue 'link'
+   */
+  type?: 'label' | 'link'
   slot?: string
   value?: string
   children?: NavigationMenuChildItem[]
@@ -224,7 +230,10 @@ const lists = computed(() => props.items?.length ? (Array.isArray(props.items[0]
           :open="item.open"
           :class="ui.item({ class: props.ui?.item })"
         >
-          <ULink v-slot="{ active, ...slotProps }" v-bind="(orientation === 'vertical' && item.children?.length) ? {} : pickLinkProps(item)" custom>
+          <div v-if="orientation === 'vertical' && item.type === 'label'" :class="ui.label({ class: props.ui?.label })">
+            <ReuseItemTemplate :item="(item as T)" :index="index" />
+          </div>
+          <ULink v-else-if="item.type !== 'label'" v-slot="{ active, ...slotProps }" v-bind="(orientation === 'vertical' && item.children?.length) ? {} : pickLinkProps(item as Omit<NavigationMenuItem, 'type'>)" custom>
             <component
               :is="(orientation === 'horizontal' && (item.children?.length || !!slots[item.slot ? `${item.slot}-content` : 'item-content'])) ? NavigationMenuTrigger : NavigationMenuLink"
               as-child
