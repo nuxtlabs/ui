@@ -60,9 +60,7 @@ export default (options: Required<ModuleOptions>) => ({
       },
       vertical: {
         root: 'flex-col',
-        link: 'flex-row px-2.5 py-1.5 before:inset-y-px before:inset-x-0',
-        childList: 'ms-5 border-s border-[var(--ui-border)]',
-        childItem: 'ps-1.5 -ms-px'
+        link: 'flex-row px-2.5 py-1.5 before:inset-y-px before:inset-x-0'
       }
     },
     active: {
@@ -86,6 +84,9 @@ export default (options: Required<ModuleOptions>) => ({
       true: ''
     },
     level: {
+      true: ''
+    },
+    collapsed: {
       true: ''
     }
   },
@@ -215,6 +216,19 @@ export default (options: Required<ModuleOptions>) => ({
     active: true,
     class: {
       link: 'after:bg-[var(--ui-bg-inverted)]'
+    }
+  }, {
+    orientation: 'vertical',
+    collapsed: false,
+    class: {
+      childList: 'ms-5 border-s border-[var(--ui-border)]',
+      childItem: 'ps-1.5 -ms-px'
+    }
+  }, {
+    orientation: 'vertical',
+    collapsed: true,
+    class: {
+      link: 'px-1.5'
     }
   }],
   defaultVariants: {

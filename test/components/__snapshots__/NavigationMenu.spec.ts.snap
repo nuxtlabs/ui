@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`NavigationMenu > renders with arrow correctly 1`] = `
-"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
+"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 py-2"></li>
@@ -47,7 +47,7 @@ exports[`NavigationMenu > renders with arrow correctly 1`] = `
 `;
 
 exports[`NavigationMenu > renders with as correctly 1`] = `
-"<section aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
+"<section aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 py-2"></li>
@@ -91,7 +91,7 @@ exports[`NavigationMenu > renders with as correctly 1`] = `
 `;
 
 exports[`NavigationMenu > renders with class correctly 1`] = `
-"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between w-48">
+"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between w-48">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 py-2"></li>
@@ -135,7 +135,7 @@ exports[`NavigationMenu > renders with class correctly 1`] = `
 `;
 
 exports[`NavigationMenu > renders with custom slot correctly 1`] = `
-"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
+"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 py-2"></li>
@@ -179,7 +179,7 @@ exports[`NavigationMenu > renders with custom slot correctly 1`] = `
 `;
 
 exports[`NavigationMenu > renders with item slot correctly 1`] = `
-"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
+"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 py-2"></li>
@@ -217,7 +217,7 @@ exports[`NavigationMenu > renders with item slot correctly 1`] = `
 `;
 
 exports[`NavigationMenu > renders with item-label slot correctly 1`] = `
-"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
+"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 py-2"></li>
@@ -261,7 +261,7 @@ exports[`NavigationMenu > renders with item-label slot correctly 1`] = `
 `;
 
 exports[`NavigationMenu > renders with item-leading slot correctly 1`] = `
-"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
+"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 py-2"></li>
@@ -305,7 +305,7 @@ exports[`NavigationMenu > renders with item-leading slot correctly 1`] = `
 `;
 
 exports[`NavigationMenu > renders with item-trailing slot correctly 1`] = `
-"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
+"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 py-2"></li>
@@ -343,7 +343,7 @@ exports[`NavigationMenu > renders with item-trailing slot correctly 1`] = `
 `;
 
 exports[`NavigationMenu > renders with items correctly 1`] = `
-"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
+"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 py-2"></li>
@@ -387,7 +387,7 @@ exports[`NavigationMenu > renders with items correctly 1`] = `
 `;
 
 exports[`NavigationMenu > renders with labelKey correctly 1`] = `
-"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
+"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 py-2"></li>
@@ -431,7 +431,7 @@ exports[`NavigationMenu > renders with labelKey correctly 1`] = `
 `;
 
 exports[`NavigationMenu > renders with neutral variant link correctly 1`] = `
-"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
+"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 py-2"></li>
@@ -475,7 +475,7 @@ exports[`NavigationMenu > renders with neutral variant link correctly 1`] = `
 `;
 
 exports[`NavigationMenu > renders with neutral variant link highlight correctly 1`] = `
-"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
+"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 py-2 -mb-px"></li>
@@ -519,7 +519,7 @@ exports[`NavigationMenu > renders with neutral variant link highlight correctly 
 `;
 
 exports[`NavigationMenu > renders with neutral variant link highlight neutral correctly 1`] = `
-"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
+"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 py-2 -mb-px"></li>
@@ -563,7 +563,7 @@ exports[`NavigationMenu > renders with neutral variant link highlight neutral co
 `;
 
 exports[`NavigationMenu > renders with neutral variant pill correctly 1`] = `
-"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
+"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 py-2"></li>
@@ -607,7 +607,7 @@ exports[`NavigationMenu > renders with neutral variant pill correctly 1`] = `
 `;
 
 exports[`NavigationMenu > renders with neutral variant pill highlight correctly 1`] = `
-"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
+"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 py-2 -mb-px"></li>
@@ -651,7 +651,7 @@ exports[`NavigationMenu > renders with neutral variant pill highlight correctly 
 `;
 
 exports[`NavigationMenu > renders with neutral variant pill highlight neutral correctly 1`] = `
-"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
+"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 py-2 -mb-px"></li>
@@ -695,7 +695,7 @@ exports[`NavigationMenu > renders with neutral variant pill highlight neutral co
 `;
 
 exports[`NavigationMenu > renders with orientation vertical correctly 1`] = `
-"<nav aria-label="Main" data-orientation="vertical" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 flex-col">
+"<nav aria-label="Main" data-orientation="vertical" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 flex-col">
   <div style="position: relative;">
     <ul class="isolate min-w-0" data-orientation="vertical">
       <li data-menu-item="" class="min-w-0">
@@ -741,7 +741,7 @@ exports[`NavigationMenu > renders with orientation vertical correctly 1`] = `
 `;
 
 exports[`NavigationMenu > renders with primary variant link correctly 1`] = `
-"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
+"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 py-2"></li>
@@ -785,7 +785,7 @@ exports[`NavigationMenu > renders with primary variant link correctly 1`] = `
 `;
 
 exports[`NavigationMenu > renders with primary variant link highlight correctly 1`] = `
-"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
+"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 py-2 -mb-px"></li>
@@ -829,7 +829,7 @@ exports[`NavigationMenu > renders with primary variant link highlight correctly 
 `;
 
 exports[`NavigationMenu > renders with primary variant pill correctly 1`] = `
-"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
+"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 py-2"></li>
@@ -873,7 +873,7 @@ exports[`NavigationMenu > renders with primary variant pill correctly 1`] = `
 `;
 
 exports[`NavigationMenu > renders with primary variant pill highlight correctly 1`] = `
-"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
+"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 py-2 -mb-px"></li>
@@ -917,7 +917,7 @@ exports[`NavigationMenu > renders with primary variant pill highlight correctly 
 `;
 
 exports[`NavigationMenu > renders with trailingIcon correctly 1`] = `
-"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
+"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 py-2"></li>
@@ -961,7 +961,7 @@ exports[`NavigationMenu > renders with trailingIcon correctly 1`] = `
 `;
 
 exports[`NavigationMenu > renders with ui correctly 1`] = `
-"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
+"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 py-2"></li>
@@ -1005,7 +1005,7 @@ exports[`NavigationMenu > renders with ui correctly 1`] = `
 `;
 
 exports[`NavigationMenu > renders with unmountOnHide correctly 1`] = `
-"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
+"<nav aria-label="Main" data-orientation="horizontal" dir="ltr" data-reka-navigation-menu="" data-collapsed="false" class="relative flex gap-1.5 [&>div]:min-w-0 items-center justify-between">
   <div style="position: relative;">
     <ul class="isolate min-w-0 flex items-center" data-orientation="horizontal">
       <li data-menu-item="" class="min-w-0 py-2"></li>
