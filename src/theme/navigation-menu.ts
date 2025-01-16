@@ -108,8 +108,17 @@ export default (options: Required<ModuleOptions>) => ({
     active: false,
     variant: 'pill',
     class: {
-      link: ['hover:text-[var(--ui-text-highlighted)] hover:before:bg-[var(--ui-bg-elevated)]/50 data-[state=open]:text-[var(--ui-text-highlighted)]', options.theme.transitions && 'transition-colors before:transition-colors'],
-      linkLeadingIcon: ['group-hover:text-[var(--ui-text)] group-data-[state=open]:text-[var(--ui-text)]', options.theme.transitions && 'transition-colors']
+      link: ['hover:text-[var(--ui-text-highlighted)] hover:before:bg-[var(--ui-bg-elevated)]/50', options.theme.transitions && 'transition-colors before:transition-colors'],
+      linkLeadingIcon: ['group-hover:text-[var(--ui-text)]', options.theme.transitions && 'transition-colors']
+    }
+  }, {
+    disabled: false,
+    active: false,
+    variant: 'pill',
+    orientation: 'horizontal',
+    class: {
+      link: 'data-[state=open]:text-[var(--ui-text-highlighted)]',
+      linkLeadingIcon: 'group-data-[state=open]:text-[var(--ui-text)]'
     }
   }, {
     disabled: false,
@@ -163,8 +172,17 @@ export default (options: Required<ModuleOptions>) => ({
     active: false,
     variant: 'link',
     class: {
-      link: ['hover:text-[var(--ui-text-highlighted)] data-[state=open]:text-[var(--ui-text-highlighted)]', options.theme.transitions && 'transition-colors'],
-      linkLeadingIcon: ['group-hover:text-[var(--ui-text)] group-data-[state=open]:text-[var(--ui-text)]', options.theme.transitions && 'transition-colors']
+      link: ['hover:text-[var(--ui-text-highlighted)]', options.theme.transitions && 'transition-colors'],
+      linkLeadingIcon: ['group-hover:text-[var(--ui-text)]', options.theme.transitions && 'transition-colors']
+    }
+  }, {
+    disabled: false,
+    active: false,
+    variant: 'link',
+    orientation: 'horizontal',
+    class: {
+      link: 'data-[state=open]:text-[var(--ui-text-highlighted)]',
+      linkLeadingIcon: 'group-data-[state=open]:text-[var(--ui-text)]'
     }
   }, ...(options.theme.colors || []).map((color: string) => ({
     color,
