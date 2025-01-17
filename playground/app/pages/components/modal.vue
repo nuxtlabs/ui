@@ -16,10 +16,6 @@ function openModal() {
     count: count.value
   })
 }
-
-function closePrevented() {
-  console.log('mabar')
-}
 </script>
 
 <template>
@@ -34,7 +30,7 @@ function closePrevented() {
       </template>
     </UModal>
 
-    <UModal v-model:open="open" :dismissible="false" title="Modal with v-model" description="This can be useful to control the state of the modal yourself." @close-prevented="closePrevented" />
+    <UModal v-model:open="open" :dismissible="false" title="Modal with v-model" description="This can be useful to control the state of the modal yourself." />
 
     <UButton label="Open with v-model" color="neutral" variant="subtle" @click="open = true" />
 
