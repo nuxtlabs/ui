@@ -85,7 +85,32 @@ describe('FormField', () => {
     expect(html).toMatchSnapshot()
   })
 
-  describe.each(inputComponents.map(inputComponent => [(inputComponent as any).__name, inputComponent]))('%s integration', async (_: string, inputComponent: any) => {
+  describe.each(inputComponents.map(inputComponent => [(inputComponent as any).__name, inputComponent]))('%s integration', async (name: string, inputComponent: any) => {
+    if (name === 'RadioGroup') {
+      test('unbinds label for', async () => {
+        const wrapper = await renderFormField({
+          props: { label: 'Label' },
+          inputComponent
+        })
+
+        const label = wrapper.find('label[for=v-0-0]')
+        expect(label.exists()).toBe(false)
+      })
+    } else {
+      test('binds label for', async () => {
+        const wrapper = await renderFormField({
+          props: { label: 'Label' },
+          inputComponent
+        })
+
+        const label = wrapper.find('label[for=v-0-0]')
+        expect(label.exists()).toBe(true)
+
+        const input = wrapper.find('[id=v-0-0]')
+        expect(input.exists()).toBe(true)
+      })
+    }
+
     test('binds hints with aria-describedby', async () => {
       const wrapper = await renderFormField({
         props: { hint: 'somehint' },
