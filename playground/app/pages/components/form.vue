@@ -32,7 +32,7 @@ const disabled = ref(false)
         class="gap-4 flex flex-col w-60"
         @submit="onSubmit"
       >
-        <UFormField label="Email" name="email">
+        <UFormField label="Email" name="email" description="This is a description" hint="This is a hint">
           <UInput v-model="state.email" placeholder="john@lennon.com" />
         </UFormField>
 
