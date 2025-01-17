@@ -4,7 +4,7 @@ import type { FormSubmitEvent } from '@nuxt/ui'
 
 const schema = z.object({
   name: z.string().min(2),
-  news: z.boolean()
+  news: z.boolean().default(false)
 })
 
 type Schema = z.output<typeof schema>
