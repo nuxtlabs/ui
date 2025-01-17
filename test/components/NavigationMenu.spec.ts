@@ -9,6 +9,9 @@ describe('NavigationMenu', () => {
 
   const items = [
     [{
+      label: 'Links',
+      type: 'label'
+    }, {
       label: 'Documentation',
       icon: 'i-lucide-book-open',
       badge: 10,

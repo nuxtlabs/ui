@@ -10,9 +10,13 @@ const highlightColor = ref()
 const variant = ref(theme.defaultVariants.variant)
 const orientation = ref('vertical' as const)
 const highlight = ref(true)
+const collapsed = ref(false)
 
 const items = [
   [{
+    label: 'Link',
+    type: 'label' as const
+  }, {
     label: 'Documentation',
     icon: 'i-lucide-book-open',
     badge: 10,
@@ -40,33 +44,33 @@ const items = [
     defaultOpen: true,
     children: [{
       label: 'Link',
-      icon: 'i-lucide-file',
+      icon: 'i-lucide-link',
       description: 'Use NuxtLink with superpowers.',
       to: '/components/link'
     }, {
       label: 'Modal',
-      icon: 'i-lucide-file',
-      description: 'Display a modal within your application.',
+      icon: 'i-lucide-square',
+      description: 'Display a modal dialog overlay for important content.',
       to: '/components/modal'
     }, {
       label: 'NavigationMenu',
-      icon: 'i-lucide-file',
+      icon: 'i-lucide-list',
       description: 'Display a list of links.',
       to: '/components/navigation-menu',
       trailingIcon: 'i-lucide-check'
     }, {
       label: 'Pagination',
-      icon: 'i-lucide-file',
+      icon: 'i-lucide-parking-meter',
       description: 'Display a list of pages.',
       to: '/components/pagination'
     }, {
       label: 'Popover',
-      icon: 'i-lucide-file',
+      icon: 'i-lucide-message-circle',
       description: 'Display a non-modal dialog that floats around a trigger element.',
       to: '/components/popover'
     }, {
       label: 'Progress',
-      icon: 'i-lucide-file',
+      icon: 'i-lucide-loader',
       description: 'Show a horizontal bar to indicate task progression.',
       to: '/components/progress'
     }]
@@ -89,12 +93,14 @@ const items = [
       <USelect v-model="color" :items="colors" placeholder="Color" />
       <USelect v-model="variant" :items="variants" placeholder="Variant" />
       <USelect v-model="orientation" :items="orientations" placeholder="Orientation" />
+      <USwitch v-model="collapsed" label="Collapsed" />
       <USwitch v-model="highlight" label="Highlight" />
       <USelect v-model="highlightColor" :items="colors" placeholder="Highlight color" />
     </div>
 
     <UNavigationMenu
       arrow
+      :collapsed="collapsed"
       :items="items"
       :color="color"
       :variant="variant"
@@ -102,7 +108,7 @@ const items = [
       :highlight="highlight"
       :highlight-color="highlightColor"
       :class="highlight && 'data-[orientation=horizontal]:border-b border-[var(--ui-border)]'"
-      class="data-[orientation=vertical]:w-48"
+      class="data-[orientation=vertical]:data-[collapsed=false]:w-48"
     />
   </div>
 </template>

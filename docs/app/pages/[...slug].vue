@@ -14,6 +14,16 @@ if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
 
+// Update the framework/module if the page has different ones
+watch(page, () => {
+  if (page.value?.framework && page.value?.framework !== framework.value) {
+    framework.value = page.value?.framework as string
+  }
+  if (page.value?.module && page.value?.module !== module.value) {
+    module.value = page.value?.module as string
+  }
+}, { immediate: true })
+
 const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
   return queryCollectionItemSurroundings('content', route.path, {
     fields: ['description']
@@ -53,16 +63,6 @@ if (!import.meta.prerender) {
   })
 }
 
-// Update the framework/module if the page has different ones
-watch(page, () => {
-  if (page.value?.framework && page.value?.framework !== framework.value) {
-    framework.value = page.value?.framework as string
-  }
-  if (page.value?.module && page.value?.module !== module.value) {
-    module.value = page.value?.module as string
-  }
-}, { immediate: true })
-
 const type = page.value?.path.includes('components') ? 'Vue Component ' : page.value?.path.includes('composables') ? 'Vue Composable ' : ''
 useSeoMeta({
   titleTemplate: `%s ${type}- Nuxt UI ${page.value.module === 'ui-pro' ? 'Pro' : ''} v3${page.value.framework === 'vue' ? ' for Vue' : ''}`,
@@ -86,6 +86,14 @@ const communityLinks = computed(() => [{
   label: 'Star on GitHub',
   to: `https://github.com/nuxt/${page.value?.module === 'ui-pro' ? 'ui-pro' : 'ui'}`,
   target: '_blank'
+}, {
+  icon: 'i-heroicons-lifebuoy',
+  label: 'Contribution',
+  to: '/getting-started/contribution'
+}, {
+  label: 'Roadmap',
+  icon: 'i-heroicons-map',
+  to: '/roadmap'
 }])
 
 // const resourcesLinks = [{
@@ -136,7 +144,7 @@ const communityLinks = computed(() => [{
     <UPageBody>
       <ContentRenderer v-if="page.body" :value="page" />
 
-      <USeparator />
+      <USeparator v-if="surround?.filter(Boolean).length" />
 
       <UContentSurround :surround="(surround as any)" />
     </UPageBody>

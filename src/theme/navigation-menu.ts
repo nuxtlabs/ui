@@ -4,6 +4,7 @@ export default (options: Required<ModuleOptions>) => ({
   slots: {
     root: 'relative flex gap-1.5 [&>div]:min-w-0',
     list: 'isolate min-w-0',
+    label: 'w-full flex items-center gap-1.5 font-semibold text-xs/5 text-[var(--ui-text-highlighted)] px-2.5 py-1.5',
     item: 'min-w-0',
     link: 'group relative w-full flex items-center gap-1.5 font-medium text-sm before:absolute before:z-[-1] before:rounded-[calc(var(--ui-radius)*1.5)] focus:outline-none focus-visible:outline-none dark:focus-visible:outline-none focus-visible:before:ring-inset focus-visible:before:ring-2',
     linkLeadingIcon: 'shrink-0 size-5',
@@ -59,9 +60,7 @@ export default (options: Required<ModuleOptions>) => ({
       },
       vertical: {
         root: 'flex-col',
-        link: 'flex-row px-2.5 py-1.5 before:inset-y-px before:inset-x-0',
-        childList: 'ms-5 border-s border-[var(--ui-border)]',
-        childItem: 'ps-1.5 -ms-px'
+        link: 'flex-row px-2.5 py-1.5 before:inset-y-px before:inset-x-0'
       }
     },
     active: {
@@ -86,6 +85,9 @@ export default (options: Required<ModuleOptions>) => ({
     },
     level: {
       true: ''
+    },
+    collapsed: {
+      true: ''
     }
   },
   compoundVariants: [{
@@ -107,8 +109,17 @@ export default (options: Required<ModuleOptions>) => ({
     active: false,
     variant: 'pill',
     class: {
-      link: ['hover:text-[var(--ui-text-highlighted)] hover:before:bg-[var(--ui-bg-elevated)]/50 data-[state=open]:text-[var(--ui-text-highlighted)]', options.theme.transitions && 'transition-colors before:transition-colors'],
-      linkLeadingIcon: ['group-hover:text-[var(--ui-text)] group-data-[state=open]:text-[var(--ui-text)]', options.theme.transitions && 'transition-colors']
+      link: ['hover:text-[var(--ui-text-highlighted)] hover:before:bg-[var(--ui-bg-elevated)]/50', options.theme.transitions && 'transition-colors before:transition-colors'],
+      linkLeadingIcon: ['group-hover:text-[var(--ui-text)]', options.theme.transitions && 'transition-colors']
+    }
+  }, {
+    disabled: false,
+    active: false,
+    variant: 'pill',
+    orientation: 'horizontal',
+    class: {
+      link: 'data-[state=open]:text-[var(--ui-text-highlighted)]',
+      linkLeadingIcon: 'group-data-[state=open]:text-[var(--ui-text)]'
     }
   }, {
     disabled: false,
@@ -162,8 +173,17 @@ export default (options: Required<ModuleOptions>) => ({
     active: false,
     variant: 'link',
     class: {
-      link: ['hover:text-[var(--ui-text-highlighted)] data-[state=open]:text-[var(--ui-text-highlighted)]', options.theme.transitions && 'transition-colors'],
-      linkLeadingIcon: ['group-hover:text-[var(--ui-text)] group-data-[state=open]:text-[var(--ui-text)]', options.theme.transitions && 'transition-colors']
+      link: ['hover:text-[var(--ui-text-highlighted)]', options.theme.transitions && 'transition-colors'],
+      linkLeadingIcon: ['group-hover:text-[var(--ui-text)]', options.theme.transitions && 'transition-colors']
+    }
+  }, {
+    disabled: false,
+    active: false,
+    variant: 'link',
+    orientation: 'horizontal',
+    class: {
+      link: 'data-[state=open]:text-[var(--ui-text-highlighted)]',
+      linkLeadingIcon: 'group-data-[state=open]:text-[var(--ui-text)]'
     }
   }, ...(options.theme.colors || []).map((color: string) => ({
     color,
@@ -196,6 +216,19 @@ export default (options: Required<ModuleOptions>) => ({
     active: true,
     class: {
       link: 'after:bg-[var(--ui-bg-inverted)]'
+    }
+  }, {
+    orientation: 'vertical',
+    collapsed: false,
+    class: {
+      childList: 'ms-5 border-s border-[var(--ui-border)]',
+      childItem: 'ps-1.5 -ms-px'
+    }
+  }, {
+    orientation: 'vertical',
+    collapsed: true,
+    class: {
+      link: 'px-1.5'
     }
   }],
   defaultVariants: {
