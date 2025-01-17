@@ -9,15 +9,19 @@ const props = defineProps<{
 const config = useRuntimeConfig().public
 const { module } = useSharedData()
 
+const value = ref<string | undefined>(module.value)
+
+watch(module, () => {
+  value.value = module.value
+})
+
+onMounted(() => {
+  value.value = module.value
+})
+
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
 const items = computed(() => props.links.map(({ icon, ...link }) => link))
-
-defineShortcuts({
-  meta_g: () => {
-    window.open(`https://github.com/nuxt/${module}/tree/v3`, '_blank')
-  }
-})
 </script>
 
 <template>
@@ -58,11 +62,11 @@ defineShortcuts({
         <UContentSearchButton />
       </UTooltip>
 
-      <UTooltip text="Open on GitHub" :kbds="['meta', 'G']" class="hidden lg:flex">
+      <UTooltip text="Open on GitHub" class="hidden lg:flex">
         <UButton
           color="neutral"
           variant="ghost"
-          :to="`https://github.com/nuxt/${module}`"
+          :to="`https://github.com/nuxt/${value}`"
           target="_blank"
           icon="i-simple-icons-github"
           aria-label="GitHub"

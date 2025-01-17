@@ -13,12 +13,12 @@ const appConfig = _appConfig as AppConfig & { ui: { navigationMenu: Partial<type
 
 const navigationMenu = tv({ extend: tv(theme), ...(appConfig.ui?.navigationMenu || {}) })
 
-export interface NavigationMenuChildItem extends Omit<NavigationMenuItem, 'children'> {
+export interface NavigationMenuChildItem extends Omit<NavigationMenuItem, 'children' | 'type'> {
   /** Description is only used when `orientation` is `horizontal`. */
   description?: string
 }
 
-export interface NavigationMenuItem extends Omit<LinkProps, 'raw' | 'custom'>, Pick<CollapsibleRootProps, 'defaultOpen' | 'open'> {
+export interface NavigationMenuItem extends Omit<LinkProps, 'type' | 'raw' | 'custom'>, Pick<CollapsibleRootProps, 'defaultOpen' | 'open'> {
   label?: string
   icon?: string
   avatar?: AvatarProps
@@ -28,6 +28,12 @@ export interface NavigationMenuItem extends Omit<LinkProps, 'raw' | 'custom'>, P
    */
   badge?: string | number | BadgeProps
   trailingIcon?: string
+  /**
+   * The type of the item.
+   * The `label` type only works on `vertical` orientation.
+   * @defaultValue 'link'
+   */
+  type?: 'label' | 'link'
   slot?: string
   value?: string
   children?: NavigationMenuChildItem[]
@@ -55,6 +61,12 @@ export interface NavigationMenuProps<T> extends Pick<NavigationMenuRootProps, 'm
    * @defaultValue 'horizontal'
    */
   orientation?: NavigationMenuRootProps['orientation']
+  /**
+   * Collapse the navigation menu to only show icons.
+   * Only works when `orientation` is `vertical`.
+   * @defaultValue false
+   */
+  collapsed?: boolean
   /** Display a line next to the active item. */
   highlight?: boolean
   highlightColor?: NavigationMenuVariants['highlightColor']
@@ -167,6 +179,7 @@ const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: N
 
 const ui = computed(() => navigationMenu({
   orientation: props.orientation,
+  collapsed: props.collapsed,
   color: props.color,
   variant: props.variant,
   highlight: props.highlight,
@@ -184,7 +197,10 @@ const lists = computed(() => props.items?.length ? (Array.isArray(props.items[0]
         <UIcon v-else-if="item.icon" :name="item.icon" :class="ui.linkLeadingIcon({ class: props.ui?.linkLeadingIcon, active, disabled: !!item.disabled })" />
       </slot>
 
-      <span v-if="get(item, props.labelKey as string) || !!slots[item.slot ? `${item.slot}-label` : 'item-label']" :class="ui.linkLabel({ class: props.ui?.linkLabel })">
+      <span
+        v-if="(!collapsed || orientation !== 'vertical') && (get(item, props.labelKey as string) || !!slots[item.slot ? `${item.slot}-label` : 'item-label'])"
+        :class="ui.linkLabel({ class: props.ui?.linkLabel })"
+      >
         <slot :name="item.slot ? `${item.slot}-label` : 'item-label'" :item="(item as T)" :active="active" :index="index">
           {{ get(item, props.labelKey as string) }}
         </slot>
@@ -192,7 +208,7 @@ const lists = computed(() => props.items?.length ? (Array.isArray(props.items[0]
         <UIcon v-if="item.target === '_blank'" :name="appConfig.ui.icons.external" :class="ui.linkLabelExternalIcon({ class: props.ui?.linkLabelExternalIcon, active })" />
       </span>
 
-      <span v-if="item.badge || (orientation === 'horizontal' && (item.children?.length || !!slots[item.slot ? `${item.slot}-content` : 'item-content'])) || (orientation === 'vertical' && item.children?.length) || item.trailingIcon || !!slots[item.slot ? `${item.slot}-trailing` : 'item-trailing']" :class="ui.linkTrailing({ class: props.ui?.linkTrailing })">
+      <span v-if="(!collapsed || orientation !== 'vertical') && (item.badge || (orientation === 'horizontal' && (item.children?.length || !!slots[item.slot ? `${item.slot}-content` : 'item-content'])) || (orientation === 'vertical' && item.children?.length) || item.trailingIcon || !!slots[item.slot ? `${item.slot}-trailing` : 'item-trailing'])" :class="ui.linkTrailing({ class: props.ui?.linkTrailing })">
         <slot :name="item.slot ? `${item.slot}-trailing` : 'item-trailing'" :item="(item as T)" :active="active" :index="index">
           <UBadge
             v-if="item.badge"
@@ -210,7 +226,7 @@ const lists = computed(() => props.items?.length ? (Array.isArray(props.items[0]
     </slot>
   </DefineItemTemplate>
 
-  <NavigationMenuRoot v-bind="rootProps" :class="ui.root({ class: [props.class, props.ui?.root] })">
+  <NavigationMenuRoot v-bind="rootProps" :data-collapsed="collapsed" :class="ui.root({ class: [props.class, props.ui?.root] })">
     <template v-for="(list, listIndex) in lists" :key="`list-${listIndex}`">
       <NavigationMenuList :class="ui.list({ class: props.ui?.list })">
         <component
@@ -224,7 +240,10 @@ const lists = computed(() => props.items?.length ? (Array.isArray(props.items[0]
           :open="item.open"
           :class="ui.item({ class: props.ui?.item })"
         >
-          <ULink v-slot="{ active, ...slotProps }" v-bind="(orientation === 'vertical' && item.children?.length) ? {} : pickLinkProps(item)" custom>
+          <div v-if="orientation === 'vertical' && item.type === 'label'" :class="ui.label({ class: props.ui?.label })">
+            <ReuseItemTemplate :item="(item as T)" :index="index" />
+          </div>
+          <ULink v-else-if="item.type !== 'label'" v-slot="{ active, ...slotProps }" v-bind="(orientation === 'vertical' && item.children?.length) ? {} : pickLinkProps(item as Omit<NavigationMenuItem, 'type'>)" custom>
             <component
               :is="(orientation === 'horizontal' && (item.children?.length || !!slots[item.slot ? `${item.slot}-content` : 'item-content'])) ? NavigationMenuTrigger : NavigationMenuLink"
               as-child

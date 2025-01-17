@@ -6,6 +6,10 @@ const value = ref<string | undefined>(undefined)
 onMounted(() => {
   value.value = framework.value
 })
+
+watch(framework, () => {
+  value.value = framework.value
+})
 </script>
 
 <template>
