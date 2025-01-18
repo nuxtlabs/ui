@@ -73,7 +73,7 @@ extendDevtoolsMeta({ example: 'ModalExample' })
 </script>
 
 <script setup lang="ts">
-import { computed, toRef } from 'vue'
+import { computed, toRef, provide } from 'vue'
 import { DialogRoot, DialogTrigger, DialogPortal, DialogOverlay, DialogContent, DialogTitle, DialogDescription, DialogClose, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAppConfig } from '#imports'
@@ -112,6 +112,9 @@ const ui = computed(() => modal({
   transition: props.transition,
   fullscreen: props.fullscreen
 }))
+
+// Blocks ButtonGroup injections to avoid side-effects if the modal is within a button group.
+provide(buttonGroupInjectionKey, undefined)
 </script>
 
 <template>
