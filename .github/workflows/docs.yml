@@ -50,7 +50,7 @@ jobs:
         run: pnpm run docs:build
 
       - name: Deploy to NuxtHub
-        uses: nuxt-hub/action@v1
+        uses: nuxt-hub/action@v1.1.1
         id: deploy
         with:
           project-key: ui-7eg3
