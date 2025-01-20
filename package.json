@@ -133,7 +133,7 @@
     "release-it": "^18.1.1",
     "superstruct": "^2.0.2",
     "valibot": "^0.42.1",
-    "vitest": "^2.1.8",
+    "vitest": "^3.0.2",
     "vitest-environment-nuxt": "^1.0.1",
     "vue-tsc": "^2.2.0",
     "yup": "^1.6.1",
