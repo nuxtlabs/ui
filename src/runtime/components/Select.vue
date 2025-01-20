@@ -191,8 +191,8 @@ function onUpdateOpen(value: boolean) {
     v-bind="rootProps"
     :autocomplete="autocomplete"
     :disabled="disabled"
-    :default-value="defaultValue as (AcceptableValue | AcceptableValue[] | undefined)"
-    :model-value="modelValue as (AcceptableValue | AcceptableValue[] | undefined)"
+    :default-value="(defaultValue as (AcceptableValue | AcceptableValue[] | undefined))"
+    :model-value="(modelValue as (AcceptableValue | AcceptableValue[] | undefined))"
     @update:model-value="onUpdate"
     @update:open="onUpdateOpen"
   >
