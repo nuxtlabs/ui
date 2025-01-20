@@ -68,7 +68,7 @@ const modelValue = defineModel<boolean>({ default: undefined })
 const appConfig = useAppConfig()
 const rootProps = useForwardProps(reactivePick(props, 'required', 'value', 'defaultValue'))
 
-const { id: _id, emitFormChange, emitFormInput, size, color, name, disabled } = useFormField<SwitchProps>(props)
+const { id: _id, emitFormChange, emitFormInput, size, color, name, disabled, ariaAttrs } = useFormField<SwitchProps>(props)
 const id = _id.value ?? useId()
 
 const ui = computed(() => switchTv({
@@ -93,7 +93,7 @@ function onUpdate(value: any) {
     <div :class="ui.container({ class: props.ui?.container })">
       <SwitchRoot
         :id="id"
-        v-bind="rootProps"
+        v-bind="{ ...rootProps, ...ariaAttrs }"
         v-model="modelValue"
         :name="name"
         :disabled="disabled || loading"
