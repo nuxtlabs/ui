@@ -1,9 +1,10 @@
 <script lang="ts">
+import type { VariantProps } from 'tailwind-variants'
+import type { PinInputRootEmits, PinInputRootProps } from 'reka-ui'
+import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/ui/pin-input'
-import type { AppConfig } from '@nuxt/schema'
-import type { PinInputRootEmits, PinInputRootProps } from 'reka-ui'
-import { tv, type VariantProps } from 'tailwind-variants'
+import { tv } from '../utils/tv'
 import type { PartialString } from '../types/utils'
 
 const appConfig = _appConfig as AppConfig & { ui: { pinInput: Partial<typeof theme> } }
@@ -49,7 +50,7 @@ const props = withDefaults(defineProps<PinInputProps>(), {
 const emits = defineEmits<PinInputEmits>()
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'defaultValue', 'disabled', 'id', 'mask', 'modelValue', 'name', 'otp', 'placeholder', 'required', 'type'), emits)
-const { emitFormInput, emitFormChange, emitFormBlur, size, color, id, name, highlight, disabled } = useFormField<PinInputProps>(props)
+const { emitFormInput, emitFormChange, emitFormBlur, size, color, id, name, highlight, disabled, ariaAttrs } = useFormField<PinInputProps>(props)
 
 const ui = computed(() => pinInput({
   color: color.value,
@@ -76,7 +77,7 @@ function onBlur(event: FocusEvent) {
 
 <template>
   <PinInputRoot
-    v-bind="rootProps"
+    v-bind="{ ...rootProps, ...ariaAttrs }"
     :id="id"
     :name="name"
     :class="ui.root({ class: [props.class, props.ui?.root] })"

@@ -8,21 +8,30 @@ links:
 
 ## Usage
 
-Use the Form component to validate form data using schema libraries such as [Zod](https://github.com/colinhacks/zod), [Yup](https://github.com/jquense/yup), [Joi](https://github.com/hapijs/joi), [Valibot](https://github.com/fabian-hiller/valibot), [Superstruct](https://github.com/ianstormtaylor/superstruct) or your own validation logic.
+Use the Form component to validate form data using schema libraries such as [Valibot](https://github.com/fabian-hiller/valibot), [Zod](https://github.com/colinhacks/zod), [Yup](https://github.com/jquense/yup), [Joi](https://github.com/hapijs/joi), [Superstruct](https://github.com/ianstormtaylor/superstruct) or your own validation logic.
 
 It works with the [FormField](/components/form-field) component to display error messages around form elements automatically.
 
 ### Schema Validation
 
 It requires two props:
+
 - `state` - a reactive object holding the form's state.
-- `schema` - a schema object from a validation library like [Zod](https://github.com/colinhacks/zod), [Yup](https://github.com/jquense/yup), [Joi](https://github.com/hapijs/joi), [Valibot](https://github.com/fabian-hiller/valibot) or [Superstruct](https://github.com/ianstormtaylor/superstruct).
+- `schema` - a schema object from a validation library like [Valibot](https://github.com/fabian-hiller/valibot), [Zod](https://github.com/colinhacks/zod), [Yup](https://github.com/jquense/yup), [Joi](https://github.com/hapijs/joi) or [Superstruct](https://github.com/ianstormtaylor/superstruct).
 
 ::warning
 **No validation library is included** by default, ensure you **install the one you need**.
 ::
 
 ::tabs
+  ::component-example{label="Valibot"}
+  ---
+  name: 'form-example-valibot'
+  props:
+    class: 'w-60'
+  ---
+  ::
+  
   ::component-example{label="Zod"}
   ---
   name: 'form-example-zod'
@@ -47,14 +56,6 @@ It requires two props:
   ---
   ::
 
-  ::component-example{label="Valibot"}
-  ---
-  name: 'form-example-valibot'
-  props:
-    class: 'w-60'
-  ---
-  ::
-
   ::component-example{label="Superstruct"}
   ---
   name: 'form-example-superstruct'
@@ -73,6 +74,7 @@ Nested validation rules are handled using dot notation. For example, a rule like
 Use the `validate` prop to apply your own validation logic.
 
 The validation function must return a list of errors with the following attributes:
+
 - `message` - the error message to display.
 - `name` - the `name` of the `FormField` to send the error to.
 
@@ -91,6 +93,7 @@ props:
 ### Input Events
 
 The Form component automatically triggers validation when an input emits an `input`, `change`, or `blur` event.
+
 - Validation on `input` occurs **as you type**.
 - Validation on `change` occurs when you **commit to a value**.
 - Validation on `blur` happens when an input **loses focus**.
@@ -192,7 +195,7 @@ This will give you access to the following:
 | Name | Type |
 | ---- | ---- |
 | `submit()`{lang="ts-type"} | `Promise<void>`{lang="ts-type"} <br> <div class="text-[var(--ui-text-toned)] mt-1"><p>Triggers form submission.</p> |
-| `validate(path?: string \| string[], opts: { silent?: boolean })`{lang="ts-type"} | `Promise<T>`{lang="ts-type"} <br> <div class="text-[var(--ui-text-toned)] mt-1"><p>Triggers form validation. Will raise any errors unless `opts.silent` is set to true.</p> |
+| `validate(opts: { name?: string \| string[], silent?: boolean, nested?: boolean, transform?: boolean })`{lang="ts-type"} | `Promise<T>`{lang="ts-type"} <br> <div class="text-[var(--ui-text-toned)] mt-1"><p>Triggers form validation. Will raise any errors unless `opts.silent` is set to true.</p> |
 | `clear(path?: string)`{lang="ts-type"} | `void` <br> <div class="text-[var(--ui-text-toned)] mt-1"><p>Clears form errors associated with a specific path. If no path is provided, clears all form errors.</p> |
 | `getErrors(path?: string)`{lang="ts-type"} | `FormError[]`{lang="ts-type"} <br> <div class="text-[var(--ui-text-toned)] mt-1"><p>Retrieves form errors associated with a specific path. If no path is provided, returns all form errors.</p></div> |
 | `setErrors(errors: FormError[], path?: string)`{lang="ts-type"} | `void` <br> <div class="text-[var(--ui-text-toned)] mt-1"><p>Sets form errors for a given path. If no path is provided, overrides all errors.</p> |

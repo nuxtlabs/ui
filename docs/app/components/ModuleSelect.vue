@@ -6,6 +6,10 @@ const value = ref<string | undefined>(undefined)
 onMounted(() => {
   value.value = module.value
 })
+
+watch(module, () => {
+  value.value = module.value
+})
 </script>
 
 <template>
@@ -14,7 +18,11 @@ onMounted(() => {
     :items="modules"
     :content="false"
     color="neutral"
-    :ui="{ indicator: 'bg-[var(--ui-bg)]', trigger: 'px-1 data-[state=active]:text-[var(--ui-text-highlighted)]' }"
+    :ui="{
+      indicator: 'bg-[var(--ui-bg)]',
+      trigger: 'px-1 data-[state=active]:text-[var(--ui-text-highlighted)]'
+    }"
+    size="sm"
     @update:model-value="(module = $event as string)"
   />
 </template>

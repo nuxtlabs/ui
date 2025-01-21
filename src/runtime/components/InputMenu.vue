@@ -1,12 +1,13 @@
 <script lang="ts">
 import type { InputHTMLAttributes } from 'vue'
-import { tv, type VariantProps } from 'tailwind-variants'
+import type { VariantProps } from 'tailwind-variants'
 import type { ComboboxRootProps, ComboboxRootEmits, ComboboxContentProps, ComboboxArrowProps, AcceptableValue } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/ui/input-menu'
 import type { UseComponentIconsProps } from '../composables/useComponentIcons'
 import { extendDevtoolsMeta } from '../composables/extendDevtoolsMeta'
+import { tv } from '../utils/tv'
 import type { AvatarProps, ChipProps, InputProps } from '../types'
 import type { PartialString, MaybeArrayOfArray, MaybeArrayOfArrayItem, SelectModelValue, SelectModelValueEmits, SelectItemKey } from '../types/utils'
 
@@ -144,6 +145,7 @@ extendDevtoolsMeta({ defaultProps: { items: ['Option 1', 'Option 2', 'Option 3']
 import { computed, ref, toRef, onMounted, toRaw } from 'vue'
 import { ComboboxRoot, ComboboxArrow, ComboboxAnchor, ComboboxInput, ComboboxTrigger, ComboboxPortal, ComboboxContent, ComboboxViewport, ComboboxEmpty, ComboboxGroup, ComboboxLabel, ComboboxSeparator, ComboboxItem, ComboboxItemIndicator, TagsInputRoot, TagsInputItem, TagsInputItemText, TagsInputItemDelete, TagsInputInput, useForwardPropsEmits, useFilter } from 'reka-ui'
 import { defu } from 'defu'
+import { isEqual } from 'ohash'
 import { reactivePick, createReusableTemplate } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useButtonGroup } from '../composables/useButtonGroup'
@@ -176,7 +178,7 @@ const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'modelValue', '
 const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8, position: 'popper' }) as ComboboxContentProps)
 const arrowProps = toRef(() => props.arrow as ComboboxArrowProps)
 
-const { emitFormBlur, emitFormChange, emitFormInput, size: formGroupSize, color, id, name, highlight, disabled } = useFormField<InputProps>(props)
+const { emitFormBlur, emitFormChange, emitFormInput, size: formGroupSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField<InputProps>(props)
 const { orientation, size: buttonGroupSize } = useButtonGroup<InputProps>(props)
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(toRef(() => defu(props, { trailingIcon: appConfig.ui.icons.chevronDown })))
 
@@ -201,7 +203,7 @@ function displayValue(value: T): string {
     return value && (typeof value === 'object' ? get(value, props.labelKey as string) : value)
   }
 
-  const item = items.value.find(item => compare(typeof item === 'object' ? get(item, props.valueKey as string) : item, value))
+  const item = items.value.find(item => compare(typeof item === 'object' ? get(item as Record<string, any>, props.valueKey as string) : item, value))
   return item && (typeof item === 'object' ? get(item, props.labelKey as string) : item)
 }
 
@@ -290,6 +292,14 @@ function onUpdateOpen(value: boolean) {
   }
 }
 
+function onRemoveTag(event: any) {
+  if (props.multiple) {
+    const modelValue = props.modelValue as SelectModelValue<T, V, true>
+    const filteredValue = modelValue.filter(value => !isEqual(value, event))
+    emits('update:modelValue', filteredValue as SelectModelValue<T, V, M>)
+  }
+}
+
 defineExpose({
   inputRef
 })
@@ -336,6 +346,7 @@ defineExpose({
         as-child
         @blur="onBlur"
         @focus="onFocus"
+        @remove-tag="onRemoveTag"
       >
         <TagsInputItem v-for="(item, index) in tags" :key="index" :value="(item as string)" :class="ui.tagsItem({ class: props.ui?.tagsItem })">
           <TagsInputItemText :class="ui.tagsItemText({ class: props.ui?.tagsItemText })">
@@ -354,7 +365,7 @@ defineExpose({
         <ComboboxInput v-model="searchTerm" :display-value="displayValue" as-child>
           <TagsInputInput
             ref="inputRef"
-            v-bind="$attrs"
+            v-bind="{ ...$attrs, ...ariaAttrs }"
             :placeholder="placeholder"
             :required="required"
             :class="ui.tagsInput({ class: props.ui?.tagsInput })"
@@ -368,7 +379,7 @@ defineExpose({
         ref="inputRef"
         v-model="searchTerm"
         :display-value="displayValue"
-        v-bind="$attrs"
+        v-bind="{ ...$attrs, ...ariaAttrs }"
         :type="type"
         :placeholder="placeholder"
         :required="required"

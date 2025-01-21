@@ -3,6 +3,7 @@ title: CommandPalette
 description: A command palette with full-text search powered by Fuse.js for efficient fuzzy matching.
 links:
   - label: Fuse.js
+    icon: i-custom-fuse-js
     to: https://fusejs.io/
     target: _blank
   - label: Combobox
@@ -358,7 +359,7 @@ props:
 ---
 ::
 
-You can also pass all the props of the [Button](/components/button) component to customize it.
+You can pass any property from the [Button](/components/button) component to customize it.
 
 ::component-code
 ---

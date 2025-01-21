@@ -110,10 +110,6 @@ export default defineNuxtConfig({
     }
   },
 
-  hub: {
-    cache: true
-  },
-
   componentMeta: {
     exclude: [
       '@nuxt/content',
@@ -125,7 +121,7 @@ export default defineNuxtConfig({
       'nuxt/dist',
       'nuxt-og-image',
       resolve('./app/components'),
-      process.env.NUXT_UI_PRO_PATH ? resolve(process.env.NUXT_UI_PRO_PATH, 'docs', 'components') : '.c12'
+      process.env.NUXT_UI_PRO_PATH ? resolve(process.env.NUXT_UI_PRO_PATH, 'docs', 'app', 'components') : '.c12'
     ],
     metaFields: {
       type: false,
@@ -150,5 +146,9 @@ export default defineNuxtConfig({
 
   image: {
     provider: 'ipx'
+  },
+
+  uiPro: {
+    license: 'oss'
   }
 })
