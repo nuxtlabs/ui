@@ -129,11 +129,11 @@ const emits = defineEmits<SelectEmits<T, V, M>>()
 const slots = defineSlots<SelectSlots<T, M>>()
 
 const appConfig = useAppConfig()
-const rootProps = useForwardPropsEmits(reactivePick(props, 'modelValue', 'defaultValue', 'open', 'defaultOpen', 'disabled', 'autocomplete', 'required', 'multiple'), emits)
+const rootProps = useForwardPropsEmits(reactivePick(props, 'open', 'defaultOpen', 'disabled', 'autocomplete', 'required', 'multiple'), emits)
 const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8, position: 'popper' }) as SelectContentProps)
 const arrowProps = toRef(() => props.arrow as SelectArrowProps)
 
-const { emitFormChange, emitFormInput, emitFormBlur, size: formGroupSize, color, id, name, highlight, disabled } = useFormField<InputProps>(props)
+const { emitFormChange, emitFormInput, emitFormBlur, size: formGroupSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField<InputProps>(props)
 const { orientation, size: buttonGroupSize } = useButtonGroup<InputProps>(props)
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(toRef(() => defu(props, { trailingIcon: appConfig.ui.icons.chevronDown })))
 
@@ -186,16 +186,17 @@ function onUpdateOpen(value: boolean) {
 <!-- eslint-disable vue/no-template-shadow -->
 <template>
   <SelectRoot
-    :id="id"
     v-slot="{ modelValue, open }"
-    v-bind="rootProps"
     :name="name"
+    v-bind="rootProps"
     :autocomplete="autocomplete"
     :disabled="disabled"
+    :default-value="(defaultValue as (AcceptableValue | AcceptableValue[] | undefined))"
+    :model-value="(modelValue as (AcceptableValue | AcceptableValue[] | undefined))"
     @update:model-value="onUpdate"
     @update:open="onUpdateOpen"
   >
-    <SelectTrigger :class="ui.base({ class: [props.class, props.ui?.base] })">
+    <SelectTrigger :id="id" :class="ui.base({ class: [props.class, props.ui?.base] })" v-bind="ariaAttrs">
       <span v-if="isLeading || !!avatar || !!slots.leading" :class="ui.leading({ class: props.ui?.leading })">
         <slot name="leading" :model-value="(modelValue as M extends true ? AcceptableValue[] : AcceptableValue)" :open="open" :ui="ui">
           <UIcon v-if="isLeading && leadingIconName" :name="leadingIconName" :class="ui.leadingIcon({ class: props.ui?.leadingIcon })" />
