@@ -1,9 +1,10 @@
 <script lang="ts">
-import { tv, type VariantProps } from 'tailwind-variants'
+import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/ui/alert'
 import { extendDevtoolsMeta } from '../composables/extendDevtoolsMeta'
+import { tv } from '../utils/tv'
 import type { AvatarProps, ButtonProps } from '../types'
 
 const appConfig = _appConfig as AppConfig & { ui: { alert: Partial<typeof theme> } }
@@ -34,7 +35,7 @@ export interface AlertProps {
   /**
    * Display a close button to dismiss the alert.
    * `{ size: 'md', color: 'neutral', variant: 'link' }`{lang="ts-type"}
-   * @emits `close`
+   * @emits 'update:open'
    * @defaultValue false
    */
   close?: ButtonProps | boolean
@@ -64,7 +65,7 @@ extendDevtoolsMeta<AlertProps>({ defaultProps: { title: 'Heads up!' } })
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { Primitive } from 'radix-vue'
+import { Primitive } from 'reka-ui'
 import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
 import UIcon from './Icon.vue'
@@ -75,8 +76,8 @@ const props = defineProps<AlertProps>()
 const emits = defineEmits<AlertEmits>()
 const slots = defineSlots<AlertSlots>()
 
-const appConfig = useAppConfig()
 const { t } = useLocale()
+const appConfig = useAppConfig()
 
 const multiline = computed(() => !!props.title && !!props.description)
 

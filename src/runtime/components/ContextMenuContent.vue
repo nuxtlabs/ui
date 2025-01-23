@@ -1,12 +1,12 @@
 <script lang="ts">
-import { tv } from 'tailwind-variants'
-import type { ContextMenuContentProps as RadixContextMenuContentProps, ContextMenuContentEmits as RadixContextMenuContentEmits } from 'radix-vue'
+import type { ContextMenuContentProps as RekaContextMenuContentProps, ContextMenuContentEmits as RekaContextMenuContentEmits } from 'reka-ui'
 import theme from '#build/ui/context-menu'
+import { tv } from '../utils/tv'
 import type { KbdProps, AvatarProps, ContextMenuItem, ContextMenuSlots } from '../types'
 
 const _contextMenu = tv(theme)()
 
-interface ContextMenuContentProps<T> extends Omit<RadixContextMenuContentProps, 'as' | 'asChild' | 'forceMount'> {
+interface ContextMenuContentProps<T> extends Omit<RekaContextMenuContentProps, 'as' | 'asChild' | 'forceMount'> {
   items?: T[] | T[][]
   portal?: boolean
   sub?: boolean
@@ -18,13 +18,13 @@ interface ContextMenuContentProps<T> extends Omit<RadixContextMenuContentProps, 
   uiOverride?: any
 }
 
-interface ContextMenuContentEmits extends RadixContextMenuContentEmits {}
+interface ContextMenuContentEmits extends RekaContextMenuContentEmits {}
 </script>
 
 <script setup lang="ts" generic="T extends ContextMenuItem">
 import { computed } from 'vue'
-import { ContextMenu } from 'radix-vue/namespaced'
-import { useForwardPropsEmits } from 'radix-vue'
+import { ContextMenu } from 'reka-ui/namespaced'
+import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit, createReusableTemplate } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { omit, get } from '../utils'
@@ -121,11 +121,11 @@ const groups = computed(() => props.items?.length ? (Array.isArray(props.items[0
           </ContextMenu.Sub>
           <ContextMenu.CheckboxItem
             v-else-if="item.type === 'checkbox'"
-            :checked="item.checked"
+            :model-value="item.checked"
             :disabled="item.disabled"
             :text-value="get(item, props.labelKey as string)"
             :class="ui.item({ class: [uiOverride?.item, item.class], color: item?.color })"
-            @update:checked="item.onUpdateChecked"
+            @update:model-value="item.onUpdateChecked"
             @select="item.onSelect"
           >
             <ReuseItemTemplate :item="item" :index="index" />

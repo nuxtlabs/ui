@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/block-tag-newline -->
 <script lang="ts">
 import type { Ref } from 'vue'
-import { tv, type VariantProps } from 'tailwind-variants'
+import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import type { RowData } from '@tanstack/table-core'
 import type {
@@ -26,6 +26,7 @@ import type {
 } from '@tanstack/vue-table'
 import _appConfig from '#build/app.config'
 import theme from '#build/ui/table'
+import { tv } from '../utils/tv'
 
 declare module '@tanstack/table-core' {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -51,6 +52,11 @@ export interface TableData {
 }
 
 export interface TableProps<T> {
+  /**
+   * The element or component this component should render as.
+   * @defaultValue 'div'
+   */
+  as?: any
   data?: T[]
   columns?: TableColumn<T>[]
   caption?: string
@@ -116,14 +122,8 @@ export type TableSlots<T> = {
 
 <script setup lang="ts" generic="T extends TableData">
 import { computed } from 'vue'
-import {
-  FlexRender,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getSortedRowModel,
-  getExpandedRowModel,
-  useVueTable
-} from '@tanstack/vue-table'
+import { Primitive } from 'reka-ui'
+import { FlexRender, getCoreRowModel, getFilteredRowModel, getSortedRowModel, getExpandedRowModel, useVueTable } from '@tanstack/vue-table'
 import { upperFirst } from 'scule'
 import { useLocale } from '../composables/useLocale'
 
@@ -131,6 +131,7 @@ const props = defineProps<TableProps<T>>()
 defineSlots<TableSlots<T>>()
 
 const { t } = useLocale()
+
 const data = computed(() => props.data ?? [])
 const columns = computed<TableColumn<T>[]>(() => props.columns ?? Object.keys(data.value[0] ?? {}).map((accessorKey: string) => ({ accessorKey, header: upperFirst(accessorKey) })))
 
@@ -212,7 +213,7 @@ defineExpose({
 </script>
 
 <template>
-  <div :class="ui.root({ class: [props.class, props.ui?.root] })">
+  <Primitive :as="as" :class="ui.root({ class: [props.class, props.ui?.root] })">
     <table :class="ui.base({ class: [props.ui?.base] })">
       <caption v-if="caption" :class="ui.caption({ class: [props.ui?.caption] })">
         <slot name="caption">
@@ -267,5 +268,5 @@ defineExpose({
         </tr>
       </tbody>
     </table>
-  </div>
+  </Primitive>
 </template>

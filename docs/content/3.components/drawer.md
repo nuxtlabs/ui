@@ -2,8 +2,8 @@
 description: A drawer that smoothly slides in & out of the screen.
 links:
   - label: Drawer
-    icon: i-custom-radix-vue
-    to: https://github.com/radix-vue/vaul-vue
+    icon: i-custom-reka-ui
+    to: https://github.com/unovue/vaul-vue
   - label: GitHub
     icon: i-simple-icons-github
     to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/Drawer.vue
@@ -243,6 +243,7 @@ export default defineNuxtConfig({
   }
 })
 ```
+
 ::
 
 ## Examples
@@ -264,6 +265,21 @@ In this example, leveraging [`defineShortcuts`](/composables/define-shortcuts), 
 
 ::tip
 This allows you to move the trigger outside of the Drawer or remove it entirely.
+::
+
+### Prevent closing
+
+Set the `dismissible` prop to `false` to prevent the Drawer from being closed when clicking outside of it or pressing escape.
+
+::component-example
+---
+prettier: true
+name: 'drawer-dismissible-example'
+---
+::
+
+::note
+In this example, the `header` slot is used to add a close button which is not done by default.
 ::
 
 ### With footer slot

@@ -7,7 +7,7 @@ const route = useRoute()
 const appConfig = useAppConfig()
 const colorMode = useColorMode()
 
-const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('content', ['framework']))
+const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('content', ['framework', 'module']))
 const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections('content'), {
   server: false
 })
@@ -73,7 +73,7 @@ useServerSeoMeta({
   twitterCard: 'summary_large_image'
 })
 
-const { frameworks } = useSharedData()
+const { frameworks, modules } = useSharedData()
 const { mappedNavigation, filteredNavigation } = useContentNavigation(navigation)
 
 provide('navigation', mappedNavigation)
@@ -84,7 +84,7 @@ provide('navigation', mappedNavigation)
     <NuxtLoadingIndicator color="#FFF" />
 
     <template v-if="!route.path.startsWith('/examples')">
-      <Banner />
+      <!-- <Banner /> -->
 
       <Header :links="links" />
     </template>
@@ -94,7 +94,7 @@ provide('navigation', mappedNavigation)
     </NuxtLayout>
 
     <template v-if="!route.path.startsWith('/examples')">
-      <Footer />
+      <!-- <Footer /> -->
 
       <ClientOnly>
         <LazyUContentSearch
@@ -104,9 +104,13 @@ provide('navigation', mappedNavigation)
             id: 'framework',
             label: 'Framework',
             items: frameworks
+          }, {
+            id: 'module',
+            label: 'Module',
+            items: modules
           }]"
           :navigation="filteredNavigation"
-          :fuse="{ resultLimit: 42 }"
+          :fuse="{ resultLimit: 100 }"
         />
       </ClientOnly>
     </template>
@@ -141,10 +145,12 @@ provide('navigation', mappedNavigation)
   --ui-container: var(--container-8xl);
 }
 
-html[data-framework="nuxt"] .vue-only {
+html[data-framework="nuxt"] .vue-only,
+html[data-framework="vue"] .nuxt-only,
+html[data-module="ui-pro"] .ui-only,
+html[data-module="ui"] .ui-pro-only {
   display: none;
 }
-html[data-framework="vue"] .nuxt-only {
-  display: none;
-}
+
+/* Safelist (do not remove): [&>div]:*:my-0 [&>div]:*:w-full h-64 */
 </style>

@@ -1,32 +1,28 @@
 <script setup lang="ts">
-const { frameworks } = useSharedData()
+const { framework, frameworks } = useSharedData()
+
+const value = ref<string | undefined>(undefined)
+
+onMounted(() => {
+  value.value = framework.value
+})
+
+watch(framework, () => {
+  value.value = framework.value
+})
 </script>
 
 <template>
-  <UDropdownMenu
-    v-slot="{ open }"
-    :modal="false"
+  <UTabs
+    v-model="value"
     :items="frameworks"
-    :ui="{ content: 'w-(--radix-dropdown-menu-trigger-width)' }"
-  >
-    <UButton
-      color="neutral"
-      variant="outline"
-      block
-      trailing-icon="i-lucide-chevron-down"
-      :class="[open && 'bg-[var(--ui-bg-elevated)]']"
-      :ui="{
-        trailingIcon: ['transition-transform duration-200', open ? 'rotate-180' : undefined].filter(Boolean).join(' ')
-      }"
-      class="-mx-2 w-[calc(100%+1rem)]"
-    >
-      <template #leading>
-        <UIcon v-for="framework in frameworks" :key="framework.value" :name="framework.icon" :class="`${framework.value}-only`" class="shrink-0 size-5" />
-      </template>
-
-      <span v-for="framework in frameworks" :key="framework.value" :class="`${framework.value}-only`">
-        {{ framework.label }}
-      </span>
-    </UButton>
-  </UDropdownMenu>
+    :content="false"
+    color="neutral"
+    :ui="{
+      indicator: 'bg-[var(--ui-bg)]',
+      trigger: 'px-1 data-[state=active]:text-[var(--ui-text-highlighted)]'
+    }"
+    size="sm"
+    @update:model-value="(framework = $event as string)"
+  />
 </template>

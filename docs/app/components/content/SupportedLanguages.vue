@@ -1,9 +1,5 @@
 <script setup lang="ts">
-import type { Locale } from '@nuxt/ui'
 import * as locales from '@nuxt/ui/locale'
-
-type LocaleKey = keyof typeof locales
-type LocaleComputed = Locale & { flag: string }
 
 const props = withDefaults(defineProps<{
   default?: string
@@ -11,17 +7,32 @@ const props = withDefaults(defineProps<{
   default: 'en'
 })
 
-const countries = await $fetch('/api/locales.json')
-
-const getLocaleKeys = Object.keys(locales) as LocaleKey[]
-const localesList = getLocaleKeys.map<LocaleComputed>((code) => {
-  const locale: Locale = locales[code]
-
-  return {
-    ...locale,
-    flag: countries[locale.code] || ''
+function getEmojiFlag(locale: string): string {
+  const languageToCountry: Record<string, string> = {
+    ar: 'sa',
+    cs: 'cz',
+    da: 'dk',
+    el: 'gr',
+    et: 'ee',
+    en: 'gb',
+    ja: 'jp',
+    kh: 'km',
+    ko: 'kr',
+    nb: 'no',
+    sv: 'se',
+    uk: 'ua',
+    vi: 'vn',
+    zh: 'cn'
   }
-})
+
+  const baseLanguage = locale.split('-')[0]?.toLowerCase() || locale
+  const countryCode = languageToCountry[baseLanguage] || locale.replace(/^.*-/, '').slice(0, 2)
+
+  return countryCode.toUpperCase()
+    .split('')
+    .map(char => String.fromCodePoint(0x1F1A5 + char.charCodeAt(0)))
+    .join('')
+}
 </script>
 
 <!-- eslint-disable vue/singleline-html-element-content-newline -->
@@ -31,9 +42,12 @@ const localesList = getLocaleKeys.map<LocaleComputed>((code) => {
       By default, the <ProseCode>{{ props.default }}</ProseCode> locale is used.
     </ProseP>
     <div class="grid gap-6 grid-cols-2 md:grid-cols-3">
-      <div v-for="locale in localesList" :key="locale.code">
+      <div v-for="locale in locales" :key="locale.code">
         <div class="flex gap-3 items-center">
-          <UAvatar :text="locale.flag" size="xl" />
+          <UAvatar size="xl">
+            {{ getEmojiFlag(locale.code) }}
+          </UAvatar>
+
           <div class="text-sm">
             <div class="font-semibold">{{ locale.name }}</div>
             <div class="mt-1">Code: <ProseCode class="text-xs">{{ locale.code }}</ProseCode></div>

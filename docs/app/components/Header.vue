@@ -7,30 +7,36 @@ const props = defineProps<{
 }>()
 
 const config = useRuntimeConfig().public
+const { module } = useSharedData()
+
+const value = ref<string | undefined>(module.value)
+
+watch(module, () => {
+  value.value = module.value
+})
+
+onMounted(() => {
+  value.value = module.value
+})
 
 const navigation = inject<Ref<ContentNavigationItem[]>>('navigation')
 
 const items = computed(() => props.links.map(({ icon, ...link }) => link))
-
-defineShortcuts({
-  meta_g: () => {
-    window.open('https://github.com/nuxt/ui/tree/v3', '_blank')
-  }
-})
 </script>
 
 <template>
-  <UHeader :ui="{ left: 'min-w-0' }">
+  <UHeader :ui="{ left: 'min-w-0' }" mode="drawer" :menu="{ shouldScaleBackground: true }">
     <template #left>
       <NuxtLink to="/" class="flex items-end gap-2 font-bold text-xl text-[var(--ui-text-highlighted)] min-w-0 focus-visible:outline-[var(--ui-primary)] shrink-0" aria-label="Nuxt UI">
-        <Logo class="w-auto h-6 shrink-0" />
+        <LogoPro class="w-auto h-6 shrink-0 ui-pro-only" />
+        <Logo class="w-auto h-6 shrink-0 ui-only" />
       </NuxtLink>
 
       <UDropdownMenu
         v-slot="{ open }"
         :modal="false"
-        :items="[{ label: `v${config.version}`, active: true, color: 'primary', checked: true, type: 'checkbox' }, { label: 'v2.19', to: 'https://ui.nuxt.com' }]"
-        :ui="{ content: 'w-(--radix-dropdown-menu-trigger-width) min-w-0' }"
+        :items="[{ label: `v${config.version}`, active: true, color: 'primary', checked: true, type: 'checkbox' }, { label: module === 'ui-pro' ? 'v1.5' : 'v2.19', to: module === 'ui-pro' ? 'https://ui.nuxt.com/pro' : 'https://ui.nuxt.com' }]"
+        :ui="{ content: 'w-(--reka-dropdown-menu-trigger-width) min-w-0' }"
         size="xs"
       >
         <UButton
@@ -56,11 +62,11 @@ defineShortcuts({
         <UContentSearchButton />
       </UTooltip>
 
-      <UTooltip text="Open on GitHub" :kbds="['meta', 'G']">
+      <UTooltip text="Open on GitHub" class="hidden lg:flex">
         <UButton
           color="neutral"
           variant="ghost"
-          to="https://github.com/nuxt/ui"
+          :to="`https://github.com/nuxt/${value}`"
           target="_blank"
           icon="i-simple-icons-github"
           aria-label="GitHub"
@@ -69,13 +75,24 @@ defineShortcuts({
     </template>
 
     <template #content>
-      <UNavigationMenu orientation="vertical" :items="links" class="-ml-2.5" />
+      <UNavigationMenu orientation="vertical" :items="links" class="-mx-2.5" />
 
-      <USeparator type="dashed" class="my-4" />
+      <USeparator type="dashed" class="mt-4 mb-6" />
 
-      <FrameworkSelect class="mb-4" />
+      <div class="flex flex-col gap-2 w-[calc(100%+1.25rem)] mb-5.5 -mx-2.5">
+        <FrameworkSelect />
+        <ModuleSelect />
+      </div>
 
-      <UContentNavigation :navigation="navigation" highlight />
+      <UContentNavigation :navigation="navigation" highlight :ui="{ linkTrailingBadge: 'font-semibold uppercase' }">
+        <template #link-title="{ link }">
+          <span class="inline-flex items-center gap-0.5">
+            {{ link.title }}
+
+            <sup v-if="link.module === 'ui-pro' && link.path.startsWith('/components')" class="text-[8px] font-medium text-(--ui-primary)">PRO</sup>
+          </span>
+        </template>
+      </UContentNavigation>
     </template>
   </UHeader>
 </template>

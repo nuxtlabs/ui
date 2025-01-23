@@ -1,10 +1,10 @@
 <script lang="ts">
 import type { ButtonHTMLAttributes } from 'vue'
-import { tv } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import type { RouterLinkProps, RouteLocationRaw } from 'vue-router'
 import theme from '#build/ui/link'
+import { tv } from '../utils/tv'
 import { extendDevtoolsMeta } from '../composables/extendDevtoolsMeta'
 
 interface NuxtLinkProps extends Omit<RouterLinkProps, 'to'> {
@@ -95,7 +95,7 @@ extendDevtoolsMeta({ example: 'LinkExample' })
 <script setup lang="ts">
 import { computed } from 'vue'
 import { isEqual, diff } from 'ohash'
-import { useForwardProps } from 'radix-vue'
+import { useForwardProps } from 'reka-ui'
 import { reactiveOmit } from '@vueuse/core'
 import { useRoute } from '#imports'
 import ULinkBase from './LinkBase.vue'

@@ -2,7 +2,7 @@ import type { ModuleOptions } from '../module'
 
 export default (options: Required<ModuleOptions>) => ({
   slots: {
-    content: 'min-w-32 bg-[var(--ui-bg)] shadow-lg rounded-[calc(var(--ui-radius)*1.5)] ring ring-[var(--ui-border)] divide-y divide-[var(--ui-border)] overflow-y-auto scroll-py-1 data-[state=open]:animate-[scale-in_100ms_ease-out]',
+    content: 'min-w-32 bg-[var(--ui-bg)] shadow-lg rounded-[calc(var(--ui-radius)*1.5)] ring ring-[var(--ui-border)] divide-y divide-[var(--ui-border)] overflow-y-auto scroll-py-1 data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in]',
     group: 'p-1 isolate',
     label: 'w-full flex items-center font-semibold text-[var(--ui-text-highlighted)]',
     separator: '-mx-1 my-1 h-px bg-[var(--ui-border)]',
@@ -10,7 +10,7 @@ export default (options: Required<ModuleOptions>) => ({
     itemLeadingIcon: 'shrink-0',
     itemLeadingAvatar: 'shrink-0',
     itemLeadingAvatarSize: '',
-    itemTrailing: 'ms-auto inline-flex',
+    itemTrailing: 'ms-auto inline-flex gap-1.5 items-center',
     itemTrailingIcon: 'shrink-0',
     itemTrailingKbds: 'hidden lg:inline-flex items-center shrink-0',
     itemTrailingKbdsSize: '',

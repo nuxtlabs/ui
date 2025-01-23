@@ -1,13 +1,13 @@
 <!-- eslint-disable vue/block-tag-newline -->
 <script lang="ts">
-import { tv } from 'tailwind-variants'
-import type { DropdownMenuContentProps as RadixDropdownMenuContentProps, DropdownMenuContentEmits as RadixDropdownMenuContentEmits } from 'radix-vue'
+import type { DropdownMenuContentProps as RekaDropdownMenuContentProps, DropdownMenuContentEmits as RekaDropdownMenuContentEmits } from 'reka-ui'
 import theme from '#build/ui/dropdown-menu'
+import { tv } from '../utils/tv'
 import type { KbdProps, AvatarProps, DropdownMenuItem, DropdownMenuSlots } from '../types'
 
 const _dropdownMenu = tv(theme)()
 
-interface DropdownMenuContentProps<T> extends Omit<RadixDropdownMenuContentProps, 'as' | 'asChild' | 'forceMount'> {
+interface DropdownMenuContentProps<T> extends Omit<RekaDropdownMenuContentProps, 'as' | 'asChild' | 'forceMount'> {
   items?: T[] | T[][]
   portal?: boolean
   sub?: boolean
@@ -19,7 +19,7 @@ interface DropdownMenuContentProps<T> extends Omit<RadixDropdownMenuContentProps
   uiOverride?: any
 }
 
-interface DropdownMenuContentEmits extends RadixDropdownMenuContentEmits {}
+interface DropdownMenuContentEmits extends RekaDropdownMenuContentEmits {}
 
 type DropdownMenuContentSlots<T extends { slot?: string }> = Omit<DropdownMenuSlots<T>, 'default'> & {
   default(props?: {}): any
@@ -29,8 +29,8 @@ type DropdownMenuContentSlots<T extends { slot?: string }> = Omit<DropdownMenuSl
 
 <script setup lang="ts" generic="T extends DropdownMenuItem">
 import { computed } from 'vue'
-import { DropdownMenu } from 'radix-vue/namespaced'
-import { useForwardPropsEmits } from 'radix-vue'
+import { DropdownMenu } from 'reka-ui/namespaced'
+import { useForwardPropsEmits } from 'reka-ui'
 import { reactiveOmit, createReusableTemplate } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { omit, get } from '../utils'
@@ -130,11 +130,11 @@ const groups = computed(() => props.items?.length ? (Array.isArray(props.items[0
           </DropdownMenu.Sub>
           <DropdownMenu.CheckboxItem
             v-else-if="item.type === 'checkbox'"
-            :checked="item.checked"
+            :model-value="item.checked"
             :disabled="item.disabled"
             :text-value="get(item, props.labelKey as string)"
             :class="ui.item({ class: [uiOverride?.item, item.class], color: item?.color })"
-            @update:checked="item.onUpdateChecked"
+            @update:model-value="item.onUpdateChecked"
             @select="item.onSelect"
           >
             <ReuseItemTemplate :item="item" :index="index" />

@@ -1,10 +1,11 @@
 <script lang="ts">
-import { tv, type VariantProps } from 'tailwind-variants'
-import type { AvatarFallbackProps } from 'radix-vue'
+import type { VariantProps } from 'tailwind-variants'
+import type { AvatarFallbackProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
-import { extendDevtoolsMeta } from '../composables/extendDevtoolsMeta'
 import _appConfig from '#build/app.config'
 import theme from '#build/ui/avatar'
+import { extendDevtoolsMeta } from '../composables/extendDevtoolsMeta'
+import { tv } from '../utils/tv'
 
 const appConfig = _appConfig as AppConfig & { ui: { avatar: Partial<typeof theme> } }
 
@@ -27,12 +28,16 @@ export interface AvatarProps extends Pick<AvatarFallbackProps, 'delayMs'> {
   ui?: Partial<typeof avatar.slots>
 }
 
+export interface AvatarSlots {
+  default(props?: {}): any
+}
+
 extendDevtoolsMeta<AvatarProps>({ defaultProps: { src: 'https://avatars.githubusercontent.com/u/739984?v=4', alt: 'Benjamin Canac' } })
 </script>
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { AvatarRoot, AvatarImage, AvatarFallback, useForwardProps } from 'radix-vue'
+import { AvatarRoot, AvatarImage, AvatarFallback, useForwardProps } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useAvatarGroup } from '../composables/useAvatarGroup'
 import UIcon from './Icon.vue'
@@ -79,9 +84,11 @@ const sizePx = computed(() => ({
       :class="ui.image({ class: props.ui?.image })"
     />
 
-    <AvatarFallback as-child v-bind="fallbackProps">
-      <UIcon v-if="icon" :name="icon" :class="ui.icon({ class: props.ui?.icon })" />
-      <span v-else :class="ui.fallback({ class: props.ui?.fallback })">{{ fallback }}</span>
+    <AvatarFallback as-child v-bind="{ ...fallbackProps, ...$attrs }">
+      <slot>
+        <UIcon v-if="icon" :name="icon" :class="ui.icon({ class: props.ui?.icon })" />
+        <span v-else :class="ui.fallback({ class: props.ui?.fallback })">{{ fallback || '&nbsp;' }}</span>
+      </slot>
     </AvatarFallback>
   </AvatarRoot>
 </template>

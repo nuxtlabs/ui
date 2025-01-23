@@ -1,10 +1,11 @@
 <script lang="ts">
-import { tv, type VariantProps } from 'tailwind-variants'
-import type { ContextMenuRootProps, ContextMenuRootEmits, ContextMenuContentProps } from 'radix-vue'
+import type { VariantProps } from 'tailwind-variants'
+import type { ContextMenuRootProps, ContextMenuRootEmits, ContextMenuContentProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/ui/context-menu'
 import { extendDevtoolsMeta } from '../composables/extendDevtoolsMeta'
+import { tv } from '../utils/tv'
 import type { AvatarProps, KbdProps, LinkProps } from '../types'
 import type { DynamicSlots, PartialString } from '../types/utils'
 
@@ -143,7 +144,7 @@ extendDevtoolsMeta({
 
 <script setup lang="ts" generic="T extends ContextMenuItem">
 import { computed, toRef } from 'vue'
-import { ContextMenuRoot, ContextMenuTrigger, useForwardPropsEmits } from 'radix-vue'
+import { ContextMenuRoot, ContextMenuTrigger, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { omit } from '../utils'
 import UContextMenuContent from './ContextMenuContent.vue'

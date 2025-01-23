@@ -9,6 +9,9 @@ describe('NavigationMenu', () => {
 
   const items = [
     [{
+      label: 'Links',
+      type: 'label'
+    }, {
       label: 'Documentation',
       icon: 'i-lucide-book-open',
       badge: 10,
@@ -90,6 +93,8 @@ describe('NavigationMenu', () => {
     ...variants.map((variant: string) => [`with neutral variant ${variant} highlight`, { props: { ...props, variant, color: 'neutral', highlight: true } }]),
     ...variants.map((variant: string) => [`with neutral variant ${variant} highlight neutral`, { props: { ...props, variant, color: 'neutral', highlight: true, highlightColor: 'neutral' } }]),
     ['with trailingIcon', { props: { ...props, trailingIcon: 'i-lucide-plus' } }],
+    ['with unmountOnHide', { props: { ...props, unmountOnHide: false } }],
+    ['with as', { props: { ...props, as: 'section' } }],
     ['with class', { props: { ...props, class: 'w-48' } }],
     ['with ui', { props: { ...props, ui: { itemLeadingIcon: 'size-4' } } }],
     // Slots

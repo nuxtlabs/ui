@@ -1,9 +1,10 @@
 <script lang="ts">
-import { tv, type VariantProps } from 'tailwind-variants'
-import type { NumberFieldRootProps } from 'radix-vue'
+import type { VariantProps } from 'tailwind-variants'
+import type { NumberFieldRootProps } from 'reka-ui'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/ui/input-number'
+import { tv } from '../utils/tv'
 import type { ButtonProps } from '../types'
 
 const appConfig = _appConfig as AppConfig & { ui: { inputNumber: Partial<typeof theme> } }
@@ -75,7 +76,7 @@ export interface InputNumberSlots {
 
 <script setup lang="ts">
 import { onMounted, ref, computed } from 'vue'
-import { NumberFieldRoot, NumberFieldInput, NumberFieldDecrement, NumberFieldIncrement, useForwardPropsEmits } from 'radix-vue'
+import { NumberFieldRoot, NumberFieldInput, NumberFieldDecrement, NumberFieldIncrement, useForwardPropsEmits } from 'reka-ui'
 import { reactivePick } from '@vueuse/core'
 import { useFormField } from '../composables/useFormField'
 import { useLocale } from '../composables/useLocale'
@@ -91,7 +92,7 @@ defineSlots<InputNumberSlots>()
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'modelValue', 'defaultValue', 'min', 'max', 'step', 'formatOptions'), emits)
 
-const { emitFormBlur, emitFormChange, emitFormInput, id, color, size, name, highlight, disabled } = useFormField<InputNumberProps>(props)
+const { emitFormBlur, emitFormChange, emitFormInput, id, color, size, name, highlight, disabled, ariaAttrs } = useFormField<InputNumberProps>(props)
 
 const { t, code: codeLocale } = useLocale()
 const locale = computed(() => props.locale || codeLocale.value)
@@ -151,7 +152,7 @@ defineExpose({
     @update:model-value="onUpdate"
   >
     <NumberFieldInput
-      v-bind="$attrs"
+      v-bind="{ ...$attrs, ...ariaAttrs }"
       ref="inputRef"
       :placeholder="placeholder"
       :required="required"

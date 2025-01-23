@@ -3,8 +3,8 @@ title: DropdownMenu
 description: A menu to display actions when clicking on an element.
 links:
   - label: DropdownMenu
-    icon: i-custom-radix-vue
-    to: https://www.radix-vue.com/components/dropdown-menu.html
+    icon: i-custom-reka-ui
+    to: https://reka-ui.com/docs/components/dropdown-menu
   - label: GitHub
     icon: i-simple-icons-github
     to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/DropdownMenu.vue
@@ -32,7 +32,7 @@ Use the `items` prop as an array of objects with the following properties:
 - `onSelect?(e: Event): void`{lang="ts-type"}
 - [`onUpdateChecked?(checked: boolean): void`{lang="ts-type"}](#with-checkbox-items)
 
-You can also pass any property from the [Link](/components/link#props) component such as `to`, `target`, etc.
+You can pass any property from the [Link](/components/link#props) component such as `to`, `target`, etc.
 
 ::component-code
 ---
@@ -103,7 +103,7 @@ slots:
 ::
 
 ::note
-You can pass an array of arrays to the `items` prop to create separated groups of items.
+You can also pass an array of arrays to the `items` prop to create separated groups of items.
 ::
 
 ::tip

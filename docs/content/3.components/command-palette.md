@@ -3,11 +3,12 @@ title: CommandPalette
 description: A command palette with full-text search powered by Fuse.js for efficient fuzzy matching.
 links:
   - label: Fuse.js
+    icon: i-custom-fuse-js
     to: https://fusejs.io/
     target: _blank
   - label: Combobox
-    icon: i-custom-radix-vue
-    to: https://www.radix-vue.com/components/combobox.html
+    icon: i-custom-reka-ui
+    to: https://reka-ui.com/docs/components/combobox
   - label: GitHub
     icon: i-simple-icons-github
     to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/CommandPalette.vue
@@ -29,7 +30,7 @@ The CommandPalette component filters groups and ranks matching commands by relev
 - `label?: string`{lang="ts-type"}
 - `slot?: string`{lang="ts-type"}
 - `items?: CommandPaletteItem[]`{lang="ts-type"}
-- [`filter?: boolean`{lang="ts-type"}](#without-internal-search)
+- [`ignoreFilter?: boolean`{lang="ts-type"}](#with-ignore-filter)
 - [`postFilter?: (searchTerm: string, items: T[]) => T[]`{lang="ts-type"}](#with-post-filtered-items)
 - `highlightedIcon?: string`{lang="ts-type"}
 
@@ -358,7 +359,7 @@ props:
 ---
 ::
 
-You can also pass all the props of the [Button](/components/button) component to customize it.
+You can pass any property from the [Button](/components/button) component to customize it.
 
 ::component-code
 ---
@@ -478,14 +479,14 @@ class: '!p-0'
 ---
 ::
 
-### Without internal search
+### With ignore filter
 
-You can set the `filter` field to `false` on a group to disable the internal search and use your own search logic.
+You can set the `ignoreFilter` field to `true` on a group to disable the internal search and use your own search logic.
 
 ::component-example
 ---
 collapse: true
-name: 'command-palette-filter-example'
+name: 'command-palette-ignore-filter-example'
 class: '!p-0'
 ---
 ::

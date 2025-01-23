@@ -9,8 +9,6 @@ type Props<T> = {
   name?: string
   size?: GetObjectField<T, 'size'>
   color?: GetObjectField<T, 'color'>
-  eagerValidation?: boolean
-  legend?: string
   highlight?: boolean
   disabled?: boolean
 }
@@ -22,7 +20,7 @@ export const inputIdInjectionKey: InjectionKey<Ref<string | undefined>> = Symbol
 export const formInputsInjectionKey: InjectionKey<Ref<Record<string, { id?: string, pattern?: RegExp }>>> = Symbol('nuxt-ui.form-inputs')
 export const formLoadingInjectionKey: InjectionKey<Readonly<Ref<boolean>>> = Symbol('nuxt-ui.form-loading')
 
-export function useFormField<T>(props?: Props<T>, opts?: { bind?: boolean }) {
+export function useFormField<T>(props?: Props<T>, opts?: { bind?: boolean, deferInputValidation?: boolean }) {
   const formOptions = inject(formOptionsInjectionKey, undefined)
   const formBus = inject(formBusInjectionKey, undefined)
   const formField = inject(formFieldInjectionKey, undefined)
@@ -30,19 +28,20 @@ export function useFormField<T>(props?: Props<T>, opts?: { bind?: boolean }) {
   const inputId = inject(inputIdInjectionKey, undefined)
 
   if (formField && inputId) {
-    if (opts?.bind === false || props?.legend) {
+    if (opts?.bind === false) {
       // Removes for="..." attribute on label for RadioGroup and alike.
       inputId.value = undefined
     } else if (props?.id) {
       // Updates for="..." attribute on label if props.id is provided.
       inputId.value = props?.id
     }
+
     if (formInputs && formField.value.name && inputId.value) {
       formInputs.value[formField.value.name] = { id: inputId.value, pattern: formField.value.errorPattern }
     }
   }
 
-  const blurred = ref(false)
+  const touched = ref(false)
 
   function emitFormEvent(type: FormInputEvents, name?: string) {
     if (formBus && formField && name) {
@@ -51,17 +50,20 @@ export function useFormField<T>(props?: Props<T>, opts?: { bind?: boolean }) {
   }
 
   function emitFormBlur() {
+    touched.value = true
     emitFormEvent('blur', formField?.value.name)
-    blurred.value = true
   }
 
   function emitFormChange() {
+    touched.value = true
     emitFormEvent('change', formField?.value.name)
   }
 
   const emitFormInput = useDebounceFn(
     () => {
-      emitFormEvent('input', formField?.value.name)
+      if (!opts?.deferInputValidation || touched.value || formField?.value.eagerValidation) {
+        emitFormEvent('input', formField?.value.name)
+      }
     },
     formField?.value.validateOnInputDelay ?? formOptions?.value.validateOnInputDelay ?? 0
   )
@@ -75,6 +77,18 @@ export function useFormField<T>(props?: Props<T>, opts?: { bind?: boolean }) {
     disabled: computed(() => formOptions?.value.disabled || props?.disabled),
     emitFormBlur,
     emitFormInput,
-    emitFormChange
+    emitFormChange,
+    ariaAttrs: computed(() => {
+      if (!formField?.value) return
+
+      const descriptiveAttrs = ['error' as const, 'hint' as const, 'description' as const]
+        .filter(type => formField?.value?.[type])
+        .map(type => `${formField?.value.ariaId}-${type}`) || []
+
+      return {
+        'aria-describedby': descriptiveAttrs.join(' '),
+        'aria-invalid': !!formField?.value.error
+      }
+    })
   }
 }

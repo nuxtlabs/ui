@@ -20,6 +20,7 @@ export default defineLocale({
       decrement: 'Verringern'
     },
     commandPalette: {
+      placeholder: 'Geben Sie einen Befehl ein oder suchen Sie...',
       noMatch: 'Nichts gefunden',
       noData: 'Keine Daten',
       close: 'Schließen'
@@ -27,14 +28,15 @@ export default defineLocale({
     selectMenu: {
       noMatch: 'Nichts gefunden',
       noData: 'Keine Daten',
-      create: '"{label}" erstellen'
+      create: '"{label}" erstellen',
+      search: 'Suchen...'
     },
     toast: {
       close: 'Schließen'
     },
     carousel: {
-      prev: 'Weiter',
-      next: 'Zurück',
+      prev: 'Zurück',
+      next: 'Weiter',
       goto: 'Gehe zu {slide}'
     },
     modal: {

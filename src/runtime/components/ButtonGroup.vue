@@ -1,9 +1,10 @@
 <script lang="ts">
-import { tv, type VariantProps } from 'tailwind-variants'
+import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/ui/button-group'
 import { extendDevtoolsMeta } from '../composables/extendDevtoolsMeta'
+import { tv } from '../utils/tv'
 
 const appConfig = _appConfig as AppConfig & { ui: { buttonGroup: Partial<typeof theme> } }
 
@@ -35,7 +36,7 @@ extendDevtoolsMeta({ example: 'ButtonGroupExample' })
 
 <script setup lang="ts">
 import { provide, computed } from 'vue'
-import { Primitive } from 'radix-vue'
+import { Primitive } from 'reka-ui'
 import { buttonGroupInjectionKey } from '../composables/useButtonGroup'
 
 const props = withDefaults(defineProps<ButtonGroupProps>(), {

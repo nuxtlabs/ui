@@ -1,18 +1,29 @@
 <script setup lang="ts">
 import json5 from 'json5'
 import { camelCase } from 'scule'
+import { hash } from 'ohash'
 import * as theme from '#build/ui'
+import * as themePro from '#build/ui-pro'
+
+const props = defineProps<{
+  pro?: boolean
+  prose?: boolean
+  slug?: string
+  extra?: string[]
+}>()
 
 const route = useRoute()
 const { framework } = useSharedData()
 
-const name = camelCase(route.params.slug?.[route.params.slug.length - 1] ?? '')
+const name = camelCase(props.slug ?? route.params.slug?.[route.params.slug.length - 1] ?? '')
 
 const strippedCompoundVariants = ref(false)
 
+const computedTheme = computed(() => props.pro ? props.prose ? themePro.prose : themePro : theme)
+
 const strippedTheme = computed(() => {
   const strippedTheme = {
-    ...(theme as any)[name]
+    ...(computedTheme.value as any)[name]
   }
 
   if (strippedTheme?.compoundVariants) {
@@ -49,14 +60,25 @@ const strippedTheme = computed(() => {
 })
 
 const component = computed(() => {
+  const baseKey = props.pro ? 'uiPro' : 'ui'
+
+  const content = props.prose
+    ? { prose: { [name]: strippedTheme.value } }
+    : { [name]: strippedTheme.value }
+
+  if (props.extra?.length) {
+    props.extra.forEach((extra) => {
+      const target = props.prose ? content.prose! : content
+      target[extra as keyof typeof target] = computedTheme.value[extra as keyof typeof computedTheme.value]
+    })
+  }
+
   return {
-    ui: {
-      [name]: strippedTheme.value
-    }
+    [baseKey]: content
   }
 })
 
-const { data: ast } = await useAsyncData(`component-theme-${name}`, async () => {
+const { data: ast } = await useAsyncData(`component-theme-${name}-${hash({ props })}`, async () => {
   const md = `
 ::code-collapse{class="nuxt-only"}
 
