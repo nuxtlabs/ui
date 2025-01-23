@@ -3,7 +3,7 @@
 import type { Ref } from 'vue'
 import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
-import type { RowData } from '@tanstack/table-core'
+import type { CoreOptions, RowData } from '@tanstack/table-core'
 import type {
   Row,
   ColumnDef,
@@ -103,6 +103,11 @@ export interface TableProps<T> {
    * @link [Guide](https://tanstack.com/table/v8/docs/guide/row-selection)
    */
   rowSelectionOptions?: Omit<RowSelectionOptions<T>, 'onRowSelectionChange'>
+  /**
+   * @link [API Docs](https://tanstack.com/table/v8/docs/api/core/table#getrowid)
+   * @link [Guide](https://tanstack.com/table/v8/docs/guide/tables)
+   */
+  getRowId?: CoreOptions<T>['getRowId']
   class?: any
   ui?: Partial<typeof table.slots>
 }
@@ -169,6 +174,7 @@ const tableApi = useVueTable({
   ...(props.expandedOptions || {}),
   getExpandedRowModel: getExpandedRowModel(),
   onExpandedChange: updaterOrValue => valueUpdater(updaterOrValue, expandedState),
+  getRowId: props.getRowId,
   state: {
     get globalFilter() {
       return globalFilterState.value
