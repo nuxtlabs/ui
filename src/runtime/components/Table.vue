@@ -203,6 +203,10 @@ function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref) {
 function handleRowSelect(row: TableRow<T>, e: Event) {
   if (!props.onSelect)
     return
+  const target = e.target as HTMLElement
+  const isInteractive = target.closest('button')
+  if (isInteractive)
+    return
   e.preventDefault()
   e.stopPropagation()
   props.onSelect(row, e)
