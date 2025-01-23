@@ -239,7 +239,15 @@ defineExpose({
       <tbody :class="ui.tbody({ class: [props.ui?.tbody] })">
         <template v-if="tableApi.getRowModel().rows?.length">
           <template v-for="row in tableApi.getRowModel().rows" :key="row.id">
-            <tr :data-selected="row.getIsSelected()" :data-can-select="!!props.onSelect" :data-expanded="row.getIsExpanded()" :class="ui.tr({ class: [props.ui?.tr] })" @click="handleRowSelect(row, $event)">
+            <tr
+              :data-selected="row.getIsSelected()"
+              :data-can-select="!!props.onSelect"
+              :data-expanded="row.getIsExpanded()"
+              :role="props.onSelect ? 'button' : undefined"
+              :tabindex="props.onSelect ? 0 : undefined"
+              :class="ui.tr({ class: [props.ui?.tr] })"
+              @click="handleRowSelect(row, $event)"
+            >
               <td
                 v-for="cell in row.getVisibleCells()"
                 :key="cell.id"
