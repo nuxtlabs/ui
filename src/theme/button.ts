@@ -59,7 +59,6 @@ export default (options: Required<ModuleOptions>) => ({
     block: {
       true: {
         base: 'w-full justify-center',
-        leadingAvatarSize: 'xs',
         trailingIcon: 'ms-auto'
       }
     },

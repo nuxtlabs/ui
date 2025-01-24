@@ -21,6 +21,7 @@ Use the `items` prop as an array of objects with the following properties:
 - `avatar?: AvatarProps`{lang="ts-type"}
 - `badge?: string | number | BadgeProps`{lang="ts-type"}
 - `trailingIcon?: string`{lang="ts-type"}
+- `type?: 'label' | 'link'`{lang="ts-type"}
 - `value?: string`{lang="ts-type"}
 - `disabled?: boolean`{lang="ts-type"}
 - `class?: any`{lang="ts-type"}
@@ -138,7 +139,9 @@ Each item can take a `children` array of objects with the following properties t
 
 Use the `orientation` prop to change the orientation of the NavigationMenu.
 
+::note
 When orientation is `vertical`, a [Collapsible](/components/collapsible) component is used to display children. You can control the open state of each item using the `open` and `defaultOpen` properties.
+::
 
 ::component-code
 ---
@@ -151,7 +154,9 @@ external:
 props:
   orientation: 'vertical'
   items:
-    - - label: Guide
+    - - label: Links
+        type: 'label'
+      - label: Guide
         icon: i-lucide-book-open
         children:
           - label: Introduction

@@ -9,7 +9,6 @@ type Props<T> = {
   name?: string
   size?: GetObjectField<T, 'size'>
   color?: GetObjectField<T, 'color'>
-  legend?: string
   highlight?: boolean
   disabled?: boolean
 }
@@ -29,13 +28,14 @@ export function useFormField<T>(props?: Props<T>, opts?: { bind?: boolean, defer
   const inputId = inject(inputIdInjectionKey, undefined)
 
   if (formField && inputId) {
-    if (opts?.bind === false || props?.legend) {
+    if (opts?.bind === false) {
       // Removes for="..." attribute on label for RadioGroup and alike.
       inputId.value = undefined
     } else if (props?.id) {
       // Updates for="..." attribute on label if props.id is provided.
       inputId.value = props?.id
     }
+
     if (formInputs && formField.value.name && inputId.value) {
       formInputs.value[formField.value.name] = { id: inputId.value, pattern: formField.value.errorPattern }
     }
@@ -77,6 +77,18 @@ export function useFormField<T>(props?: Props<T>, opts?: { bind?: boolean, defer
     disabled: computed(() => formOptions?.value.disabled || props?.disabled),
     emitFormBlur,
     emitFormInput,
-    emitFormChange
+    emitFormChange,
+    ariaAttrs: computed(() => {
+      if (!formField?.value) return
+
+      const descriptiveAttrs = ['error' as const, 'hint' as const, 'description' as const]
+        .filter(type => formField?.value?.[type])
+        .map(type => `${formField?.value.ariaId}-${type}`) || []
+
+      return {
+        'aria-describedby': descriptiveAttrs.join(' '),
+        'aria-invalid': !!formField?.value.error
+      }
+    })
   }
 }
