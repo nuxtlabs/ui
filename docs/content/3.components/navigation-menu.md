@@ -24,6 +24,7 @@ Use the `items` prop as an array of objects with the following properties:
 - `type?: 'label' | 'link'`{lang="ts-type"}
 - `value?: string`{lang="ts-type"}
 - `disabled?: boolean`{lang="ts-type"}
+- `condition?: boolean`{lang="ts-type"}
 - `class?: any`{lang="ts-type"}
 - [`slot?: string`{lang="ts-type"}](#with-custom-slot)
 - `onSelect?(e: Event): void`{lang="ts-type"}
@@ -724,6 +725,21 @@ In this example, leveraging [`defineShortcuts`](/composables/define-shortcuts), 
 
 ::tip
 You can also pass the `value` of one of the items if provided.
+::
+
+### Conditionally rendered items
+
+Items can be conditionally rendered based on their provided `condition`.
+
+::component-example
+---
+collapse: true
+name: 'navigation-menu-condition-example'
+---
+::
+
+::note
+ In this example, you can change the condition of the last item using :kbd{value="c"}.
 ::
 
 ### With custom slot
