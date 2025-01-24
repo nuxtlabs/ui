@@ -92,7 +92,7 @@ defineSlots<InputNumberSlots>()
 
 const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'modelValue', 'defaultValue', 'min', 'max', 'step', 'formatOptions'), emits)
 
-const { emitFormBlur, emitFormChange, emitFormInput, id, color, size, name, highlight, disabled, ariaAttrs } = useFormField<InputNumberProps>(props)
+const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, id, color, size, name, highlight, disabled, ariaAttrs } = useFormField<InputNumberProps>(props)
 
 const { t, code: codeLocale } = useLocale()
 const locale = computed(() => props.locale || codeLocale.value)
@@ -158,6 +158,7 @@ defineExpose({
       :required="required"
       :class="ui.base({ class: props.ui?.base })"
       @blur="onBlur"
+      @focus="emitFormFocus"
     />
 
     <div :class="ui.increment({ class: props.ui?.increment })">
