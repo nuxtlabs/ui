@@ -22,8 +22,7 @@ function getEmojiFlag(locale: string): string {
     nb: 'no',
     sv: 'se',
     uk: 'ua',
-    vi: 'vn',
-    zh: 'cn'
+    vi: 'vn'
   }
 
   const baseLanguage = locale.split('-')[0]?.toLowerCase() || locale
