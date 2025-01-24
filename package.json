@@ -60,7 +60,7 @@
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && nuxi prepare docs && nuxi prepare devtools && vite build playground-vue",
     "devtools": "NUXT_UI_DEVTOOLS_LOCAL=true nuxi dev playground",
     "devtools:build": "nuxi generate devtools",
-    "devtools:prepare": "nuxt-component-meta playground --outputDir ../src/devtools/.component-meta/",
+    "devtools:prepare": "DEVTOOLS=true nuxt-component-meta playground --outputDir ../src/devtools/.component-meta/",
     "docs": "DEV=true nuxi dev docs",
     "docs:build": "nuxi build docs",
     "docs:prepare": "nuxt-component-meta docs",
