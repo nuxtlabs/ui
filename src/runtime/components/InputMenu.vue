@@ -178,7 +178,7 @@ const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'modelValue', '
 const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffset: 8, collisionPadding: 8, position: 'popper' }) as ComboboxContentProps)
 const arrowProps = toRef(() => props.arrow as ComboboxArrowProps)
 
-const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, size: formGroupSize, color, id, name, highlight, disabled } = useFormField<InputProps>(props)
+const { emitFormBlur, emitFormFocus, emitFormChange, emitFormInput, size: formGroupSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField<InputProps>(props)
 const { orientation, size: buttonGroupSize } = useButtonGroup<InputProps>(props)
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(toRef(() => defu(props, { trailingIcon: appConfig.ui.icons.chevronDown })))
 
@@ -366,7 +366,7 @@ defineExpose({
         <ComboboxInput v-model="searchTerm" :display-value="displayValue" as-child>
           <TagsInputInput
             ref="inputRef"
-            v-bind="$attrs"
+            v-bind="{ ...$attrs, ...ariaAttrs }"
             :placeholder="placeholder"
             :required="required"
             :class="ui.tagsInput({ class: props.ui?.tagsInput })"
@@ -380,7 +380,7 @@ defineExpose({
         ref="inputRef"
         v-model="searchTerm"
         :display-value="displayValue"
-        v-bind="$attrs"
+        v-bind="{ ...$attrs, ...ariaAttrs }"
         :type="type"
         :placeholder="placeholder"
         :required="required"

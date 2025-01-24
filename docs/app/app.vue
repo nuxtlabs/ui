@@ -110,7 +110,7 @@ provide('navigation', mappedNavigation)
             items: modules
           }]"
           :navigation="filteredNavigation"
-          :fuse="{ resultLimit: 42 }"
+          :fuse="{ resultLimit: 100 }"
         />
       </ClientOnly>
     </template>
@@ -152,5 +152,5 @@ html[data-module="ui"] .ui-pro-only {
   display: none;
 }
 
-/* Safelist (do not remove): [&>div]:*:my-0 [&>div]:*:w-full */
+/* Safelist (do not remove): [&>div]:*:my-0 [&>div]:*:w-full h-64 */
 </style>
