@@ -73,6 +73,12 @@ export interface NavigationMenuProps<T> extends Pick<NavigationMenuRootProps, 'm
   /** The content of the menu. */
   content?: Omit<NavigationMenuContentProps, 'as' | 'asChild' | 'forceMount'>
   /**
+   * The orientation of the content.
+   * Only works when `orientation` is `horizontal`.
+   * @defaultValue 'horizontal'
+   */
+  contentOrientation?: NavigationMenuVariants['contentOrientation']
+  /**
    * Display an arrow alongside the menu.
    * @defaultValue false
    */
@@ -153,6 +159,7 @@ import UCollapsible from './Collapsible.vue'
 
 const props = withDefaults(defineProps<NavigationMenuProps<I>>(), {
   orientation: 'horizontal',
+  contentOrientation: 'horizontal',
   delayDuration: 0,
   unmountOnHide: true,
   labelKey: 'label'
@@ -180,6 +187,7 @@ const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: N
 
 const ui = computed(() => navigationMenu({
   orientation: props.orientation,
+  contentOrientation: props.contentOrientation,
   collapsed: props.collapsed,
   color: props.color,
   variant: props.variant,
