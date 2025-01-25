@@ -13,13 +13,6 @@ import type {
   SortingState,
   ExpandedState,
   VisibilityState,
-  GlobalFilterOptions,
-  ColumnFiltersOptions,
-  ColumnPinningOptions,
-  VisibilityOptions,
-  ExpandedOptions,
-  SortingOptions,
-  RowSelectionOptions,
   Updater,
   CellContext,
   HeaderContext
@@ -68,41 +61,6 @@ export interface TableProps<T> {
   loading?: boolean
   loadingColor?: TableVariants['loadingColor']
   loadingAnimation?: TableVariants['loadingAnimation']
-  /**
-   * @link [API Docs](https://tanstack.com/table/v8/docs/api/features/global-filtering#table-options)
-   * @link [Guide](https://tanstack.com/table/v8/docs/guide/global-filtering)
-   */
-  globalFilterOptions?: Omit<GlobalFilterOptions<T>, 'onGlobalFilterChange'>
-  /**
-   * @link [API Docs](https://tanstack.com/table/v8/docs/api/features/column-filtering#table-options)
-   * @link [Guide](https://tanstack.com/table/v8/docs/guide/column-filtering)
-   */
-  columnFiltersOptions?: Omit<ColumnFiltersOptions<T>, 'getFilteredRowModel' | 'onColumnFiltersChange'>
-  /**
-   * @link [API Docs](https://tanstack.com/table/v8/docs/api/features/column-pinning#table-options)
-   * @link [Guide](https://tanstack.com/table/v8/docs/guide/column-pinning)
-   */
-  columnPinningOptions?: Omit<ColumnPinningOptions, 'onColumnPinningChange'>
-  /**
-   * @link [API Docs](https://tanstack.com/table/v8/docs/api/features/column-visibility#table-options)
-   * @link [Guide](https://tanstack.com/table/v8/docs/guide/column-visibility)
-   */
-  visibilityOptions?: Omit<VisibilityOptions, 'onColumnVisibilityChange'>
-  /**
-   * @link [API Docs](https://tanstack.com/table/v8/docs/api/features/sorting#table-options)
-   * @link [Guide](https://tanstack.com/table/v8/docs/guide/sorting)
-   */
-  sortingOptions?: Omit<SortingOptions<T>, 'getSortedRowModel' | 'onSortingChange'>
-  /**
-   * @link [API Docs](https://tanstack.com/table/v8/docs/api/features/expanding#table-options)
-   * @link [Guide](https://tanstack.com/table/v8/docs/guide/expanding)
-   */
-  expandedOptions?: Omit<ExpandedOptions<T>, 'getExpandedRowModel' | 'onExpandedChange'>
-  /**
-   * @link [API Docs](https://tanstack.com/table/v8/docs/api/features/row-selection#table-options)
-   * @link [Guide](https://tanstack.com/table/v8/docs/guide/row-selection)
-   */
-  rowSelectionOptions?: Omit<RowSelectionOptions<T>, 'onRowSelectionChange'>
   class?: any
   ui?: Partial<typeof table.slots>
 }
@@ -152,21 +110,14 @@ const tableApi = useVueTable({
   data,
   columns: columns.value,
   getCoreRowModel: getCoreRowModel(),
-  ...(props.globalFilterOptions || {}),
   onGlobalFilterChange: updaterOrValue => valueUpdater(updaterOrValue, globalFilterState),
-  ...(props.columnFiltersOptions || {}),
   getFilteredRowModel: getFilteredRowModel(),
   onColumnFiltersChange: updaterOrValue => valueUpdater(updaterOrValue, columnFiltersState),
-  ...(props.visibilityOptions || {}),
   onColumnVisibilityChange: updaterOrValue => valueUpdater(updaterOrValue, columnVisibilityState),
-  ...(props.columnPinningOptions || {}),
   onColumnPinningChange: updaterOrValue => valueUpdater(updaterOrValue, columnPinningState),
-  ...(props.rowSelectionOptions || {}),
   onRowSelectionChange: updaterOrValue => valueUpdater(updaterOrValue, rowSelectionState),
-  ...(props.sortingOptions || {}),
   getSortedRowModel: getSortedRowModel(),
   onSortingChange: updaterOrValue => valueUpdater(updaterOrValue, sortingState),
-  ...(props.expandedOptions || {}),
   getExpandedRowModel: getExpandedRowModel(),
   onExpandedChange: updaterOrValue => valueUpdater(updaterOrValue, expandedState),
   state: {
