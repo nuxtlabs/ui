@@ -404,6 +404,17 @@ class: '!p-0'
 ---
 ::
 
+### With pagination
+We already pass the `getPaginationRowModel` function to the table so you don't need to pass it again. There are different pagination approaches as explained in [Pagination Guide](https://tanstack.com/table/v8/docs/guide/pagination#pagination-guide). You can implement any of them by passing options to `tanstackOptions` prop. In the example below, we use the `initialState` prop to set the default page size and use `UPagination` component to control the pagination state.
+::component-example
+---
+prettier: true
+collapse: true
+name: 'table-pagination-example'
+class: '!p-0'
+---
+::
+
 ### With slots
 
 You can use slots to customize the header and data cells of the table.
