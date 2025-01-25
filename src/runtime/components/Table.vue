@@ -84,7 +84,7 @@ export type TableSlots<T> = {
 import { computed } from 'vue'
 import { defu } from 'defu'
 import { Primitive } from 'reka-ui'
-import { FlexRender, getCoreRowModel, getFilteredRowModel, getSortedRowModel, getExpandedRowModel, useVueTable } from '@tanstack/vue-table'
+import { FlexRender, getCoreRowModel, getFilteredRowModel, getSortedRowModel, getExpandedRowModel, getPaginationRowModel, useVueTable } from '@tanstack/vue-table'
 import { upperFirst } from 'scule'
 import { useLocale } from '../composables/useLocale'
 
@@ -125,6 +125,7 @@ const tableApi = useVueTable(defu(props.tanstackOptions, {
   onSortingChange: (updaterOrValue: Updater<SortingState>) => valueUpdater(updaterOrValue, sortingState),
   getExpandedRowModel: getExpandedRowModel(),
   onExpandedChange: (updaterOrValue: Updater<ExpandedState>) => valueUpdater(updaterOrValue, expandedState),
+  getPaginationRowModel: getPaginationRowModel(),
   state: {
     get globalFilter() {
       return globalFilterState.value
