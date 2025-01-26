@@ -2,8 +2,11 @@ import type { ModuleOptions } from '../module'
 
 export default (options: Required<ModuleOptions>) => ({
   slots: {
-    root: 'list-none min-w-32',
-    item: ['group relative w-full flex items-center gap-2 px-2 py-1.5 text-sm select-none outline-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] hover:text-[var(--ui-text-highlighted)] hover:bg-[var(--ui-bg-elevated)]/50 focus:bg-[var(--ui-bg-elevated)]/50', options.theme.transitions && 'transition-colors before:transition-colors'],
+    root: 'relative',
+    item: [
+      'group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none',
+      options.theme.transitions && 'transition-colors before:transition-colors'
+    ],
     itemLeadingIcon: 'shrink-0',
     itemLeadingAvatar: 'shrink-0',
     itemLeadingAvatarSize: '',
@@ -12,6 +15,15 @@ export default (options: Required<ModuleOptions>) => ({
     itemLabel: 'truncate'
   },
   variants: {
+    color: {
+      ...Object.fromEntries((options.theme.colors || []).map((color: string) => [color, `focus-visible:ring-2 focus-visible:ring-[var(--ui-${color})]`])),
+      neutral: ''
+    },
+
+    variant: {
+      ghost: '',
+      link: ''
+    },
     size: {
       xs: {
         label: 'p-1 text-xs gap-1',
@@ -49,8 +61,38 @@ export default (options: Required<ModuleOptions>) => ({
       }
     }
   },
-  compoundVariants: [],
+  compoundVariants: [
+    ...(options.theme.colors || []).map((color: string) => ({
+      color,
+      variant: 'ghost',
+      class: {
+        item: `hover:bg-[var(--ui-${color})]/10 focus:bg-[var(--ui-${color})]/10 focus:text-[var(--ui-${color})] hover:text-[var(--ui-text-highlighted)]`
+      }
+    })),
+    {
+      color: 'neutral', variant: 'ghost',
+      class: {
+        item: 'hover:bg-[var(--ui-bg-elevated)]/50 focus:bg-[var(--ui-bg-elevated)]/50 hover:text-[var(--ui-text-highlighted)] focus:text-[var(--ui-text-highlighted)]'
+      }
+    },
+    ...(options.theme.colors || []).map((color: string) => ({
+      color,
+      variant: 'link',
+      class: {
+        item: `focus:text-[var(--ui-${color})] hover:text-[var(--ui-text-highlighted)]`
+      }
+    })),
+    {
+      color: 'neutral', variant: 'link',
+      class: {
+        item: 'hover:text-[var(--ui-text-highlighted)] focus:text-[var(--ui-text-highlighted)]'
+      }
+    }
+
+  ],
   defaultVariants: {
+    color: 'primary',
+    variant: 'link',
     size: 'md'
   }
 })
