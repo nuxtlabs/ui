@@ -10,7 +10,7 @@ describe('Tree', () => {
     ['with ui', { props: { ui: {} } }],
     // Slots
     ['with default slot', { slots: { default: () => 'Default slot' } }]
-  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: TreeProps, slots?: Partial<TreeSlots> }) => {
+  ])('renders %s correctly', async (nameOrHtml: string, options: { props?: Partial<TreeProps<any>>, slots?: Partial<TreeSlots<any>> }) => {
     const html = await ComponentRender(nameOrHtml, options, Tree)
     expect(html).toMatchSnapshot()
   })

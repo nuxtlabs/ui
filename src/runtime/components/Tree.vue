@@ -75,7 +75,7 @@ const rootProps = useForwardPropsEmits(reactiveOmit(props, 'class', 'ui'), emits
 const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: TreeItem, index: number, level: number, hasChildren: boolean }>()
 
 const ui = computed(() => tree({
-  size: props.size,
+  size: props.size
 }))
 </script>
 
@@ -95,12 +95,12 @@ const ui = computed(() => tree({
 
       <span :class="ui.itemTrailing({ class: props.ui?.itemTrailing })">
         <slot :name="item.slot ? `${item.slot}-trailing`: 'item-trailing'" v-bind="{ item: item as T, index, level, hasChildren }" />
-<!--        <UIcon :name="selectedIcon || appConfig.ui.icons.check" :class="ui.itemTrailingIcon({ class: props.ui?.itemTrailingIcon })" />-->
+        <!--        <UIcon :name="selectedIcon || appConfig.ui.icons.check" :class="ui.itemTrailingIcon({ class: props.ui?.itemTrailingIcon })" /> -->
       </span>
     </slot>
   </DefineItemTemplate>
 
-  <TreeRoot v-slot="{ flattenItems }" v-bind="rootProps" :class="ui.root({ class: [props.class, props.ui?.root] })" :get-key="(item) => item.label">
+  <TreeRoot v-slot="{ flattenItems }" v-bind="rootProps" :class="ui.root({ class: [props.class, props.ui?.root] })" :get-key="(item) => item.label ?? ''">
     <TreeItemComponent
       v-for="item in flattenItems"
       v-bind="item.bind"
