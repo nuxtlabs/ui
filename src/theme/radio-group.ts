@@ -24,6 +24,13 @@ export default (options: Required<ModuleOptions>) => ({
         indicator: 'bg-[var(--ui-bg-inverted)]'
       }
     },
+    variant: {
+      radio: {},
+      card: {
+        base: 'hidden',
+        item: 'border-2 border-[var(--ui-border-muted)] rounded-lg'
+      }
+    },
     orientation: {
       horizontal: {
         fieldset: 'flex-row',
@@ -87,8 +94,31 @@ export default (options: Required<ModuleOptions>) => ({
       }
     }
   },
+  compoundVariants: [
+    { size: 'xs', variant: 'card', class: { item: 'p-2.5', fieldset: 'gap-2' } },
+    { size: 'sm', variant: 'card', class: { item: 'p-3', fieldset: 'gap-2.5' } },
+    { size: 'md', variant: 'card', class: { item: 'p-3.5', fieldset: 'gap-2.5' } },
+    { size: 'lg', variant: 'card', class: { item: 'p-4', fieldset: 'gap-3.5' } },
+    { size: 'xl', variant: 'card', class: { item: 'p-4.5', fieldset: 'gap-3.5' } },
+
+    ...(options.theme.colors || []).map((color: string) => [color, {
+      color,
+      variant: 'card',
+      class: {
+        item: `data-[checked=true]:border-[var(--ui-${color})]`
+      }
+    }]),
+    {
+      color: 'neutral',
+      variant: 'card',
+      class: {
+        item: 'data-[checked=true]:border-[var(--ui-border-elevated)]'
+      }
+    }
+  ],
   defaultVariants: {
     size: 'md',
-    color: 'primary'
+    color: 'primary',
+    variant: 'radio'
   }
 })

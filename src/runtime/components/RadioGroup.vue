@@ -50,6 +50,7 @@ export interface RadioGroupProps<T> extends Pick<RadioGroupRootProps, 'defaultVa
    * @defaultValue 'vertical'
    */
   orientation?: RadioGroupRootProps['orientation']
+  variant?: RadioGroupVariants['variant']
   class?: any
   ui?: Partial<typeof radioGroup.slots>
 }
@@ -85,7 +86,9 @@ const props = withDefaults(defineProps<RadioGroupProps<T>>(), {
 const emits = defineEmits<RadioGroupEmits>()
 const slots = defineSlots<RadioGroupSlots<T>>()
 
-const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'modelValue', 'defaultValue', 'orientation', 'loop', 'required'), emits)
+const modelValue = defineModel<AcceptableValue>()
+
+const rootProps = useForwardPropsEmits(reactivePick(props, 'as', 'defaultValue', 'orientation', 'loop', 'required'), emits)
 
 const { emitFormChange, emitFormInput, color, name, size, id: _id, disabled, ariaAttrs } = useFormField<RadioGroupProps<T>>(props, { bind: false })
 const id = _id.value ?? useId()
@@ -95,7 +98,8 @@ const ui = computed(() => radioGroup({
   color: color.value,
   disabled: disabled.value,
   required: props.required,
-  orientation: props.orientation
+  orientation: props.orientation,
+  variant: props.variant
 }))
 
 function normalizeItem(item: any) {
@@ -140,8 +144,8 @@ function onUpdate(value: any) {
 <template>
   <RadioGroupRoot
     :id="id"
-    v-slot="{ modelValue }"
     v-bind="rootProps"
+    :model-value="modelValue"
     :name="name"
     :disabled="disabled"
     :class="ui.root({ class: [props.class, props.ui?.root] })"
@@ -153,7 +157,13 @@ function onUpdate(value: any) {
           {{ legend }}
         </slot>
       </legend>
-      <div v-for="item in normalizedItems" :key="item.value" :class="ui.item({ class: props.ui?.item })">
+      <div
+        v-for="item in normalizedItems"
+        :key="item.value"
+        :class="ui.item({ class: props.ui?.item })"
+        :data-checked="item.value === modelValue"
+        @click.prevent="modelValue = disabled ? modelValue : item.value"
+      >
         <div :class="ui.container({ class: props.ui?.container })">
           <RadioGroupItem
             :id="item.id"
