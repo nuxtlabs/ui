@@ -11,10 +11,10 @@
     "@nuxt/image": "^1.9.0",
     "@nuxt/ui": "latest",
     "@nuxt/ui-pro": "https://pkg.pr.new/@nuxt/ui-pro@880e49c",
-    "@nuxthub/core": "^0.8.13",
+    "@nuxthub/core": "^0.8.14",
     "@nuxtjs/plausible": "^1.2.0",
     "@octokit/rest": "^21.1.0",
-    "@vueuse/nuxt": "^12.4.0",
+    "@vueuse/nuxt": "^12.5.0",
     "joi": "^17.13.3",
     "nuxt": "^3.15.2",
     "nuxt-component-meta": "^0.10.0",
@@ -28,6 +28,6 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "wrangler": "^3.101.0"
+    "wrangler": "^3.105.1"
   }
 }
