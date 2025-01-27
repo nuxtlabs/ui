@@ -7,9 +7,9 @@ import theme from '#build/ui/pin-input'
 import { tv } from '../utils/tv'
 import type { PartialString } from '../types/utils'
 
-const appConfig = _appConfig as AppConfig & { ui: { pinInput: Partial<typeof theme> } }
+const appConfigPinInput = _appConfig as AppConfig & { ui: { pinInput: Partial<typeof theme> } }
 
-const pinInput = tv({ extend: tv(theme), ...(appConfig.ui?.pinInput || {}) })
+const pinInput = tv({ extend: tv(theme), ...(appConfigPinInput.ui?.pinInput || {}) })
 
 type PinInputVariants = VariantProps<typeof pinInput>
 

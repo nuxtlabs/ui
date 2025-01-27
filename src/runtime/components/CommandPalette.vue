@@ -11,9 +11,9 @@ import { tv } from '../utils/tv'
 import type { AvatarProps, ButtonProps, ChipProps, KbdProps, InputProps } from '../types'
 import type { DynamicSlots, PartialString } from '../types/utils'
 
-const appConfig = _appConfig as AppConfig & { ui: { commandPalette: Partial<typeof theme> } }
+const appConfigCommandPalette = _appConfig as AppConfig & { ui: { commandPalette: Partial<typeof theme> } }
 
-const commandPalette = tv({ extend: tv(theme), ...(appConfig.ui?.commandPalette || {}) })
+const commandPalette = tv({ extend: tv(theme), ...(appConfigCommandPalette.ui?.commandPalette || {}) })
 
 export interface CommandPaletteItem {
   prefix?: string

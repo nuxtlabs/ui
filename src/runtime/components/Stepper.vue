@@ -8,9 +8,9 @@ import { extendDevtoolsMeta } from '../composables/extendDevtoolsMeta'
 import { tv } from '../utils/tv'
 import type { DynamicSlots } from '../types/utils'
 
-const appConfig = _appConfig as AppConfig & { ui: { stepper: Partial<typeof theme> } }
+const appConfigStepper = _appConfig as AppConfig & { ui: { stepper: Partial<typeof theme> } }
 
-const stepper = tv({ extend: tv(theme), ...(appConfig.ui?.stepper || {}) })
+const stepper = tv({ extend: tv(theme), ...(appConfigStepper.ui?.stepper || {}) })
 
 type StepperVariants = VariantProps<typeof stepper>
 
