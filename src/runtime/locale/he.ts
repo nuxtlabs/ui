@@ -8,47 +8,47 @@ export default defineLocale({
     inputMenu: {
       noMatch: 'אין התאמה',
       noData: 'אין נתונים',
-      create: 'צור "{label}"',
+      create: 'צור "{label}"'
     },
     calendar: {
       prevYear: 'שנה קודמת',
       nextYear: 'שנה הבאה',
       prevMonth: 'חודש קודם',
-      nextMonth: 'חודש הבא',
+      nextMonth: 'חודש הבא'
     },
     inputNumber: {
       increment: 'הוסף',
-      decrement: 'הפחת',
+      decrement: 'הפחת'
     },
     commandPalette: {
       placeholder: 'הקלד פקודה...',
       noMatch: 'לא נמצאה התאמה',
       noData: 'אין נתונים זמינים',
-      close: 'סגור',
+      close: 'סגור'
     },
     selectMenu: {
       noMatch: 'לא נמצאה התאמה',
       noData: 'אין נתונים',
       create: 'צור "{label}"',
-      search: 'חפש...',
+      search: 'חפש...'
     },
     toast: { close: 'סגור' },
     carousel: {
       prev: 'הקודם',
       next: 'הבא',
-      goto: 'מעבר ל {slide}',
+      goto: 'מעבר ל {slide}'
     },
     modal: {
-      close: 'סגור',
+      close: 'סגור'
     },
     slideover: {
-      close: 'סגור',
+      close: 'סגור'
     },
     alert: {
-      close: 'סגור',
+      close: 'סגור'
     },
     table: {
-      noData: 'אין נתונים להצגה',
+      noData: 'אין נתונים להצגה'
     },
   },
 })
