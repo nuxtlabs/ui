@@ -259,8 +259,8 @@ importers:
         specifier: ^1.2.10
         version: 1.2.10
       '@nuxt/content':
-        specifier: ^3.0.0
-        version: 3.0.0(@libsql/client@0.14.0)(magicast@0.3.5)(pg@8.13.1)(rollup@4.31.0)
+        specifier: https://pkg.pr.new/@nuxt/content@0f0da14
+        version: https://pkg.pr.new/@nuxt/content@0f0da14(@libsql/client@0.14.0)(magicast@0.3.5)(pg@8.13.1)(rollup@4.31.0)
       '@nuxt/image':
         specifier: ^1.9.0
         version: 1.9.0(db0@0.2.1(@libsql/client@0.14.0)(better-sqlite3@11.8.1))(ioredis@5.4.2)(magicast@0.3.5)(rollup@4.31.0)
@@ -1367,8 +1367,9 @@ packages:
     engines: {node: ^16.10.0 || >=18.0.0}
     hasBin: true
 
-  '@nuxt/content@3.0.0':
-    resolution: {integrity: sha512-JoC6DjJijY/PQV8S9jvet3vYZjHQnkLCtwY+EY/lcY5wvy4KctHiypO4YoH48HQSnTVhLGr/3q15i7z0aKoMag==}
+  '@nuxt/content@https://pkg.pr.new/@nuxt/content@0f0da14':
+    resolution: {tarball: https://pkg.pr.new/@nuxt/content@0f0da14}
+    version: 3.0.0
     peerDependencies:
       '@libsql/client': '*'
       pg: '*'
@@ -7887,7 +7888,7 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
-  '@nuxt/content@3.0.0(@libsql/client@0.14.0)(magicast@0.3.5)(pg@8.13.1)(rollup@4.31.0)':
+  '@nuxt/content@https://pkg.pr.new/@nuxt/content@0f0da14(@libsql/client@0.14.0)(magicast@0.3.5)(pg@8.13.1)(rollup@4.31.0)':
     dependencies:
       '@libsql/client': 0.14.0
       '@nuxt/kit': 3.15.2(magicast@0.3.5)(rollup@4.31.0)
