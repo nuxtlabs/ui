@@ -49,6 +49,6 @@ export default defineLocale({
     },
     table: {
       noData: 'אין נתונים להצגה'
-    },
-  },
+    }
+  }
 })
