@@ -75,7 +75,7 @@ const sizePx = computed(() => ({
 
 // Reproduces Reka UI's [AvatarImage](https://reka-ui.com/docs/components/avatar#image) component behavior which cannot be used with NuxtImg component
 onMounted(() => {
-  if (!props.src || ImageComponent !== 'img') {
+  if (!props.src || (ImageComponent as unknown as string) !== 'img') {
     return
   }
 
