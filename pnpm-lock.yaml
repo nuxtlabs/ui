@@ -250,17 +250,17 @@ importers:
         specifier: ^1.2.4
         version: 1.2.4
       '@iconify-json/lucide':
-        specifier: ^1.2.24
-        version: 1.2.24
+        specifier: ^1.2.25
+        version: 1.2.25
       '@iconify-json/simple-icons':
-        specifier: ^1.2.21
-        version: 1.2.21
+        specifier: ^1.2.22
+        version: 1.2.22
       '@iconify-json/vscode-icons':
         specifier: ^1.2.10
         version: 1.2.10
       '@nuxt/content':
-        specifier: ^3.0.0
-        version: 3.0.0(@libsql/client@0.14.0)(magicast@0.3.5)(pg@8.13.1)(rollup@4.31.0)
+        specifier: ^3.0.1
+        version: 3.0.1(@libsql/client@0.14.0)(magicast@0.3.5)(pg@8.13.1)(rollup@4.31.0)
       '@nuxt/image':
         specifier: ^1.9.0
         version: 1.9.0(db0@0.2.1(@libsql/client@0.14.0)(better-sqlite3@11.8.1))(ioredis@5.4.2)(magicast@0.3.5)(rollup@4.31.0)
@@ -323,11 +323,11 @@ importers:
   playground:
     dependencies:
       '@iconify-json/lucide':
-        specifier: ^1.2.24
-        version: 1.2.24
+        specifier: ^1.2.25
+        version: 1.2.25
       '@iconify-json/simple-icons':
-        specifier: ^1.2.21
-        version: 1.2.21
+        specifier: ^1.2.22
+        version: 1.2.22
       '@nuxt/ui':
         specifier: workspace:*
         version: link:..
@@ -1129,11 +1129,11 @@ packages:
   '@iconify-json/logos@1.2.4':
     resolution: {integrity: sha512-XC4If5D/hbaZvUkTV8iaZuGlQCyG6CNOlaAaJaGa13V5QMYwYjgtKk3vPP8wz3wtTVNVEVk3LRx1fOJz+YnSMw==}
 
-  '@iconify-json/lucide@1.2.24':
-    resolution: {integrity: sha512-MZ61WEAMlVaM3BkuZR4vVw63hPVdaeF5KQEogLcy5qh+zCXLcSpKOyMyoylSTnYUlcKsqTeBsUzRxPsvxe+P3g==}
+  '@iconify-json/lucide@1.2.25':
+    resolution: {integrity: sha512-OsHihLfqdjxwoLWDEnGesrYbCG6VCCoLvmb1U6UJhggsppW+D3DUY/LhhcppZM4Yw3AM4USDIn/gkzqjdRYgEw==}
 
-  '@iconify-json/simple-icons@1.2.21':
-    resolution: {integrity: sha512-aqbIuVshMZ2fNEhm25//9DoKudboXF3CpoEQJJlHl9gVSVNOTr4cgaCIZvgSEYmys2HHEfmhcpoZIhoEFZS8SQ==}
+  '@iconify-json/simple-icons@1.2.22':
+    resolution: {integrity: sha512-0UzThRMwHuOJfgpp+tyV/y2uEBLjFVrxC4igv9iWjSEQEBK4tNjWZNTRCBCYyv/FwWVYyKAsA8tZQ8vUYzvFnw==}
 
   '@iconify-json/vscode-icons@1.2.10':
     resolution: {integrity: sha512-qjp/j2RcHEZkesuAT6RP8BfcuHa+oERr7K1twfsulrIHrKZlpxxBeEyFm+3evZSAOgD+sjgU5CuTYS3RfCL+Pg==}
@@ -1367,8 +1367,8 @@ packages:
     engines: {node: ^16.10.0 || >=18.0.0}
     hasBin: true
 
-  '@nuxt/content@3.0.0':
-    resolution: {integrity: sha512-JoC6DjJijY/PQV8S9jvet3vYZjHQnkLCtwY+EY/lcY5wvy4KctHiypO4YoH48HQSnTVhLGr/3q15i7z0aKoMag==}
+  '@nuxt/content@3.0.1':
+    resolution: {integrity: sha512-Tvu9LOqc7HDTSeoGmt2TdnQpyfhXoGLlrXPgmJJj6XQOBVKrDizK1fh9NwN73debQdNqiAr8FOW5Hl22sJPd2w==}
     peerDependencies:
       '@libsql/client': '*'
       pg: '*'
@@ -7565,11 +7565,11 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/lucide@1.2.24':
+  '@iconify-json/lucide@1.2.25':
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/simple-icons@1.2.21':
+  '@iconify-json/simple-icons@1.2.22':
     dependencies:
       '@iconify/types': 2.0.0
 
@@ -7887,7 +7887,7 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
-  '@nuxt/content@3.0.0(@libsql/client@0.14.0)(magicast@0.3.5)(pg@8.13.1)(rollup@4.31.0)':
+  '@nuxt/content@3.0.1(@libsql/client@0.14.0)(magicast@0.3.5)(pg@8.13.1)(rollup@4.31.0)':
     dependencies:
       '@libsql/client': 0.14.0
       '@nuxt/kit': 3.15.2(magicast@0.3.5)(rollup@4.31.0)
