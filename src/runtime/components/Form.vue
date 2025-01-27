@@ -7,9 +7,9 @@ import { tv } from '../utils/tv'
 import type { FormSchema, FormError, FormInputEvents, FormErrorEvent, FormSubmitEvent, FormEvent, Form, FormErrorWithId } from '../types/form'
 import type { DeepReadonly } from 'vue'
 
-const appConfig = _appConfig as AppConfig & { ui: { form: Partial<typeof theme> } }
+const appConfigForm = _appConfig as AppConfig & { ui: { form: Partial<typeof theme> } }
 
-const form = tv({ extend: tv(theme), ...(appConfig.ui?.form || {}) })
+const form = tv({ extend: tv(theme), ...(appConfigForm.ui?.form || {}) })
 
 export interface FormProps<T extends object> {
   id?: string | number

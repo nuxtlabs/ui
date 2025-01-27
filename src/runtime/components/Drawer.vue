@@ -7,9 +7,9 @@ import theme from '#build/ui/drawer'
 import { extendDevtoolsMeta } from '../composables/extendDevtoolsMeta'
 import { tv } from '../utils/tv'
 
-const appConfig = _appConfig as AppConfig & { ui: { drawer: Partial<typeof theme> } }
+const appConfigDrawer = _appConfig as AppConfig & { ui: { drawer: Partial<typeof theme> } }
 
-const drawer = tv({ extend: tv(theme), ...(appConfig.ui?.drawer || {}) })
+const drawer = tv({ extend: tv(theme), ...(appConfigDrawer.ui?.drawer || {}) })
 
 export interface DrawerProps extends Pick<DrawerRootProps, 'activeSnapPoint' | 'closeThreshold' | 'defaultOpen' | 'direction' | 'fadeFromIndex' | 'fixed' | 'modal' | 'nested' | 'direction' | 'open' | 'scrollLockTimeout' | 'shouldScaleBackground' | 'snapPoints'> {
   /**

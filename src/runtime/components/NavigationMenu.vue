@@ -9,9 +9,9 @@ import { tv } from '../utils/tv'
 import type { AvatarProps, BadgeProps, LinkProps } from '../types'
 import type { DynamicSlots, MaybeArrayOfArray, MaybeArrayOfArrayItem, PartialString } from '../types/utils'
 
-const appConfig = _appConfig as AppConfig & { ui: { navigationMenu: Partial<typeof theme> } }
+const appConfigNavigationMenu = _appConfig as AppConfig & { ui: { navigationMenu: Partial<typeof theme> } }
 
-const navigationMenu = tv({ extend: tv(theme), ...(appConfig.ui?.navigationMenu || {}) })
+const navigationMenu = tv({ extend: tv(theme), ...(appConfigNavigationMenu.ui?.navigationMenu || {}) })
 
 export interface NavigationMenuChildItem extends Omit<NavigationMenuItem, 'children' | 'type'> {
   /** Description is only used when `orientation` is `horizontal`. */
@@ -148,6 +148,7 @@ extendDevtoolsMeta({
 import { computed, toRef } from 'vue'
 import { NavigationMenuRoot, NavigationMenuList, NavigationMenuItem, NavigationMenuTrigger, NavigationMenuContent, NavigationMenuLink, NavigationMenuIndicator, NavigationMenuViewport, useForwardPropsEmits } from 'reka-ui'
 import { createReusableTemplate } from '@vueuse/core'
+import { useAppConfig } from '#imports'
 import { get } from '../utils'
 import { pickLinkProps } from '../utils/link'
 import ULinkBase from './LinkBase.vue'
@@ -182,6 +183,7 @@ const rootProps = useForwardPropsEmits(computed(() => ({
 
 const contentProps = toRef(() => props.content)
 
+const appConfig = useAppConfig()
 const [DefineLinkTemplate, ReuseLinkTemplate] = createReusableTemplate<{ item: NavigationMenuItem, index: number, active?: boolean }>()
 const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: NavigationMenuItem, index: number }>()
 

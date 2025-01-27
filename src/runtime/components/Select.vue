@@ -10,9 +10,9 @@ import { tv } from '../utils/tv'
 import type { AvatarProps, ChipProps, InputProps } from '../types'
 import type { PartialString, MaybeArrayOfArray, MaybeArrayOfArrayItem, SelectModelValue, SelectModelValueEmits, SelectItemKey } from '../types/utils'
 
-const appConfig = _appConfig as AppConfig & { ui: { select: Partial<typeof theme> } }
+const appConfigSelect = _appConfig as AppConfig & { ui: { select: Partial<typeof theme> } }
 
-const select = tv({ extend: tv(theme), ...(appConfig.ui?.select || {}) })
+const select = tv({ extend: tv(theme), ...(appConfigSelect.ui?.select || {}) })
 
 export interface SelectItem {
   label?: string

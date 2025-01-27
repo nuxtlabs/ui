@@ -35,9 +35,9 @@ import _appConfig from '#build/app.config'
 import theme from '#build/${path}/${prose ? 'prose/' : ''}${content ? 'content/' : ''}${kebabName}'
 import { tv } from '${pro ? '#ui/utils/tv' : '../utils/tv'}'
 
-const appConfig = _appConfig as AppConfig & { ${key}: { ${prose ? 'prose: { ' : ''}${camelName}: Partial<typeof theme> } }${prose ? ' }' : ''}
+const appConfig${camelName} = _appConfig as AppConfig & { ${key}: { ${prose ? 'prose: { ' : ''}${camelName}: Partial<typeof theme> } }${prose ? ' }' : ''}
 
-const ${camelName} = tv({ extend: tv(theme), ...(appConfig.${key}?.${prose ? 'prose?.' : ''}${camelName} || {}) })
+const ${camelName} = tv({ extend: tv(theme), ...(appConfig${camelName}.${key}?.${prose ? 'prose?.' : ''}${camelName} || {}) })
 
 export interface ${upperName}Props {
   /**
@@ -78,9 +78,9 @@ import _appConfig from '#build/app.config'
 import theme from '#build/${path}/${prose ? 'prose/' : ''}${content ? 'content/' : ''}${kebabName}'
 import { tv } from '${pro ? '#ui/utils/tv' : '../utils/tv'}'
 
-const appConfig = _appConfig as AppConfig & { ${key}: { ${prose ? 'prose: { ' : ''}${camelName}: Partial<typeof theme> } }${prose ? ' }' : ''}
+const appConfig${camelName} = _appConfig as AppConfig & { ${key}: { ${prose ? 'prose: { ' : ''}${camelName}: Partial<typeof theme> } }${prose ? ' }' : ''}
 
-const ${camelName} = tv({ extend: tv(theme), ...(appConfig.${key}?.${prose ? 'prose?.' : ''}${camelName} || {}) })
+const ${camelName} = tv({ extend: tv(theme), ...(appConfig${camelName}.${key}?.${prose ? 'prose?.' : ''}${camelName} || {}) })
 
 type ${upperName}Variants = VariantProps<typeof ${camelName}>
 
