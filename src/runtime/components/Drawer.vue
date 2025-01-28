@@ -40,6 +40,7 @@ export interface DrawerProps extends Pick<DrawerRootProps, 'activeSnapPoint' | '
    * When `false`, the drawer will not close when clicking outside or pressing escape.
    * @defaultValue true
    */
+  dismissible?: boolean
   class?: any
   ui?: Partial<typeof drawer.slots>
 }
