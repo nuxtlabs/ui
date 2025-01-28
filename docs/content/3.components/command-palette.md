@@ -34,7 +34,11 @@ The CommandPalette component filters groups and ranks matching commands by relev
 - [`postFilter?: (searchTerm: string, items: T[]) => T[]`{lang="ts-type"}](#with-post-filtered-items)
 - `highlightedIcon?: string`{lang="ts-type"}
 
-Each group takes some `items` as an array of objects with the following properties:
+::caution
+You must provide an `id` for each group otherwise the group will be ignored.
+::
+
+Each group contains an `items` array of objects that define the commands. Each item can have the following properties:
 
 - `prefix?: string`{lang="ts-type"}
 - `label?: string`{lang="ts-type"}
@@ -48,6 +52,8 @@ Each group takes some `items` as an array of objects with the following properti
 - `disabled?: boolean`{lang="ts-type"}
 - [`slot?: string`{lang="ts-type"}](#with-custom-slot)
 - `onSelect?(e?: Event): void`{lang="ts-type"}
+
+You can pass any property from the [Link](/components/link#props) component such as `to`, `target`, etc.
 
 ::component-code
 ---
@@ -96,10 +102,6 @@ props:
             src: 'https://github.com/noook.png'
   class: 'flex-1'
 ---
-::
-
-::caution
-You must provide an `id` for each group otherwise the group will be ignored.
 ::
 
 ### Multiple
@@ -437,7 +439,7 @@ You can customize this icon globally in your `vite.config.ts` under `ui.icons.cl
 
 ### Control selected item(s)
 
-You can control the selected item by using the `default-value` prop or the `v-model` directive, by using the `select` field on each item or by using the `@update:model-value` event.
+You can control the selected item(s) by using the `default-value` prop or the `v-model` directive, by using the `onSelect` field on each item or by using the `@update:model-value` event.
 
 ::component-example
 ---
@@ -445,10 +447,6 @@ collapse: true
 name: 'command-palette-select-example'
 class: '!p-0'
 ---
-::
-
-::note
-This example demonstrates how to use the `@update:model-value` event to handle different selection scenarios.
 ::
 
 ### Control search term
