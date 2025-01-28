@@ -182,7 +182,7 @@ In this example, leveraging [`defineShortcuts`](/composables/define-shortcuts), 
 
 ### Prevent closing
 
-Set the `dismissible` prop to `false` to prevent the Popover from being closed when clicking outside of it or pressing escape.
+Set the `dismissible` prop to `false` to prevent the Popover from being closed when clicking outside of it or pressing escape.  A close-prevented event will be emitted when the user tries to close the popover
 
 ::component-example
 ---
