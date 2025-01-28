@@ -181,7 +181,7 @@ links:${primitive
   : `
   - label: ${upperName}
     icon: i-custom-reka-ui
-    to: https://www.reka-ui.com/components/${kebabName}.html`}
+    to: https://reka-ui.com/docs/components/${kebabName}`}
   - label: GitHub
     icon: i-simple-icons-github
     to: https://github.com/nuxt/${pro ? 'ui-pro' : 'ui'}/tree/v3/src/runtime/components/${upperName}.vue
