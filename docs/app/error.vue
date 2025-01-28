@@ -113,7 +113,7 @@ provide('navigation', mappedNavigation)
           items: modules
         }]"
         :navigation="filteredNavigation"
-        :fuse="{ resultLimit: 42 }"
+        :fuse="{ resultLimit: 100 }"
       />
     </ClientOnly>
   </UApp>

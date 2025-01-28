@@ -1,7 +1,7 @@
 export default {
   slots: {
     root: 'inline-flex items-center justify-center shrink-0 select-none overflow-hidden rounded-full align-middle bg-[var(--ui-bg-elevated)]',
-    image: 'h-full w-full rounded-[inherit] object-cover',
+    image: 'h-full w-full rounded-[inherit] object-cover data-[error]:hidden',
     fallback: 'font-medium leading-none text-[var(--ui-text-muted)] truncate',
     icon: 'text-[var(--ui-text-muted)] shrink-0'
   },

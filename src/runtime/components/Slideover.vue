@@ -8,9 +8,9 @@ import { extendDevtoolsMeta } from '../composables/extendDevtoolsMeta'
 import { tv } from '../utils/tv'
 import type { ButtonProps } from '../types'
 
-const appConfig = _appConfig as AppConfig & { ui: { slideover: Partial<typeof theme> } }
+const appConfigSlideover = _appConfig as AppConfig & { ui: { slideover: Partial<typeof theme> } }
 
-const slideover = tv({ extend: tv(theme), ...(appConfig.ui?.slideover || {}) })
+const slideover = tv({ extend: tv(theme), ...(appConfigSlideover.ui?.slideover || {}) })
 
 type SlideoverVariants = VariantProps<typeof slideover>
 

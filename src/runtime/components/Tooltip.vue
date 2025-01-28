@@ -7,9 +7,9 @@ import { extendDevtoolsMeta } from '../composables/extendDevtoolsMeta'
 import { tv } from '../utils/tv'
 import type { KbdProps } from '../types'
 
-const appConfig = _appConfig as AppConfig & { ui: { tooltip: Partial<typeof theme> } }
+const appConfigTooltip = _appConfig as AppConfig & { ui: { tooltip: Partial<typeof theme> } }
 
-const tooltip = tv({ extend: tv(theme), ...(appConfig.ui?.tooltip || {}) })
+const tooltip = tv({ extend: tv(theme), ...(appConfigTooltip.ui?.tooltip || {}) })
 
 export interface TooltipProps extends TooltipRootProps {
   /** The text content of the tooltip. */

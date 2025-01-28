@@ -10,9 +10,9 @@ import { tv } from '../utils/tv'
 import type { AvatarProps, ChipProps, InputProps } from '../types'
 import type { PartialString, MaybeArrayOfArray, MaybeArrayOfArrayItem, SelectModelValue, SelectModelValueEmits, SelectItemKey } from '../types/utils'
 
-const appConfig = _appConfig as AppConfig & { ui: { selectMenu: Partial<typeof theme> } }
+const appConfigSelectMenu = _appConfig as AppConfig & { ui: { selectMenu: Partial<typeof theme> } }
 
-const selectMenu = tv({ extend: tv(theme), ...(appConfig.ui?.selectMenu || {}) })
+const selectMenu = tv({ extend: tv(theme), ...(appConfigSelectMenu.ui?.selectMenu || {}) })
 
 export interface SelectMenuItem {
   label?: string
@@ -168,7 +168,7 @@ const contentProps = toRef(() => defu(props.content, { side: 'bottom', sideOffse
 const arrowProps = toRef(() => props.arrow as ComboboxArrowProps)
 const searchInputProps = toRef(() => defu(props.searchInput, { placeholder: t('selectMenu.search'), variant: 'none' }) as InputProps)
 
-const { emitFormBlur, emitFormInput, emitFormChange, size: formGroupSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField<InputProps>(props)
+const { emitFormBlur, emitFormFocus, emitFormInput, emitFormChange, size: formGroupSize, color, id, name, highlight, disabled, ariaAttrs } = useFormField<InputProps>(props)
 const { orientation, size: buttonGroupSize } = useButtonGroup<InputProps>(props)
 const { isLeading, isTrailing, leadingIconName, trailingIconName } = useComponentIcons(toRef(() => defu(props, { trailingIcon: appConfig.ui.icons.chevronDown })))
 
@@ -272,6 +272,7 @@ function onUpdateOpen(value: boolean) {
   } else {
     const event = new FocusEvent('focus')
     emits('focus', event)
+    emitFormFocus()
     clearTimeout(timeoutId)
   }
 }

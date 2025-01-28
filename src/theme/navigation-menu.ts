@@ -25,9 +25,9 @@ export default (options: Required<ModuleOptions>) => ({
     childLinkLabelExternalIcon: 'inline-block size-3 align-top text-[var(--ui-text-dimmed)]',
     childLinkDescription: 'text-sm text-[var(--ui-text-muted)]',
     separator: 'px-2 h-px bg-[var(--ui-border)]',
-    viewportWrapper: 'absolute top-full left-0 flex w-full justify-center',
-    viewport: 'relative overflow-hidden bg-[var(--ui-bg)] shadow-lg rounded-[calc(var(--ui-radius)*1.5)] ring ring-[var(--ui-border)] h-[var(--reka-navigation-menu-viewport-height)] w-full transition-[width,height] origin-[top_center] data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in]',
-    content: 'absolute top-0 left-0 w-full data-[motion=from-start]:animate-[enter-from-left_200ms_ease] data-[motion=from-end]:animate-[enter-from-right_200ms_ease] data-[motion=to-start]:animate-[exit-to-left_200ms_ease] data-[motion=to-end]:animate-[exit-to-right_200ms_ease]',
+    viewportWrapper: 'absolute top-full left-0 flex w-full',
+    viewport: 'relative overflow-hidden bg-[var(--ui-bg)] shadow-lg rounded-[calc(var(--ui-radius)*1.5)] ring ring-[var(--ui-border)] h-[var(--reka-navigation-menu-viewport-height)] w-full transition-[width,height,left] duration-200 origin-[top_center] data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in]',
+    content: 'absolute top-0 left-0 w-full',
     indicator: 'absolute data-[state=visible]:animate-[fade-in_100ms_ease-out] data-[state=hidden]:animate-[fade-out_100ms_ease-in] data-[state=hidden]:opacity-0 bottom-0 z-[1] w-[var(--reka-navigation-menu-indicator-size)] translate-x-[var(--reka-navigation-menu-indicator-position)] flex h-2.5 items-end justify-center overflow-hidden transition-[translate,width] duration-200',
     arrow: 'relative top-[50%] size-2.5 rotate-45 border border-[var(--ui-border)] bg-[var(--ui-bg)] z-[1] rounded-[calc(var(--ui-radius)/2)]'
   },
@@ -56,11 +56,22 @@ export default (options: Required<ModuleOptions>) => ({
         list: 'flex items-center',
         item: 'py-2',
         link: 'px-2.5 py-1.5 before:inset-x-px before:inset-y-0',
-        childList: 'grid grid-cols-2 gap-2 p-2'
+        childList: 'grid p-2'
       },
       vertical: {
         root: 'flex-col',
         link: 'flex-row px-2.5 py-1.5 before:inset-y-px before:inset-x-0'
+      }
+    },
+    contentOrientation: {
+      horizontal: {
+        viewport: '',
+        viewportWrapper: 'justify-center',
+        content: 'data-[motion=from-start]:animate-[enter-from-left_200ms_ease] data-[motion=from-end]:animate-[enter-from-right_200ms_ease] data-[motion=to-start]:animate-[exit-to-left_200ms_ease] data-[motion=to-end]:animate-[exit-to-right_200ms_ease]'
+      },
+      vertical: {
+        viewport: 'sm:w-[var(--reka-navigation-menu-viewport-width)] left-[var(--reka-navigation-menu-viewport-left)]',
+        content: ''
       }
     },
     active: {
@@ -91,6 +102,19 @@ export default (options: Required<ModuleOptions>) => ({
     }
   },
   compoundVariants: [{
+    orientation: 'horizontal',
+    contentOrientation: 'horizontal',
+    class: {
+      childList: 'grid-cols-2 gap-2'
+    }
+  }, {
+    orientation: 'horizontal',
+    contentOrientation: 'vertical',
+    class: {
+      childList: 'gap-1',
+      content: 'w-60'
+    }
+  }, {
     orientation: 'horizontal',
     highlight: true,
     class: {

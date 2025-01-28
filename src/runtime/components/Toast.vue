@@ -8,9 +8,9 @@ import { extendDevtoolsMeta } from '../composables/extendDevtoolsMeta'
 import { tv } from '../utils/tv'
 import type { AvatarProps, ButtonProps } from '../types'
 
-const appConfig = _appConfig as AppConfig & { ui: { toast: Partial<typeof theme> } }
+const appConfigToast = _appConfig as AppConfig & { ui: { toast: Partial<typeof theme> } }
 
-const toast = tv({ extend: tv(theme), ...(appConfig.ui?.toast || {}) })
+const toast = tv({ extend: tv(theme), ...(appConfigToast.ui?.toast || {}) })
 
 type ToastVariants = VariantProps<typeof toast>
 
