@@ -15,14 +15,14 @@ function getEmojiFlag(locale: string): string {
     el: 'gr',
     et: 'ee',
     en: 'gb',
+    hi: 'in',
     ja: 'jp',
     kh: 'km',
     ko: 'kr',
     nb: 'no',
     sv: 'se',
     uk: 'ua',
-    vi: 'vn',
-    zh: 'cn'
+    vi: 'vn'
   }
 
   const baseLanguage = locale.split('-')[0]?.toLowerCase() || locale

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import json5 from 'json5'
 import { camelCase } from 'scule'
+import { hash } from 'ohash'
 import * as theme from '#build/ui'
 import * as themePro from '#build/ui-pro'
 
@@ -77,7 +78,7 @@ const component = computed(() => {
   }
 })
 
-const { data: ast } = await useAsyncData(`component-theme-${name}`, async () => {
+const { data: ast } = await useAsyncData(`component-theme-${name}-${hash({ props })}`, async () => {
   const md = `
 ::code-collapse{class="nuxt-only"}
 

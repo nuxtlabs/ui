@@ -4,11 +4,13 @@ import theme from '#build/ui/navigation-menu'
 const colors = Object.keys(theme.variants.color)
 const variants = Object.keys(theme.variants.variant)
 const orientations = Object.keys(theme.variants.orientation)
+const contentOrientations = Object.keys(theme.variants.contentOrientation)
 
 const color = ref(theme.defaultVariants.color)
 const highlightColor = ref()
 const variant = ref(theme.defaultVariants.variant)
-const orientation = ref('vertical' as const)
+const orientation = ref('horizontal' as const)
+const contentOrientation = ref('horizontal' as const)
 const highlight = ref(true)
 const collapsed = ref(false)
 
@@ -93,6 +95,7 @@ const items = [
       <USelect v-model="color" :items="colors" placeholder="Color" />
       <USelect v-model="variant" :items="variants" placeholder="Variant" />
       <USelect v-model="orientation" :items="orientations" placeholder="Orientation" />
+      <USelect v-model="contentOrientation" :items="contentOrientations" placeholder="Content orientation" />
       <USwitch v-model="collapsed" label="Collapsed" />
       <USwitch v-model="highlight" label="Highlight" />
       <USelect v-model="highlightColor" :items="colors" placeholder="Highlight color" />
@@ -105,6 +108,7 @@ const items = [
       :color="color"
       :variant="variant"
       :orientation="orientation"
+      :viewport-orientation="contentOrientation"
       :highlight="highlight"
       :highlight-color="highlightColor"
       :class="highlight && 'data-[orientation=horizontal]:border-b border-[var(--ui-border)]'"
