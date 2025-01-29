@@ -9,9 +9,9 @@ import { tv } from '../utils/tv'
 import type { AvatarProps, KbdProps, LinkProps } from '../types'
 import type { DynamicSlots, PartialString } from '../types/utils'
 
-const appConfig = _appConfig as AppConfig & { ui: { contextMenu: Partial<typeof theme> } }
+const appConfigContextMenu = _appConfig as AppConfig & { ui: { contextMenu: Partial<typeof theme> } }
 
-const contextMenu = tv({ extend: tv(theme), ...(appConfig.ui?.contextMenu || {}) })
+const contextMenu = tv({ extend: tv(theme), ...(appConfigContextMenu.ui?.contextMenu || {}) })
 
 type ContextMenuVariants = VariantProps<typeof contextMenu>
 

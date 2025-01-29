@@ -7,9 +7,9 @@ import { extendDevtoolsMeta } from '../composables/extendDevtoolsMeta'
 import { tv } from '../utils/tv'
 import type { AvatarProps, ButtonProps } from '../types'
 
-const appConfig = _appConfig as AppConfig & { ui: { alert: Partial<typeof theme> } }
+const appConfigAlert = _appConfig as AppConfig & { ui: { alert: Partial<typeof theme> } }
 
-const alert = tv({ extend: tv(theme), ...(appConfig.ui?.alert || {}) })
+const alert = tv({ extend: tv(theme), ...(appConfigAlert.ui?.alert || {}) })
 
 type AlertVariants = VariantProps<typeof alert>
 
