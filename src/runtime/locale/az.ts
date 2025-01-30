@@ -11,7 +11,7 @@ export default defineLocale({
     },
     calendar: {
       prevYear: 'Əvvəlki il',
-      nextYear: 'Növbəti il', 
+      nextYear: 'Növbəti il',
       prevMonth: 'Əvvəlki ay',
       nextMonth: 'Növbəti ay'
     },
