@@ -118,7 +118,7 @@ export default (options: Required<ModuleOptions>) => ({
     orientation: 'horizontal',
     highlight: true,
     class: {
-      link: ['after:absolute after:bottom-[calc(calc(var(--spacing)*-2)-1px)] after:inset-x-2.5 after:block after:h-px after:rounded-full', options.theme.transitions && 'after:transition-colors']
+      link: ['after:absolute after:-bottom-2 after:inset-x-2.5 after:block after:h-px after:rounded-full', options.theme.transitions && 'after:transition-colors']
     }
   }, {
     orientation: 'vertical',
