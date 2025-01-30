@@ -7,9 +7,9 @@ import theme from '#build/ui/toaster'
 import { extendDevtoolsMeta } from '../composables/extendDevtoolsMeta'
 import { tv } from '../utils/tv'
 
-const appConfig = _appConfig as AppConfig & { ui: { toaster: Partial<typeof theme> } }
+const appConfigToaster = _appConfig as AppConfig & { ui: { toaster: Partial<typeof theme> } }
 
-const toaster = tv({ extend: tv(theme), ...(appConfig.ui?.toaster || {}) })
+const toaster = tv({ extend: tv(theme), ...(appConfigToaster.ui?.toaster || {}) })
 
 type ToasterVariants = VariantProps<typeof toaster>
 

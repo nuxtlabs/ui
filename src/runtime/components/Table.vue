@@ -38,9 +38,9 @@ declare module '@tanstack/table-core' {
   }
 }
 
-const appConfig = _appConfig as AppConfig & { ui: { table: Partial<typeof theme> } }
+const appConfigTable = _appConfig as AppConfig & { ui: { table: Partial<typeof theme> } }
 
-const table = tv({ extend: tv(theme), ...(appConfig.ui?.table || {}) })
+const table = tv({ extend: tv(theme), ...(appConfigTable.ui?.table || {}) })
 
 type TableVariants = VariantProps<typeof table>
 

@@ -55,7 +55,9 @@ describe('CommandPalette', () => {
       label: 'benjamincanac',
       avatar: {
         src: 'https://github.com/benjamincanac.png'
-      }
+      },
+      to: 'https://github.com/benjamincanac',
+      target: '_blank'
     }]
   }]
 

@@ -1,3 +1,4 @@
+import { ref, nextTick } from 'vue'
 import { useState } from '#imports'
 import type { ToastProps } from '../types'
 
@@ -8,20 +9,40 @@ export interface Toast extends Omit<ToastProps, 'defaultOpen'> {
 
 export function useToast() {
   const toasts = useState<Toast[]>('toasts', () => [])
+  const maxToasts = 5
+  const running = ref(false)
+  const queue: Toast[] = []
 
-  function add(toast: Partial<Toast>): Toast {
+  const generateId = () => `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`
+
+  async function processQueue() {
+    if (running.value || queue.length === 0) {
+      return
+    }
+
+    running.value = true
+
+    while (queue.length > 0) {
+      const toast = queue.shift()!
+
+      await nextTick()
+
+      toasts.value = [...toasts.value, toast].slice(-maxToasts)
+    }
+
+    running.value = false
+  }
+
+  async function add(toast: Partial<Toast>): Promise<Toast> {
     const body = {
-      id: new Date().getTime().toString(),
+      id: generateId(),
       open: true,
       ...toast
     }
 
-    const index = toasts.value.findIndex((t: Toast) => t.id === body.id)
-    if (index === -1) {
-      toasts.value.push(body)
-    }
+    queue.push(body)
 
-    toasts.value = toasts.value.slice(-5)
+    await processQueue()
 
     return body
   }

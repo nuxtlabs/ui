@@ -51,7 +51,8 @@ const items = [
     ]
   },
   {
-    label: 'GitHub'
+    label: 'GitHub',
+    icon: 'i-simple-icons-github'
   }
 ]
 </script>

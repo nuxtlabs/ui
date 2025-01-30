@@ -5,9 +5,9 @@ import _appConfig from '#build/app.config'
 import theme from '#build/ui/textarea'
 import { tv } from '../utils/tv'
 
-const appConfig = _appConfig as AppConfig & { ui: { textarea: Partial<typeof theme> } }
+const appConfigTextarea = _appConfig as AppConfig & { ui: { textarea: Partial<typeof theme> } }
 
-const textarea = tv({ extend: tv(theme), ...(appConfig.ui?.textarea || {}) })
+const textarea = tv({ extend: tv(theme), ...(appConfigTextarea.ui?.textarea || {}) })
 
 type TextareaVariants = VariantProps<typeof textarea>
 
@@ -66,7 +66,7 @@ const emits = defineEmits<TextareaEmits>()
 
 const [modelValue, modelModifiers] = defineModel<string | number>()
 
-const { emitFormBlur, emitFormInput, emitFormChange, size, color, id, name, highlight, disabled, ariaAttrs } = useFormField<TextareaProps>(props, { deferInputValidation: true })
+const { emitFormFocus, emitFormBlur, emitFormInput, emitFormChange, size, color, id, name, highlight, disabled, ariaAttrs } = useFormField<TextareaProps>(props, { deferInputValidation: true })
 
 const ui = computed(() => textarea({
   color: color.value,
@@ -189,6 +189,7 @@ onMounted(() => {
       @input="onInput"
       @blur="onBlur"
       @change="onChange"
+      @focus="emitFormFocus"
     />
 
     <slot />
