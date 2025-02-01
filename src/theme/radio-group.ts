@@ -32,7 +32,6 @@ export default (options: Required<ModuleOptions>) => ({
         item: 'flex-row-reverse items-center justify-between border-2 border-[var(--ui-border-muted)] rounded-lg'
       },
       table: {
-        itemWrapper: 'group gap-0',
         item: 'border-[var(--ui-border-muted)]'
       }
     },
@@ -112,16 +111,17 @@ export default (options: Required<ModuleOptions>) => ({
     { size: 'lg', variant: 'table', class: { item: 'p-4', itemWrapper: 'gap-0' } },
     { size: 'xl', variant: 'table', class: { item: 'p-4.5', itemWrapper: 'gap-0' } },
 
-    { orientation: 'horizontal', variant: 'table', class: { item: 'first:rounded-l-lg last:rounded-r-lg not-first:not-last:border-2 first:border-l-2 border-y-2 last:border-r-2' } },
-    { orientation: 'vertical', variant: 'table', class: { item: 'first:rounded-t-lg last:rounded-b-lg not-first:not-last:border-2 first:border-t-2 border-x-2 last:border-b-2' } },
+    { orientation: 'horizontal', variant: 'table', class: { item: 'first:rounded-l-lg last:rounded-r-lg not-first:not-last:border-x-2 first:border-l-2 border-y-2 last:border-r-2' } },
+    { orientation: 'vertical', variant: 'table', class: { item: 'first:rounded-t-lg last:rounded-b-lg not-first:not-last:border-y-2 first:border-t-2 border-x-2 last:border-b-2' } },
 
-    ...(options.theme.colors || []).map((color: string) => [color, {
+    ...(options.theme.colors || []).map((color: string) => ({
       color,
       variant: 'card',
       class: {
         item: `data-[checked=true]:border-[var(--ui-${color})]`
       }
-    }]),
+    })),
+
     {
       color: 'neutral',
       variant: 'card',
@@ -130,20 +130,13 @@ export default (options: Required<ModuleOptions>) => ({
       }
     },
 
-    ...(options.theme.colors || []).map((color: string) => [color, {
+    ...(options.theme.colors || []).map((color: string) => ({
       color,
       variant: 'table',
       class: {
         item: `data-[checked=true]:bg-[var(--ui-${color})]/20 data-[checked=true]:border-[var(--ui-${color})]/20`
       }
-    }]),
-    {
-      color: 'neutral',
-      variant: 'table',
-      class: {
-        item: 'data-[checked=true]:bg-[var(--ui-bg-inverted)]/20 not-only:first:rounded-b-none not-only:last:rounded-t-none not-last:not-first:rounded-none'
-      }
-    }
+    }))
   ],
   defaultVariants: {
     size: 'md',
