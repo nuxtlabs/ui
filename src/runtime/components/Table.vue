@@ -16,7 +16,20 @@ import type {
   Updater,
   CellContext,
   HeaderContext,
-  TableOptionsWithReactiveData
+  CoreOptions,
+  VisibilityOptions,
+  ColumnOrderOptions,
+  ColumnPinningOptions,
+  RowPinningOptions,
+  FacetedOptions,
+  // ColumnFiltersOptions,
+  GlobalFilterOptions,
+  // SortingOptions,
+  // GroupingOptions,
+  ExpandedOptions,
+  ColumnSizingOptions,
+  PaginationOptions,
+  RowSelectionOptions
 } from '@tanstack/vue-table'
 import _appConfig from '#build/app.config'
 import theme from '#build/ui/table'
@@ -38,15 +51,32 @@ const table = tv({ extend: tv(theme), ...(appConfigTable.ui?.table || {}) })
 
 type TableVariants = VariantProps<typeof table>
 
-export type TableColumn<T> = ColumnDef<T>
+export type TableData = RowData
 
-export type TableTanstackOptions<T> = Omit<TableOptionsWithReactiveData<T>, 'data' | 'columns' | 'getCoreRowModel'>
+export type TableColumn<T extends TableData, D = unknown> = ColumnDef<T, D>
 
-export interface TableData {
-  [key: string]: any
+interface FeatureOptions<TData extends RowData> extends VisibilityOptions,
+  ColumnOrderOptions,
+  ColumnPinningOptions,
+  RowPinningOptions<TData>,
+  FacetedOptions<TData>,
+  // ColumnFiltersOptions<TData>,
+  GlobalFilterOptions<TData>,
+  // SortingOptions<TData>,
+  // GroupingOptions,
+  ExpandedOptions<TData>,
+  ColumnSizingOptions,
+  PaginationOptions,
+  RowSelectionOptions<TData> {
 }
 
-export interface TableProps<T> {
+export interface TableOptions<T extends TableData> extends Omit<CoreOptions<T>, 'state' | 'onStateChange' | 'renderFallbackValue'>, FeatureOptions<T> {
+  state?: CoreOptions<T>['state']
+  onStateChange?: CoreOptions<T>['onStateChange']
+  renderFallbackValue?: CoreOptions<T>['renderFallbackValue']
+}
+
+export interface TableProps<T extends TableData> extends Omit<TableOptions<T>, 'data' | 'columns' | 'getCoreRowModel'> {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
@@ -54,7 +84,6 @@ export interface TableProps<T> {
   as?: any
   data?: T[]
   columns?: TableColumn<T>[]
-  tanstackOptions?: TableTanstackOptions<T>
   caption?: string
   /**
    * Whether the table should have a sticky header.
@@ -84,7 +113,8 @@ export type TableSlots<T> = {
 import { computed } from 'vue'
 import { defu } from 'defu'
 import { Primitive } from 'reka-ui'
-import { FlexRender, getCoreRowModel, getFilteredRowModel, getSortedRowModel, getExpandedRowModel, getPaginationRowModel, useVueTable } from '@tanstack/vue-table'
+import { FlexRender, getCoreRowModel, getFilteredRowModel, getSortedRowModel, getExpandedRowModel, useVueTable } from '@tanstack/vue-table'
+import { reactiveOmit } from '@vueuse/core'
 import { upperFirst } from 'scule'
 import { useLocale } from '../composables/useLocale'
 
@@ -110,12 +140,13 @@ const columnPinningState = defineModel<ColumnPinningState>('columnPinning', { de
 const rowSelectionState = defineModel<RowSelectionState>('rowSelection', { default: {} })
 const sortingState = defineModel<SortingState>('sorting', { default: [] })
 const expandedState = defineModel<ExpandedState>('expanded', { default: {} })
+const tableProps = reactiveOmit(props, 'as', 'data', 'columns', 'caption', 'sticky', 'loading', 'loadingColor', 'loadingAnimation', 'class', 'ui')
 
-const tableApi = useVueTable(defu(props.tanstackOptions, {
+const tableApi = useVueTable(defu({
   data,
   columns: columns.value,
   getCoreRowModel: getCoreRowModel(),
-  onGlobalFilterChange: (updaterOrValue: any) => valueUpdater(updaterOrValue, globalFilterState),
+  onGlobalFilterChange: (updaterOrValue: Updater<any>) => valueUpdater(updaterOrValue, globalFilterState),
   getFilteredRowModel: getFilteredRowModel(),
   onColumnFiltersChange: (updaterOrValue: Updater<ColumnFiltersState>) => valueUpdater(updaterOrValue, columnFiltersState),
   onColumnVisibilityChange: (updaterOrValue: Updater<VisibilityState>) => valueUpdater(updaterOrValue, columnVisibilityState),
@@ -125,7 +156,6 @@ const tableApi = useVueTable(defu(props.tanstackOptions, {
   onSortingChange: (updaterOrValue: Updater<SortingState>) => valueUpdater(updaterOrValue, sortingState),
   getExpandedRowModel: getExpandedRowModel(),
   onExpandedChange: (updaterOrValue: Updater<ExpandedState>) => valueUpdater(updaterOrValue, expandedState),
-  getPaginationRowModel: getPaginationRowModel(),
   state: {
     get globalFilter() {
       return globalFilterState.value
@@ -149,7 +179,7 @@ const tableApi = useVueTable(defu(props.tanstackOptions, {
       return sortingState.value
     }
   }
-}))
+}, tableProps))
 
 function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref) {
   ref.value = typeof updaterOrValue === 'function' ? updaterOrValue(ref.value) : updaterOrValue
