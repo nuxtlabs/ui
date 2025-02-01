@@ -17,18 +17,19 @@ import type {
   CellContext,
   HeaderContext,
   CoreOptions,
-  // VisibilityOptions,
+  VisibilityOptions,
   ColumnOrderOptions,
   ColumnPinningOptions,
   RowPinningOptions,
   FacetedOptions,
-  // ColumnFiltersOptions,
+  ColumnFiltersOptions,
   GlobalFilterOptions,
-  // SortingOptions,
-  // GroupingOptions,
+  SortingOptions,
+  GroupingOptions,
   ExpandedOptions,
   ColumnSizingOptions,
-  PaginationOptions
+  PaginationOptions,
+  RowSelectionOptions
 } from '@tanstack/vue-table'
 import _appConfig from '#build/app.config'
 import theme from '#build/ui/table'
@@ -55,18 +56,19 @@ export type TableData = RowData
 export type TableColumn<T extends TableData, D = unknown> = ColumnDef<T, D>
 
 interface FeatureOptions<TData extends RowData> extends
-  // VisibilityOptions,
+  /* @vue-ignore */ VisibilityOptions,
   ColumnOrderOptions,
   ColumnPinningOptions,
   RowPinningOptions<TData>,
   FacetedOptions<TData>,
-  // ColumnFiltersOptions<TData>,
+  /* @vue-ignore */ ColumnFiltersOptions<TData>,
   GlobalFilterOptions<TData>,
-  // SortingOptions<TData>,
-  // GroupingOptions,
+  /* @vue-ignore */ SortingOptions<TData>,
+  /* @vue-ignore */ GroupingOptions,
   ExpandedOptions<TData>,
   ColumnSizingOptions,
-  PaginationOptions {
+  PaginationOptions,
+  /* @vue-ignore */ RowSelectionOptions<TData> {
 }
 
 export interface TableOptions<T extends TableData> extends Omit<CoreOptions<T>, 'state' | 'onStateChange' | 'renderFallbackValue'>, FeatureOptions<T> {
