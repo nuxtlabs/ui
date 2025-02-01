@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { getPaginationRowModel } from '@tanstack/vue-table'
 import type { TableColumn } from '@nuxt/ui'
+
+const table = useTemplateRef('table')
 
 type Payment = {
   id: string
@@ -139,7 +142,6 @@ const columns: TableColumn<Payment>[] = [{
     return h('div', { class: 'text-right font-medium' }, formatted)
   }
 }]
-const table = useTemplateRef('table')
 </script>
 
 <template>
@@ -148,7 +150,13 @@ const table = useTemplateRef('table')
       ref="table"
       :data="data"
       :columns="columns"
-      :tanstack-options="{ initialState: { pagination: { pageSize: 7 } } }"
+      :get-pagination-row-model="getPaginationRowModel()"
+      :initial-state="{
+        pagination: {
+          pageIndex: 0,
+          pageSize: 7
+        }
+      }"
       class="flex-1"
     />
     <UPagination
