@@ -848,8 +848,8 @@ exports[`RadioGroup > renders with variant table correctly 1`] = `
 "<div role="radiogroup" aria-orientation="vertical" aria-required="false" dir="ltr" data-orientation="vertical" style="outline-color: none; outline-style: none; outline-width: initial;" id="v-0" class="relative" tabindex="0">
   <fieldset class="gap-1">
     <!--v-if-->
-    <div class="flex group flex-col gap-0">
-      <div class="flex items-start border-[var(--ui-border-muted)] text-sm p-3.5 first:rounded-t-lg last:rounded-b-lg not-first:not-last:border-2 first:border-t-2 border-x-2 last:border-b-2 data-[checked=true]:bg-[var(--ui-primary)]/20 data-[checked=true]:border-[var(--ui-primary)]/20" data-checked="false">
+    <div class="flex flex-col gap-0">
+      <div class="flex items-start border-[var(--ui-border-muted)] text-sm p-3.5 first:rounded-t-lg last:rounded-b-lg not-first:not-last:border-y-2 first:border-t-2 border-x-2 last:border-b-2 data-[checked=true]:bg-[var(--ui-primary)]/20 data-[checked=true]:border-[var(--ui-primary)]/20" data-checked="false">
         <div class="flex items-center h-5"><button class="rounded-full ring ring-inset ring-[var(--ui-border-accented)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ui-primary)] size-4" tabindex="-1" data-orientation="vertical" data-active="false" data-reka-collection-item="" id="v-0:1" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" aria-label="1" value="1">
             <!---->
             <!---->
@@ -858,7 +858,7 @@ exports[`RadioGroup > renders with variant table correctly 1`] = `
           <!--v-if-->
         </div>
       </div>
-      <div class="flex items-start border-[var(--ui-border-muted)] text-sm p-3.5 first:rounded-t-lg last:rounded-b-lg not-first:not-last:border-2 first:border-t-2 border-x-2 last:border-b-2 data-[checked=true]:bg-[var(--ui-primary)]/20 data-[checked=true]:border-[var(--ui-primary)]/20" data-checked="false">
+      <div class="flex items-start border-[var(--ui-border-muted)] text-sm p-3.5 first:rounded-t-lg last:rounded-b-lg not-first:not-last:border-y-2 first:border-t-2 border-x-2 last:border-b-2 data-[checked=true]:bg-[var(--ui-primary)]/20 data-[checked=true]:border-[var(--ui-primary)]/20" data-checked="false">
         <div class="flex items-center h-5"><button class="rounded-full ring ring-inset ring-[var(--ui-border-accented)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ui-primary)] size-4" tabindex="-1" data-orientation="vertical" data-active="false" data-reka-collection-item="" id="v-0:2" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" aria-label="2" value="2">
             <!---->
             <!---->
@@ -867,7 +867,7 @@ exports[`RadioGroup > renders with variant table correctly 1`] = `
           <!--v-if-->
         </div>
       </div>
-      <div class="flex items-start border-[var(--ui-border-muted)] text-sm p-3.5 first:rounded-t-lg last:rounded-b-lg not-first:not-last:border-2 first:border-t-2 border-x-2 last:border-b-2 data-[checked=true]:bg-[var(--ui-primary)]/20 data-[checked=true]:border-[var(--ui-primary)]/20" data-checked="false">
+      <div class="flex items-start border-[var(--ui-border-muted)] text-sm p-3.5 first:rounded-t-lg last:rounded-b-lg not-first:not-last:border-y-2 first:border-t-2 border-x-2 last:border-b-2 data-[checked=true]:bg-[var(--ui-primary)]/20 data-[checked=true]:border-[var(--ui-primary)]/20" data-checked="false">
         <div class="flex items-center h-5"><button class="rounded-full ring ring-inset ring-[var(--ui-border-accented)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--ui-primary)] size-4" tabindex="-1" data-orientation="vertical" data-active="false" data-reka-collection-item="" id="v-0:3" role="radio" type="button" aria-checked="false" data-state="unchecked" required="false" aria-label="3" value="3">
             <!---->
             <!---->
