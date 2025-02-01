@@ -8,6 +8,7 @@ import { devtoolsMetaPlugin } from './devtools/meta'
 import { defaultOptions, getDefaultUiConfig, resolveColors } from './defaults'
 
 export type * from './runtime/types'
+export type { NuxtUIOptions } from './unplugin'
 
 export interface ModuleOptions {
   /**
