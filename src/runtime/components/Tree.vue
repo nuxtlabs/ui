@@ -69,7 +69,7 @@ export type TreeSlots<T extends { slot?: string }> = {
 <script setup lang="ts" generic="T extends TreeItem">
 import { computed } from 'vue'
 import { TreeRoot, TreeItem as TreeItemComponent, useForwardPropsEmits } from 'radix-vue'
-import { reactiveOmit, createReusableTemplate } from '@vueuse/core'
+import { reactiveOmit } from '@vueuse/core'
 import { get } from '../utils'
 import UIcon from './Icon.vue'
 import UAvatar from './Avatar.vue'
@@ -81,15 +81,23 @@ const props = withDefaults(defineProps<TreeProps<T>>(), {
 const emits = defineEmits<TreeEmits>()
 const slots = defineSlots<TreeSlots<T>>()
 
-const rootProps = useForwardPropsEmits(reactiveOmit(props, 'class', 'ui', 'disabled'), emits)
+const rootProps = useForwardPropsEmits(reactiveOmit(props, 'class', 'ui', 'modelValue'), emits)
 
-const [DefineItemTemplate, ReuseItemTemplate] = createReusableTemplate<{ item: TreeItem, index: number, level: number, hasChildren: boolean }>()
+const modelValue = defineModel<T | undefined>()
 
 const ui = computed(() => tree({
   variant: props.variant,
   color: props.color,
   size: props.size
 }))
+
+function getItemLabel(item: TreeItem) {
+  return get(item, props.labelKey)
+}
+
+function getItemKey(item: TreeItem) {
+  return get(item, props.valueKey) ?? get(item, props.labelKey)
+}
 
 function getDefaultOpenedItems(item: TreeItem): string[] {
   const currentItem = item.defaultOpen ? item.value ?? item.label : null
@@ -100,46 +108,58 @@ function getDefaultOpenedItems(item: TreeItem): string[] {
 const defaultOpenedItems = computed(() =>
   props.items?.flatMap(getDefaultOpenedItems)
 )
+
+function onUpdate(value?: Record<string, any>) {
+  if (value?.disabled || props.disabled) return
+  modelValue.value = value as T
+}
+
+function onItemToggle(item: T, event: Event) {
+  if (item.disabled || props.disabled) event.preventDefault()
+}
 </script>
 
 <template>
-  <DefineItemTemplate v-slot="{ item, index, level, hasChildren }">
-    <slot :name="item.slot || 'item'" v-bind="{ item: item as T, index, level, hasChildren }">
-      <slot :name="item.slot ? `${item.slot}-leading`: 'item-leading'" v-bind="{ item: item as T, index, level, hasChildren }">
-        <UIcon v-if="item.icon" :name="item.icon" :class="ui.itemLeadingIcon({ class: props.ui?.itemLeadingIcon })" />
-        <UAvatar v-else-if="item.avatar" v-bind="item.avatar" :size="((props.ui?.itemLeadingAvatarSize || ui.itemLeadingAvatarSize()) as AvatarProps['size'])" :class="ui.itemLeadingAvatar({ class: props.ui?.itemLeadingAvatar })" />
-      </slot>
-
-      <span v-if="get(item, props.labelKey) || !!slots[item.slot ? `${item.slot}-label`: 'item-label']" :class="ui.itemLabel({ class: props.ui?.itemLabel })">
-        <slot :name="item.slot ? `${item.slot}-label`: 'item-label'" v-bind="{ item: item as T, index, level, hasChildren }">
-          {{ get(item, props.labelKey) }}
-        </slot>
-      </span>
-
-      <span v-if="item.trailingIcon" :class="ui.itemTrailing({ class: props.ui?.itemTrailing })">
-        <slot :name="item.slot ? `${item.slot}-trailing`: 'item-trailing'" v-bind="{ item: item as T, index, level, hasChildren }" />
-        <UIcon :name="item.trailingIcon" :class="ui.itemTrailingIcon({ class: props.ui?.itemTrailingIcon })" />
-      </span>
-    </slot>
-  </DefineItemTemplate>
-
   <TreeRoot
     v-slot="{ flattenItems }"
     v-bind="rootProps"
     :class="ui.root({ class: [props.class, props.ui?.root] })"
-    :get-key="(item) => item.value ?? item.label ?? ''"
+    :get-key="getItemKey"
     :default-expanded="defaultOpenedItems"
+    :model-value="modelValue"
+    @update:model-value="onUpdate"
   >
     <TreeItemComponent
       v-for="item in flattenItems"
       v-bind="item.bind"
       :key="item._id"
       :class="ui.item({ class: [props.ui?.item] })"
-      :style="{ 'padding-left': `${item.level - 0.5}rem` }"
-      :data-disabled="item.value.disabled || disabled ? 'true' : undefined"
-      @toggle="item.value.disabled || disabled ? $event.preventDefault() : undefined"
+      :style="{ 'padding-left': `${item.level - 0.5}em` }"
+      :data-disabled="item.value.disabled || disabled ? '' : undefined"
+      @toggle="onItemToggle(item.value, $event)"
     >
-      <ReuseItemTemplate :item="item.value" :index="item.index" :level="item.level" :has-children="item.hasChildren" />
+      <slot :name="item.value.slot || 'item'" v-bind="{ item: item.value as T, index: item.index, level: item.level, hasChildren: item.hasChildren }">
+        <slot :name="item.value.slot ? `${item.value.slot}-leading`: 'item-leading'" v-bind="{ item: item.value, index: item.index, level: item.level, hasChildren: item.hasChildren }">
+          <UIcon v-if="item.value.icon" :name="item.value.icon" :class="ui.itemLeadingIcon({ class: props.ui?.itemLeadingIcon })" />
+          <UAvatar
+            v-else-if="item.value.avatar"
+            v-bind="item.value.avatar"
+            :size="((props.ui?.itemLeadingAvatarSize || ui.itemLeadingAvatarSize()) as AvatarProps['size'])"
+            :class="ui.itemLeadingAvatar({ class: props.ui?.itemLeadingAvatar })"
+          />
+        </slot>
+
+        <span v-if="getItemLabel(item.value) || !!slots[item.value.slot ? `${item.value.slot}-label`: 'item-label']" :class="ui.itemLabel({ class: props.ui?.itemLabel })">
+          <slot :name="item.value.slot ? `${item.value.slot}-label`: 'item-label'" v-bind="{ item: item.value, index: item.index, level: item.level, hasChildren: item.hasChildren }">
+            {{ getItemLabel(item.value) }}
+          </slot>
+        </span>
+
+        <span v-if="item.value.trailingIcon" :class="ui.itemTrailing({ class: props.ui?.itemTrailing })">
+          <slot :name="item.value.slot ? `${item.value.slot}-trailing`: 'item-trailing'" v-bind="{ item: item.value, index: item.index, level: item.level, hasChildren: item.hasChildren }" />
+          <UIcon :name="item.value.trailingIcon" :class="ui.itemTrailingIcon({ class: props.ui?.itemTrailingIcon })" />
+        </span>
+      </slot>
     </TreeItemComponent>
   </TreeRoot>
 </template>

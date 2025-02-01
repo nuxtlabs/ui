@@ -26,35 +26,36 @@ export default (options: Required<ModuleOptions>) => ({
     },
     size: {
       xs: {
-        label: 'p-1 text-xs gap-1',
+        root: 'text-xs',
         item: 'p-1 text-xs gap-1',
         itemLeadingIcon: 'size-4',
         itemLeadingAvatarSize: '3xs',
         itemTrailingIcon: 'size-4'
       },
       sm: {
-        label: 'p-1.5 text-xs gap-1.5',
-        item: 'p-1.5 text-xs gap-1.5',
+        root: 'text-xs',
+        item: 'p-1.5 gap-1.5',
         itemLeadingIcon: 'size-4',
         itemLeadingAvatarSize: '3xs',
         itemTrailingIcon: 'size-4'
       },
       md: {
-        label: 'p-1.5 text-sm gap-1.5',
-        item: 'p-1.5 text-sm gap-1.5',
+        root: 'text-sm',
+        item: 'p-1.5 gap-1.5',
         itemLeadingIcon: 'size-5',
         itemLeadingAvatarSize: '2xs',
         itemTrailingIcon: 'size-5'
       },
       lg: {
-        label: 'p-2 text-sm gap-2',
-        item: 'p-2 text-sm gap-2',
+        root: 'text-sm',
+        item: 'p-2 gap-2',
         itemLeadingIcon: 'size-5',
         itemLeadingAvatarSize: '2xs',
         itemTrailingIcon: 'size-5'
       },
       xl: {
-        item: 'p-2 text-base gap-2',
+        root: 'text-base',
+        item: 'p-2 gap-2',
         itemLeadingIcon: 'size-6',
         itemLeadingAvatarSize: 'xs',
         itemTrailingIcon: 'size-6'
@@ -66,26 +67,26 @@ export default (options: Required<ModuleOptions>) => ({
       color,
       variant: 'ghost',
       class: {
-        item: `hover:bg-[var(--ui-${color})]/10 focus:bg-[var(--ui-${color})]/10 focus:text-[var(--ui-${color})] hover:text-[var(--ui-text-highlighted)]`
+        item: `hover:bg-[var(--ui-${color})]/10 data-[selected]:bg-[var(--ui-${color})]/10 data-[selected]:text-[var(--ui-${color})] hover:text-[var(--ui-text-highlighted)]`
       }
     })),
     {
       color: 'neutral', variant: 'ghost',
       class: {
-        item: 'hover:bg-[var(--ui-bg-elevated)]/50 focus:bg-[var(--ui-bg-elevated)]/50 hover:text-[var(--ui-text-highlighted)] focus:text-[var(--ui-text-highlighted)]'
+        item: 'hover:bg-[var(--ui-bg-elevated)]/50 data-[selected]:bg-[var(--ui-bg-elevated)]/50 hover:text-[var(--ui-text-highlighted)] data-[selected]:text-[var(--ui-text-highlighted)]'
       }
     },
     ...(options.theme.colors || []).map((color: string) => ({
       color,
       variant: 'link',
       class: {
-        item: `focus:text-[var(--ui-${color})] hover:text-[var(--ui-text-highlighted)]`
+        item: `data-[selected]:text-[var(--ui-${color})] hover:text-[var(--ui-text-highlighted)]`
       }
     })),
     {
       color: 'neutral', variant: 'link',
       class: {
-        item: 'hover:text-[var(--ui-text-highlighted)] focus:text-[var(--ui-text-highlighted)]'
+        item: 'hover:text-[var(--ui-text-highlighted)] data-[selected]:text-[var(--ui-text-highlighted)]'
       }
     }
 

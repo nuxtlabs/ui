@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import theme from '#build/ui/button'
+
+const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
+
 const items = [
   {
     label: 'app',
@@ -36,11 +40,19 @@ const modelValue = ref()
 </script>
 
 <template>
-  <div class="flex gap-4">
-    <UTree v-model="modelValue" :items="items" />
-    <UTree :items="items" variant="ghost" />
-    <UTree :items="items" disabled />
-    <UTree :items="items" color="error" />
-    <UTree :items="items" color="neutral" />
+  <div class="flex flex-col gap-4">
+    <div class="flex gap-4">
+      {{ modelValue }}
+      <UTree v-model="modelValue" :items="items" />
+      <UTree :items="items" multiple />
+      <UTree :items="items" variant="ghost" />
+      <UTree v-model="modelValue" :items="items" disabled />
+      <UTree :items="items" color="error" />
+      <UTree :items="items" color="neutral" />
+    </div>
+
+    <div class="flex gap-4 justify-center items-center">
+      <UTree v-for="size in sizes" :key="size" :items="items" :size="size" />
+    </div>
   </div>
 </template>
