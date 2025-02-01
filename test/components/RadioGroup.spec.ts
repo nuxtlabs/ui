@@ -31,6 +31,7 @@ describe('RadioGroup', () => {
     ['with color neutral', { props: { color: 'neutral', defaultValue: '1' } }],
     ['with orientation', { props: { ...props, orientation: 'horizontal' } }],
     ['with variant card', { props: { ...props, variant: 'card' } }],
+    ['with variant table', { props: { ...props, variant: 'table' } }],
     ['with as', { props: { ...props, as: 'section' } }],
     ['with class', { props: { ...props, class: 'absolute' } }],
     ['with ui', { props: { ...props, ui: { wrapper: 'ms-4' } } }],

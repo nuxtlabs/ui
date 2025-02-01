@@ -3,9 +3,10 @@ import type { ModuleOptions } from '../module'
 export default (options: Required<ModuleOptions>) => ({
   slots: {
     root: 'relative',
-    fieldset: 'flex',
+    fieldset: '',
     legend: 'mb-1 block font-medium text-[var(--ui-text)]',
     item: 'flex items-start',
+    itemWrapper: 'flex',
     base: 'rounded-full ring ring-inset ring-[var(--ui-border-accented)] focus-visible:outline-2 focus-visible:outline-offset-2',
     indicator: 'flex items-center justify-center size-full rounded-full after:bg-[var(--ui-bg)] after:rounded-full',
     container: 'flex items-center',
@@ -29,15 +30,19 @@ export default (options: Required<ModuleOptions>) => ({
       card: {
         base: 'ml-4',
         item: 'flex-row-reverse items-center justify-between border-2 border-[var(--ui-border-muted)] rounded-lg'
+      },
+      table: {
+        itemWrapper: 'group gap-0',
+        item: 'border-[var(--ui-border-muted)]'
       }
     },
     orientation: {
       horizontal: {
-        fieldset: 'flex-row',
+        itemWrapper: 'flex-row',
         wrapper: 'me-2'
       },
       vertical: {
-        fieldset: 'flex-col'
+        itemWrapper: 'flex-col'
       }
     },
     size: {
@@ -95,11 +100,20 @@ export default (options: Required<ModuleOptions>) => ({
     }
   },
   compoundVariants: [
-    { size: 'xs', variant: 'card', class: { item: 'p-2.5', fieldset: 'gap-2' } },
-    { size: 'sm', variant: 'card', class: { item: 'p-3', fieldset: 'gap-2.5' } },
-    { size: 'md', variant: 'card', class: { item: 'p-3.5', fieldset: 'gap-2.5' } },
-    { size: 'lg', variant: 'card', class: { item: 'p-4', fieldset: 'gap-3.5' } },
-    { size: 'xl', variant: 'card', class: { item: 'p-4.5', fieldset: 'gap-3.5' } },
+    { size: 'xs', variant: 'card', class: { item: 'p-2.5', itemWrapper: 'gap-2' } },
+    { size: 'sm', variant: 'card', class: { item: 'p-3', itemWrapper: 'gap-2.5' } },
+    { size: 'md', variant: 'card', class: { item: 'p-3.5', itemWrapper: 'gap-2.5' } },
+    { size: 'lg', variant: 'card', class: { item: 'p-4', itemWrapper: 'gap-3.5' } },
+    { size: 'xl', variant: 'card', class: { item: 'p-4.5', itemWrapper: 'gap-3.5' } },
+
+    { size: 'xs', variant: 'table', class: { item: 'p-2.5', itemWrapper: 'gap-0' } },
+    { size: 'sm', variant: 'table', class: { item: 'p-3', itemWrapper: 'gap-0' } },
+    { size: 'md', variant: 'table', class: { item: 'p-3.5', itemWrapper: 'gap-0' } },
+    { size: 'lg', variant: 'table', class: { item: 'p-4', itemWrapper: 'gap-0' } },
+    { size: 'xl', variant: 'table', class: { item: 'p-4.5', itemWrapper: 'gap-0' } },
+
+    { orientation: 'horizontal', variant: 'table', class: { item: 'first:rounded-l-lg last:rounded-r-lg not-first:not-last:border-2 first:border-l-2 border-y-2 last:border-r-2' } },
+    { orientation: 'vertical', variant: 'table', class: { item: 'first:rounded-t-lg last:rounded-b-lg not-first:not-last:border-2 first:border-t-2 border-x-2 last:border-b-2' } },
 
     ...(options.theme.colors || []).map((color: string) => [color, {
       color,
@@ -113,6 +127,21 @@ export default (options: Required<ModuleOptions>) => ({
       variant: 'card',
       class: {
         item: 'data-[checked=true]:border-[var(--ui-border-elevated)]'
+      }
+    },
+
+    ...(options.theme.colors || []).map((color: string) => [color, {
+      color,
+      variant: 'table',
+      class: {
+        item: `data-[checked=true]:bg-[var(--ui-${color})]/20 data-[checked=true]:border-[var(--ui-${color})]/20`
+      }
+    }]),
+    {
+      color: 'neutral',
+      variant: 'table',
+      class: {
+        item: 'data-[checked=true]:bg-[var(--ui-bg-inverted)]/20 not-only:first:rounded-b-none not-only:last:rounded-t-none not-last:not-first:rounded-none'
       }
     }
   ],

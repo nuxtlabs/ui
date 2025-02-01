@@ -112,7 +112,7 @@ ignore:
 external:
   - items
 props:
-  variant: 'card'
+  variant: 'table'
   defaultValue: 'pro'
   items:
     - label: 'Pro'

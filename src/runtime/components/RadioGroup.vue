@@ -157,33 +157,35 @@ function onUpdate(value: any) {
           {{ legend }}
         </slot>
       </legend>
-      <div
-        v-for="item in normalizedItems"
-        :key="item.value"
-        :class="ui.item({ class: props.ui?.item })"
-        :data-checked="item.value === modelValue"
-        @click.prevent="modelValue = disabled ? modelValue : item.value"
-      >
-        <div :class="ui.container({ class: props.ui?.container })">
-          <RadioGroupItem
-            :id="item.id"
-            :value="item.value"
-            :disabled="disabled"
-            :class="ui.base({ class: props.ui?.base })"
-          >
-            <RadioGroupIndicator :class="ui.indicator({ class: props.ui?.indicator })" />
-          </RadioGroupItem>
-        </div>
+      <div :class="ui.itemWrapper({ class: props.ui?.item })">
+        <div
+          v-for="item in normalizedItems"
+          :key="item.value"
+          :class="ui.item({ class: props.ui?.item })"
+          :data-checked="item.value === modelValue || !modelValue && item.value === defaultValue"
+          @click.prevent="modelValue = disabled ? modelValue : item.value"
+        >
+          <div :class="ui.container({ class: props.ui?.container })">
+            <RadioGroupItem
+              :id="item.id"
+              :value="item.value"
+              :disabled="disabled"
+              :class="ui.base({ class: props.ui?.base })"
+            >
+              <RadioGroupIndicator :class="ui.indicator({ class: props.ui?.indicator })" />
+            </RadioGroupItem>
+          </div>
 
-        <div :class="ui.wrapper({ class: props.ui?.wrapper })">
-          <Label :class="ui.label({ class: props.ui?.label })" :for="item.id">
-            <slot name="label" :item="item" :model-value="modelValue">{{ item.label }}</slot>
-          </Label>
-          <p v-if="item.description || !!slots.description" :class="ui.description({ class: props.ui?.description })">
-            <slot name="description" :item="item" :model-value="modelValue">
-              {{ item.description }}
-            </slot>
-          </p>
+          <div :class="ui.wrapper({ class: props.ui?.wrapper })">
+            <Label :class="ui.label({ class: props.ui?.label })" :for="item.id">
+              <slot name="label" :item="item" :model-value="modelValue">{{ item.label }}</slot>
+            </Label>
+            <p v-if="item.description || !!slots.description" :class="ui.description({ class: props.ui?.description })">
+              <slot name="description" :item="item" :model-value="modelValue">
+                {{ item.description }}
+              </slot>
+            </p>
+          </div>
         </div>
       </div>
     </fieldset>
