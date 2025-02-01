@@ -94,6 +94,12 @@ You can use a dropdown menu within a button group.
 
 :component-example{name="button-group-dropdown-example"}
 
+### With badges
+
+You can use badges within a button group.
+
+:component-example{name="button-group-badge-example"}
+
 ## API
 
 ### Props
