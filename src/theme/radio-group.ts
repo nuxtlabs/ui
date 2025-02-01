@@ -27,8 +27,8 @@ export default (options: Required<ModuleOptions>) => ({
     variant: {
       radio: {},
       card: {
-        base: 'hidden',
-        item: 'border-2 border-[var(--ui-border-muted)] rounded-lg'
+        base: 'ml-4',
+        item: 'flex-row-reverse items-center justify-between border-2 border-[var(--ui-border-muted)] rounded-lg'
       }
     },
     orientation: {
