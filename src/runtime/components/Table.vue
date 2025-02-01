@@ -17,7 +17,7 @@ import type {
   CellContext,
   HeaderContext,
   CoreOptions,
-  VisibilityOptions,
+  // VisibilityOptions,
   ColumnOrderOptions,
   ColumnPinningOptions,
   RowPinningOptions,
@@ -28,8 +28,7 @@ import type {
   // GroupingOptions,
   ExpandedOptions,
   ColumnSizingOptions,
-  PaginationOptions,
-  RowSelectionOptions
+  PaginationOptions
 } from '@tanstack/vue-table'
 import _appConfig from '#build/app.config'
 import theme from '#build/ui/table'
@@ -55,7 +54,8 @@ export type TableData = RowData
 
 export type TableColumn<T extends TableData, D = unknown> = ColumnDef<T, D>
 
-interface FeatureOptions<TData extends RowData> extends VisibilityOptions,
+interface FeatureOptions<TData extends RowData> extends
+  // VisibilityOptions,
   ColumnOrderOptions,
   ColumnPinningOptions,
   RowPinningOptions<TData>,
@@ -66,8 +66,7 @@ interface FeatureOptions<TData extends RowData> extends VisibilityOptions,
   // GroupingOptions,
   ExpandedOptions<TData>,
   ColumnSizingOptions,
-  PaginationOptions,
-  RowSelectionOptions<TData> {
+  PaginationOptions {
 }
 
 export interface TableOptions<T extends TableData> extends Omit<CoreOptions<T>, 'state' | 'onStateChange' | 'renderFallbackValue'>, FeatureOptions<T> {
@@ -142,7 +141,7 @@ const sortingState = defineModel<SortingState>('sorting', { default: [] })
 const expandedState = defineModel<ExpandedState>('expanded', { default: {} })
 const tableProps = reactiveOmit(props, 'as', 'data', 'columns', 'caption', 'sticky', 'loading', 'loadingColor', 'loadingAnimation', 'class', 'ui')
 
-const tableApi = useVueTable(defu({
+const tableApi = useVueTable(defu(tableProps, {
   data,
   columns: columns.value,
   getCoreRowModel: getCoreRowModel(),
@@ -179,7 +178,7 @@ const tableApi = useVueTable(defu({
       return sortingState.value
     }
   }
-}, tableProps))
+}))
 
 function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref) {
   ref.value = typeof updaterOrValue === 'function' ? updaterOrValue(ref.value) : updaterOrValue
