@@ -114,8 +114,8 @@ const rowSelection = ref({ 1: true })
     />
 
     <div class="px-4 py-3.5 border-t border-[var(--ui-border-accented)] text-sm text-[var(--ui-text-muted)]">
-      {{ table?.tableApi?.getFilteredSelectedRowModel().rows.length || 0 }} of
-      {{ table?.tableApi?.getFilteredRowModel().rows.length || 0 }} row(s) selected.
+      {{ table?.getFilteredSelectedRowModel().rows.length || 0 }} of
+      {{ table?.getFilteredRowModel().rows.length || 0 }} row(s) selected.
     </div>
   </div>
 </template>

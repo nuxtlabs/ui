@@ -102,10 +102,10 @@ const columnFilters = ref([{
   <div class="flex flex-col flex-1 w-full">
     <div class="flex px-4 py-3.5 border-b border-[var(--ui-border-accented)]">
       <UInput
-        :model-value="(table?.tableApi?.getColumn('email')?.getFilterValue() as string)"
+        :model-value="(table?.getColumn('email')?.getFilterValue() as string)"
         class="max-w-sm"
         placeholder="Filter emails..."
-        @update:model-value="table?.tableApi?.getColumn('email')?.setFilterValue($event)"
+        @update:model-value="table?.getColumn('email')?.setFilterValue($event)"
       />
     </div>
 

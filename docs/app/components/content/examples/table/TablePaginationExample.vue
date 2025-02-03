@@ -160,11 +160,11 @@ const columns: TableColumn<Payment>[] = [{
       class="flex-1"
     />
     <UPagination
-      :default-page="(table?.tableApi.getState().pagination.pageIndex || 0) + 1"
-      :items-per-page="table?.tableApi.getState().pagination.pageSize"
-      :total="table?.tableApi.getFilteredRowModel().rows.length"
+      :default-page="(table?.getState().pagination.pageIndex || 0) + 1"
+      :items-per-page="table?.getState().pagination.pageSize"
+      :total="table?.getFilteredRowModel().rows.length"
       class="w-fit mx-auto"
-      @update:page="(p) => table?.tableApi.setPageIndex(p - 1)"
+      @update:page="(p) => table?.setPageIndex(p - 1)"
     />
   </div>
 </template>

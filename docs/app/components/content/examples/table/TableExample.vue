@@ -266,21 +266,21 @@ function randomize() {
   <div class="flex-1 divide-y divide-[var(--ui-border-accented)] w-full">
     <div class="flex items-center gap-2 px-4 py-3.5 overflow-x-auto">
       <UInput
-        :model-value="(table?.tableApi?.getColumn('email')?.getFilterValue() as string)"
+        :model-value="(table?.getColumn('email')?.getFilterValue() as string)"
         class="max-w-sm min-w-[12ch]"
         placeholder="Filter emails..."
-        @update:model-value="table?.tableApi?.getColumn('email')?.setFilterValue($event)"
+        @update:model-value="table?.getColumn('email')?.setFilterValue($event)"
       />
 
       <UButton color="neutral" label="Randomize" @click="randomize" />
 
       <UDropdownMenu
-        :items="table?.tableApi?.getAllColumns().filter(column => column.getCanHide()).map(column => ({
+        :items="table?.getAllColumns().filter(column => column.getCanHide()).map(column => ({
           label: upperFirst(column.id),
           type: 'checkbox' as const,
           checked: column.getIsVisible(),
           onUpdateChecked(checked: boolean) {
-            table?.tableApi?.getColumn(column.id)?.toggleVisibility(!!checked)
+            table?.getColumn(column.id)?.toggleVisibility(!!checked)
           },
           onSelect(e?: Event) {
             e?.preventDefault()
@@ -311,8 +311,8 @@ function randomize() {
     </UTable>
 
     <div class="px-4 py-3.5 text-sm text-[var(--ui-text-muted)]">
-      {{ table?.tableApi?.getFilteredSelectedRowModel().rows.length || 0 }} of
-      {{ table?.tableApi?.getFilteredRowModel().rows.length || 0 }} row(s) selected.
+      {{ table?.getFilteredSelectedRowModel().rows.length || 0 }} of
+      {{ table?.getFilteredRowModel().rows.length || 0 }} row(s) selected.
     </div>
   </div>
 </template>

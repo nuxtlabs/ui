@@ -2,6 +2,7 @@
 import { h, resolveComponent } from 'vue'
 import { upperFirst } from 'scule'
 import type { TableColumn } from '@nuxt/ui'
+import { getPaginationRowModel } from '@tanstack/vue-table'
 
 const UButton = resolveComponent('UButton')
 const UCheckbox = resolveComponent('UCheckbox')
@@ -284,21 +285,21 @@ onMounted(() => {
   <div class="h-full flex flex-col flex-1 gap-4 w-full">
     <div class="flex gap-2 items-center">
       <UInput
-        :model-value="(table?.tableApi?.getColumn('email')?.getFilterValue() as string)"
+        :model-value="(table?.getColumn('email')?.getFilterValue() as string)"
         class="max-w-sm"
         placeholder="Filter emails..."
-        @update:model-value="table?.tableApi?.getColumn('email')?.setFilterValue($event)"
+        @update:model-value="table?.getColumn('email')?.setFilterValue($event)"
       />
 
       <UButton color="neutral" label="Randomize" @click="randomize" />
 
       <UDropdownMenu
-        :items="table?.tableApi?.getAllColumns().filter(column => column.getCanHide()).map(column => ({
+        :items="table?.getAllColumns().filter(column => column.getCanHide()).map(column => ({
           label: upperFirst(column.id),
           type: 'checkbox' as const,
           checked: column.getIsVisible(),
           onUpdateChecked(checked: boolean) {
-            table?.tableApi?.getColumn(column.id)?.toggleVisibility(!!checked)
+            table?.getColumn(column.id)?.toggleVisibility(!!checked)
           },
           onSelect(e?: Event) {
             e?.preventDefault()
@@ -322,6 +323,7 @@ onMounted(() => {
       :columns="columns"
       :column-pinning="columnPinning"
       :loading="loading"
+      :get-pagination-row-model="getPaginationRowModel()"
       sticky
       :ui="{
         tr: 'divide-x divide-[var(--ui-border)]'
@@ -335,28 +337,28 @@ onMounted(() => {
 
     <div class="flex items-center justify-between gap-3">
       <div class="text-sm text-[var(--ui-text-muted)]">
-        {{ table?.tableApi?.getFilteredSelectedRowModel().rows.length || 0 }} of
-        {{ table?.tableApi?.getFilteredRowModel().rows.length || 0 }} row(s) selected.
+        {{ table?.getFilteredSelectedRowModel().rows.length || 0 }} of
+        {{ table?.getFilteredRowModel().rows.length || 0 }} row(s) selected.
       </div>
 
-      <!-- <div class="flex items-center gap-1.5">
+      <div class="flex items-center gap-1.5">
         <UButton
           color="neutral"
           variant="outline"
-          :disabled="!table?.tableApi?.getCanPreviousPage()"
-          @click="table?.tableApi?.previousPage()"
+          :disabled="!table?.getCanPreviousPage()"
+          @click="table?.previousPage()"
         >
           Prev
         </UButton>
         <UButton
           color="neutral"
           variant="outline"
-          :disabled="!table?.tableApi?.getCanNextPage()"
-          @click="table?.tableApi?.nextPage()"
+          :disabled="!table?.getCanNextPage()"
+          @click="table?.nextPage()"
         >
           Next
         </UButton>
-      </div> -->
+      </div>
     </div>
   </div>
 </template>

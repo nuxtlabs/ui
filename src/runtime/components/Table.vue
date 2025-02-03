@@ -55,29 +55,29 @@ export type TableData = RowData
 
 export type TableColumn<T extends TableData, D = unknown> = ColumnDef<T, D>
 
-interface FeatureOptions<TData extends RowData> extends
+interface FeatureOptions<T extends RowData> extends
   /* @vue-ignore */ VisibilityOptions,
   ColumnOrderOptions,
   ColumnPinningOptions,
-  RowPinningOptions<TData>,
-  FacetedOptions<TData>,
-  /* @vue-ignore */ ColumnFiltersOptions<TData>,
-  GlobalFilterOptions<TData>,
-  /* @vue-ignore */ SortingOptions<TData>,
+  RowPinningOptions<T>,
+  FacetedOptions<T>,
+  /* @vue-ignore */ ColumnFiltersOptions<T>,
+  GlobalFilterOptions<T>,
+  /* @vue-ignore */ SortingOptions<T>,
   /* @vue-ignore */ GroupingOptions,
-  ExpandedOptions<TData>,
+  ExpandedOptions<T>,
   ColumnSizingOptions,
   PaginationOptions,
-  /* @vue-ignore */ RowSelectionOptions<TData> {
+  /* @vue-ignore */ RowSelectionOptions<T> {
 }
 
-export interface TableOptions<T extends TableData> extends Omit<CoreOptions<T>, 'state' | 'onStateChange' | 'renderFallbackValue'>, FeatureOptions<T> {
+export interface TableOptions<T extends TableData> extends Omit<CoreOptions<T>, 'data' | 'columns' | 'getCoreRowModel' | 'state' | 'onStateChange' | 'renderFallbackValue'>, FeatureOptions<T> {
   state?: CoreOptions<T>['state']
   onStateChange?: CoreOptions<T>['onStateChange']
   renderFallbackValue?: CoreOptions<T>['renderFallbackValue']
 }
 
-export interface TableProps<T extends TableData> extends Omit<TableOptions<T>, 'data' | 'columns' | 'getCoreRowModel'> {
+export interface TableProps<T extends TableData> extends TableOptions<T> {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
@@ -141,6 +141,7 @@ const columnPinningState = defineModel<ColumnPinningState>('columnPinning', { de
 const rowSelectionState = defineModel<RowSelectionState>('rowSelection', { default: {} })
 const sortingState = defineModel<SortingState>('sorting', { default: [] })
 const expandedState = defineModel<ExpandedState>('expanded', { default: {} })
+
 const tableProps = reactiveOmit(props, 'as', 'data', 'columns', 'caption', 'sticky', 'loading', 'loadingColor', 'loadingAnimation', 'class', 'ui')
 
 const tableApi = useVueTable(defu(tableProps, {
@@ -186,9 +187,7 @@ function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref) {
   ref.value = typeof updaterOrValue === 'function' ? updaterOrValue(ref.value) : updaterOrValue
 }
 
-defineExpose({
-  tableApi
-})
+defineExpose(tableApi)
 </script>
 
 <template>

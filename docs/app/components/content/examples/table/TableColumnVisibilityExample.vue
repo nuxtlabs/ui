@@ -102,12 +102,12 @@ const columnVisibility = ref({
   <div class="flex flex-col flex-1 w-full">
     <div class="flex justify-end px-4 py-3.5 border-b  border-[var(--ui-border-accented)]">
       <UDropdownMenu
-        :items="table?.tableApi?.getAllColumns().filter(column => column.getCanHide()).map(column => ({
+        :items="table?.getAllColumns().filter(column => column.getCanHide()).map(column => ({
           label: upperFirst(column.id),
           type: 'checkbox' as const,
           checked: column.getIsVisible(),
           onUpdateChecked(checked: boolean) {
-            table?.tableApi?.getColumn(column.id)?.toggleVisibility(!!checked)
+            table?.getColumn(column.id)?.toggleVisibility(!!checked)
           },
           onSelect(e?: Event) {
             e?.preventDefault()
