@@ -1,5 +1,47 @@
 # Changelog
 
+## [3.0.0-alpha.12](https://github.com/nuxt/ui/compare/v3.0.0-alpha.11...v3.0.0-alpha.12) (2025-01-27)
+
+### ⚠ BREAKING CHANGES
+
+* **ColorPicker:** migrate from `color` to `colortranslator` (#3097)
+* **Form:** include nested state in submit data (#3028)
+
+### Features
+
+* **css:** add `light` variant to reverse colors ([75f7064](https://github.com/nuxt/ui/commit/75f7064b409a47d068007d0b4f3af007fb24c679))
+* **FormField:** set `aria-describedby`  and `aria-invalid`  attributes ([#3123](https://github.com/nuxt/ui/issues/3123)) ([b95b913](https://github.com/nuxt/ui/commit/b95b91391af21ee0fd96c69fb6ccf99b3126bc79))
+* **Form:** form validation properties ([#3137](https://github.com/nuxt/ui/issues/3137)) ([c0b485d](https://github.com/nuxt/ui/commit/c0b485d56376d6655d15d6241daeef19f25db25f))
+* **locale:** add Hebrew language ([#3181](https://github.com/nuxt/ui/issues/3181)) ([f395877](https://github.com/nuxt/ui/commit/f3958773d610d64fe15cf57525044eec22dc1f96))
+* **locale:** add Hindi language ([#3170](https://github.com/nuxt/ui/issues/3170)) ([8e96daa](https://github.com/nuxt/ui/commit/8e96daa5cc57e1a2c7605d54f8640f8e012a645d))
+* **locale:** add Hungarian language ([#3129](https://github.com/nuxt/ui/issues/3129)) ([891ba1f](https://github.com/nuxt/ui/commit/891ba1fec64255ba4db0f4447e044cc9140ced94))
+* **locale:** add Khmer language ([#3119](https://github.com/nuxt/ui/issues/3119)) ([64421a1](https://github.com/nuxt/ui/commit/64421a190ff43563cc73f64b6a9141d69e3f5ca5))
+* **locale:** add Norwegian Bokmål language ([#3095](https://github.com/nuxt/ui/issues/3095)) ([9ccfe8f](https://github.com/nuxt/ui/commit/9ccfe8fbb3284a5bdd0766ba5831135d298b563f))
+* **NavigationMenu:** add `collapsed` prop ([3fc2210](https://github.com/nuxt/ui/commit/3fc2210e0392b63b065e4f4899ff864f1a3717b1))
+* **NavigationMenu:** add `contentOrientation` prop ([ac86ee0](https://github.com/nuxt/ui/commit/ac86ee01b9fc9b5dc882b210d88b8fef73148e42))
+* **NavigationMenu:** handle `label` type in items ([27fdc8e](https://github.com/nuxt/ui/commit/27fdc8e260bb8d2ca815c84cfdc30b6ca3baa038)), closes [#2993](https://github.com/nuxt/ui/issues/2993)
+
+### Bug Fixes
+
+* **Alert:** allow actions wrap ([#3083](https://github.com/nuxt/ui/issues/3083)) ([e7c10bc](https://github.com/nuxt/ui/commit/e7c10bcb0dbbfbbe48bbdea7cbd99d4535be1adb))
+* **Avatar:** handle loading manually to support `@nuxt/image` ([00c5f26](https://github.com/nuxt/ui/commit/00c5f261117fd986c8be70ecdc21762023e7ebc0)), closes [nuxt/ui-pro#727](https://github.com/nuxt/ui-pro/issues/727)
+* **Avatar:** hide fallback when image is loaded ([36d7402](https://github.com/nuxt/ui/commit/36d7402be1f823c753c7cd44cca82bbb5fd4cddd)), closes [nuxt/ui-pro#727](https://github.com/nuxt/ui-pro/issues/727)
+* **Button:** wrong avatar size with `block` prop ([ba1dd13](https://github.com/nuxt/ui/commit/ba1dd13173835c9b72b862eb9f875a8cd79c5604))
+* **colors:** move css variables to `base` layer ([533ccec](https://github.com/nuxt/ui/commit/533ccec11007ec9078fd8daefd88f6b146991939)), closes [#3075](https://github.com/nuxt/ui/issues/3075)
+* **components:** prevent multiple `appConfig` identifier import ([#3186](https://github.com/nuxt/ui/issues/3186)) ([cd16b95](https://github.com/nuxt/ui/commit/cd16b95c98c0ec29bc0586ba890555f79be00290))
+* **ContextMenu/DropdownMenu:** remove unnecessary bindings in html ([9b5a957](https://github.com/nuxt/ui/commit/9b5a957cdd01baafaa981864ad7d03902ad6918d))
+* **Form:** include nested state in submit data ([#3028](https://github.com/nuxt/ui/issues/3028)) ([de9ecb1](https://github.com/nuxt/ui/commit/de9ecb1d767060f88c1dbdf69b9c04d5731b049d))
+* **Form:** standard schema validation no longer wrapped in `value` object ([#3104](https://github.com/nuxt/ui/issues/3104)) ([8f7f579](https://github.com/nuxt/ui/commit/8f7f579da0fc58575184dc445ff0dda0c0ca1298))
+* **locale:** remove emoji fallback for Chinese ([#3134](https://github.com/nuxt/ui/issues/3134)) ([1a95104](https://github.com/nuxt/ui/commit/1a951046319eaf85c2adb44928a0255dedef093d))
+* **locale:** year translation missing `ñ` in `es` ([#3090](https://github.com/nuxt/ui/issues/3090)) ([1bf370e](https://github.com/nuxt/ui/commit/1bf370e6fd27fab644689335b7356bbf4c359663))
+* **NavigationMenu:** handle children recursively in vertical orientation ([2b7ff3e](https://github.com/nuxt/ui/commit/2b7ff3edf6620d7ed4a491d89f0e616b5916984b)), closes [#3128](https://github.com/nuxt/ui/issues/3128)
+* **NavigationMenu:** highlight open items on `horizontal` orientation only ([931211a](https://github.com/nuxt/ui/commit/931211a634183a8122ce0be874cc1f9048768d88))
+* **useToast:** add in queue and improve unique ids ([aafddd8](https://github.com/nuxt/ui/commit/aafddd8eed0f3fc7c7228c2db4718ba54f3fc522)), closes [#2686](https://github.com/nuxt/ui/issues/2686)
+
+### Code Refactoring
+
+* **ColorPicker:** migrate from `color` to `colortranslator` ([#3097](https://github.com/nuxt/ui/issues/3097)) ([51e5e65](https://github.com/nuxt/ui/commit/51e5e65be7f834ec226be28d95a1b547b85b329c))
+
 ## [3.0.0-alpha.11](https://github.com/nuxt/ui/compare/v3.0.0-alpha.10...v3.0.0-alpha.11) (2025-01-13)
 
 ### ⚠ BREAKING CHANGES
