@@ -57,7 +57,7 @@ importers:
         version: 12.5.0(typescript@5.6.3)
       '@vueuse/integrations':
         specifier: ^12.5.0
-        version: 12.5.0(change-case@5.4.4)(fuse.js@7.0.0)(typescript@5.6.3)
+        version: 12.5.0(change-case@5.4.4)(fuse.js@7.1.0)(typescript@5.6.3)
       '@vueuse/math':
         specifier: ^12.5.0
         version: 12.5.0(typescript@5.6.3)
@@ -65,8 +65,8 @@ importers:
         specifier: ^6.1.4
         version: 6.1.4
       fuse.js:
-        specifier: ^7.0.0
-        version: 7.0.0
+        specifier: ^7.1.0
+        version: 7.1.0
       ohash:
         specifier: ^1.1.4
         version: 1.1.4
@@ -153,11 +153,11 @@ importers:
         specifier: ^1.2.25
         version: 1.2.25
       '@iconify-json/simple-icons':
-        specifier: ^1.2.22
-        version: 1.2.22
+        specifier: ^1.2.23
+        version: 1.2.23
       '@iconify-json/vscode-icons':
-        specifier: ^1.2.10
-        version: 1.2.10
+        specifier: ^1.2.11
+        version: 1.2.11
       '@nuxt/content':
         specifier: 2.13.2
         version: 2.13.2(db0@0.2.1)(ioredis@5.4.2)(magicast@0.3.5)(nuxt@3.15.4(@parcel/watcher@2.5.1)(@types/node@22.10.10)(db0@0.2.1)(eslint@9.19.0(jiti@2.4.2))(ioredis@5.4.2)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.32.0)(terser@5.37.0)(typescript@5.6.3)(vite@6.0.11(@types/node@22.10.10)(jiti@2.4.2)(terser@5.37.0)(yaml@2.7.0))(vue-tsc@2.1.10(typescript@5.6.3))(yaml@2.7.0))(rollup@4.32.0)(vue@3.5.13(typescript@5.6.3))
@@ -824,11 +824,11 @@ packages:
   '@iconify-json/lucide@1.2.25':
     resolution: {integrity: sha512-OsHihLfqdjxwoLWDEnGesrYbCG6VCCoLvmb1U6UJhggsppW+D3DUY/LhhcppZM4Yw3AM4USDIn/gkzqjdRYgEw==}
 
-  '@iconify-json/simple-icons@1.2.22':
-    resolution: {integrity: sha512-0UzThRMwHuOJfgpp+tyV/y2uEBLjFVrxC4igv9iWjSEQEBK4tNjWZNTRCBCYyv/FwWVYyKAsA8tZQ8vUYzvFnw==}
+  '@iconify-json/simple-icons@1.2.23':
+    resolution: {integrity: sha512-ySyZ0ZXdNveWnR71t7XGV7jhknxSlTtpM2TyIR1cUHTUzZLP36hYHTNqb2pYYsCzH5ed85KTTKz7vYT33FyNIQ==}
 
-  '@iconify-json/vscode-icons@1.2.10':
-    resolution: {integrity: sha512-qjp/j2RcHEZkesuAT6RP8BfcuHa+oERr7K1twfsulrIHrKZlpxxBeEyFm+3evZSAOgD+sjgU5CuTYS3RfCL+Pg==}
+  '@iconify-json/vscode-icons@1.2.11':
+    resolution: {integrity: sha512-V0ldtWPUKe7ZB3CV/TjgDW1Gbz74AxjGPS2NBWDTSn/y25gTwFycI1YcrluDhuVSoQpDEIYmm3JQJkhtSefh7A==}
 
   '@iconify/collections@1.0.511':
     resolution: {integrity: sha512-Ilp9gg6HYu9oGZUCNGCEsblATFagC7AmvsUMi4mxfPbh48ygKQ4vIfzJetE9AAu2qwqaYt/dRQjTXvt5Ex8HwQ==}
@@ -3358,8 +3358,8 @@ packages:
   function-bind@1.1.2:
     resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
 
-  fuse.js@7.0.0:
-    resolution: {integrity: sha512-14F4hBIxqKvD4Zz/XjDc3y94mNZN6pRv3U13Udo0lNLCWRBUsrMv2xwcF/y/Z5sV6+FQW+/ow68cHpm4sunt8Q==}
+  fuse.js@7.1.0:
+    resolution: {integrity: sha512-trLf4SzuuUxfusZADLINj+dE8clK1frKdmqiJNb1Es75fmI5oY6X2mxLVUciLLjxqw/xr72Dhy+lER6dGd02FQ==}
     engines: {node: '>=10'}
 
   gensync@1.0.0-beta.2:
@@ -7019,11 +7019,11 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/simple-icons@1.2.22':
+  '@iconify-json/simple-icons@1.2.23':
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/vscode-icons@1.2.10':
+  '@iconify-json/vscode-icons@1.2.11':
     dependencies:
       '@iconify/types': 2.0.0
 
@@ -7256,7 +7256,7 @@ snapshots:
       clipboardy: 4.0.0
       consola: 3.4.0
       defu: 6.1.4
-      fuse.js: 7.0.0
+      fuse.js: 7.1.0
       giget: 1.2.4
       h3: 1.14.0
       httpxy: 0.1.7
@@ -7791,7 +7791,7 @@ snapshots:
 
   '@nuxt/ui-pro@1.7.0(typescript@5.6.3)(vue@3.5.13(typescript@5.6.3))':
     dependencies:
-      '@iconify-json/vscode-icons': 1.2.10
+      '@iconify-json/vscode-icons': 1.2.11
       '@nuxt/ui': 'link:'
       '@vueuse/core': 12.5.0(typescript@5.6.3)
       defu: 6.1.4
@@ -8989,14 +8989,14 @@ snapshots:
       '@unhead/vue': 1.11.18(vue@3.5.13(typescript@5.6.3))
       vue: 3.5.13(typescript@5.6.3)
 
-  '@vueuse/integrations@12.5.0(change-case@5.4.4)(fuse.js@7.0.0)(typescript@5.6.3)':
+  '@vueuse/integrations@12.5.0(change-case@5.4.4)(fuse.js@7.1.0)(typescript@5.6.3)':
     dependencies:
       '@vueuse/core': 12.5.0(typescript@5.6.3)
       '@vueuse/shared': 12.5.0(typescript@5.6.3)
       vue: 3.5.13(typescript@5.6.3)
     optionalDependencies:
       change-case: 5.4.4
-      fuse.js: 7.0.0
+      fuse.js: 7.1.0
     transitivePeerDependencies:
       - typescript
 
@@ -10461,7 +10461,7 @@ snapshots:
 
   function-bind@1.1.2: {}
 
-  fuse.js@7.0.0: {}
+  fuse.js@7.1.0: {}
 
   gensync@1.0.0-beta.2: {}
 
