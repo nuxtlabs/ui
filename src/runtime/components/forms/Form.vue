@@ -241,8 +241,8 @@ export async function validateStandardSchema(
   }
 
   const errors = result.issues.map(issue => ({
-        path: issue.path?.map(item => typeof item === 'object' ? item.key : item).join('.') || '',
-        message: issue.message
+    path: issue.path?.map(item => typeof item === 'object' ? item.key : item).join('.') || '',
+    message: issue.message
   }))
 
   return {
