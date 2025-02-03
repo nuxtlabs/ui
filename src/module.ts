@@ -1,5 +1,6 @@
 import { createRequire } from 'node:module'
 import { defineNuxtModule, installModule, addComponentsDir, addImportsDir, createResolver, addPlugin } from '@nuxt/kit'
+import type { ConfigExtension, DefaultClassGroupIds, DefaultThemeGroupIds } from 'tailwind-merge'
 import { name, version } from '../package.json'
 import createTemplates from './templates'
 import type * as config from './runtime/ui.config'
@@ -20,6 +21,7 @@ type UI = {
   gray?: string
   colors?: string[]
   strategy?: Strategy
+  tailwindMerge?: ConfigExtension<DefaultClassGroupIds, DefaultThemeGroupIds>
   [key: string]: any
 } & DeepPartial<typeof config, string | number | boolean>
 
@@ -41,6 +43,11 @@ export interface ModuleOptions {
    */
   global?: boolean
 
+  /**
+   * @default true
+   */
+  colorMode?: boolean
+
   safelistColors?: string[]
   /**
    * Disables the global css styles added by the module.
@@ -59,6 +66,7 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     prefix: 'U',
+    colorMode: true,
     safelistColors: ['primary'],
     disableGlobalStyles: false
   },
@@ -81,7 +89,9 @@ export default defineNuxtModule<ModuleOptions>({
     // Modules
 
     await installModule('@nuxt/icon')
-    await installModule('@nuxtjs/color-mode', { classSuffix: '' })
+    if (options.colorMode) {
+      await installModule('@nuxtjs/color-mode', { classSuffix: '' })
+    }
     await installTailwind(options, nuxt, resolve)
 
     // Plugins

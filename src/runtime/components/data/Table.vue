@@ -99,7 +99,6 @@
                     v-bind="ui.default.checkbox"
                     aria-label="Select row"
                     @change="onChangeCheckbox($event, row)"
-                    @click.capture.stop="() => onSelect(row)"
                   />
                 </slot>
 
@@ -144,7 +143,7 @@ import UButton from '../elements/Button.vue'
 import UProgress from '../elements/Progress.vue'
 import UCheckbox from '../forms/Checkbox.vue'
 import { useUI } from '../../composables/useUI'
-import { mergeConfig, get } from '../../utils'
+import { get, mergeConfig } from '../../utils'
 import type { TableRow, TableColumn, Strategy, Button, ProgressColor, ProgressAnimation, DeepPartial, Expanded } from '../../types/index'
 // @ts-expect-error
 import appConfig from '#build/app.config'
@@ -445,8 +444,7 @@ export default defineComponent({
       if (checked) {
         selected.value = props.singleSelect ? [row] : [...selected.value, row]
       } else {
-        const index = selected.value.findIndex(item => compare(item, row))
-        selected.value.splice(index, 1)
+        selected.value = selected.value.filter(value => !compare(toRaw(value), toRaw(row)))
       }
     }
 
