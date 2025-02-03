@@ -226,7 +226,7 @@ export function isStandardSchema(schema: any): schema is StandardSchemaV1 {
   return '~standard' in schema
 }
 
-export async function validateStandarSchema(
+export async function validateStandardSchema(
   state: any,
   schema: StandardSchemaV1
 ): Promise<ValidateReturnSchema<typeof state>> {
@@ -241,8 +241,8 @@ export async function validateStandarSchema(
   }
 
   const errors = result.issues.map(issue => ({
-    path: issue.path?.map(item => typeof item === 'object' ? item.key : item).join('.') || '',
-    message: issue.message
+        path: issue.path?.map(item => typeof item === 'object' ? item.key : item).join('.') || '',
+        message: issue.message
   }))
 
   return {
@@ -378,7 +378,7 @@ async function validateYupSchema(
 
 function parseSchema(state: any, schema: Schema): Promise<ValidateReturnSchema<typeof state>> {
   if (isStandardSchema(schema)) {
-    return validateStandarSchema(state, schema)
+    return validateStandardSchema(state, schema)
   } else if (isZodSchema(schema)) {
     return validateZodSchema(state, schema)
   } else if (isJoiSchema(schema)) {
