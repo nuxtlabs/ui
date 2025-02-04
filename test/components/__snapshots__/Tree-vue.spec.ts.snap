@@ -1,9 +1,473 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Tree > renders with as correctly 1`] = `"<div role="tree" tabindex="-1" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm"></div>"`;
+exports[`Tree > renders with as correctly 1`] = `
+"<div role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app.vue" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app.vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt.config.ts</span>
+    <!--v-if-->
+  </li>
+</div>"
+`;
 
-exports[`Tree > renders with class correctly 1`] = `"<ul role="tree" tabindex="-1" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm"></ul>"`;
+exports[`Tree > renders with childIcon correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" childicon="lucide:dot" class="relative text-sm" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app.vue" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="shrink-0 size-4" width="1em" height="1em" viewBox="0 0 16 16"></svg><span class="truncate">app.vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="shrink-0 size-4" width="1em" height="1em" viewBox="0 0 16 16"></svg><span class="truncate">nuxt.config.ts</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with childTrailingIcon correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" childtrailingicon="lucide:dot" class="relative text-sm" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app.vue" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app.vue</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="shrink-0 size-4" width="1em" height="1em" viewBox="0 0 16 16"></svg>
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt.config.ts</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="shrink-0 size-4" width="1em" height="1em" viewBox="0 0 16 16"></svg>
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with class correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm some-class" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app.vue" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app.vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt.config.ts</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
 
 exports[`Tree > renders with default slot correctly 1`] = `"<ul role="tree" tabindex="-1" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm"></ul>"`;
 
-exports[`Tree > renders with ui correctly 1`] = `"<ul role="tree" tabindex="-1" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm"></ul>"`;
+exports[`Tree > renders with defaultOpened item correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm" tabindex="0">
+  <li aria-setsize="1" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="Default Opened" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">Default Opened</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with defaultValue correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" data-selected="" aria-label="app" role="treeitem" aria-selected="true" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app.vue" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app.vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt.config.ts</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with disabled correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" data-disabled="" aria-label="app" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" data-disabled="" aria-label="app.vue" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app.vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" data-disabled="" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt.config.ts</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with disabled item correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm" tabindex="0">
+  <li aria-setsize="1" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" data-disabled="" aria-label="Disabled item" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">Disabled item</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with dynamic slot correctly 1`] = `"<ul role="tree" tabindex="-1" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm"></ul>"`;
+
+exports[`Tree > renders with item icon correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm" tabindex="0">
+  <li aria-setsize="1" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="Icon item" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="shrink-0 size-4" width="1em" height="1em" viewBox="0 0 16 16"></svg><span class="truncate">Icon item</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with item leadingIcon correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm" tabindex="0">
+  <li aria-setsize="1" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="Leading item" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">Leading item</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with item slot correctly 1`] = `"<ul role="tree" tabindex="-1" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm"></ul>"`;
+
+exports[`Tree > renders with item trailingIcon correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm" tabindex="0">
+  <li aria-setsize="1" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="Trailing item" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">Trailing item</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="shrink-0 size-4" width="1em" height="1em" viewBox="0 0 16 16"></svg>
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with item-leading slot correctly 1`] = `"<ul role="tree" tabindex="-1" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm"></ul>"`;
+
+exports[`Tree > renders with item-trailing slot correctly 1`] = `"<ul role="tree" tabindex="-1" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm"></ul>"`;
+
+exports[`Tree > renders with items correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app.vue" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app.vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt.config.ts</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with labelKey correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="value" class="relative text-sm" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">root</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app.vue" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app-vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt-config-ts</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with modelValue correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" data-selected="" aria-label="app" role="treeitem" aria-selected="true" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app.vue" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app.vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt.config.ts</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with multiple and defaultValue correctly 1`] = `
+"<ul role="tree" aria-multiselectable="true" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" data-selected="" aria-label="app" role="treeitem" aria-selected="true" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" data-selected="" aria-label="app.vue" role="treeitem" aria-selected="true" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app.vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt.config.ts</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with multiple and modelValue correctly 1`] = `
+"<ul role="tree" aria-multiselectable="true" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" data-selected="" aria-label="app" role="treeitem" aria-selected="true" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" data-selected="" aria-label="app.vue" role="treeitem" aria-selected="true" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app.vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt.config.ts</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with multiple correctly 1`] = `
+"<ul role="tree" aria-multiselectable="true" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app.vue" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app.vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt.config.ts</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with neutral variant ghost correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" variant="ghost" color="neutral" class="relative text-sm" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:bg-[var(--ui-bg-elevated)]/50 data-[selected]:text-[var(--ui-text-highlighted)]" style="padding-left: 0.5em;" aria-label="app" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:bg-[var(--ui-bg-elevated)]/50 data-[selected]:text-[var(--ui-text-highlighted)]" style="padding-left: 0.5em;" aria-label="app.vue" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app.vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:bg-[var(--ui-bg-elevated)]/50 data-[selected]:text-[var(--ui-text-highlighted)]" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt.config.ts</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with neutral variant link correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" variant="link" color="neutral" class="relative text-sm" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-text-highlighted)]" style="padding-left: 0.5em;" aria-label="app" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-text-highlighted)]" style="padding-left: 0.5em;" aria-label="app.vue" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app.vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-text-highlighted)]" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt.config.ts</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with parentIcon correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" parenticon="lucide:folder" class="relative text-sm" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item=""><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="shrink-0 size-4" width="1em" height="1em" viewBox="0 0 16 16"></svg><span class="truncate">app</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app.vue" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app.vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt.config.ts</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with parentTrailingIcon correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" parenttrailingicon="lucide:folder" class="relative text-sm" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="shrink-0 size-4" width="1em" height="1em" viewBox="0 0 16 16"></svg>
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app.vue" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app.vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt.config.ts</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with primary variant ghost correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" variant="ghost" class="relative text-sm" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:bg-[var(--ui-primary)]/10 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:bg-[var(--ui-primary)]/10 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app.vue" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app.vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:bg-[var(--ui-primary)]/10 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt.config.ts</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with primary variant link correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" variant="link" class="relative text-sm" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app.vue" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app.vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt.config.ts</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with size lg correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" size="lg" class="relative text-sm" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1.25 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1.25 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app.vue" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app.vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1.25 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt.config.ts</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with size md correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" size="md" class="relative text-sm" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app.vue" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app.vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt.config.ts</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with size sm correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" size="sm" class="relative text-xs" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-0.75 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-0.75 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app.vue" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app.vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-0.75 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt.config.ts</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with size xl correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" size="xl" class="relative text-base" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1.25 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1.25 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app.vue" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app.vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1.25 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt.config.ts</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with size xs correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" size="xs" class="relative text-xs" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-0.75 gap-1 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-0.75 gap-1 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app.vue" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app.vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-0.75 gap-1 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt.config.ts</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with ui correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)] font-bold" style="padding-left: 0.5em;" aria-label="app" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)] font-bold" style="padding-left: 0.5em;" aria-label="app.vue" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app.vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)] font-bold" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt.config.ts</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;
+
+exports[`Tree > renders with valueKey correctly 1`] = `
+"<ul role="tree" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="label" labelkey="label" class="relative text-sm" tabindex="0">
+  <li aria-setsize="3" aria-posinset="1" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app" role="treeitem" aria-selected="false" aria-expanded="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="2" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="app.vue" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">app.vue</span>
+    <!--v-if-->
+  </li>
+  <li aria-setsize="3" aria-posinset="3" class="group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none transition-colors before:transition-colors p-1 gap-1.5 data-[selected]:text-[var(--ui-primary)]" style="padding-left: 0.5em;" aria-label="nuxt.config.ts" role="treeitem" aria-selected="false" aria-level="1" data-indent="1" tabindex="-1" data-orientation="vertical" data-active="true" data-radix-vue-collection-item="">
+    <!--v-if--><span class="truncate">nuxt.config.ts</span>
+    <!--v-if-->
+  </li>
+</ul>"
+`;

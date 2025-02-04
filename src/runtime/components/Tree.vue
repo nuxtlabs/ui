@@ -4,7 +4,6 @@ import type { TreeRootProps, TreeRootEmits } from 'radix-vue'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/ui/tree'
-import type { ChipProps } from '../types'
 import type { DynamicSlots, MaybeMultipleModelValue, MaybeMultipleModelValueEmit } from '../types/utils'
 
 const appConfig = _appConfig as AppConfig & { ui: { tree: Partial<typeof theme> } }
@@ -19,7 +18,6 @@ export type TreeItem<ValueKey extends string = 'value', LabelKey extends string 
   {
     icon?: string
     trailingIcon?: string
-    chip?: ChipProps
     defaultOpen?: boolean
     disabled?: boolean
     slot?: string
@@ -142,6 +140,7 @@ function onItemToggle(item: T, event: Event) {
       :style="{ 'padding-left': `${item.level - 0.5}em` }"
       :data-disabled="item.value.disabled || disabled ? '' : undefined"
       :data-selected="selectedKeys.has(getItemKey(item.value))"
+      :aria-label="item.value.label"
       @toggle="onItemToggle(item.value, $event)"
     >
       <slot :name="item.value.slot || 'item'" v-bind="{ item: item.value as T, index: item.index, level: item.level, hasChildren: item.hasChildren, expanded: isExpanded, selected: isSelected }">
