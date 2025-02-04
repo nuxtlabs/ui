@@ -31,13 +31,18 @@
       "types": "./vue-plugin.d.ts"
     },
     "./runtime/*": "./dist/runtime/*",
+    "./utils/*": {
+      "types": "./dist/runtime/utils/*.d.ts",
+      "import": "./dist/runtime/utils/*.js"
+    },
     "./locale": {
       "types": "./dist/runtime/locale/index.d.ts",
       "import": "./dist/runtime/locale/index.js"
     }
   },
   "imports": {
-    "#build/ui/*": "./.nuxt/ui/*.ts"
+    "#build/ui/*": "./.nuxt/ui/*.ts",
+    "#build/app.config": "./.nuxt/app.config.mjs"
   },
   "bin": {
     "nuxt-ui": "./cli/index.mjs"
