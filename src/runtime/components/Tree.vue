@@ -90,21 +90,11 @@ const props = withDefaults(defineProps<TreeProps<T, M, V, L>>(), {
 const emits = defineEmits<TreeEmits<T, M>>()
 const slots = defineSlots<TreeSlots<T>>()
 
-const rootProps = useForwardPropsEmits(reactiveOmit(props, 'class', 'ui', 'modelValue'), emits)
-
-const modelValue = computed<MaybeMultipleModelValue<T, M>>({
-  get() {
-    return props.modelValue as MaybeMultipleModelValue<T, M>
-  },
-  set(value: MaybeMultipleModelValue<T, M>) {
-    emits('update:modelValue', value)
-  }
-})
-
+const rootProps = useForwardPropsEmits(reactiveOmit(props, 'class', 'ui'), emits)
 const selectedKeys = computed<Set<string>>(() => {
-  return Array.isArray(modelValue.value)
-    ? new Set(modelValue.value?.map(value => getItemKey(value)))
-    : new Set([getItemKey(modelValue.value)])
+  return Array.isArray(props.modelValue)
+    ? new Set(props.modelValue.map((value: TreeItem<V, L>) => getItemKey(value)))
+    : new Set([getItemKey(props.modelValue as TreeItem<V, L>)])
 })
 
 const ui = computed(() => tree({
@@ -140,7 +130,6 @@ function onItemToggle(item: T, event: Event) {
   <TreeRoot
     v-slot="{ flattenItems }"
     v-bind="rootProps"
-    v-model="modelValue"
     :class="ui.root({ class: [props.class, props.ui?.root] })"
     :get-key="getItemKey"
     :default-expanded="defaultOpenedItems"

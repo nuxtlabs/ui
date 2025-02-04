@@ -50,7 +50,7 @@ const modelValues = ref<TreeItem[]>()
 <template>
   <div class="flex flex-col gap-4">
     <div class="flex gap-4">
-      <UTree :model-value="modelValue" :default-value="modelValue" :items="items" />
+      <UTree v-model="modelValue" :default-value="modelValue" :items="items" />
       <UTree v-model="modelValues" :items="items" multiple @update:model-value="(payload: TreeItem[]) => payload" />
       <UTree :items="items" variant="ghost" />
       <UTree v-model="modelValue" :items="items" disabled />
