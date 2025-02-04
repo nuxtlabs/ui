@@ -31,6 +31,7 @@
       "types": "./vue-plugin.d.ts"
     },
     "./runtime/*": "./dist/runtime/*",
+    "./utils/*": "./dist/runtime/utils/*",
     "./locale": {
       "types": "./dist/runtime/locale/index.d.ts",
       "import": "./dist/runtime/locale/index.js"
@@ -133,7 +134,7 @@
     "release-it": "^18.1.2",
     "superstruct": "^2.0.2",
     "valibot": "^0.42.1",
-    "vitest": "^3.0.4",
+    "vitest": "^3.0.5",
     "vitest-environment-nuxt": "^1.0.1",
     "vue-tsc": "^2.2.0",
     "yup": "^1.6.1",
