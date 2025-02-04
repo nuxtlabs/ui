@@ -7,9 +7,9 @@ import theme from '#build/ui/avatar'
 import { extendDevtoolsMeta } from '../composables/extendDevtoolsMeta'
 import { tv } from '../utils/tv'
 
-const appConfig = _appConfig as AppConfig & { ui: { avatar: Partial<typeof theme> } }
+const appConfigAvatar = _appConfig as AppConfig & { ui: { avatar: Partial<typeof theme> } }
 
-const avatar = tv({ extend: tv(theme), ...(appConfig.ui?.avatar || {}) })
+const avatar = tv({ extend: tv(theme), ...(appConfigAvatar.ui?.avatar || {}) })
 
 type AvatarVariants = VariantProps<typeof avatar>
 
@@ -75,7 +75,7 @@ const sizePx = computed(() => ({
 
 // Reproduces Reka UI's [AvatarImage](https://reka-ui.com/docs/components/avatar#image) component behavior which cannot be used with NuxtImg component
 onMounted(() => {
-  if (!props.src || ImageComponent !== 'img') {
+  if (!props.src || (ImageComponent as unknown as string) !== 'img') {
     return
   }
 

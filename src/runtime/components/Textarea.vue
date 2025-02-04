@@ -5,9 +5,9 @@ import _appConfig from '#build/app.config'
 import theme from '#build/ui/textarea'
 import { tv } from '../utils/tv'
 
-const appConfig = _appConfig as AppConfig & { ui: { textarea: Partial<typeof theme> } }
+const appConfigTextarea = _appConfig as AppConfig & { ui: { textarea: Partial<typeof theme> } }
 
-const textarea = tv({ extend: tv(theme), ...(appConfig.ui?.textarea || {}) })
+const textarea = tv({ extend: tv(theme), ...(appConfigTextarea.ui?.textarea || {}) })
 
 type TextareaVariants = VariantProps<typeof textarea>
 

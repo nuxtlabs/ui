@@ -7,9 +7,9 @@ import { extendDevtoolsMeta } from '../composables/extendDevtoolsMeta'
 import { tv } from '../utils/tv'
 import type { ButtonProps } from '../types'
 
-const appConfig = _appConfig as AppConfig & { ui: { modal: Partial<typeof theme> } }
+const appConfigModal = _appConfig as AppConfig & { ui: { modal: Partial<typeof theme> } }
 
-const modal = tv({ extend: tv(theme), ...(appConfig.ui?.modal || {}) })
+const modal = tv({ extend: tv(theme), ...(appConfigModal.ui?.modal || {}) })
 
 export interface ModalProps extends DialogRootProps {
   title?: string

@@ -11,9 +11,9 @@ import { tv } from '../utils/tv'
 import type { AvatarProps, ChipProps, InputProps } from '../types'
 import type { PartialString, MaybeArrayOfArray, MaybeArrayOfArrayItem, SelectModelValue, SelectModelValueEmits, SelectItemKey } from '../types/utils'
 
-const appConfig = _appConfig as AppConfig & { ui: { inputMenu: Partial<typeof theme> } }
+const appConfigInputMenu = _appConfig as AppConfig & { ui: { inputMenu: Partial<typeof theme> } }
 
-const inputMenu = tv({ extend: tv(theme), ...(appConfig.ui?.inputMenu || {}) })
+const inputMenu = tv({ extend: tv(theme), ...(appConfigInputMenu.ui?.inputMenu || {}) })
 
 export interface InputMenuItem {
   label?: string

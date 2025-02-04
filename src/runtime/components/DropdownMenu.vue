@@ -9,9 +9,9 @@ import { tv } from '../utils/tv'
 import type { AvatarProps, KbdProps, LinkProps } from '../types'
 import type { DynamicSlots, PartialString } from '../types/utils'
 
-const appConfig = _appConfig as AppConfig & { ui: { dropdownMenu: Partial<typeof theme> } }
+const appConfigDropdownMenu = _appConfig as AppConfig & { ui: { dropdownMenu: Partial<typeof theme> } }
 
-const dropdownMenu = tv({ extend: tv(theme), ...(appConfig.ui?.dropdownMenu || {}) })
+const dropdownMenu = tv({ extend: tv(theme), ...(appConfigDropdownMenu.ui?.dropdownMenu || {}) })
 
 type DropdownMenuVariants = VariantProps<typeof dropdownMenu>
 
