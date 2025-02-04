@@ -5,7 +5,7 @@ import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/ui/tree'
 import type { AvatarProps, ChipProps } from '../types'
-import type { DynamicSlots } from '../types/utils'
+import type { DynamicSlots, MaybeMultipleModelValue, MaybeMultipleModelValueEmit } from '../types/utils'
 
 const appConfig = _appConfig as AppConfig & { ui: { tree: Partial<typeof theme> } }
 
@@ -26,7 +26,7 @@ export interface TreeItem {
   children?: TreeItem[]
 }
 
-export interface TreeProps<T> extends Omit<TreeRootProps<T>, 'dir' | 'getKey'> {
+export interface TreeProps<T extends TreeItem, M extends boolean = false> extends Omit<TreeRootProps<T>, 'dir' | 'getKey' | 'multiple' | 'modelValue' | 'defaultValue' | 'items'> {
   color?: TreeVariants['color']
   size?: TreeVariants['size']
   variant?: TreeVariants['variant']
@@ -49,12 +49,19 @@ export interface TreeProps<T> extends Omit<TreeRootProps<T>, 'dir' | 'getKey'> {
    * The element or component this component should render as.
    * @defaultValue 'div'
    */
+
   as?: any
+
+  items?: T[]
+  modelValue?: Partial<MaybeMultipleModelValue<T, M>>
+  defaultValue?: MaybeMultipleModelValue<T, M>
+  multiple?: M & boolean
+
   class?: any
   ui?: Partial<typeof tree.slots>
 }
 
-export interface TreeEmits extends TreeRootEmits {}
+export type TreeEmits<T, M extends boolean = false> = MaybeMultipleModelValueEmit<T, M> & Omit<TreeRootEmits, 'update:modelValue'>
 
 type SlotProps<T> = (props: { item: T, index: number, level: number, hasChildren: boolean }) => any
 
@@ -66,7 +73,7 @@ export type TreeSlots<T extends { slot?: string }> = {
 } & DynamicSlots<T, SlotProps<T>>
 </script>
 
-<script setup lang="ts" generic="T extends TreeItem">
+<script setup lang="ts" generic="T extends Record<string, any>, M extends boolean = false">
 import { computed } from 'vue'
 import { TreeRoot, TreeItem as TreeItemComponent, useForwardPropsEmits } from 'radix-vue'
 import { reactiveOmit } from '@vueuse/core'
@@ -74,16 +81,30 @@ import { get } from '../utils'
 import UIcon from './Icon.vue'
 import UAvatar from './Avatar.vue'
 
-const props = withDefaults(defineProps<TreeProps<T>>(), {
+const props = withDefaults(defineProps<TreeProps<T, M>>(), {
   labelKey: 'label',
   valueKey: 'value'
 })
-const emits = defineEmits<TreeEmits>()
+
+const emits = defineEmits<TreeEmits<T, M>>()
 const slots = defineSlots<TreeSlots<T>>()
 
 const rootProps = useForwardPropsEmits(reactiveOmit(props, 'class', 'ui', 'modelValue'), emits)
 
-const modelValue = defineModel<T | undefined>()
+const modelValue = computed<MaybeMultipleModelValue<T, M>>({
+  get() {
+    return props.modelValue as MaybeMultipleModelValue<T, M>
+  },
+  set(value: MaybeMultipleModelValue<T, M>) {
+    emits('update:modelValue', value)
+  }
+})
+
+const selectedKeys = computed<Set<string>>(() => {
+  return Array.isArray(modelValue.value)
+    ? new Set(modelValue.value?.map(value => getItemKey(value)))
+    : new Set([getItemKey(modelValue.value)])
+})
 
 const ui = computed(() => tree({
   variant: props.variant,
@@ -95,7 +116,7 @@ function getItemLabel(item: TreeItem) {
   return get(item, props.labelKey)
 }
 
-function getItemKey(item: TreeItem) {
+function getItemKey(item?: TreeItem) {
   return get(item, props.valueKey) ?? get(item, props.labelKey)
 }
 
@@ -109,11 +130,6 @@ const defaultOpenedItems = computed(() =>
   props.items?.flatMap(getDefaultOpenedItems)
 )
 
-function onUpdate(value?: Record<string, any>) {
-  if (value?.disabled || props.disabled) return
-  modelValue.value = value as T
-}
-
 function onItemToggle(item: T, event: Event) {
   if (item.disabled || props.disabled) event.preventDefault()
 }
@@ -123,11 +139,10 @@ function onItemToggle(item: T, event: Event) {
   <TreeRoot
     v-slot="{ flattenItems }"
     v-bind="rootProps"
+    v-model="modelValue"
     :class="ui.root({ class: [props.class, props.ui?.root] })"
     :get-key="getItemKey"
     :default-expanded="defaultOpenedItems"
-    :model-value="modelValue"
-    @update:model-value="onUpdate"
   >
     <TreeItemComponent
       v-for="item in flattenItems"
@@ -136,6 +151,7 @@ function onItemToggle(item: T, event: Event) {
       :class="ui.item({ class: [props.ui?.item] })"
       :style="{ 'padding-left': `${item.level - 0.5}em` }"
       :data-disabled="item.value.disabled || disabled ? '' : undefined"
+      :data-selected="selectedKeys.has(getItemKey(item.value))"
       @toggle="onItemToggle(item.value, $event)"
     >
       <slot :name="item.value.slot || 'item'" v-bind="{ item: item.value as T, index: item.index, level: item.level, hasChildren: item.hasChildren }">

@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import theme from '#build/ui/button'
+import type { TreeItem } from '#ui/types'
 
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
-const items = [
+const items: TreeItem[] = [
   {
     label: 'app',
     icon: 'lucide:folder',
@@ -36,15 +37,15 @@ const items = [
   { label: 'nuxt.config.ts', icon: 'vscode-icons:file-type-nuxt' }
 ]
 
-const modelValue = ref()
+const modelValue = ref<TreeItem>()
+const modelValues = ref<TreeItem[]>()
 </script>
 
 <template>
   <div class="flex flex-col gap-4">
     <div class="flex gap-4">
-      {{ modelValue }}
-      <UTree v-model="modelValue" :items="items" />
-      <UTree :items="items" multiple />
+      <UTree :model-value="modelValue" :default-value="modelValue" :items="items" />
+      <UTree v-model="modelValues" :items="items" multiple @update:model-value="(payload: TreeItem[]) => payload" />
       <UTree :items="items" variant="ghost" />
       <UTree v-model="modelValue" :items="items" disabled />
       <UTree :items="items" color="error" />
@@ -53,6 +54,21 @@ const modelValue = ref()
 
     <div class="flex gap-4 justify-center items-center">
       <UTree v-for="size in sizes" :key="size" :items="items" :size="size" />
+    </div>
+    <!-- Typescript tests -->
+    <div class="hidden">
+      <!-- @vue-expect-error - multiple props should type modelValue to array.  -->
+      <UTree :model-value="modelValue" :items="items" multiple />
+      <!-- @vue-expect-error - multiple props should type defaultValue to array.  -->
+      <UTree :default-value="modelValue" :items="items" multiple />
+      <!-- @vue-expect-error - multiple props should type @update:modelValue to array.  -->
+      <UTree :items="items" multiple @update:model-value="(payload: TreeItem) => payload" />
+      <!-- @vue-expect-error - default should type modelValue to single item.  -->
+      <UTree :model-value="modelValues" :items="items" />
+      <!-- @vue-expect-error - default should type defaultValue to single item.  -->
+      <UTree :default-value="modelValues" :items="items" />
+      <!-- @vue-expect-error - default should type @update:modelValue to single item.  -->
+      <UTree :items="items" @update:model-value="(payload: TreeItem[]) => payload" />
     </div>
   </div>
 </template>

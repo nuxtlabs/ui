@@ -33,3 +33,9 @@ export type SelectItemKey<T> = T extends Record<string, any> ? keyof T : string
 export type SelectModelValueEmits<T, V, M extends boolean = false, DV = T> = {
   'update:modelValue': [payload: SelectModelValue<T, V, M, DV>]
 }
+
+export type MaybeMultipleModelValue<T, M extends boolean = false> = (T extends infer U ? M extends true ? U[] : U : never)
+
+export type MaybeMultipleModelValueEmit<T, M extends boolean = false> = {
+  'update:modelValue': [payload: MaybeMultipleModelValue<T, M>]
+}

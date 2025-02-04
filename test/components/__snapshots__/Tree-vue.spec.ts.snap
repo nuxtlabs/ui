@@ -1,9 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Tree > renders with as correctly 1`] = `"<div role="tree" tabindex="-1" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" labelkey="label" class="list-none min-w-32"></div>"`;
+exports[`Tree > renders with as correctly 1`] = `"<div role="tree" tabindex="-1" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm"></div>"`;
 
-exports[`Tree > renders with class correctly 1`] = `"<ul role="tree" tabindex="-1" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" labelkey="label" class="list-none min-w-32"></ul>"`;
+exports[`Tree > renders with class correctly 1`] = `"<ul role="tree" tabindex="-1" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm"></ul>"`;
 
-exports[`Tree > renders with default slot correctly 1`] = `"<ul role="tree" tabindex="-1" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" labelkey="label" class="list-none min-w-32"></ul>"`;
+exports[`Tree > renders with default slot correctly 1`] = `"<ul role="tree" tabindex="-1" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm"></ul>"`;
 
-exports[`Tree > renders with ui correctly 1`] = `"<ul role="tree" tabindex="-1" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" labelkey="label" class="list-none min-w-32"></ul>"`;
+exports[`Tree > renders with ui correctly 1`] = `"<ul role="tree" tabindex="-1" data-orientation="vertical" dir="ltr" style="outline-color: none; outline-style: none; outline-width: initial;" valuekey="value" labelkey="label" class="relative text-sm"></ul>"`;
