@@ -31,6 +31,7 @@
       "types": "./vue-plugin.d.ts"
     },
     "./runtime/*": "./dist/runtime/*",
+    "./utils/*": "./dist/runtime/utils/*",
     "./locale": {
       "types": "./dist/runtime/locale/index.d.ts",
       "import": "./dist/runtime/locale/index.js"
