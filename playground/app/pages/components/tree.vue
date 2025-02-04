@@ -4,7 +4,20 @@ import type { TreeItem } from '#ui/types'
 
 const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
 
-const items: TreeItem[] = [
+const items: TreeItem[] = [{
+  label: 'Settings',
+  defaultOpen: true,
+  children: [{
+    label: 'Organization',
+    defaultOpen: true,
+    children: [
+      { label: 'Members' },
+      { label: 'Profile' }
+    ]
+  }]
+}]
+
+const devItems: TreeItem[] = [
   {
     label: 'app',
     icon: 'lucide:folder',
@@ -49,20 +62,33 @@ const modelValues = ref<TreeItem[]>()
 
 <template>
   <div class="flex flex-col gap-4">
-    <div class="flex gap-4">
-      <UTree v-model="modelValue" :default-value="modelValue" :items="items" />
-      <UTree v-model="modelValues" :items="items" multiple @update:model-value="(payload: TreeItem[]) => payload" />
-      <UTree :items="items" variant="ghost" />
-      <UTree v-model="modelValue" :items="items" disabled />
-      <UTree :items="items" color="error" />
-      <UTree :items="items" color="neutral" />
+    <div class="flex justify-center gap-4">
+      <UTree :items="items" parent-icon="i-lucide-chevron-down" child-icon="i-lucide-dot" :ui="{ itemLeadingIcon: 'group-data-[expanded]:rotate-180 transition-transform duration-200' }" />
+      <UTree :items="items" parent-trailing-icon="i-lucide-chevron-down" child-trailing-icon="i-lucide-dot" :ui="{ itemTrailingIcon: 'group-data-[expanded]:rotate-180 transition-transform duration-200' }" />
+
+      <UTree :items="items">
+        <template #item-leading="{ hasChildren, expanded }">
+          <UIcon v-if="hasChildren && expanded" name="lucide:folder-open" />
+          <UIcon v-else-if="hasChildren" name="lucide:folder" />
+        </template>
+      </UTree>
     </div>
 
-    <div class="flex gap-4 justify-center items-center">
-      <UTree v-for="size in sizes" :key="size" :items="items" :size="size" />
+    <div class="flex gap-4">
+      <UTree v-model="modelValue" :default-value="modelValue" :items="devItems" />
+      <UTree v-model="modelValues" :items="devItems" multiple @update:model-value="(payload: TreeItem[]) => payload" />
+      <UTree :items="devItems" variant="ghost" />
+      <UTree v-model="modelValue" :items="devItems" disabled />
+      <UTree :items="devItems" color="error" />
+      <UTree :items="devItems" color="neutral" />
     </div>
+
+    <div class="flex gap-4 justify-center w-full">
+      <UTree v-for="size in sizes" :key="size" :items="devItems" :size="size" />
+    </div>
+
     <!-- Typescript tests -->
-    <div class="hidden">
+    <template v-if="false">
       <!-- @vue-expect-error - multiple props should type modelValue to array.  -->
       <UTree :model-value="modelValue" :items="items" multiple />
       <!-- @vue-expect-error - multiple props should type defaultValue to array.  -->
@@ -80,6 +106,6 @@ const modelValues = ref<TreeItem[]>()
       <UTree v-model="modelValue" :items="itemsWithMappedId" value-key="id" />
       <!-- @vue-expect-error - label key should type v-model.  -->
       <UTree v-model="modelValue" :items="itemsWithMappedId" label-key="title" />
-    </div>
+    </template>
   </div>
 </template>

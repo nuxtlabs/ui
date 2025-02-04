@@ -8,8 +8,6 @@ export default (options: Required<ModuleOptions>) => ({
       options.theme.transitions && 'transition-colors before:transition-colors'
     ],
     itemLeadingIcon: 'shrink-0',
-    itemLeadingAvatar: 'shrink-0',
-    itemLeadingAvatarSize: '',
     itemTrailing: 'ms-auto inline-flex',
     itemTrailingIcon: 'shrink-0',
     itemLabel: 'truncate'
@@ -27,38 +25,33 @@ export default (options: Required<ModuleOptions>) => ({
     size: {
       xs: {
         root: 'text-xs',
-        item: 'p-1 text-xs gap-1',
-        itemLeadingIcon: 'size-4',
-        itemLeadingAvatarSize: '3xs',
-        itemTrailingIcon: 'size-4'
+        item: 'p-0.75 gap-1',
+        itemLeadingIcon: 'size-3',
+        itemTrailingIcon: 'size-3'
       },
       sm: {
         root: 'text-xs',
-        item: 'p-1.5 gap-1.5',
-        itemLeadingIcon: 'size-4',
-        itemLeadingAvatarSize: '3xs',
-        itemTrailingIcon: 'size-4'
+        item: 'p-0.75 gap-1.5',
+        itemLeadingIcon: 'size-4.5',
+        itemTrailingIcon: 'size-4.5'
       },
       md: {
         root: 'text-sm',
-        item: 'p-1.5 gap-1.5',
-        itemLeadingIcon: 'size-5',
-        itemLeadingAvatarSize: '2xs',
-        itemTrailingIcon: 'size-5'
+        item: 'p-1 gap-1.5',
+        itemLeadingIcon: 'size-4',
+        itemTrailingIcon: 'size-4'
       },
       lg: {
         root: 'text-sm',
-        item: 'p-2 gap-2',
-        itemLeadingIcon: 'size-5',
-        itemLeadingAvatarSize: '2xs',
-        itemTrailingIcon: 'size-5'
+        item: 'p-1.25 gap-1.5',
+        itemLeadingIcon: 'size-4.5',
+        itemTrailingIcon: 'size-4.5'
       },
       xl: {
         root: 'text-base',
-        item: 'p-2 gap-2',
-        itemLeadingIcon: 'size-6',
-        itemLeadingAvatarSize: 'xs',
-        itemTrailingIcon: 'size-6'
+        item: 'p-1.25 gap-1.5',
+        itemLeadingIcon: 'size-5',
+        itemTrailingIcon: 'size-5'
       }
     }
   },
@@ -67,26 +60,26 @@ export default (options: Required<ModuleOptions>) => ({
       color,
       variant: 'ghost',
       class: {
-        item: `hover:bg-[var(--ui-${color})]/10 data-[selected]:bg-[var(--ui-${color})]/10 data-[selected]:text-[var(--ui-${color})] hover:text-[var(--ui-text-highlighted)]`
+        item: `data-[selected]:bg-[var(--ui-${color})]/10 data-[selected]:text-[var(--ui-${color})]`
       }
     })),
     {
       color: 'neutral', variant: 'ghost',
       class: {
-        item: 'hover:bg-[var(--ui-bg-elevated)]/50 data-[selected]:bg-[var(--ui-bg-elevated)]/50 hover:text-[var(--ui-text-highlighted)] data-[selected]:text-[var(--ui-text-highlighted)]'
+        item: 'data-[selected]:bg-[var(--ui-bg-elevated)]/50 data-[selected]:text-[var(--ui-text-highlighted)]'
       }
     },
     ...(options.theme.colors || []).map((color: string) => ({
       color,
       variant: 'link',
       class: {
-        item: `data-[selected]:text-[var(--ui-${color})] hover:text-[var(--ui-text-highlighted)]`
+        item: `data-[selected]:text-[var(--ui-${color})]`
       }
     })),
     {
       color: 'neutral', variant: 'link',
       class: {
-        item: 'hover:text-[var(--ui-text-highlighted)] data-[selected]:text-[var(--ui-text-highlighted)]'
+        item: 'data-[selected]:text-[var(--ui-text-highlighted)]'
       }
     }
 
