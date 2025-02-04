@@ -13,20 +13,21 @@ const tree = tv({ extend: tv(theme), ...(appConfig.ui?.tree || {}) })
 
 type TreeVariants = VariantProps<typeof tree>
 
-export interface TreeItem {
-  value?: string
-  label?: string
-  icon?: string
-  trailingIcon?: string
-  avatar?: AvatarProps
-  chip?: ChipProps
-  defaultOpen?: boolean
-  disabled?: boolean
-  slot?: string
-  children?: TreeItem[]
-}
+export type TreeItem<ValueKey extends string = 'value', LabelKey extends string = 'label'> =
+  { [K in ValueKey]?: string } &
+  { [L in LabelKey]?: string } &
+  {
+    icon?: string
+    trailingIcon?: string
+    avatar?: AvatarProps
+    chip?: ChipProps
+    defaultOpen?: boolean
+    disabled?: boolean
+    slot?: string
+    children?: TreeItem[]
+  }
 
-export interface TreeProps<T extends TreeItem, M extends boolean = false> extends Omit<TreeRootProps<T>, 'dir' | 'getKey' | 'multiple' | 'modelValue' | 'defaultValue' | 'items'> {
+export interface TreeProps<T extends TreeItem<V, L>, M extends boolean = false, V extends string = 'value', L extends string = 'label'> extends Omit<TreeRootProps<T>, 'dir' | 'getKey' | 'multiple' | 'modelValue' | 'defaultValue' | 'items'> {
   color?: TreeVariants['color']
   size?: TreeVariants['size']
   variant?: TreeVariants['variant']
@@ -34,12 +35,12 @@ export interface TreeProps<T extends TreeItem, M extends boolean = false> extend
    * The key used to get the value from the item.
    * @defaultValue 'value'
    */
-  valueKey?: string
+  valueKey?: V
   /**
    * The key used to get the label from the item.
    * @defaultValue 'label'
    */
-  labelKey?: string
+  labelKey?: L
   /**
    * The icon displayed when an item is selected.
    * @defaultValue appConfig.ui.icons.check
@@ -73,7 +74,7 @@ export type TreeSlots<T extends { slot?: string }> = {
 } & DynamicSlots<T, SlotProps<T>>
 </script>
 
-<script setup lang="ts" generic="T extends Record<string, any>, M extends boolean = false">
+<script setup lang="ts" generic="T extends Record<string, any>, M extends boolean = false, V extends string = 'value', L extends string = 'label'">
 import { computed } from 'vue'
 import { TreeRoot, TreeItem as TreeItemComponent, useForwardPropsEmits } from 'radix-vue'
 import { reactiveOmit } from '@vueuse/core'
@@ -81,9 +82,9 @@ import { get } from '../utils'
 import UIcon from './Icon.vue'
 import UAvatar from './Avatar.vue'
 
-const props = withDefaults(defineProps<TreeProps<T, M>>(), {
-  labelKey: 'label',
-  valueKey: 'value'
+const props = withDefaults(defineProps<TreeProps<T, M, V, L>>(), {
+  labelKey: 'label' as never,
+  valueKey: 'value' as never
 })
 
 const emits = defineEmits<TreeEmits<T, M>>()
@@ -113,11 +114,11 @@ const ui = computed(() => tree({
 }))
 
 function getItemLabel(item: TreeItem) {
-  return get(item, props.labelKey)
+  return get(item, props.labelKey as string)
 }
 
 function getItemKey(item?: TreeItem) {
-  return get(item, props.valueKey) ?? get(item, props.labelKey)
+  return get(item, props.valueKey as string) ?? get(item, props.labelKey as string)
 }
 
 function getDefaultOpenedItems(item: TreeItem): string[] {

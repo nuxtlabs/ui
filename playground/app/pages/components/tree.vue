@@ -37,6 +37,12 @@ const items: TreeItem[] = [
   { label: 'nuxt.config.ts', icon: 'vscode-icons:file-type-nuxt' }
 ]
 
+const itemsWithMappedId = [
+  { id: 'id', title: 'hello' },
+  { id: 'id2', title: 'there' },
+  { id: 'id3', title: 'obiwan kenobi' }
+]
+
 const modelValue = ref<TreeItem>()
 const modelValues = ref<TreeItem[]>()
 </script>
@@ -69,6 +75,11 @@ const modelValues = ref<TreeItem[]>()
       <UTree :default-value="modelValues" :items="items" />
       <!-- @vue-expect-error - default should type @update:modelValue to single item.  -->
       <UTree :items="items" @update:model-value="(payload: TreeItem[]) => payload" />
+
+      <!-- @vue-expect-error - value key should type v-model.  -->
+      <UTree v-model="modelValue" :items="itemsWithMappedId" value-key="id" />
+      <!-- @vue-expect-error - label key should type v-model.  -->
+      <UTree v-model="modelValue" :items="itemsWithMappedId" label-key="title" />
     </div>
   </div>
 </template>
