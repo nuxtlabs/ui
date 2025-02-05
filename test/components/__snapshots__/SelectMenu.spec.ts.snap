@@ -2,7 +2,7 @@
 
 exports[`SelectMenu > renders with arrow correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -46,21 +46,21 @@ exports[`SelectMenu > renders with arrow correctly 1`] = `
 `;
 
 exports[`SelectMenu > renders with avatar and leadingIcon correctly 1`] = `
-"<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] ps-9 pe-9" dir="ltr"><span class="absolute inset-y-0 start-0 flex items-center ps-2.5"><span class="iconify i-lucide:arrow-left shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span></button>
+"<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] ps-9 pe-9" dir="ltr"><span class="absolute inset-y-0 start-0 flex items-center ps-2.5"><span class="iconify i-lucide:arrow-left shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span></button>
 <!--teleport start-->
 <!--teleport end-->
 <!---->"
 `;
 
 exports[`SelectMenu > renders with avatar and trailingIcon correctly 1`] = `
-"<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] ps-9 pe-9" dir="ltr"><span class="absolute inset-y-0 start-0 flex items-center ps-2.5"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-[var(--ui-bg-elevated)] size-5 text-[10px] shrink-0"><img role="img" src="https://github.com/benjamincanac.png" width="20" height="20" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium leading-none text-[var(--ui-text-muted)] truncate"> </span></span></span><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:arrow-right shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span></button>
+"<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] ps-9 pe-9" dir="ltr"><span class="absolute inset-y-0 start-0 flex items-center ps-2.5"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-[var(--ui-bg-elevated)] size-5 text-[10px] shrink-0"><img role="img" src="https://github.com/benjamincanac.png" width="20" height="20" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium leading-none text-[var(--ui-text-muted)] truncate"> </span></span></span><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:arrow-right shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span></button>
 <!--teleport start-->
 <!--teleport end-->
 <!---->"
 `;
 
 exports[`SelectMenu > renders with avatar correctly 1`] = `
-"<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] ps-9 pe-9" dir="ltr"><span class="absolute inset-y-0 start-0 flex items-center ps-2.5"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-[var(--ui-bg-elevated)] size-5 text-[10px] shrink-0"><img role="img" src="https://github.com/benjamincanac.png" width="20" height="20" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium leading-none text-[var(--ui-text-muted)] truncate"> </span></span></span><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span></button>
+"<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] ps-9 pe-9" dir="ltr"><span class="absolute inset-y-0 start-0 flex items-center ps-2.5"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-[var(--ui-bg-elevated)] size-5 text-[10px] shrink-0"><img role="img" src="https://github.com/benjamincanac.png" width="20" height="20" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium leading-none text-[var(--ui-text-muted)] truncate"> </span></span></span><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span></button>
 <!--teleport start-->
 <!--teleport end-->
 <!---->"
@@ -68,7 +68,7 @@ exports[`SelectMenu > renders with avatar correctly 1`] = `
 
 exports[`SelectMenu > renders with class correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9 rounded-full" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -112,9 +112,18 @@ exports[`SelectMenu > renders with class correctly 1`] = `
 <!---->"
 `;
 
+exports[`SelectMenu > renders with clearable correctly 1`] = `
+"<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr">
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+</button>
+<!--teleport start-->
+<!--teleport end-->
+<!---->"
+`;
+
 exports[`SelectMenu > renders with default slot correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if-->Default slot<span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if-->Default slot<span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -160,7 +169,7 @@ exports[`SelectMenu > renders with default slot correctly 1`] = `
 
 exports[`SelectMenu > renders with defaultValue correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -206,7 +215,7 @@ exports[`SelectMenu > renders with defaultValue correctly 1`] = `
 
 exports[`SelectMenu > renders with disabled correctly 1`] = `
 "<button disabled="" type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" data-disabled="" aria-disabled="true" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -251,7 +260,7 @@ exports[`SelectMenu > renders with disabled correctly 1`] = `
 `;
 
 exports[`SelectMenu > renders with icon correctly 1`] = `
-"<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] ps-9 pe-9" dir="ltr"><span class="absolute inset-y-0 start-0 flex items-center ps-2.5"><span class="iconify i-lucide:search shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span></button>
+"<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] ps-9 pe-9" dir="ltr"><span class="absolute inset-y-0 start-0 flex items-center ps-2.5"><span class="iconify i-lucide:search shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span></button>
 <!--teleport start-->
 <!--teleport end-->
 <!---->"
@@ -259,7 +268,7 @@ exports[`SelectMenu > renders with icon correctly 1`] = `
 
 exports[`SelectMenu > renders with id correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" id="id" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -305,7 +314,7 @@ exports[`SelectMenu > renders with id correctly 1`] = `
 
 exports[`SelectMenu > renders with item slot correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -351,7 +360,7 @@ exports[`SelectMenu > renders with item slot correctly 1`] = `
 
 exports[`SelectMenu > renders with item-label slot correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -397,7 +406,7 @@ exports[`SelectMenu > renders with item-label slot correctly 1`] = `
 
 exports[`SelectMenu > renders with item-leading slot correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -443,7 +452,7 @@ exports[`SelectMenu > renders with item-leading slot correctly 1`] = `
 
 exports[`SelectMenu > renders with item-trailing slot correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -489,7 +498,7 @@ exports[`SelectMenu > renders with item-trailing slot correctly 1`] = `
 
 exports[`SelectMenu > renders with items correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -535,7 +544,7 @@ exports[`SelectMenu > renders with items correctly 1`] = `
 
 exports[`SelectMenu > renders with labelKey correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -580,14 +589,14 @@ exports[`SelectMenu > renders with labelKey correctly 1`] = `
 `;
 
 exports[`SelectMenu > renders with leading and icon correctly 1`] = `
-"<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] ps-9 pe-9" dir="ltr"><span class="absolute inset-y-0 start-0 flex items-center ps-2.5"><span class="iconify i-lucide:arrow-left shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span></button>
+"<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] ps-9 pe-9" dir="ltr"><span class="absolute inset-y-0 start-0 flex items-center ps-2.5"><span class="iconify i-lucide:arrow-left shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span></button>
 <!--teleport start-->
 <!--teleport end-->
 <!---->"
 `;
 
 exports[`SelectMenu > renders with leading slot correctly 1`] = `
-"<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] ps-9 pe-9" dir="ltr" style="pointer-events: auto;"><span class="absolute inset-y-0 start-0 flex items-center ps-2.5">Leading slot</span><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span></button>
+"<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] ps-9 pe-9" dir="ltr" style="pointer-events: auto;"><span class="absolute inset-y-0 start-0 flex items-center ps-2.5">Leading slot</span><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span></button>
 <!--teleport start-->
 
 
@@ -631,28 +640,28 @@ exports[`SelectMenu > renders with leading slot correctly 1`] = `
 `;
 
 exports[`SelectMenu > renders with leadingIcon correctly 1`] = `
-"<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] ps-9 pe-9" dir="ltr"><span class="absolute inset-y-0 start-0 flex items-center ps-2.5"><span class="iconify i-lucide:arrow-left shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span></button>
+"<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] ps-9 pe-9" dir="ltr"><span class="absolute inset-y-0 start-0 flex items-center ps-2.5"><span class="iconify i-lucide:arrow-left shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span></button>
 <!--teleport start-->
 <!--teleport end-->
 <!---->"
 `;
 
 exports[`SelectMenu > renders with loading and avatar correctly 1`] = `
-"<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] ps-9 pe-9" dir="ltr"><span class="absolute inset-y-0 start-0 flex items-center ps-2.5"><span class="iconify i-lucide:refresh-cw shrink-0 text-[var(--ui-text-dimmed)] size-5 animate-spin" aria-hidden="true"></span></span><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span></button>
+"<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] ps-9 pe-9" dir="ltr"><span class="absolute inset-y-0 start-0 flex items-center ps-2.5"><span class="iconify i-lucide:refresh-cw shrink-0 text-[var(--ui-text-dimmed)] size-5 animate-spin" aria-hidden="true"></span></span><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span></button>
 <!--teleport start-->
 <!--teleport end-->
 <!---->"
 `;
 
 exports[`SelectMenu > renders with loading correctly 1`] = `
-"<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] ps-9 pe-9" dir="ltr"><span class="absolute inset-y-0 start-0 flex items-center ps-2.5"><span class="iconify i-lucide:refresh-cw shrink-0 text-[var(--ui-text-dimmed)] size-5 animate-spin" aria-hidden="true"></span></span><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span></button>
+"<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] ps-9 pe-9" dir="ltr"><span class="absolute inset-y-0 start-0 flex items-center ps-2.5"><span class="iconify i-lucide:refresh-cw shrink-0 text-[var(--ui-text-dimmed)] size-5 animate-spin" aria-hidden="true"></span></span><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span></button>
 <!--teleport start-->
 <!--teleport end-->
 <!---->"
 `;
 
 exports[`SelectMenu > renders with loading trailing and avatar correctly 1`] = `
-"<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] ps-9 pe-9" dir="ltr"><span class="absolute inset-y-0 start-0 flex items-center ps-2.5"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-[var(--ui-bg-elevated)] size-5 text-[10px] shrink-0"><img role="img" src="https://github.com/benjamincanac.png" width="20" height="20" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium leading-none text-[var(--ui-text-muted)] truncate"> </span></span></span><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:refresh-cw shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span></button>
+"<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] ps-9 pe-9" dir="ltr"><span class="absolute inset-y-0 start-0 flex items-center ps-2.5"><span class="inline-flex items-center justify-center select-none overflow-hidden rounded-full align-middle bg-[var(--ui-bg-elevated)] size-5 text-[10px] shrink-0"><img role="img" src="https://github.com/benjamincanac.png" width="20" height="20" class="h-full w-full rounded-[inherit] object-cover data-[error]:hidden" style="display: none;"><span class="font-medium leading-none text-[var(--ui-text-muted)] truncate"> </span></span></span><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:refresh-cw shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span></button>
 <!--teleport start-->
 <!--teleport end-->
 <!---->"
@@ -660,7 +669,7 @@ exports[`SelectMenu > renders with loading trailing and avatar correctly 1`] = `
 
 exports[`SelectMenu > renders with loading trailing correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:refresh-cw shrink-0 text-[var(--ui-text-dimmed)] size-5 animate-spin" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:refresh-cw shrink-0 text-[var(--ui-text-dimmed)] size-5 animate-spin" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 <!--teleport end-->
@@ -668,7 +677,7 @@ exports[`SelectMenu > renders with loading trailing correctly 1`] = `
 `;
 
 exports[`SelectMenu > renders with loadingIcon correctly 1`] = `
-"<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] ps-9 pe-9" dir="ltr"><span class="absolute inset-y-0 start-0 flex items-center ps-2.5"><span class="iconify i-lucide:sparkles shrink-0 text-[var(--ui-text-dimmed)] size-5 animate-spin" aria-hidden="true"></span></span><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span></button>
+"<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] ps-9 pe-9" dir="ltr"><span class="absolute inset-y-0 start-0 flex items-center ps-2.5"><span class="iconify i-lucide:sparkles shrink-0 text-[var(--ui-text-dimmed)] size-5 animate-spin" aria-hidden="true"></span></span><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span></button>
 <!--teleport start-->
 <!--teleport end-->
 <!---->"
@@ -676,7 +685,7 @@ exports[`SelectMenu > renders with loadingIcon correctly 1`] = `
 
 exports[`SelectMenu > renders with modelValue correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate pointer-events-none">Backlog</span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate pointer-events-none">Backlog</span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -722,7 +731,7 @@ exports[`SelectMenu > renders with modelValue correctly 1`] = `
 
 exports[`SelectMenu > renders with multiple and modelValue correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate pointer-events-none">Backlog, Todo</span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate pointer-events-none">Backlog, Todo</span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -768,7 +777,7 @@ exports[`SelectMenu > renders with multiple and modelValue correctly 1`] = `
 
 exports[`SelectMenu > renders with multiple correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -814,7 +823,7 @@ exports[`SelectMenu > renders with multiple correctly 1`] = `
 
 exports[`SelectMenu > renders with name correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -860,7 +869,7 @@ exports[`SelectMenu > renders with name correctly 1`] = `
 
 exports[`SelectMenu > renders with neutral variant ghost correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-transparent hover:bg-[var(--ui-bg-elevated)] focus:bg-[var(--ui-bg-elevated)] disabled:bg-transparent dark:disabled:bg-transparent pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -906,7 +915,7 @@ exports[`SelectMenu > renders with neutral variant ghost correctly 1`] = `
 
 exports[`SelectMenu > renders with neutral variant none correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-transparent pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -952,7 +961,7 @@ exports[`SelectMenu > renders with neutral variant none correctly 1`] = `
 
 exports[`SelectMenu > renders with neutral variant outline correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-border-inverted)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -998,7 +1007,7 @@ exports[`SelectMenu > renders with neutral variant outline correctly 1`] = `
 
 exports[`SelectMenu > renders with neutral variant soft correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg-elevated)]/50 hover:bg-[var(--ui-bg-elevated)] focus:bg-[var(--ui-bg-elevated)] disabled:bg-[var(--ui-bg-elevated)]/50 pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -1044,7 +1053,7 @@ exports[`SelectMenu > renders with neutral variant soft correctly 1`] = `
 
 exports[`SelectMenu > renders with neutral variant subtle correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg-elevated)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-border-inverted)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -1090,7 +1099,7 @@ exports[`SelectMenu > renders with neutral variant subtle correctly 1`] = `
 
 exports[`SelectMenu > renders with placeholder correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]">Search...</span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]">Search...</span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -1136,7 +1145,7 @@ exports[`SelectMenu > renders with placeholder correctly 1`] = `
 
 exports[`SelectMenu > renders with primary variant ghost correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-transparent hover:bg-[var(--ui-bg-elevated)] focus:bg-[var(--ui-bg-elevated)] disabled:bg-transparent dark:disabled:bg-transparent pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -1182,7 +1191,7 @@ exports[`SelectMenu > renders with primary variant ghost correctly 1`] = `
 
 exports[`SelectMenu > renders with primary variant none correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-transparent pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -1228,7 +1237,7 @@ exports[`SelectMenu > renders with primary variant none correctly 1`] = `
 
 exports[`SelectMenu > renders with primary variant outline correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -1274,7 +1283,7 @@ exports[`SelectMenu > renders with primary variant outline correctly 1`] = `
 
 exports[`SelectMenu > renders with primary variant soft correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg-elevated)]/50 hover:bg-[var(--ui-bg-elevated)] focus:bg-[var(--ui-bg-elevated)] disabled:bg-[var(--ui-bg-elevated)]/50 pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -1320,7 +1329,7 @@ exports[`SelectMenu > renders with primary variant soft correctly 1`] = `
 
 exports[`SelectMenu > renders with primary variant subtle correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg-elevated)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -1366,7 +1375,7 @@ exports[`SelectMenu > renders with primary variant subtle correctly 1`] = `
 
 exports[`SelectMenu > renders with required correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -1412,7 +1421,7 @@ exports[`SelectMenu > renders with required correctly 1`] = `
 
 exports[`SelectMenu > renders with searchInput icon correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -1457,7 +1466,7 @@ exports[`SelectMenu > renders with searchInput icon correctly 1`] = `
 
 exports[`SelectMenu > renders with searchInput placeholder correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -1503,7 +1512,7 @@ exports[`SelectMenu > renders with searchInput placeholder correctly 1`] = `
 
 exports[`SelectMenu > renders with selectedIcon correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -1549,7 +1558,7 @@ exports[`SelectMenu > renders with selectedIcon correctly 1`] = `
 
 exports[`SelectMenu > renders with size lg correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-3 py-2 text-sm gap-2 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-10" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-3"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-3"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -1595,7 +1604,7 @@ exports[`SelectMenu > renders with size lg correctly 1`] = `
 
 exports[`SelectMenu > renders with size md correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -1641,7 +1650,7 @@ exports[`SelectMenu > renders with size md correctly 1`] = `
 
 exports[`SelectMenu > renders with size sm correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-xs gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-8" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-4" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-4" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -1687,7 +1696,7 @@ exports[`SelectMenu > renders with size sm correctly 1`] = `
 
 exports[`SelectMenu > renders with size xl correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-3 py-2 text-base gap-2 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-11" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-3"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-6" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-3"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-6" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -1733,7 +1742,7 @@ exports[`SelectMenu > renders with size xl correctly 1`] = `
 
 exports[`SelectMenu > renders with size xs correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2 py-1 text-xs gap-1 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-7" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-4" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-4" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -1779,7 +1788,7 @@ exports[`SelectMenu > renders with size xs correctly 1`] = `
 
 exports[`SelectMenu > renders with trailing and icon correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 <!--teleport end-->
@@ -1788,7 +1797,7 @@ exports[`SelectMenu > renders with trailing and icon correctly 1`] = `
 
 exports[`SelectMenu > renders with trailing slot correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5">Trailing slot</span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if-->Trailing slot</span>
 </button>
 <!--teleport start-->
 
@@ -1834,7 +1843,7 @@ exports[`SelectMenu > renders with trailing slot correctly 1`] = `
 
 exports[`SelectMenu > renders with trailingIcon correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="false" aria-controls="" data-state="closed" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:arrow-right shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:arrow-right shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 <!--teleport end-->
@@ -1843,7 +1852,7 @@ exports[`SelectMenu > renders with trailingIcon correctly 1`] = `
 
 exports[`SelectMenu > renders with trailingIcon correctly 2`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -1889,7 +1898,7 @@ exports[`SelectMenu > renders with trailingIcon correctly 2`] = `
 
 exports[`SelectMenu > renders with ui correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -1935,7 +1944,7 @@ exports[`SelectMenu > renders with ui correctly 1`] = `
 
 exports[`SelectMenu > renders with valueKey correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 
@@ -1981,7 +1990,7 @@ exports[`SelectMenu > renders with valueKey correctly 1`] = `
 
 exports[`SelectMenu > renders without searchInput correctly 1`] = `
 "<button type="button" tabindex="0" aria-label="Show popup" aria-haspopup="listbox" aria-expanded="true" aria-controls="" data-state="open" aria-disabled="false" class="relative group rounded-[calc(var(--ui-radius)*1.5)] inline-flex items-center focus:outline-none disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-[var(--ui-text-highlighted)] bg-[var(--ui-bg)] ring ring-inset ring-[var(--ui-border-accented)] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-primary)] pe-9" dir="ltr" style="pointer-events: auto;">
-  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
+  <!--v-if--><span class="truncate text-[var(--ui-text-dimmed)]"> </span><span class="absolute inset-y-0 end-0 flex items-center pe-2.5"><!--v-if--><span class="iconify i-lucide:chevron-down shrink-0 text-[var(--ui-text-dimmed)] size-5" aria-hidden="true"></span></span>
 </button>
 <!--teleport start-->
 

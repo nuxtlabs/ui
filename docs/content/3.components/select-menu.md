@@ -614,6 +614,33 @@ props:
 ---
 ::
 
+### Clearable
+
+Use the `clearable` prop to add a clear icon and enable `modelValue` clearing.
+
+::component-code
+---
+prettier: true
+ignore:
+  - items
+  - modelValue
+  - class
+external:
+  - items
+  - modelValue
+props:
+  modelValue: 'Backlog'
+  clearable: true
+  trailing: false
+  items:
+    - Backlog
+    - Todo
+    - In Progress
+    - Done
+  class: 'w-48'
+---
+::
+
 ## Examples
 
 ### With items type
