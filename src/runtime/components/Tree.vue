@@ -180,6 +180,12 @@ const defaultOpenedItems = computed(() =>
 )
 
 function onItemToggle(item: T, event: Event) {
+  if (item.disabled == false) return
+  if (item.disabled || props.disabled) event.preventDefault()
+}
+
+function onItemSelect(item: T, event: Event) {
+  if (item.disabled == false) return
   if (item.disabled || props.disabled) event.preventDefault()
 }
 </script>
@@ -199,10 +205,11 @@ function onItemToggle(item: T, event: Event) {
       #="{ isExpanded, isSelected }"
       :class="ui.item({ class: [props.ui?.item] })"
       :style="{ 'padding-left': `${item.level - 0.5}em` }"
-      :data-disabled="item.value.disabled || disabled ? '' : undefined"
+      :data-disabled="item.value.disabled !== false && (item.value.disabled || disabled) ? '' : undefined"
       :data-selected="selectedKeys.has(getItemKey(item.value))"
       :aria-label="item.value.label"
       @toggle="onItemToggle(item.value, $event)"
+      @select="onItemSelect(item.value, $event)"
     >
       <slot :name="item.value.slot || 'item'" v-bind="{ item: item.value as T, index: item.index, level: item.level, hasChildren: item.hasChildren, expanded: isExpanded, selected: isSelected }">
         <slot :name="item.value.slot ? `${item.value.slot}-leading`: 'item-leading'" v-bind="{ item: item.value, index: item.index, level: item.level, hasChildren: item.hasChildren, expanded: isExpanded, selected: isSelected }">

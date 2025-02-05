@@ -22,6 +22,7 @@ const devItems: TreeItem[] = [
     label: 'app',
     icon: 'lucide:folder',
     defaultOpen: true,
+    disabled: false,
     children: [{
       label: 'composables',
       icon: 'lucide:folder',
@@ -63,8 +64,8 @@ const modelValues = ref<TreeItem[]>()
 <template>
   <div class="flex flex-col gap-4">
     <div class="flex justify-center gap-4">
-      <UTree :items="items" parent-icon="i-lucide-chevron-down" icon="i-lucide-dot" :ui="{ itemLeadingIcon: 'group-data-[expanded]:rotate-180 transition-transform duration-200' }" />
-      <UTree :items="items" parent-trailing-icon="i-lucide-chevron-down" trailing-icon="i-lucide-dot" :ui="{ itemTrailingIcon: 'group-data-[expanded]:rotate-180 transition-transform duration-200' }" />
+      <UTree :items="items" parent-icon="i-lucide-chevron-right" icon="i-lucide-dot" :ui="{ itemLeadingIcon: 'group-data-[expanded]:rotate-90 transition-transform duration-200' }" />
+      <UTree :items="items" parent-trailing-icon="i-lucide-chevron-left" trailing-icon="i-lucide-dot" :ui="{ itemTrailingIcon: 'group-data-[expanded]:-rotate-90 transition-transform duration-200' }" />
 
       <UTree :items="items">
         <template #item-leading="{ hasChildren, expanded }">
@@ -78,7 +79,7 @@ const modelValues = ref<TreeItem[]>()
       <UTree v-model="modelValue" :default-value="modelValue" :items="devItems" />
       <UTree v-model="modelValues" :items="devItems" multiple @update:model-value="(payload: TreeItem[]) => payload" />
       <UTree :items="devItems" variant="ghost" />
-      <UTree v-model="modelValue" :items="devItems" disabled />
+      <UTree v-model="modelValue" :items="devItems" variant="ghost" disabled />
       <UTree :items="devItems" color="error" />
       <UTree :items="devItems" color="neutral" />
     </div>

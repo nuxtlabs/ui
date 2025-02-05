@@ -20,10 +20,10 @@ export default (options: Required<ModuleOptions>) => ({
 
     variant: {
       ghost: {
-        item: 'hover:bg-[var(--ui-bg-elevated)] hover:text-[var(--ui-text-highlighted)]'
+        item: 'hover:not-data-disabled:not-data-selected:bg-[var(--ui-bg-elevated)] hover:not-data-disabled:not-data-selected:text-[var(--ui-text-highlighted)]'
       },
       link: {
-        item: 'hover:text-[var(--ui-text-highlighted)]'
+        item: 'hover:not-data-disabled:not-data-selected:text-[var(--ui-text-highlighted)]'
       }
     },
     size: {
@@ -64,26 +64,26 @@ export default (options: Required<ModuleOptions>) => ({
       color,
       variant: 'ghost',
       class: {
-        item: `data-[selected]:bg-[var(--ui-${color})]/10 data-[selected]:text-[var(--ui-${color})]`
+        item: `data-selected:bg-[var(--ui-${color})]/10 data-selected:text-[var(--ui-${color})]`
       }
     })),
     {
       color: 'neutral', variant: 'ghost',
       class: {
-        item: 'data-[selected]:bg-[var(--ui-bg-elevated)]/50 data-[selected]:text-[var(--ui-text-highlighted)]'
+        item: 'data-selected:bg-[var(--ui-bg-elevated)]/50 data-selected:text-[var(--ui-text-highlighted)]'
       }
     },
     ...(options.theme.colors || []).map((color: string) => ({
       color,
       variant: 'link',
       class: {
-        item: `data-[selected]:text-[var(--ui-${color})]`
+        item: `data-selected:text-[var(--ui-${color})]`
       }
     })),
     {
       color: 'neutral', variant: 'link',
       class: {
-        item: 'data-[selected]:text-[var(--ui-text-highlighted)]'
+        item: 'data-selected:text-[var(--ui-text-highlighted)]'
       }
     }
 

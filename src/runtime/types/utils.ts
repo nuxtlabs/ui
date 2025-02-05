@@ -35,7 +35,3 @@ export type SelectModelValueEmits<T, V, M extends boolean = false, DV = T> = {
 }
 
 export type MaybeMultipleModelValue<T, M extends boolean = false> = (T extends infer U ? M extends true ? U[] : U : never)
-
-export type MaybeMultipleModelValueEmit<T, M extends boolean = false> = {
-  'update:modelValue': [payload: MaybeMultipleModelValue<T, M>]
-}
