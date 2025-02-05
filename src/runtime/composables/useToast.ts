@@ -4,7 +4,7 @@ import type { ToastProps } from '../types'
 
 export interface Toast extends Omit<ToastProps, 'defaultOpen'> {
   id: string | number
-  click?: (toast: Toast) => void
+  onClick?: (toast: Toast) => void
 }
 
 export function useToast() {
@@ -33,7 +33,7 @@ export function useToast() {
     running.value = false
   }
 
-  async function add(toast: Partial<Toast>): Promise<Toast> {
+  function add(toast: Partial<Toast>): Toast {
     const body = {
       id: generateId(),
       open: true,
@@ -42,7 +42,7 @@ export function useToast() {
 
     queue.push(body)
 
-    await processQueue()
+    processQueue()
 
     return body
   }
