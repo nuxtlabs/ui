@@ -150,7 +150,9 @@ const columns: TableColumn<Payment>[] = [{
       ref="table"
       :data="data"
       :columns="columns"
-      :get-pagination-row-model="getPaginationRowModel()"
+      :pagination-options="{
+        getPaginationRowModel: getPaginationRowModel()
+      }"
       :initial-state="{
         pagination: {
           pageIndex: 0,

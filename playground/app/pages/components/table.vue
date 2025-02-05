@@ -2,7 +2,6 @@
 import { h, resolveComponent } from 'vue'
 import { upperFirst } from 'scule'
 import type { TableColumn } from '@nuxt/ui'
-import { getPaginationRowModel } from '@tanstack/vue-table'
 
 const UButton = resolveComponent('UButton')
 const UCheckbox = resolveComponent('UCheckbox')
@@ -323,7 +322,6 @@ onMounted(() => {
       :columns="columns"
       :column-pinning="columnPinning"
       :loading="loading"
-      :get-pagination-row-model="getPaginationRowModel()"
       sticky
       :ui="{
         tr: 'divide-x divide-[var(--ui-border)]'
