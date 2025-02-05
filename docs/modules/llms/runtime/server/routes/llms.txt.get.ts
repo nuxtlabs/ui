@@ -13,10 +13,18 @@ export default eventHandler(async (event) => {
   }
 
   for (const section of options.sections) {
-    const docs = await queryCollection(event, section.collection)
+    // @ts-expect-error - typecheck does not derect server querryCollection
+    const query = queryCollection(event, section.collection)
       .select('path', 'title', 'description')
       .where('path', 'NOT LIKE', '%/.navigation')
-      .all()
+
+    if (section.filters) {
+      for (const filter of section.filters) {
+        query.where(filter.field, filter.operator, filter.value)
+      }
+    }
+
+    const docs = await query.all()
 
     const links = docs.map((doc) => {
       return `- [${doc.title}](${joinURL(options.domain, doc.path)}): ${doc.description}`

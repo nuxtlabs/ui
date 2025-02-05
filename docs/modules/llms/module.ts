@@ -1,4 +1,5 @@
 import { addPrerenderRoutes, addServerScanDir, createResolver, defineNuxtModule, useLogger } from '@nuxt/kit'
+import type { SQLOperator } from '@nuxt/content'
 
 export interface ModuleOptions {
   domain: string
@@ -6,6 +7,11 @@ export interface ModuleOptions {
     title: string
     collection: string
     description?: string
+    filters?: Array<{
+      field: string
+      operator: SQLOperator
+      value?: string
+    }>
   }>
   title?: string
   description?: string
