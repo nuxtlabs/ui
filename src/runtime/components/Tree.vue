@@ -4,7 +4,7 @@ import type { TreeRootProps, TreeRootEmits } from 'radix-vue'
 import type { AppConfig } from '@nuxt/schema'
 import _appConfig from '#build/app.config'
 import theme from '#build/ui/tree'
-import type { DynamicSlots, MaybeMultipleModelValue, MaybeMultipleModelValueEmit } from '../types/utils'
+import type { DynamicSlots, MaybeMultipleModelValue } from '../types/utils'
 
 const appConfig = _appConfig as AppConfig & { ui: { tree: Partial<typeof theme> } }
 
@@ -17,6 +17,7 @@ export type TreeItem<ValueKey extends string = 'value', LabelKey extends string 
   { [L in LabelKey]?: string } &
   {
     icon?: string
+    leadingIcon?: string
     trailingIcon?: string
     defaultOpen?: boolean
     disabled?: boolean
@@ -38,29 +39,54 @@ export interface TreeProps<T extends TreeItem<V, L>, M extends boolean = false, 
    * @defaultValue 'label'
    */
   labelKey?: L
-
+  /**
+   * The default leading icon displayed on parent nodes.
+   */
   parentIcon?: string
+  /**
+   * The default leading icon displayed on parent nodes.
+   */
+  parentLeadingIcon?: string
+  /**
+   * The default trailing icon displayed on parent nodes.
+   */
   parentTrailingIcon?: string
+  /**
+   * The default leading icon displayed on all nodes.
+   */
+  icon?: string
+  /**
+   * The default leading icon displayed on all nodes.
+   */
+  leadingIcon?: string
+  /**
+   * The default trailing icon displayed on all nodes.
+   */
+  trailingIcon?: string
 
-  childIcon?: string
-  childTrailingIcon?: string
+  items?: T[]
+
+  /** The controlled value of the Tree. Can be bind as `v-model`. */
+  modelValue?: Partial<MaybeMultipleModelValue<T, M>>
+
+  /** The value of the Tree when initially rendered. Use when you do not need to control the state of the Tree. */
+  defaultValue?: MaybeMultipleModelValue<T, M>
+
+  /** Whether multiple options can be selected or not. */
+  multiple?: M & boolean
 
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'
    */
   as?: any
-
-  items?: T[]
-  modelValue?: Partial<MaybeMultipleModelValue<T, M>>
-  defaultValue?: MaybeMultipleModelValue<T, M>
-  multiple?: M & boolean
-
   class?: any
   ui?: Partial<typeof tree.slots>
 }
 
-export type TreeEmits<T, M extends boolean = false> = MaybeMultipleModelValueEmit<T, M> & Omit<TreeRootEmits, 'update:modelValue'>
+export type TreeEmits<T, M extends boolean = false> = Omit<TreeRootEmits, 'update:modelValue'> & {
+  'update:modelValue': [payload: MaybeMultipleModelValue<T, M>]
+}
 
 type SlotProps<T> = (props: { item: T, index: number, level: number, hasChildren: boolean, expanded: boolean, selected: boolean }) => any
 
@@ -145,9 +171,9 @@ function onItemToggle(item: T, event: Event) {
     >
       <slot :name="item.value.slot || 'item'" v-bind="{ item: item.value as T, index: item.index, level: item.level, hasChildren: item.hasChildren, expanded: isExpanded, selected: isSelected }">
         <slot :name="item.value.slot ? `${item.value.slot}-leading`: 'item-leading'" v-bind="{ item: item.value, index: item.index, level: item.level, hasChildren: item.hasChildren, expanded: isExpanded, selected: isSelected }">
-          <UIcon v-if="item.value.icon" :name="item.value.icon" :class="ui.itemLeadingIcon({ class: props.ui?.itemLeadingIcon })" />
-          <UIcon v-else-if="item.hasChildren && parentIcon" :name="parentIcon" :class="ui.itemLeadingIcon({ class: props.ui?.itemLeadingIcon })" />
-          <UIcon v-else-if="!item.hasChildren && childIcon" :name="childIcon" :class="ui.itemLeadingIcon({ class: props.ui?.itemLeadingIcon })" />
+          <UIcon v-if="item.value.icon || item.value.leadingIcon" :name="item.value.icon ?? item.value.leadingIcon" :class="ui.itemLeadingIcon({ class: props.ui?.itemLeadingIcon })" />
+          <UIcon v-else-if="item.hasChildren && (parentIcon || parentLeadingIcon)" :name="(parentIcon ?? parentLeadingIcon) as string" :class="ui.itemLeadingIcon({ class: props.ui?.itemLeadingIcon })" />
+          <UIcon v-else-if="icon || leadingIcon" :name="(icon ?? leadingIcon) as string" :class="ui.itemLeadingIcon({ class: props.ui?.itemLeadingIcon })" />
         </slot>
 
         <span v-if="getItemLabel(item.value) || !!slots[item.value.slot ? `${item.value.slot}-label`: 'item-label']" :class="ui.itemLabel({ class: props.ui?.itemLabel })">
@@ -159,7 +185,7 @@ function onItemToggle(item: T, event: Event) {
         <slot :name="item.value.slot ? `${item.value.slot}-trailing`: 'item-trailing'" v-bind="{ item: item.value, index: item.index, level: item.level, hasChildren: item.hasChildren, expanded: isExpanded, selected: isSelected }">
           <UIcon v-if="item.value.trailingIcon" :name="item.value.trailingIcon" :class="ui.itemTrailingIcon({ class: props.ui?.itemTrailingIcon })" />
           <UIcon v-else-if="item.hasChildren && parentTrailingIcon" :name="parentTrailingIcon" :class="ui.itemTrailingIcon({ class: props.ui?.itemTrailingIcon })" />
-          <UIcon v-else-if="!item.hasChildren && childTrailingIcon" :name="childTrailingIcon" :class="ui.itemTrailingIcon({ class: props.ui?.itemTrailingIcon })" />
+          <UIcon v-else-if="trailingIcon" :name="trailingIcon" :class="ui.itemTrailingIcon({ class: props.ui?.itemTrailingIcon })" />
         </slot>
       </slot>
     </TreeItemComponent>

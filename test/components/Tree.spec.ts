@@ -30,24 +30,34 @@ describe('Tree', () => {
     ['with items', { props: { items } }],
     ['with modelValue', { props: { items, modelValue: items[0] } }],
     ['with defaultValue', { props: { items, defaultValue: items[0] } }],
+    // Key mapping
     ['with valueKey', { props: { items, valueKey: 'label' } }],
     ['with labelKey', { props: { items, labelKey: 'value' } }],
+    // Multiple
     ['with multiple', { props: { items, multiple: true } }],
     ['with multiple and modelValue', { props: { items, multiple: true, modelValue: [items[0], items[1]] } }],
     ['with multiple and defaultValue', { props: { items, multiple: true, defaultValue: [items[0], items[1]] } }],
+    // Disabled
     ['with disabled', { props: { items, disabled: true } }],
+    // Parent icon
     ['with parentIcon', { props: { items, parentIcon: 'lucide:folder' } }],
+    ['with parentLeadingIcon', { props: { items, parentLeadingIcon: 'lucide:folder' } }],
     ['with parentTrailingIcon', { props: { items, parentTrailingIcon: 'lucide:folder' } }],
-    ['with childIcon', { props: { items, childIcon: 'lucide:dot' } }],
-    ['with childTrailingIcon', { props: { items, childTrailingIcon: 'lucide:dot' } }],
-    ['with defaultOpened item', { props: { items: [{ label: 'Default Opened', defaultOpened: true, children: items }] } }],
+    // Icons
+    ['with icon', { props: { items, icon: 'lucide:dot' } }],
+    ['with leadingIcon', { props: { items, leadingIcon: 'lucide:dot' } }],
+    ['with trailingIcon', { props: { items, trailingIcon: 'lucide:dot' } }],
+    // Item properties
+    ['with defaultOpen item', { props: { items: [{ label: 'Default Opened', defaultOpen: true, children: items }] } }],
     ['with disabled item', { props: { items: [{ label: 'Disabled item', disabled: true, children: items }] } }],
     ['with item icon', { props: { items: [{ label: 'Icon item', icon: 'lucide:folder', children: items }] } }],
-    ['with item trailingIcon', { props: { items: [{ label: 'Trailing item', trailingIcon: 'lucide:folder', children: items }] } }],
     ['with item leadingIcon', { props: { items: [{ label: 'Leading item', leadingIcon: 'lucide:folder', children: items }] } }],
+    ['with item trailingIcon', { props: { items: [{ label: 'Trailing item', trailingIcon: 'lucide:folder', children: items }] } }],
+    // Style variants
     ...sizes.map((size: string) => [`with size ${size}`, { props: { items, size } }]),
     ...variants.map((variant: string) => [`with primary variant ${variant}`, { props: { items, variant } }]),
     ...variants.map((variant: string) => [`with neutral variant ${variant}`, { props: { items, variant, color: 'neutral' } }]),
+
     ['with as', { props: { items, as: 'div' } }],
     ['with class', { props: { items, class: 'some-class' } }],
     ['with ui', { props: { items, ui: { item: 'font-bold' } } }],
