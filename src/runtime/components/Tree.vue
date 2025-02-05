@@ -96,6 +96,41 @@ export type TreeSlots<T extends { slot?: string }> = {
   'item-label': SlotProps<T>
   'item-trailing': SlotProps<T>
 } & DynamicSlots<T, SlotProps<T>>
+
+extendDevtoolsMeta({ defaultProps: {
+  items: [
+    {
+      label: 'app',
+      icon: 'lucide:folder',
+      defaultOpen: true,
+      children: [{
+        label: 'composables',
+        icon: 'lucide:folder',
+        defaultOpen: true,
+        children: [
+          { label: 'useAuth.ts', icon: 'vscode-icons:file-type-typescript' },
+          { label: 'useUser.ts', icon: 'vscode-icons:file-type-typescript' }
+        ]
+      },
+      {
+        label: 'components',
+        icon: 'lucide:folder',
+        children: [
+          {
+            label: 'Home',
+            icon: 'lucide:folder',
+            children: [
+              { label: 'Card.vue', icon: 'vscode-icons:file-type-vue' },
+              { label: 'Button.vue', icon: 'vscode-icons:file-type-vue' }
+            ]
+          }
+        ]
+      }]
+    },
+    { label: 'app.vue', icon: 'vscode-icons:file-type-vue' },
+    { label: 'nuxt.config.ts', icon: 'vscode-icons:file-type-nuxt' }
+  ]
+} })
 </script>
 
 <script setup lang="ts" generic="T extends Record<string, any>, M extends boolean = false, V extends string = 'value', L extends string = 'label'">
