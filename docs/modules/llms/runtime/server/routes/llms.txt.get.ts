@@ -12,6 +12,11 @@ export default eventHandler(async (event) => {
     llms.push(`> ${options.description}`)
   }
 
+  llms.push(
+    '## Documentation Sets',
+    `- [Complete Documentation](${joinURL(options.domain, '/llms_full.txt')}): The complete documentation including all content`
+  )
+
   for (const section of options.sections) {
     // @ts-expect-error - typecheck does not derect server querryCollection
     const query = queryCollection(event, section.collection)
