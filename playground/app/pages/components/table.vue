@@ -270,6 +270,11 @@ const columnPinning = ref({
   right: ['actions']
 })
 
+const pagination = ref({
+  pageIndex: 0,
+  pageSize: 10
+})
+
 function randomize() {
   data.value = [...data.value].sort(() => Math.random() - 0.5)
 }
@@ -323,13 +328,14 @@ onMounted(() => {
       :columns="columns"
       :column-pinning="columnPinning"
       :loading="loading"
-      sticky
+      :pagination="pagination"
       :pagination-options="{
         getPaginationRowModel: getPaginationRowModel()
       }"
       :ui="{
         tr: 'divide-x divide-[var(--ui-border)]'
       }"
+      sticky
       class="border border-[var(--ui-border-accented)] rounded-[var(--ui-radius)]"
     >
       <template #expanded="{ row }">

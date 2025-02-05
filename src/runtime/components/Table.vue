@@ -138,7 +138,7 @@ export interface TableProps<T extends TableData> extends TableOptions<T> {
    * @link [API Docs](https://tanstack.com/table/v8/docs/api/features/pagination#table-options)
    * @link [Guide](https://tanstack.com/table/v8/docs/guide/pagination)
    */
-  paginationOptions?: PaginationOptions
+  paginationOptions?: Omit<PaginationOptions, 'onPaginationChange'>
   /**
    * @link [API Docs](https://tanstack.com/table/v8/docs/api/features/column-faceting#table-options)
    * @link [Guide](https://tanstack.com/table/v8/docs/guide/column-faceting)
