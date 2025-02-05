@@ -160,7 +160,7 @@ export default defineNuxtConfig({
           {
             field: 'path',
             operator: 'LIKE',
-            value: '/getting-started/%'
+            value: '/getting-started%'
           }
         ]
       },
