@@ -456,7 +456,11 @@ const table = useTemplateRef('table')
 </template>
 ```
 
-This will give you access to the [TanStack Table API](https://tanstack.com/table/latest/docs/api/core/table#table-api).
+This will give you access to the following:
+
+| Name | Type |
+| ---- | ---- |
+| `tableApi`{lang="ts-type"} | [`Ref<Table \| null>`{lang="ts-type"}](https://tanstack.com/table/latest/docs/api/core/table#table-api) |
 
 ## Theme
 
