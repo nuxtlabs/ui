@@ -263,7 +263,6 @@ function onUpdate(value: any) {
   if (toRaw(props.modelValue) === value) {
     return
   }
-  console.log('update', value)
   // @ts-expect-error - 'target' does not exist in type 'EventInit'
   const event = new Event('change', { target: { value } })
   emits('change', event)
