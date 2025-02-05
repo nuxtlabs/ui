@@ -19,8 +19,12 @@ export default (options: Required<ModuleOptions>) => ({
     },
 
     variant: {
-      ghost: '',
-      link: ''
+      ghost: {
+        item: 'hover:bg-[var(--ui-bg-elevated)] hover:text-[var(--ui-text-highlighted)]'
+      },
+      link: {
+        item: 'hover:text-[var(--ui-text-highlighted)]'
+      }
     },
     size: {
       xs: {
