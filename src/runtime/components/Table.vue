@@ -3,37 +3,38 @@
 import type { Ref } from 'vue'
 import type { VariantProps } from 'tailwind-variants'
 import type { AppConfig } from '@nuxt/schema'
-import type { RowData } from '@tanstack/table-core'
 import type {
-  Row,
+  CellContext,
   ColumnDef,
+  ColumnFiltersOptions,
   ColumnFiltersState,
   ColumnOrderState,
-  ColumnPinningState,
-  ColumnSizingState,
-  ColumnSizingInfoState,
-  RowSelectionState,
-  RowPinningState,
-  SortingState,
-  GroupingState,
-  ExpandedState,
-  VisibilityState,
-  Updater,
-  CellContext,
-  HeaderContext,
-  CoreOptions,
-  VisibilityOptions,
   ColumnPinningOptions,
-  RowPinningOptions,
+  ColumnPinningState,
+  ColumnSizingInfoState,
+  ColumnSizingOptions,
+  ColumnSizingState,
+  CoreOptions,
+  ExpandedOptions,
+  ExpandedState,
   FacetedOptions,
-  ColumnFiltersOptions,
   GlobalFilterOptions,
   GroupingOptions,
-  SortingOptions,
-  ExpandedOptions,
-  ColumnSizingOptions,
+  GroupingState,
+  HeaderContext,
   PaginationOptions,
-  RowSelectionOptions
+  PaginationState,
+  Row,
+  RowData,
+  RowPinningOptions,
+  RowPinningState,
+  RowSelectionOptions,
+  RowSelectionState,
+  SortingOptions,
+  SortingState,
+  Updater,
+  VisibilityOptions,
+  VisibilityState
 } from '@tanstack/vue-table'
 import _appConfig from '#build/app.config'
 import theme from '#build/ui/table'
@@ -138,6 +139,10 @@ export interface TableProps<T extends TableData> extends TableOptions<T> {
    * @link [Guide](https://tanstack.com/table/v8/docs/guide/pagination)
    */
   paginationOptions?: PaginationOptions
+  /**
+   * @link [API Docs](https://tanstack.com/table/v8/docs/api/features/column-faceting#table-options)
+   * @link [Guide](https://tanstack.com/table/v8/docs/guide/column-faceting)
+   */
   facetedOptions?: FacetedOptions<T>
   class?: any
   ui?: Partial<typeof table.slots>
@@ -156,9 +161,10 @@ export type TableSlots<T> = {
 
 <script setup lang="ts" generic="T extends TableData">
 import { computed } from 'vue'
-import { Primitive } from 'reka-ui'
-import { FlexRender, getCoreRowModel, getFilteredRowModel, getSortedRowModel, getExpandedRowModel, useVueTable } from '@tanstack/vue-table'
+import { Primitive, useForwardProps } from 'reka-ui'
 import { upperFirst } from 'scule'
+import { FlexRender, getCoreRowModel, getFilteredRowModel, getSortedRowModel, getExpandedRowModel, useVueTable } from '@tanstack/vue-table'
+import { reactiveOmit } from '@vueuse/core'
 import { useLocale } from '../composables/useLocale'
 
 const props = defineProps<TableProps<T>>()
@@ -188,8 +194,12 @@ const rowPinningState = defineModel<RowPinningState>('rowPinning', { default: {}
 const sortingState = defineModel<SortingState>('sorting', { default: [] })
 const groupingState = defineModel<GroupingState>('grouping', { default: [] })
 const expandedState = defineModel<ExpandedState>('expanded', { default: {} })
+const paginationState = defineModel<PaginationState>('pagination', { default: {} })
+
+const tableProps = useForwardProps(reactiveOmit(props, 'as', 'data', 'columns', 'caption', 'sticky', 'loading', 'loadingColor', 'loadingAnimation', 'class', 'ui'))
 
 const tableApi = useVueTable({
+  ...tableProps,
   data,
   columns: columns.value,
   getCoreRowModel: getCoreRowModel(),
@@ -219,6 +229,7 @@ const tableApi = useVueTable({
   getExpandedRowModel: getExpandedRowModel(),
   onExpandedChange: updaterOrValue => valueUpdater(updaterOrValue, expandedState),
   ...(props.paginationOptions || {}),
+  onPaginationChange: updaterOrValue => valueUpdater(updaterOrValue, paginationState),
   ...(props.facetedOptions || {}),
   state: {
     get globalFilter() {
@@ -226,6 +237,9 @@ const tableApi = useVueTable({
     },
     get columnFilters() {
       return columnFiltersState.value
+    },
+    get columnOrder() {
+      return columnOrderState.value
     },
     get columnVisibility() {
       return columnVisibilityState.value
@@ -241,6 +255,21 @@ const tableApi = useVueTable({
     },
     get sorting() {
       return sortingState.value
+    },
+    get grouping() {
+      return groupingState.value
+    },
+    get rowPinning() {
+      return rowPinningState.value
+    },
+    get columnSizing() {
+      return columnSizingState.value
+    },
+    get columnSizingInfo() {
+      return columnSizingInfoState.value
+    },
+    get pagination() {
+      return paginationState.value
     }
   }
 })

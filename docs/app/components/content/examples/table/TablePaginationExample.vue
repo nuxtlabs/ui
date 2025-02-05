@@ -142,31 +142,33 @@ const columns: TableColumn<Payment>[] = [{
     return h('div', { class: 'text-right font-medium' }, formatted)
   }
 }]
+
+const pagination = ref({
+  pageIndex: 0,
+  pageSize: 5
+})
 </script>
 
 <template>
   <div class="w-full space-y-4 pb-4">
     <UTable
       ref="table"
+      v-model:pagination="pagination"
       :data="data"
       :columns="columns"
       :pagination-options="{
         getPaginationRowModel: getPaginationRowModel()
       }"
-      :initial-state="{
-        pagination: {
-          pageIndex: 0,
-          pageSize: 7
-        }
-      }"
       class="flex-1"
     />
-    <UPagination
-      :default-page="(table?.tableApi?.getState().pagination.pageIndex || 0) + 1"
-      :items-per-page="table?.tableApi?.getState().pagination.pageSize"
-      :total="table?.tableApi?.getFilteredRowModel().rows.length"
-      class="w-fit mx-auto"
-      @update:page="(p) => table?.tableApi?.setPageIndex(p - 1)"
-    />
+
+    <div class="flex justify-center border-t border-[var(--ui-border)] pt-4">
+      <UPagination
+        :default-page="(table?.tableApi?.getState().pagination.pageIndex || 0) + 1"
+        :items-per-page="table?.tableApi?.getState().pagination.pageSize"
+        :total="table?.tableApi?.getFilteredRowModel().rows.length"
+        @update:page="(p) => table?.tableApi?.setPageIndex(p - 1)"
+      />
+    </div>
   </div>
 </template>
