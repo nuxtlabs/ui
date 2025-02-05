@@ -42,5 +42,6 @@ export default defineNuxtModule({
     addServerScanDir(resolve('runtime/server'))
 
     addPrerenderRoutes('/llms.txt')
+    addPrerenderRoutes('/llms_full.txt')
   }
 })
