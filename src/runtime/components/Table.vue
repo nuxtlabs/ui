@@ -187,7 +187,9 @@ function valueUpdater<T extends Updater<any>>(updaterOrValue: T, ref: Ref) {
   ref.value = typeof updaterOrValue === 'function' ? updaterOrValue(ref.value) : updaterOrValue
 }
 
-defineExpose(tableApi)
+defineExpose({
+  tableApi
+})
 </script>
 
 <template>
