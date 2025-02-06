@@ -32,7 +32,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@headlessui/tailwindcss": "^0.2.1",
+    "@headlessui/tailwindcss": "^0.2.2",
     "@headlessui/vue": "^1.7.23",
     "@iconify-json/heroicons": "^1.2.2",
     "@nuxt/icon": "^1.10.3",
