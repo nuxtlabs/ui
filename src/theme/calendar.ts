@@ -12,7 +12,7 @@ export default (options: Required<ModuleOptions>) => ({
     gridBody: 'grid',
     headCell: 'rounded-[calc(var(--ui-radius)*1.5)]',
     cell: 'relative text-center',
-    cellTrigger: ['m-0.5 relative flex items-center justify-center rounded-full whitespace-nowrap focus-visible:ring-2 focus:outline-none data-disabled:text-[var(--ui-text-muted)] data-unavailable:line-through data-unavailable:text-[var(--ui-text-muted)] data-unavailable:pointer-events-none data-[selected]:text-[var(--ui-bg)] data-today:font-semibold', options.theme.transitions && 'transition']
+    cellTrigger: ['m-0.5 relative flex items-center justify-center rounded-full whitespace-nowrap focus-visible:ring-2 focus:outline-none data-disabled:text-(--ui-text-muted) data-unavailable:line-through data-unavailable:text-(--ui-text-muted) data-unavailable:pointer-events-none data-[selected]:text-(--ui-bg) data-today:font-semibold', options.theme.transitions && 'transition']
   },
   variants: {
     color: {
@@ -21,8 +21,8 @@ export default (options: Required<ModuleOptions>) => ({
         cellTrigger: `focus-visible:ring-[var(--ui-${color})] data-[selected]:bg-[var(--ui-${color})] data-today:not-data-[selected]:text-[var(--ui-${color})] data-[highlighted]:bg-[var(--ui-${color})]/20 hover:not-data-[selected]:bg-[var(--ui-${color})]/20`
       }])),
       neutral: {
-        headCell: 'text-[var(--ui-bg-inverted)]',
-        cellTrigger: 'focus-visible:ring-[var(--ui-border-inverted)] data-[selected]:bg-[var(--ui-bg-inverted)] data-today:not-data-[selected]:text-[var(--ui-bg-inverted)] data-[highlighted]:bg-[var(--ui-bg-inverted)]/20 hover:not-data-[selected]:bg-[var(--ui-bg-inverted)]/10'
+        headCell: 'text-(--ui-bg-inverted)',
+        cellTrigger: 'focus-visible:ring-(--ui-border-inverted) data-[selected]:bg-(--ui-bg-inverted) data-today:not-data-[selected]:text-(--ui-bg-inverted) data-[highlighted]:bg-(--ui-bg-inverted)/20 hover:not-data-[selected]:bg-(--ui-bg-inverted)/10'
       }
     },
     size: {

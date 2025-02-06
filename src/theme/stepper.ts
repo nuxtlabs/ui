@@ -6,13 +6,13 @@ export default (options: Required<ModuleOptions>) => ({
     header: 'flex',
     item: 'group text-center relative w-full',
     container: 'relative',
-    trigger: 'rounded-full font-medium text-center align-middle flex items-center justify-center font-semibold group-data-[state=completed]:text-[var(--ui-bg)] group-data-[state=active]:text-[var(--ui-bg)] text-[var(--ui-text-muted)] bg-[var(--ui-bg-elevated)] focus-visible:outline-2 focus-visible:outline-offset-2',
+    trigger: 'rounded-full font-medium text-center align-middle flex items-center justify-center font-semibold group-data-[state=completed]:text-(--ui-bg) group-data-[state=active]:text-(--ui-bg) text-(--ui-text-muted) bg-(--ui-bg-elevated) focus-visible:outline-2 focus-visible:outline-offset-2',
     indicator: 'flex items-center justify-center size-full',
     icon: 'shrink-0',
-    separator: 'absolute rounded-full group-data-[disabled]:opacity-75 bg-[var(--ui-border-accented)]',
+    separator: 'absolute rounded-full group-data-[disabled]:opacity-75 bg-(--ui-border-accented)',
     wrapper: '',
-    title: 'font-medium text-[var(--ui-text)]',
-    description: 'text-[var(--ui-text-muted)] text-wrap',
+    title: 'font-medium text-(--ui-text)',
+    description: 'text-(--ui-text-muted) text-wrap',
     content: 'size-full'
   },
 
@@ -75,8 +75,8 @@ export default (options: Required<ModuleOptions>) => ({
         separator: `group-data-[state=completed]:bg-[var(--ui-${color})]`
       }])),
       neutral: {
-        trigger: `group-data-[state=completed]:bg-[var(--ui-bg-inverted)] group-data-[state=active]:bg-[var(--ui-bg-inverted)] focus-visible:outline-[var(--ui-border-inverted)]`,
-        separator: `group-data-[state=completed]:bg-[var(--ui-bg-inverted)]`
+        trigger: `group-data-[state=completed]:bg-(--ui-bg-inverted) group-data-[state=active]:bg-(--ui-bg-inverted) focus-visible:outline-(--ui-border-inverted)`,
+        separator: `group-data-[state=completed]:bg-(--ui-bg-inverted)`
       }
     }
   },

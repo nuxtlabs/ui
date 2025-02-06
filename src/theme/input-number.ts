@@ -7,7 +7,7 @@ export default (options: Required<ModuleOptions>) => {
   return {
     slots: {
       root: 'relative inline-flex items-center',
-      base: ['w-full rounded-[calc(var(--ui-radius)*1.5)] border-0 placeholder:text-[var(--ui-text-dimmed)] focus:outline-none disabled:cursor-not-allowed disabled:opacity-75', options.theme.transitions && 'transition-colors'],
+      base: ['w-full rounded-[calc(var(--ui-radius)*1.5)] border-0 placeholder:text-(--ui-text-dimmed) focus:outline-none disabled:cursor-not-allowed disabled:opacity-75', options.theme.transitions && 'transition-colors'],
       increment: 'absolute flex items-center',
       decrement: 'absolute flex items-center'
     },
@@ -58,11 +58,11 @@ export default (options: Required<ModuleOptions>) => {
     })), {
       color: 'neutral',
       variant: ['outline', 'subtle'],
-      class: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[var(--ui-border-inverted)]'
+      class: 'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-(--ui-border-inverted)'
     }, {
       color: 'neutral',
       highlight: true,
-      class: 'ring ring-inset ring-[var(--ui-border-inverted)]'
+      class: 'ring ring-inset ring-(--ui-border-inverted)'
     }, {
       orientation: 'horizontal',
       size: 'xs',

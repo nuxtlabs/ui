@@ -91,7 +91,7 @@ const isDark = computed({
 <template>
   <UApp class="flex justify-center items-center h-screen w-full relative font-sans">
     <div v-if="status === 'pending' || error || !component || !components?.length">
-      <div v-if="error" class="flex flex-col justify-center items-center h-screen w-screen text-center text-[var(--ui-color-error-500)]">
+      <div v-if="error" class="flex flex-col justify-center items-center h-screen w-screen text-center text-(--ui-color-error-500)">
         <UILogo class="h-8" />
         <UIcon name="i-lucide-circle-alert" size="20" class="mt-2" />
         <p>
@@ -101,7 +101,7 @@ const isDark = computed({
     </div>
     <template v-else>
       <div
-        class="top-0 h-[49px] border-b border-[var(--ui-border)] flex justify-center"
+        class="top-0 h-[49px] border-b border-(--ui-border) flex justify-center"
       >
         <span />
 
@@ -114,8 +114,8 @@ const isDark = computed({
           icon="i-lucide-search"
         />
 
-        <div class="absolute top-[49px] bottom-0 inset-x-0 grid xl:grid-cols-8 grid-cols-4 bg-[var(--ui-bg)]">
-          <div class="col-span-1 border-r border-[var(--ui-border)] hidden xl:block overflow-y-auto">
+        <div class="absolute top-[49px] bottom-0 inset-x-0 grid xl:grid-cols-8 grid-cols-4 bg-(--ui-bg)">
+          <div class="col-span-1 border-r border-(--ui-border) hidden xl:block overflow-y-auto">
             <UNavigationMenu
               :items="components.map((c) => ({ ...c, active: c.slug === component?.slug, onSelect: () => component = c }))"
               orientation="vertical"
@@ -144,10 +144,10 @@ const isDark = computed({
             </div>
           </div>
 
-          <div class="border-l border-[var(--ui-border)] flex flex-col col-span-2 overflow-y-auto">
-            <UTabs color="neutral" variant="link" :items="tabs" class="relative" :ui="{ list: 'sticky top-0 bg-[var(--ui-bg)] z-50' }">
+          <div class="border-l border-(--ui-border) flex flex-col col-span-2 overflow-y-auto">
+            <UTabs color="neutral" variant="link" :items="tabs" class="relative" :ui="{ list: 'sticky top-0 bg-(--ui-bg) z-50' }">
               <template #props>
-                <div v-for="prop in componentPropsMeta" :key="'prop-' + prop.name" class="px-3 py-5 border-b border-[var(--ui-border)]">
+                <div v-for="prop in componentPropsMeta" :key="'prop-' + prop.name" class="px-3 py-5 border-b border-(--ui-border)">
                   <ComponentPropInput
                     v-model="componentProps[prop.name]"
                     :meta="prop"
