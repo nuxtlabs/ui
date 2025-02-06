@@ -33,6 +33,11 @@ const links = computed(() => [{
   to: '/components',
   active: route.path.startsWith('/components')
 }, {
+  label: 'Pro',
+  icon: 'i-lucide-panels-top-left',
+  to: '/pro',
+  active: route.path.startsWith('/pro')
+}, {
   label: 'Roadmap',
   icon: 'i-lucide-map',
   to: '/roadmap'
