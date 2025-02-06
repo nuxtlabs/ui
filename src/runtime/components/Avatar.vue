@@ -7,9 +7,9 @@ import theme from '#build/ui/avatar'
 import { extendDevtoolsMeta } from '../composables/extendDevtoolsMeta'
 import { tv } from '../utils/tv'
 
-const appConfig = _appConfig as AppConfig & { ui: { avatar: Partial<typeof theme> } }
+const appConfigAvatar = _appConfig as AppConfig & { ui: { avatar: Partial<typeof theme> } }
 
-const avatar = tv({ extend: tv(theme), ...(appConfig.ui?.avatar || {}) })
+const avatar = tv({ extend: tv(theme), ...(appConfigAvatar.ui?.avatar || {}) })
 
 type AvatarVariants = VariantProps<typeof avatar>
 
@@ -75,7 +75,7 @@ const sizePx = computed(() => ({
 
 // Reproduces Reka UI's [AvatarImage](https://reka-ui.com/docs/components/avatar#image) component behavior which cannot be used with NuxtImg component
 onMounted(() => {
-  if (!props.src || ImageComponent !== 'img') {
+  if (!props.src || (ImageComponent as unknown as string) !== 'img') {
     return
   }
 
@@ -105,7 +105,7 @@ onMounted(() => {
       @load="imageLoaded = true"
     />
 
-    <AvatarFallback as-child v-bind="{ ...fallbackProps, ...$attrs }">
+    <AvatarFallback v-if="!imageLoaded" as-child v-bind="{ ...fallbackProps, ...$attrs }">
       <slot>
         <UIcon v-if="icon" :name="icon" :class="ui.icon({ class: props.ui?.icon })" />
         <span v-else :class="ui.fallback({ class: props.ui?.fallback })">{{ fallback || '&nbsp;' }}</span>

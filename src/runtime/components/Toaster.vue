@@ -7,9 +7,9 @@ import theme from '#build/ui/toaster'
 import { extendDevtoolsMeta } from '../composables/extendDevtoolsMeta'
 import { tv } from '../utils/tv'
 
-const appConfig = _appConfig as AppConfig & { ui: { toaster: Partial<typeof theme> } }
+const appConfigToaster = _appConfig as AppConfig & { ui: { toaster: Partial<typeof theme> } }
 
-const toaster = tv({ extend: tv(theme), ...(appConfig.ui?.toaster || {}) })
+const toaster = tv({ extend: tv(theme), ...(appConfigToaster.ui?.toaster || {}) })
 
 type ToasterVariants = VariantProps<typeof toaster>
 
@@ -121,10 +121,10 @@ function getOffset(index: number) {
         '--transform': 'translateY(var(--translate)) scale(var(--scale))'
       }"
       :class="[ui.base(), {
-        'cursor-pointer': !!toast.click
+        'cursor-pointer': !!toast.onClick
       }]"
       @update:open="onUpdateOpen($event, toast.id)"
-      @click="toast.click && toast.click(toast)"
+      @click="toast.onClick && toast.onClick(toast)"
     />
 
     <ToastPortal :disabled="!portal">

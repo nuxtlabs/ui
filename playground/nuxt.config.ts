@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   },
 
   ui: {
-    fonts: false
+    fonts: !process.env.DEVTOOLS
   },
 
   future: {

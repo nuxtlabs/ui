@@ -7,9 +7,9 @@ import _appConfig from '#build/app.config'
 import theme from '#build/ui/calendar'
 import { tv } from '../utils/tv'
 
-const appConfig = _appConfig as AppConfig & { ui: { calendar: Partial<typeof theme> } }
+const appConfigCalendar = _appConfig as AppConfig & { ui: { calendar: Partial<typeof theme> } }
 
-const calendar = tv({ extend: tv(theme), ...(appConfig.ui?.calendar || {}) })
+const calendar = tv({ extend: tv(theme), ...(appConfigCalendar.ui?.calendar || {}) })
 
 type CalendarVariants = VariantProps<typeof calendar>
 
@@ -77,6 +77,7 @@ import { computed } from 'vue'
 import { useForwardPropsEmits } from 'reka-ui'
 import { Calendar as SingleCalendar, RangeCalendar } from 'reka-ui/namespaced'
 import { reactiveOmit } from '@vueuse/core'
+import { useAppConfig } from '#imports'
 import { useLocale } from '../composables/useLocale'
 import UButton from './Button.vue'
 
@@ -88,6 +89,7 @@ const props = withDefaults(defineProps<CalendarProps<R, M>>(), {
 const emits = defineEmits<CalendarEmits<R, M>>()
 defineSlots<CalendarSlots>()
 
+const appConfig = useAppConfig()
 const { code: locale, dir, t } = useLocale()
 
 const rootProps = useForwardPropsEmits(reactiveOmit(props, 'range', 'modelValue', 'defaultValue', 'color', 'size', 'monthControls', 'yearControls', 'class', 'ui'), emits)

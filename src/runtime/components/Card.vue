@@ -5,9 +5,9 @@ import theme from '#build/ui/card'
 import { extendDevtoolsMeta } from '../composables/extendDevtoolsMeta'
 import { tv } from '../utils/tv'
 
-const appConfig = _appConfig as AppConfig & { ui: { card: Partial<typeof theme> } }
+const appConfigCard = _appConfig as AppConfig & { ui: { card: Partial<typeof theme> } }
 
-const card = tv({ extend: tv(theme), ...(appConfig.ui?.card || {}) })
+const card = tv({ extend: tv(theme), ...(appConfigCard.ui?.card || {}) })
 
 export interface CardProps {
   /**
