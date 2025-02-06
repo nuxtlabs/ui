@@ -25,7 +25,7 @@ exports[`Drawer > renders with class correctly 1`] = `
 
 
 <div data-state="open" style="pointer-events: auto;" vaul-drawer-visible="false" vaul-overlay="" vaul-snap-points="false" vaul-snap-points-overlay="true" class="fixed inset-0 bg-(--ui-bg-elevated)/75"></div>
-<div data-dismissable-layer="" style="pointer-events: auto; --snap-point-height: 0;" id="" role="dialog" aria-describedby="radix-vue-dialog-description-v-1" aria-labelledby="radix-vue-dialog-title-v-0" data-state="open" vaul-drawer="" vaul-drawer-direction="bottom" vaul-drawer-visible="false" tabindex="-1" class="fixed ring ring-(--ui-border) flex focus:outline-none bottom-0 mt-24 flex-col rounded-t-[calc(var(--ui-radius)*2)] inset-x-0 h-auto max-h-[96%] bg-[var(--ui-bg-elevated)]">
+<div data-dismissable-layer="" style="pointer-events: auto; --snap-point-height: 0;" id="" role="dialog" aria-describedby="radix-vue-dialog-description-v-1" aria-labelledby="radix-vue-dialog-title-v-0" data-state="open" vaul-drawer="" vaul-drawer-direction="bottom" vaul-drawer-visible="false" tabindex="-1" class="fixed ring ring-(--ui-border) flex focus:outline-none bottom-0 mt-24 flex-col rounded-t-[calc(var(--ui-radius)*2)] inset-x-0 h-auto max-h-[96%] bg-(--ui-bg-elevated)">
   <div class="shrink-0 rounded-full bg-(--ui-bg-accented) mt-4 w-12 h-1.5 mx-auto"></div>
   <div class="w-full flex flex-col gap-4 p-4 overflow-y-auto">
     <!--v-if-->
