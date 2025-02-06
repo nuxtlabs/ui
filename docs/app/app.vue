@@ -51,9 +51,7 @@ const links = computed(() => [{
 const color = computed(() => colorMode.value === 'dark' ? (colors as any)[appConfig.ui.colors.neutral][900] : 'white')
 const radius = computed(() => `:root { --ui-radius: ${appConfig.theme.radius}rem; }`)
 const blackAsPrimary = computed(() => appConfig.theme.blackAsPrimary ? `:root { --ui-primary: black; } .dark { --ui-primary: white; }` : ':root {}')
-watchEffect(() => {
-  console.log(appConfig.theme.blackAsPrimary)
-})
+
 useHead({
   meta: [
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },

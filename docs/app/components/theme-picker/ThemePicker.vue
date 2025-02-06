@@ -5,8 +5,6 @@ import { omit } from '#ui/utils'
 const appConfig = useAppConfig()
 const colorMode = useColorMode()
 
-// Computed
-
 const neutralColors = ['slate', 'gray', 'zinc', 'neutral', 'stone']
 const neutral = computed({
   get() {
