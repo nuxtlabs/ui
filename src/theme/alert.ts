@@ -43,25 +43,25 @@ export default (options: Required<ModuleOptions>) => ({
     color,
     variant: 'solid',
     class: {
-      root: `bg-[var(--ui-${color})] text-(--ui-bg)`
+      root: `bg-(--ui-${color}) text-(--ui-bg)`
     }
   })), ...(options.theme.colors || []).map((color: string) => ({
     color,
     variant: 'outline',
     class: {
-      root: `text-[var(--ui-${color})] ring ring-inset ring-[var(--ui-${color})]/25`
+      root: `text-(--ui-${color}) ring ring-inset ring-(--ui-${color})/25`
     }
   })), ...(options.theme.colors || []).map((color: string) => ({
     color,
     variant: 'soft',
     class: {
-      root: `bg-[var(--ui-${color})]/10 text-[var(--ui-${color})]`
+      root: `bg-(--ui-${color})/10 text-(--ui-${color})`
     }
   })), ...(options.theme.colors || []).map((color: string) => ({
     color,
     variant: 'subtle',
     class: {
-      root: `bg-[var(--ui-${color})]/10 text-[var(--ui-${color})] ring ring-inset ring-[var(--ui-${color})]/25`
+      root: `bg-(--ui-${color})/10 text-(--ui-${color}) ring ring-inset ring-(--ui-${color})/25`
     }
   })), {
     color: 'neutral',

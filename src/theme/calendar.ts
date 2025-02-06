@@ -17,8 +17,8 @@ export default (options: Required<ModuleOptions>) => ({
   variants: {
     color: {
       ...Object.fromEntries((options.theme.colors || []).map((color: string) => [color, {
-        headCell: `text-[var(--ui-${color})]`,
-        cellTrigger: `focus-visible:ring-[var(--ui-${color})] data-[selected]:bg-[var(--ui-${color})] data-today:not-data-[selected]:text-[var(--ui-${color})] data-[highlighted]:bg-[var(--ui-${color})]/20 hover:not-data-[selected]:bg-[var(--ui-${color})]/20`
+        headCell: `text-(--ui-${color})`,
+        cellTrigger: `focus-visible:ring-(--ui-${color}) data-[selected]:bg-(--ui-${color}) data-today:not-data-[selected]:text-(--ui-${color}) data-[highlighted]:bg-(--ui-${color})/20 hover:not-data-[selected]:bg-(--ui-${color})/20`
       }])),
       neutral: {
         headCell: 'text-(--ui-bg-inverted)',

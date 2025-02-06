@@ -16,8 +16,8 @@ export default (options: Required<ModuleOptions>) => ({
   variants: {
     color: {
       ...Object.fromEntries((options.theme.colors || []).map((color: string) => [color, {
-        base: `focus-visible:outline-[var(--ui-${color})]`,
-        indicator: `bg-[var(--ui-${color})]`
+        base: `focus-visible:outline-(--ui-${color})`,
+        indicator: `bg-(--ui-${color})`
       }])),
       neutral: {
         base: 'focus-visible:outline-(--ui-border-inverted)',

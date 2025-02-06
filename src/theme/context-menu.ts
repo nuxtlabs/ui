@@ -89,15 +89,15 @@ export default (options: Required<ModuleOptions>) => ({
     color,
     active: false,
     class: {
-      item: `text-[var(--ui-${color})] data-highlighted:text-[var(--ui-${color})] data-highlighted:before:bg-[var(--ui-${color})]/10 data-[state=open]:before:bg-[var(--ui-${color})]/10`,
-      itemLeadingIcon: `text-[var(--ui-${color})]/75 group-data-highlighted:text-[var(--ui-${color})] group-data-[state=open]:text-[var(--ui-${color})]`
+      item: `text-(--ui-${color}) data-highlighted:text-(--ui-${color}) data-highlighted:before:bg-(--ui-${color})/10 data-[state=open]:before:bg-(--ui-${color})/10`,
+      itemLeadingIcon: `text-(--ui-${color})/75 group-data-highlighted:text-(--ui-${color}) group-data-[state=open]:text-(--ui-${color})`
     }
   })), ...(options.theme.colors || []).map((color: string) => ({
     color,
     active: true,
     class: {
-      item: `text-[var(--ui-${color})] before:bg-[var(--ui-${color})]/10`,
-      itemLeadingIcon: `text-[var(--ui-${color})]`
+      item: `text-(--ui-${color}) before:bg-(--ui-${color})/10`,
+      itemLeadingIcon: `text-(--ui-${color})`
     }
   }))],
   defaultVariants: {

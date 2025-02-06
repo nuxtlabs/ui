@@ -71,8 +71,8 @@ export default (options: Required<ModuleOptions>) => ({
 
     color: {
       ...Object.fromEntries((options.theme.colors || []).map((color: string) => [color, {
-        trigger: `group-data-[state=completed]:bg-[var(--ui-${color})] group-data-[state=active]:bg-[var(--ui-${color})] focus-visible:outline-[var(--ui-${color})]`,
-        separator: `group-data-[state=completed]:bg-[var(--ui-${color})]`
+        trigger: `group-data-[state=completed]:bg-(--ui-${color}) group-data-[state=active]:bg-(--ui-${color}) focus-visible:outline-(--ui-${color})`,
+        separator: `group-data-[state=completed]:bg-(--ui-${color})`
       }])),
       neutral: {
         trigger: `group-data-[state=completed]:bg-(--ui-bg-inverted) group-data-[state=active]:bg-(--ui-bg-inverted) focus-visible:outline-(--ui-border-inverted)`,

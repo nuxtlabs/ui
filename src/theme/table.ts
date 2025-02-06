@@ -44,7 +44,7 @@ export default (options: Required<ModuleOptions>) => ({
     loading: true,
     loadingColor,
     class: {
-      thead: `after:bg-[var(--ui-${loadingColor})]`
+      thead: `after:bg-(--ui-${loadingColor})`
     }
   })), {
     loading: true,

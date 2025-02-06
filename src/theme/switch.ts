@@ -14,8 +14,8 @@ export default (options: Required<ModuleOptions>) => ({
   variants: {
     color: {
       ...Object.fromEntries((options.theme.colors || []).map((color: string) => [color, {
-        base: `data-[state=checked]:bg-[var(--ui-${color})] focus-visible:outline-[var(--ui-${color})]`,
-        icon: `group-data-[state=checked]:text-[var(--ui-${color})]`
+        base: `data-[state=checked]:bg-(--ui-${color}) focus-visible:outline-(--ui-${color})`,
+        icon: `group-data-[state=checked]:text-(--ui-${color})`
       }])),
       neutral: {
         base: 'data-[state=checked]:bg-(--ui-bg-inverted) focus-visible:outline-(--ui-border-inverted)',
