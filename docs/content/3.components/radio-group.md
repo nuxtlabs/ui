@@ -99,6 +99,34 @@ props:
 ---
 ::
 
+### Variant
+
+Use the `variant` prop to change the variant of the RadioGroup.
+
+::component-code
+---
+prettier: true
+ignore:
+  - defaultValue
+  - items
+external:
+  - items
+props:
+  variant: 'table'
+  defaultValue: 'pro'
+  items:
+    - label: 'Pro'
+      value: 'pro'
+      description: 'Tailored for indie hackers, freelancers and solo founders.'
+    - label: 'Startup'
+      value: 'startup'
+      description: 'Best suited for small teams, startups and agencies.'
+    - label: 'Enterprise'
+      value: 'enterprise'
+      description: 'Ideal for larger teams and organizations.'
+---
+::
+
 ### Legend
 
 Use the `legend` prop to set the legend of the RadioGroup.
