@@ -14,6 +14,7 @@ useSeoMeta({
     <UPageHero
       :links="page.hero.links"
       class="relative"
+      orientation="horizontal"
     >
       <template #title>
         <MDC :value="page.hero.title" unwrap="p" />
@@ -24,15 +25,14 @@ useSeoMeta({
       <template #top>
         <div class="absolute z-[-1] rounded-full bg-[var(--ui-primary)] blur-[300px] size-60 sm:size-80 transform -translate-x-1/2 left-1/2 -translate-y-80" />
 
-        <ClientOnly>
+        <!-- <ClientOnly>
           <ParticlesBg
             class="absolute inset-0 z-[-1] h-[400px]"
-            :quantity="100"
+            :quantity="50"
             :ease="100"
             :staticity="10"
-            refresh
           />
-        </ClientOnly>
+        </ClientOnly> -->
       </template>
 
       <PromotionalVideo />

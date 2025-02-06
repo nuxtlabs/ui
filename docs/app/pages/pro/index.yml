@@ -16,8 +16,8 @@ hero:
       to: https://ui.nuxt.com/pro/purchase
       target: _blank
 features:
-  title: Create stunning Vue applications
-  description: Nuxt UI Pro comes packed with powerful features to help you build modern, high-performance Nuxt applications faster. From pre-built UI sections to Figma design kits, every detail is crafted to enhance your workflow and deliver a polished user experience.
+  title: Create stunning Vue applications faster.
+  description: Nuxt UI Pro comes packed with powerful features to help you build modern, performant, accessible and responsive Nuxt applications at record speed. From pre-built UI sections to Figma design kits, every detail is crafted to speed up your development and deliver a polished user experience.
   features:
     - title: 40+ Ready-to-use Sections
       description: Pre-built UI components for landing pages, documentation, blogs, dashboards, and more—ready to use out of the box.
