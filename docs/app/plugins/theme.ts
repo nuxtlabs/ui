@@ -53,7 +53,7 @@ export default defineNuxtPlugin({
               }
               html = html.replace(
                 /(--ui-color-neutral-\\d{2,3}:\\s*var\\()--color-${appConfig.ui.colors.neutral}-(\\d{2,3}\\))/g,
-                \`$1--color-\${neutralColor}-$2\`
+                \`$1--color-\${neutralColor === 'neutral' ? 'old-neutral' : neutralColor}-$2\`
               );
             }
 
