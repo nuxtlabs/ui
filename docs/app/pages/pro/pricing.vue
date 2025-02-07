@@ -48,7 +48,6 @@ useSeoMeta({
         </UPricingPlans>
         <UPricingPlan
           v-bind="page.pricing.figma"
-          class="mb-16"
           terms="Preview Figma Kit"
         >
           <template #features>
