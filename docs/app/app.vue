@@ -36,7 +36,30 @@ const links = computed(() => [{
   label: 'Pro',
   icon: 'i-lucide-panels-top-left',
   to: '/pro',
-  active: route.path.startsWith('/pro')
+  active: route.path.startsWith('/pro'),
+  orientation: 'vertical',
+  children: [{
+    icon: 'i-lucide-sparkles',
+    label: 'Features',
+    description: 'Discover why Nuxt UI Pro is the perfect choice for your next project.',
+    to: '/pro'
+  }, {
+    icon: 'i-lucide-credit-card',
+    label: 'Pricing',
+    description: 'Free in development, then purchase a license when you are ready to launch.',
+    to: '/pro/pricing',
+    active: route.path.startsWith('/pro/pricing')
+  }, {
+    icon: 'i-lucide-panels-top-left',
+    label: 'Components',
+    description: 'Explore all the components available in Nuxt UI Pro.',
+    to: '/components/banner'
+  }, {
+    icon: 'i-lucide-circle-check',
+    label: 'Activate',
+    description: 'Enable Nuxt UI Pro in your production projects by activating your license.',
+    to: '/pro/activate'
+  }]
 }, {
   label: 'Roadmap',
   icon: 'i-lucide-map',
@@ -101,7 +124,7 @@ provide('navigation', mappedNavigation)
     </NuxtLayout>
 
     <template v-if="!route.path.startsWith('/examples')">
-      <!-- <Footer /> -->
+      <Footer />
 
       <ClientOnly>
         <LazyUContentSearch

@@ -164,8 +164,39 @@ templates:
       image: '/pro/templates/dashboard.png'
 pricing:
   headline: Pricing
-  title: A plan for every need
+  title: Upgrade to Nuxt UI [Pro]{class="text-(--ui-primary)"}.
   description: On top of 40+ open source components from Nuxt UI, Pro gives you access to 50+ premium Vue components to create beautiful & responsive Nuxt applications in minutes. It includes all primitives to build landing pages, documentations, blogs, dashboards or entire SaaS products.
+  freePlan:
+    title: Free in development
+    description: Try Nuxt UI Pro for free in development, no credit card required. Upgrade when ready to deploy.
+    variant: soft
+    orientation: horizontal
+    button:
+      label: Get started for Free
+      to: '/getting-started/installation/pro/nuxt'
+      color: 'neutral'
+      variant: 'outline'
+  figma:
+    title: Figma Kit Pro
+    description: Get all Nuxt UI Pro components in a Figma kit to design your next application before coding. Everything you need, from wire-framing to high-fidelity web integration.
+    variant: soft
+    orientation: horizontal
+    price: $99
+    billing_period: one-time payment
+    billing_cycle: plus local taxes
+    features:
+      - 1700+ components & variants from Nuxt UI & UI Pro
+      - 'Variables: primary, neutral, fonts, rounded, shadows, etc.'
+      - Light & dark mode support
+      - 'Templates: Starter, Landing, Docs, SaaS and Dashboard'
+      - Auto-layout & responsive ready
+      - Tailwind CSS assets & icons included
+      - Free [preview available](https://www.figma.com/design/mxXR9binOSLU3rYKZZRPXs/PREVIEW---NuxtUIPro-V3-BETA?m=auto&t=c4598Wr0rZwKPs5M-1)
+      - Includes Nuxt UI [Figma Kit](https://www.figma.com/community/file/1288455405058138934)
+    button:
+      label: Buy now
+      to: 'https://nuxt.lemonsqueezy.com/buy/17213c49-621b-4c2c-9478-3a50a099003d'
+      color: 'neutral'
   plans:
     - title: Solo
       description: Tailored for indie hackers, freelancers and solo founders.
@@ -244,7 +275,7 @@ logos:
     alt: Instadapp
 testimonials:
   title: What people are saying
-  description: Nuxt UI Pro is already trusted by 1,500+ users and teams around the world.
+  description: Nuxt UI Pro is already trusted by 2,000+ users and teams around the world.
   items:
     - quote: "We were using a SaaS service for the docs site, but were left unfulfilled. We put in the effort to do it in house, with UI Pro and not only did we get complimented by a prospect on our site, but they wanted to know our platform."
       user:
@@ -279,6 +310,7 @@ testimonials:
         target: _blank
         avatar:
           src: 'https://ipx.nuxt.com/f_auto,s_40x40/gh_avatar/mokkapps'
+          srcset: 'https://ipx.nuxt.com/f_auto,s_80x80/gh_avatar/mokkapps 2x'
     - quote: "Nuxt UI Pro is my go to component library. Out-of-the-box it handles all of the UI demands I throw at it while looking great. The customisation is really worth thought out, allowing you to override components in a breeze. Always amazed at the improvements dropped in each update as well, the team is doing an amazing job."
       user:
         name: 'Harlan Wilton'
@@ -287,6 +319,7 @@ testimonials:
         target: _blank
         avatar:
           src: 'https://ipx.nuxt.com/f_auto,s_40x40/gh_avatar/harlan-zw'
+          srcset: 'https://ipx.nuxt.com/f_auto,s_80x80/gh_avatar/harlan-zw 2x'
     - quote: "I jumped at the chance to buy the Nuxt team's new UI kit as soon as I saw it. While I'm already a fan of Nuxt UI, the pro version takes it to a whole new level and lets me paste entire blocks into all my projects, saving me a ton of time."
       user:
         name: 'Thomas Sanlis'
@@ -318,19 +351,18 @@ testimonials:
         to: 'https://twitter.com/hugorcd__'
         target: _blank
         avatar:
-          src: 'https://avatars.githubusercontent.com/u/71938701?v=4'
+          src: 'https://ipx.nuxt.com/f_auto,s_40x40/gh_avatar/hugorcd'
+          srcset: 'https://ipx.nuxt.com/f_auto,s_80x80/gh_avatar/hugorcd 2x'
 cta:
   title: Start with Nuxt UI Pro today!
   description: Nuxt UI Pro is free in development, but you need a license to use it in production.
   links:
     - label: Purchase a license
-      to: 'https://ui.nuxt.com/pro/purchase'
-      target: _blank
+      to: '/pro/pricing'
       icon: i-lucide-shopping-cart
     - label: License
       to: '/getting-started/license'
       trailingIcon: i-lucide-circle-help
-      target: _blank
       variant: subtle
 faq:
   title: Frequently Asked Questions

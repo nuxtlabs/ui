@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import page from './index.yml'
+import page from '.content.yml'
 
 useSeoMeta({
   title: page.title,
-  ogTitle: page.title,
+  ogTitle: `${page.title} - Nuxt UI Pro`,
   description: page.description,
   ogDescription: page.description
 })
@@ -90,84 +90,6 @@ useSeoMeta({
           >
         </UPageCard>
       </UCarousel>
-    </UPageSection>
-
-    <UPageSection
-      id="pricing"
-      v-bind="page.pricing"
-    >
-      <UContainer>
-        <UPricingPlans
-          class="mb-16"
-          scale
-        >
-          <UPricingPlan
-            v-for="(plan, index) in page.pricing.plans"
-            :key="index"
-            :title="plan.title"
-            :description="plan.description"
-            :price="plan.price"
-            :billing-period="plan.billing_period"
-            :billing-cycle="plan.billing_cycle"
-            :highlight="plan.highlight"
-            :scale="plan.highlight"
-            variant="soft"
-            :features="plan.features"
-            :button="plan.button"
-          />
-        </UPricingPlans>
-      </UContainer>
-    </UPageSection>
-
-    <UPageSection
-      id="testimonials"
-      v-bind="page.testimonials"
-    >
-      <UPageMarquee pause-on-hover>
-        <img
-          v-for="(logo, index) in page.logos"
-          :key="index"
-          v-bind="logo"
-          class="h-6 shrink-0 max-w-[140px] filter invert dark:invert-0"
-        >
-      </UPageMarquee>
-      <UContainer>
-        <UPageColumns class="xl:columns-4">
-          <UPageCard
-            v-for="(testimonial, index) in page.testimonials.items"
-            :key="index"
-            variant="subtle"
-            :description="testimonial.quote"
-            :ui="{ description: 'before:content-[open-quote] after:content-[close-quote]' }"
-          >
-            <template #footer>
-              <UUser
-                v-bind="testimonial.user"
-                size="xl"
-              />
-            </template>
-          </UPageCard>
-        </UPageColumns>
-      </UContainer>
-    </UPageSection>
-
-    <UPageSection
-      id="faq"
-      v-bind="page.faq"
-      class="scroll-mt-[var(--header-height)]"
-    >
-      <UPageAccordion
-        multiple
-        :items="page.faq.items"
-        class="max-w-4xl mx-auto"
-      >
-        <template #body="{ item }">
-          <MDC
-            :value="item.content"
-            unwrap="p"
-          />
-        </template>
-      </UPageAccordion>
     </UPageSection>
 
     <USeparator />
