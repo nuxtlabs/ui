@@ -46,6 +46,11 @@ export interface SelectMenuProps<T extends MaybeArrayOfArrayItem<I>, I extends M
   size?: SelectMenuVariants['size']
   required?: boolean
   /**
+   * Determines if user can clear the `modelValue` with icon click
+   * @defaultValue false
+   */
+  clearable?: boolean
+  /**
    * The icon displayed to open the menu.
    * @defaultValue appConfig.ui.icons.chevronDown
    */
@@ -55,6 +60,11 @@ export interface SelectMenuProps<T extends MaybeArrayOfArrayItem<I>, I extends M
    * @defaultValue appConfig.ui.icons.check
    */
   selectedIcon?: string
+  /**
+   * The icon displayed to clear the value.
+   * @defaultValue appConfig.ui.icons.close
+   */
+  clearIcon?: string
   /**
    * The content of the menu.
    * @defaultValue { side: 'bottom', sideOffset: 8, collisionPadding: 8, position: 'popper' }
@@ -152,7 +162,8 @@ const props = withDefaults(defineProps<SelectMenuProps<T, I, V, M>>(), {
   portal: true,
   searchInput: true,
   labelKey: 'label' as never,
-  resetSearchTermOnBlur: true
+  resetSearchTermOnBlur: true,
+  clearable: false
 })
 const emits = defineEmits<SelectMenuEmits<T, V, M>>()
 const slots = defineSlots<SelectMenuSlots<T, M>>()
@@ -199,6 +210,14 @@ function displayValue(value: T | T[]): string {
   const item = items.value.find(item => compare(typeof item === 'object' ? get(item as Record<string, any>, props.valueKey as string) : item, value))
   return item && (typeof item === 'object' ? get(item, props.labelKey as string) : item)
 }
+
+const isEmpty = computed(() => {
+  if (Array.isArray(props.modelValue)) {
+    return props.modelValue.length === 0
+  }
+
+  return !(props.modelValue)
+})
 
 const groups = computed(() => props.items?.length ? (Array.isArray(props.items[0]) ? props.items : [props.items]) as SelectMenuItem[][] : [])
 // eslint-disable-next-line vue/no-dupe-keys
@@ -276,6 +295,11 @@ function onUpdateOpen(value: boolean) {
     clearTimeout(timeoutId)
   }
 }
+
+function onClear() {
+  const newValue = props.multiple ? [] : null
+  emits('update:modelValue', newValue as SelectModelValue<T, V, M>)
+}
 </script>
 
 <!-- eslint-disable vue/no-template-shadow -->
@@ -328,6 +352,7 @@ function onUpdateOpen(value: boolean) {
         </slot>
 
         <span v-if="isTrailing || !!slots.trailing" :class="ui.trailing({ class: props.ui?.trailing })">
+          <UIcon v-if="props.clearable && !isEmpty" :name="clearIcon || appConfig.ui.icons.close" :class="ui.clearIcon({ class: props.ui?.clearIcon })" @click.prevent.stop="onClear()" />
           <slot name="trailing" :model-value="(modelValue as M extends true ? T[] : T)" :open="open" :ui="ui">
             <UIcon v-if="trailingIconName" :name="trailingIconName" :class="ui.trailingIcon({ class: props.ui?.trailingIcon })" />
           </slot>

@@ -12,6 +12,7 @@ const vegetables = ['Aubergine', 'Broccoli', 'Carrot', 'Courgette', 'Leek']
 
 const items = [[{ label: 'Fruits', type: 'label' }, ...fruits], [{ label: 'Vegetables', type: 'label' }, ...vegetables]]
 const selectedItems = ref([fruits[0]!, vegetables[0]!])
+const selectedItem = ref(fruits[0]!)
 
 const statuses = [{
   label: 'Backlog',
@@ -89,6 +90,8 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
       <USelectMenu :items="items" placeholder="Disabled" disabled />
       <USelectMenu :items="items" placeholder="Required" required />
       <USelectMenu v-model="selectedItems" :items="items" placeholder="Multiple" multiple />
+      <USelectMenu v-model="selectedItem" :items="items" clearable />
+      <USelectMenu v-model="selectedItems" :items="items" placeholder="Multiple" multiple clearable />
       <USelectMenu :items="items" loading placeholder="Search..." />
     </div>
     <div class="flex items-center gap-4">
@@ -98,6 +101,7 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
         :items="items"
         placeholder="Search..."
         :size="size"
+        clearable
         class="w-48"
       />
     </div>
