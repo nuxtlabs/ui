@@ -111,7 +111,7 @@ provide('navigation', mappedNavigation)
 
 <template>
   <UApp :toaster="appConfig.toaster">
-    <NuxtLoadingIndicator color="#FFF" />
+    <NuxtLoadingIndicator color="var(--ui-primary)" :height="2" />
 
     <template v-if="!route.path.startsWith('/examples')">
       <!-- <Banner /> -->
