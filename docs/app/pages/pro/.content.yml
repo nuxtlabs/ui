@@ -13,7 +13,7 @@ hero:
       size: xl
       color: neutral
       variant: outline
-      to: https://ui.nuxt.com/pro/purchase
+      to: /pro/pricing
       target: _blank
 features:
   title: Create stunning Vue applications faster.
