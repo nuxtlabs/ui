@@ -16,11 +16,7 @@
   mask-size: cover;
   transform: translate(-50%);
 
-  --color: #000;
-}
-
-.dark .stars {
-  --color: #fff;
+  --color: var(--ui-primary);
 }
 
 .stars > div {

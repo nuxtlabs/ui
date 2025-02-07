@@ -2,7 +2,7 @@
   <div class="relative">
     <UPageCard
       variant="subtle"
-      class="rounded-2xl grayscale hover:grayscale-0 transition-all duration-300"
+      class="rounded-2xl"
     >
       <video
         class="rounded-xl"
