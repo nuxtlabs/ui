@@ -89,15 +89,15 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      // routes: [
-      //   '/getting-started',
-      //   '/api/countries.json',
-      //   '/api/locales.json'
-      // '/api/releases.json',
-      // '/api/pulls.json'
-      // ],
-      // crawlLinks: true,
-      // autoSubfolderIndex: false
+      routes: [
+        '/getting-started',
+        '/api/countries.json',
+        '/api/locales.json'
+        // '/api/releases.json',
+        // '/api/pulls.json'
+      ],
+      crawlLinks: true,
+      autoSubfolderIndex: false
     },
     cloudflare: {
       pages: {
