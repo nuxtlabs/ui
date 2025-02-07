@@ -31,7 +31,7 @@ const description = computed(() => {
 
     <template #description>
       <!-- eslint-disable vue/no-v-html -->
-      <p v-if="meta.description" class="text-neutral-600 dark:text-neutral-400 mt-1" v-html="description" />
+      <p v-if="meta.description" class="mt-1" v-html="description" />
     </template>
 
     <component :is="matchedInput.component" v-if="!ignore && matchedInput" v-model="modelValue" :schema="parsedSchema" />

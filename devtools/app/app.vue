@@ -89,7 +89,7 @@ const isDark = computed({
 </script>
 
 <template>
-  <UApp class="flex justify-center items-center h-screen w-full relative font-sans">
+  <UApp>
     <div v-if="status === 'pending' || error || !component || !components?.length">
       <div v-if="error" class="flex flex-col justify-center items-center h-screen w-screen text-center text-(--ui-color-error-500)">
         <UILogo class="h-8" />
@@ -100,9 +100,7 @@ const isDark = computed({
       </div>
     </div>
     <template v-else>
-      <div
-        class="top-0 h-[49px] border-b border-(--ui-border) flex justify-center"
-      >
+      <div class="top-0 h-[49px] border-b border-(--ui-border) flex justify-center">
         <span />
 
         <UInputMenu
@@ -170,39 +168,17 @@ const isDark = computed({
 @theme {
   --font-sans: 'DM Sans', sans-serif;
 
-  --color-primary-50: var(--ui-color-primary-50);
-  --color-primary-100: var(--ui-color-primary-100);
-  --color-primary-200: var(--ui-color-primary-200);
-  --color-primary-300: var(--ui-color-primary-300);
-  --color-primary-400: var(--ui-color-primary-400);
-  --color-primary-500: var(--ui-color-primary-500);
-  --color-primary-600: var(--ui-color-primary-600);
-  --color-primary-700: var(--ui-color-primary-700);
-  --color-primary-800: var(--ui-color-primary-800);
-  --color-primary-900: var(--ui-color-primary-900);
-  --color-primary-950: var(--ui-color-primary-950);
-
-  --color-neutral-50: var(--ui-color-neutral-50);
-  --color-neutral-100: var(--ui-color-neutral-100);
-  --color-neutral-200: var(--ui-color-neutral-200);
-  --color-neutral-300: var(--ui-color-neutral-300);
-  --color-neutral-400: var(--ui-color-neutral-400);
-  --color-neutral-500: var(--ui-color-neutral-500);
-  --color-neutral-600: var(--ui-color-neutral-600);
-  --color-neutral-700: var(--ui-color-neutral-700);
-  --color-neutral-800: var(--ui-color-neutral-800);
-  --color-neutral-900: var(--ui-color-neutral-900);
-  --color-neutral-950: var(--ui-color-neutral-950);
-}
-
-:root {
-  --ui-border: var(--ui-color-neutral-200);
-  --ui-bg: white;
-}
-
-.dark {
-  --ui-border: var(--ui-color-neutral-800);
-  --ui-bg: var(--ui-color-neutral-900);
+  --color-green-50: #EFFDF5;
+  --color-green-100: #D9FBE8;
+  --color-green-200: #B3F5D1;
+  --color-green-300: #75EDAE;
+  --color-green-400: #00DC82;
+  --color-green-500: #00C16A;
+  --color-green-600: #00A155;
+  --color-green-700: #007F45;
+  --color-green-800: #016538;
+  --color-green-900: #0A5331;
+  --color-green-950: #052E16;
 }
 
 .shiki
