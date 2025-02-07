@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import page from '.content.yml'
+import page from '.content/pricing.yml'
 
 useSeoMeta({
-  title: 'Nuxt UI Pro Pricing',
-  ogTitle: 'Nuxt UI Pro Pricing',
-  description: 'Start for free in development mode, then upgrade to a paid plan to unlock the full features of Nuxt UI Pro when you are ready to launch.',
-  ogDescription: 'Start for free in development mode, then upgrade to a paid plan to unlock the full features of Nuxt UI Pro when you are ready to launch.'
+  title: page.title,
+  ogTitle: page.title,
+  description: page.description,
+  ogDescription: page.description
+})
+defineOgImageComponent('Docs', {
+  headline: 'Pro'
 })
 </script>
 

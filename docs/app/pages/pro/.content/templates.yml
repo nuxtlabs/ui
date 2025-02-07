@@ -1,0 +1,133 @@
+title: Official Nuxt UI [Pro]{.text-(--ui-primary)} Templates
+description: 'Ready to use templates powered by our premium Vue components and Nuxt Content.<br class="hidden lg:block"> The templates are responsive, accessible and easy to customize so you can get started in no time.'
+head.title: Templates
+head.description: 'Ready to use templates powered by our premium Vue components and Nuxt Content. The templates are responsive, accessible and easy to customize so you can get started in no time.'
+navigation: false
+links:
+  - label: Get started
+    to: /getting-started/installation/pro/nuxt#use-an-official-template
+    color: neutral
+    size: xl
+    trailingIcon: i-lucide-arrow-right
+  - label: Purchase a license
+    size: xl
+    color: neutral
+    variant: outline
+    to: /pro/pricing
+templates:
+  - title: 'Landing'
+    description: "A landing page template you can use as a starting point for your next idea. You can change the content easily in [`content/index.yml`](https://github.com/nuxt-ui-pro/landing/blob/main/content/index.yml)."
+    images:
+      - src: /templates/landing1.png
+      - src: /templates/landing2.png
+      - src: /templates/landing3.png
+      - src: /templates/landing4.png
+    features:
+      - title: Dynamic island navigation
+        icon: i-heroicons-window
+      - title: Features, Pricing, Testimonials and FAQ sections
+        icon: i-heroicons-rectangle-stack
+      - title: Write content in YAML
+        icon: i-simple-icons-yaml
+    links:
+      - label: Live preview
+        to: https://landing-template.nuxt.dev
+        target: _blank
+        trailingIcon: i-heroicons-arrow-top-right-on-square
+        color: neutral
+        size: md
+      - label: Use this template
+        to: https://github.com/nuxt-ui-pro/landing/tree/v3
+        target: _blank
+        icon: i-simple-icons-github
+        color: neutral
+        variant: ghost
+        size: md
+  - title: 'Docs'
+    description: "A ready-to-use documentation template integrated with [Nuxt Studio](https://nuxt.studio). You can start writing your docs right away inside the [`content/`](https://github.com/nuxt-ui-pro/docs/tree/main/content) directory."
+    images:
+      - src: /templates/docs1.png
+      - src: /templates/docs2.png
+      - src: /templates/docs3.png
+      - src: /templates/docs4.png
+    features:
+      - title: Write pages in Markdown
+        icon: i-simple-icons-markdown
+      - title: Generated navigation & table of contents
+        icon: i-heroicons-bars-3-bottom-left
+      - title: Full-text search out of the box
+        icon: i-heroicons-magnifying-glass
+    links:
+      - label: Live preview
+        to: https://docs-template.nuxt.dev
+        target: _blank
+        trailingIcon: i-heroicons-arrow-top-right-on-square
+        color: neutral
+        size: md
+      - label: Use this template
+        to: https://github.com/nuxt-ui-pro/docs/tree/v3
+        target: _blank
+        variant: ghost
+        icon: i-simple-icons-github
+        color: neutral
+        size: md
+  - title: 'SaaS'
+    description: "A fully built SaaS application to launch your next project. It includes a landing page, a pricing page, a documentation and a blog which can customized easily from the [`content/`](https://github.com/nuxt-ui-pro/docs/tree/main/content) directory."
+    images:
+      - src: /templates/saas1.png
+      - src: /templates/saas2.png
+      - src: /templates/saas3.png
+      - src: /templates/saas4.png
+      - src: /templates/saas5.png
+    features:
+      - title: Includes Landing & Docs features
+        icon: i-heroicons-squares-plus
+      - title: Customizable command palette
+        icon: i-heroicons-command-line
+      - title: Authentication pages (login, register)
+        icon: i-heroicons-lock-closed
+    links:
+      - label: Live preview
+        to: https://saas-template.nuxt.dev
+        target: _blank
+        trailingIcon: i-heroicons-arrow-top-right-on-square
+        color: neutral
+        size: md
+      - label: Use this template
+        to: https://github.com/nuxt-ui-pro/saas/tree/v3
+        target: _blank
+        variant: ghost
+        icon: i-simple-icons-github
+        color: neutral
+        size: md
+  - title: 'Dashboard'
+    description: "A template to illustrate how to build your own dashboard with the 15+ latest Nuxt UI Pro components, designed specifically to create a consistent look and feel."
+    images:
+      - src: /templates/dashboard1.png
+      - src: /templates/dashboard2.png
+      - src: /templates/dashboard3.png
+      - src: /templates/dashboard4.png
+      - src: /templates/dashboard5.png
+      - src: /templates/dashboard6.png
+      - src: /templates/dashboard7.png
+    features:
+      - title: Mix with SaaS template for a complete solution
+        icon: i-heroicons-puzzle-piece
+      - title: Includes custom components for charts, date pickers, etc.
+        icon: i-heroicons-chart-bar
+      - title: Resizable multi-column layout
+        icon: i-heroicons-view-columns
+    links:
+      - label: Live preview
+        to: https://dashboard-template.nuxt.dev
+        target: _blank
+        trailingIcon: i-heroicons-arrow-top-right-on-square
+        color: neutral
+        size: md
+      - label: Use this template
+        to: https://github.com/nuxt-ui-pro/dashboard/tree/v3
+        target: _blank
+        icon: i-simple-icons-github
+        color: neutral
+        variant: ghost
+        size: md

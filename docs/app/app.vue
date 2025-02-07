@@ -22,60 +22,7 @@ const searchTerm = ref('')
 //   useTrackEvent('Search', { props: { query: `${query} - ${searchTerm.value?.commandPaletteRef.results.length} results` } })
 // }, 500))
 
-const links = computed(() => [{
-  label: 'Docs',
-  icon: 'i-lucide-square-play',
-  to: '/getting-started',
-  active: route.path.startsWith('/getting-started')
-}, {
-  label: 'Components',
-  icon: 'i-lucide-square-code',
-  to: '/components',
-  active: route.path.startsWith('/components')
-}, {
-  label: 'Pro',
-  icon: 'i-lucide-panels-top-left',
-  to: '/pro',
-  active: route.path.startsWith('/pro'),
-  orientation: 'vertical',
-  children: [{
-    icon: 'i-lucide-sparkles',
-    label: 'Features',
-    description: 'Discover why Nuxt UI Pro is the perfect choice for your next project.',
-    to: '/pro'
-  }, {
-    icon: 'i-lucide-credit-card',
-    label: 'Pricing',
-    description: 'Free in development, then purchase a license when you are ready to launch.',
-    to: '/pro/pricing',
-    active: route.path.startsWith('/pro/pricing')
-  }, {
-    icon: 'i-lucide-panels-top-left',
-    label: 'Components',
-    description: 'Explore all the components available in Nuxt UI Pro.',
-    to: '/components/banner'
-  }, {
-    icon: 'i-lucide-circle-check',
-    label: 'Activate',
-    description: 'Enable Nuxt UI Pro in your production projects by activating your license.',
-    to: '/pro/activate'
-  }]
-}, {
-  label: 'Roadmap',
-  icon: 'i-lucide-map',
-  to: '/roadmap'
-}, {
-  label: 'Figma',
-  icon: 'i-lucide-figma',
-  to: 'https://www.figma.com/community/file/1288455405058138934',
-  target: '_blank'
-}, {
-  label: 'Releases',
-  icon: 'i-lucide-rocket',
-  to: 'https://github.com/nuxt/ui/releases',
-  target: '_blank'
-}].filter(Boolean))
-
+const links = useLinks()
 const color = computed(() => colorMode.value === 'dark' ? (colors as any)[appConfig.ui.colors.neutral][900] : 'white')
 const radius = computed(() => `:root { --ui-radius: ${appConfig.theme.radius}rem; }`)
 const blackAsPrimary = computed(() => appConfig.theme.blackAsPrimary ? `:root { --ui-primary: black; } .dark { --ui-primary: white; }` : ':root {}')
@@ -86,8 +33,8 @@ useHead({
     { key: 'theme-color', name: 'theme-color', content: color }
   ],
   link: [
-    { rel: 'icon', type: 'image/svg+xml', href: '/icon.svg' },
-    { rel: 'canonical', href: `https://ui.nuxt.com${withoutTrailingSlash(route.path)}` }
+    { rel: 'icon', type: 'image/svg+xml', href: '/icon.svg' }
+    // { rel: 'canonical', href: `https://ui.nuxt.com${withoutTrailingSlash(route.path)}` }
   ],
   style: [
     { innerHTML: radius, id: 'nuxt-ui-radius', tagPriority: -2 },

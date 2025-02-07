@@ -14,6 +14,10 @@ useSeoMeta({
   ogDescription: description
 })
 
+defineOgImageComponent('Docs', {
+  headline: 'Pro'
+})
+
 const schema = z.object({
   license: z.string().length(36, 'Invalid license key'),
   username: z.string().min(1, 'Required')

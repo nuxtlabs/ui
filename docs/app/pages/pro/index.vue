@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import page from '.content.yml'
+import page from '.content/pro.yml'
 
 useSeoMeta({
   title: page.title,
   ogTitle: `${page.title} - Nuxt UI Pro`,
   description: page.description,
   ogDescription: page.description
+})
+defineOgImageComponent('Docs', {
+  headline: 'Pro'
 })
 </script>
 
