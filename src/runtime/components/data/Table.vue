@@ -18,15 +18,18 @@
             :class="[ui.th.base, ui.th.padding, ui.th.color, ui.th.font, ui.th.size, column.key === 'select' && ui.checkbox.padding, column.class]"
             :aria-sort="getAriaSort(column)"
           >
-            <slot v-if="!singleSelect && modelValue && column.key === 'select'" name="select-header" :indeterminate="indeterminate" :checked="isAllRowChecked" :change="onChange">
-              <UCheckbox
-                :model-value="isAllRowChecked"
-                :indeterminate="indeterminate"
-                v-bind="ui.default.checkbox"
-                aria-label="Select all"
-                @change="onChange"
-              />
-            </slot>
+            <!-- This is a workaround: Since the @change event doesn't bubble up naturally, we need to wrap it in another element and use @click.capture.stop to simulate event bubbling behavior -->
+            <span v-if="!singleSelect && modelValue && column.key === 'select'" @click.capture.stop="() => {}">
+              <slot name="select-header" :indeterminate="indeterminate" :checked="isAllRowChecked" :change="onChange">
+                <UCheckbox
+                  :model-value="isAllRowChecked"
+                  :indeterminate="indeterminate"
+                  v-bind="ui.default.checkbox"
+                  aria-label="Select all"
+                  @change="onChange"
+                />
+              </slot>
+            </span>
 
             <slot v-else :name="`${column.key}-header`" :column="column" :sort="sort" :on-sort="onSort">
               <UButton
@@ -76,7 +79,7 @@
 
         <template v-else>
           <template v-for="(row, index) in rows" :key="index">
-            <tr :class="[ui.tr.base, isSelected(row) && ui.tr.selected, isExpanded(row) && ui.tr.expanded, $attrs.onSelect && ui.tr.active, row?.class]" @click="() => onSelect(row)" @contextmenu="(event) => onContextmenu(event, row)">
+            <tr :class="[ui.tr.base, isSelected(row) && ui.tr.selected, isExpanded(row) && ui.tr.expanded, $attrs.onSelect && ui.tr.active, row?.class]" @click.capture.stop="() => onSelect(row)" @contextmenu="(event) => onContextmenu(event, row)">
               <td
                 v-if="expand"
                 :class="[ui.td.base, ui.td.padding, ui.td.color, ui.td.font, ui.td.size]"
