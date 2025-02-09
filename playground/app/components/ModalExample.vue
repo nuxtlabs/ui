@@ -1,15 +1,33 @@
 <script setup lang="ts">
-const modal = useModal()
+import ModalExample2 from './ModalExample2.vue'
 
 defineProps<{
   count: number
 }>()
+
+const modalexample2 = useModal({
+  component: ModalExample2,
+  attrs: {
+    count: 1
+  }
+})
+
+const onOpenNested = () => {
+  modalexample2.open()
+}
+const isOpen = ref(true)
 </script>
 
 <template>
-  <UModal :title="`This modal was opened programmatically ${count} times`">
+  <UModal
+    v-model:open="isOpen"
+    :title="`This modal was opened programmatically ${count} times `"
+  >
+    <template #body>
+      <UButton label="Open Modal" @click="onOpenNested" />
+    </template>
     <template #footer>
-      <UButton color="neutral" label="Close" @click="modal.close()" />
+      <UButton color="neutral" label="Close" />
     </template>
   </UModal>
 </template>

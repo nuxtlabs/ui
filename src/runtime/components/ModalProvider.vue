@@ -1,12 +1,15 @@
 <script setup lang="ts">
-import { inject } from 'vue'
-import { useModal, modalInjectionKey } from '../composables/useModal'
+import { useManagedOverlay } from '../composables/useOverlayManager'
 
-const modalState = inject(modalInjectionKey)
-
-const { isOpen } = useModal()
+const { overlays } = useManagedOverlay()
 </script>
 
 <template>
-  <component :is="modalState.component" v-if="modalState" v-bind="modalState.props" v-model:open="isOpen" />
+  <component
+    :is="(overlay).component"
+    v-for="(overlay,) in overlays"
+    :key="overlay.id"
+    v-bind="overlay.attrs"
+    v-model:open="overlay.modelValue"
+  />
 </template>
