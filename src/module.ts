@@ -43,6 +43,11 @@ export interface ModuleOptions {
    */
   global?: boolean
 
+  /**
+   * @default true
+   */
+  colorMode?: boolean
+
   safelistColors?: string[]
   /**
    * Disables the global css styles added by the module.
@@ -61,6 +66,7 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     prefix: 'U',
+    colorMode: true,
     safelistColors: ['primary'],
     disableGlobalStyles: false
   },
@@ -83,7 +89,9 @@ export default defineNuxtModule<ModuleOptions>({
     // Modules
 
     await installModule('@nuxt/icon')
-    await installModule('@nuxtjs/color-mode', { classSuffix: '' })
+    if (options.colorMode) {
+      await installModule('@nuxtjs/color-mode', { classSuffix: '' })
+    }
     await installTailwind(options, nuxt, resolve)
 
     // Plugins
