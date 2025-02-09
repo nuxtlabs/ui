@@ -18,18 +18,15 @@
             :class="[ui.th.base, ui.th.padding, ui.th.color, ui.th.font, ui.th.size, column.key === 'select' && ui.checkbox.padding, column.class]"
             :aria-sort="getAriaSort(column)"
           >
-            <!-- This is a workaround: Since the @change event doesn't bubble up naturally, we need to wrap it in another element and use @click.capture.stop to simulate event bubbling behavior -->
-            <span v-if="!singleSelect && modelValue && column.key === 'select'" @click.capture.stop="() => {}">
-              <slot name="select-header" :indeterminate="indeterminate" :checked="isAllRowChecked" :change="onChange">
-                <UCheckbox
-                  :model-value="isAllRowChecked"
-                  :indeterminate="indeterminate"
-                  v-bind="ui.default.checkbox"
-                  aria-label="Select all"
-                  @change="onChange"
-                />
-              </slot>
-            </span>
+            <slot v-if="!singleSelect && modelValue && column.key === 'select'" name="select-header" :indeterminate="indeterminate" :checked="isAllRowChecked" :change="onChange">
+              <UCheckbox
+                :model-value="isAllRowChecked"
+                :indeterminate="indeterminate"
+                v-bind="ui.default.checkbox"
+                aria-label="Select all"
+                @change="onChange"
+              />
+            </slot>
 
             <slot v-else :name="`${column.key}-header`" :column="column" :sort="sort" :on-sort="onSort">
               <UButton
@@ -79,7 +76,7 @@
 
         <template v-else>
           <template v-for="(row, index) in rows" :key="index">
-            <tr :class="[ui.tr.base, isSelected(row) && ui.tr.selected, isExpanded(row) && ui.tr.expanded, $attrs.onSelect && ui.tr.active, row?.class]" @click.capture.stop="() => onSelect(row)" @contextmenu="(event) => onContextmenu(event, row)">
+            <tr :class="[ui.tr.base, isSelected(row) && ui.tr.selected, isExpanded(row) && ui.tr.expanded, $attrs.onSelect && ui.tr.active, row?.class]" @click="() => onSelect(row)" @contextmenu="(event) => onContextmenu(event, row)">
               <td
                 v-if="expand"
                 :class="[ui.td.base, ui.td.padding, ui.td.color, ui.td.font, ui.td.size]"
@@ -96,15 +93,17 @@
                 />
               </td>
               <td v-for="(column, subIndex) in columns" :key="subIndex" :class="[ui.td.base, ui.td.padding, ui.td.color, ui.td.font, ui.td.size, column?.rowClass, row[column.key]?.class, column.key === 'select' && ui.checkbox.padding]">
-                <slot v-if="modelValue && column.key === 'select' " name="select-data" :checked="isSelected(row)" :change="(ev: boolean) => onChangeCheckbox(ev, row)">
-                  <UCheckbox
-                    :model-value="isSelected(row)"
-                    v-bind="ui.default.checkbox"
-                    aria-label="Select row"
-                    @change="onChangeCheckbox($event, row)"
-                  />
-                </slot>
-
+                <!-- This is a workaround: Since the @change event doesn't bubble up naturally, we need to wrap it in another element and use @click.capture.stop to simulate event bubbling behavior -->
+                <span v-if="modelValue && column.key === 'select' " @click.capture.stop="() => {}">
+                  <slot name="select-data" :checked="isSelected(row)" :change="(ev: boolean) => onChangeCheckbox(ev, row)">
+                    <UCheckbox
+                      :model-value="isSelected(row)"
+                      v-bind="ui.default.checkbox"
+                      aria-label="Select row"
+                      @change="onChangeCheckbox($event, row)"
+                    />
+                  </slot>
+                </span>
                 <slot
                   v-else
                   :key="retriggerSlot"
