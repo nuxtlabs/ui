@@ -45,6 +45,18 @@ function _useManagedOverlay() {
 
     overlay.modelValue = true
     overlay.isMounted = true
+  }
+
+  const hide = (id: symbol) => {
+    const overlay = overlays.find(overlay => overlay.id === id)
+
+    if (!overlay) {
+      throw new Error('Overlay not found')
+    }
+
+    overlay.modelValue = false
+  }
+
   const unMount = (id: symbol) => {
     const overlay = overlays.find(overlay => overlay.id === id)
 
@@ -82,6 +94,7 @@ function _useManagedOverlay() {
   return {
     overlays,
     open,
+    hide,
     create,
     patch,
     destroy,
