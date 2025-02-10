@@ -138,7 +138,7 @@ sections:
       ```
 templates:
   headline: Templates
-  title: Kickstart with Nuxt UI in seconds
+  title: Kickstart with Nuxt UI Pro in seconds
   description: Choose from a variety of templates to get started with Nuxt UI Pro in seconds. Each template is designed to help you build beautiful and responsive Nuxt applications in minutes.
   items:
     - title: Landing
