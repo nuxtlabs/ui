@@ -21,6 +21,7 @@ function _useManagedOverlay() {
       id: Symbol(import.meta.dev ? 'useOverlayManager' : ''),
       modelValue: !!_options.defaultOpen,
       component: markRaw(_options.component!),
+      isMounted: !!_options.defaultOpen,
       attrs: {},
       ..._options
     })
@@ -43,6 +44,15 @@ function _useManagedOverlay() {
     }
 
     overlay.modelValue = true
+    overlay.isMounted = true
+  const unMount = (id: symbol) => {
+    const overlay = overlays.find(overlay => overlay.id === id)
+
+    if (!overlay) {
+      throw new Error('Overlay not found')
+    }
+
+    overlay.isMounted = false
   }
 
   const destroy = (id: symbol) => {
@@ -74,7 +84,8 @@ function _useManagedOverlay() {
     open,
     create,
     patch,
-    destroy
+    destroy,
+    unMount
   }
 }
 
