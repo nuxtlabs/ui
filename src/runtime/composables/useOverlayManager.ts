@@ -8,6 +8,7 @@ export type ManagedOverlayOptions<T extends Component, OverlayAttrs = Record<str
 }
 type ManagedOverlayOptionsPrivate = {
   id: symbol
+  isMounted: boolean
   modelValue: boolean
 
 }
