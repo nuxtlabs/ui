@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import ModalExample2 from './ModalExample2.vue'
 
-defineProps<{
+const props = defineProps<{
   count: number
 }>()
 
-const modalexample2 = useModal({
-  component: ModalExample2,
+const modalexample2 = useModal(ModalExample2, {
   attrs: {
-    count: 1
+    count: props.count
   }
 })
 

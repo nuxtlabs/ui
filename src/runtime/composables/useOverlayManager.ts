@@ -2,27 +2,27 @@ import { createSharedComposable } from '@vueuse/core'
 import type { ComponentProps } from 'vue-component-type-helpers'
 
 export type ManagedOverlayOptions<T extends Component, OverlayAttrs = Record<string, any>> = {
-  component?: T
   defaultOpen?: boolean
   attrs?: ComponentProps<T> & OverlayAttrs
 }
-type ManagedOverlayOptionsPrivate = {
+type ManagedOverlayOptionsPrivate<T extends Component> = {
+  component?: T
   id: symbol
   isMounted: boolean
   modelValue: boolean
 
 }
-export type Overlay = ManagedOverlayOptions<Component> & ManagedOverlayOptionsPrivate
+export type Overlay = ManagedOverlayOptions<Component> & ManagedOverlayOptionsPrivate<Component>
 
 function _useManagedOverlay() {
   const overlays: Overlay[] = shallowReactive([])
 
-  const create = <T extends Component>(_options: ManagedOverlayOptions<T>) => {
+  const create = <T extends Component>(component: T, _options: ManagedOverlayOptions<T>) => {
     const options = reactive<Overlay>({
       id: Symbol(import.meta.dev ? 'useOverlayManager' : ''),
-      modelValue: !!_options.defaultOpen,
-      component: markRaw(_options.component!),
-      isMounted: !!_options.defaultOpen,
+      modelValue: !!_options?.defaultOpen,
+      component: markRaw(component!),
+      isMounted: !!_options?.defaultOpen,
       attrs: {},
       ..._options
     })

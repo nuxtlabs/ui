@@ -12,7 +12,7 @@ const onAfterLeave = (id: symbol) => {
 
 <template>
   <component
-    :is="(overlay).component"
+    :is="overlay.component"
     v-for="overlay in mountedOverlays"
     v-bind="overlay.attrs"
     :key="overlay.id"
