@@ -19,9 +19,8 @@ pricing:
     description: Get all Nuxt UI Pro components in a Figma kit to design your next application before coding. Everything you need, from wire-framing to high-fidelity web integration.
     variant: soft
     orientation: horizontal
-    price: $99
-    billing_period: one-time payment
-    billing_cycle: plus local taxes
+    price: $149 - $349
+    terms: Solo & Team licenses available.
     features:
       - 1700+ components & variants from Nuxt UI & UI Pro
       - 'Variables: primary, neutral, fonts, rounded, shadows, etc.'
@@ -32,7 +31,7 @@ pricing:
       - Free [preview available](https://www.figma.com/design/mxXR9binOSLU3rYKZZRPXs/PREVIEW---NuxtUIPro-V3-BETA?m=auto&t=c4598Wr0rZwKPs5M-1)
       - Includes Nuxt UI [Figma Kit](https://www.figma.com/community/file/1288455405058138934)
     button:
-      label: Buy now
+      label: Explore Figma Kit Pricing
       to: 'https://nuxt.lemonsqueezy.com/buy/17213c49-621b-4c2c-9478-3a50a099003d'
       color: 'neutral'
   plans:

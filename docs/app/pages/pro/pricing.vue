@@ -51,7 +51,6 @@ defineOgImageComponent('Docs', {
         </UPricingPlans>
         <UPricingPlan
           v-bind="page.pricing.figma"
-          terms="Preview Figma Kit"
         >
           <template #features>
             <li v-for="(feature, index) in page.pricing.figma.features" :key="index" class="flex items-center gap-2 min-w-0">

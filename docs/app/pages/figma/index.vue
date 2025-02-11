@@ -2,14 +2,16 @@
 import page from '.figma.yml'
 import { animate } from 'motion'
 
+const video = ref<HTMLVideoElement | null>(null)
+const played = ref(false)
+
 onMounted(async () => {
+  // Animate cursors
   await new Promise(resolve => setTimeout(resolve, 1000))
   const figmaWordPosition = document.querySelector('#figma')?.getBoundingClientRect()
   const nuxtWordPosition = document.querySelector('#nuxt')?.getBoundingClientRect()
   const initialScrollX = window.scrollX
   const initialScrollY = window.scrollY
-  console.log('figma word absolute position', figmaWordPosition)
-  console.log('nuxt word absolute position', nuxtWordPosition)
   if (figmaWordPosition && nuxtWordPosition) {
     animate('#cursor1', { left: Math.round(Math.random() * window.outerWidth), top: Math.round(Math.random() * window.outerHeight) }, { duration: 0.1 })
       .then(() => animate('#cursor1', { opacity: 1 }, { duration: 0.3 }))
@@ -34,7 +36,7 @@ onMounted(async () => {
       })
       .then(() => animate('#cursor2', { scale: 0.8 }, { duration: 0.1, ease: 'easeOut' }))
       .then(() => animate('#cursor2', { scale: 1 }, { duration: 0.1, ease: 'easeOut' }))
-      .then(() => animate('#nuxt', { color: 'var(--ui-primary)' }, { duration: 0.3, ease: 'easeOut' }))
+      .then(() => animate('#nuxt', { color: 'var(--ui-success)' }, { duration: 0.3, ease: 'easeOut' }))
       .then(() => animate('#cursor2', { left: Math.round(nuxtWordPosition.left + initialScrollX + nuxtWordPosition.width), top: Math.round(nuxtWordPosition.top + initialScrollY) }, { duration: 0.6, ease: 'easeInOut' }))
   }
 })
@@ -43,26 +45,32 @@ onMounted(async () => {
 <template>
   <div class="relative">
     <div id="cursor1" class="absolute z-10 pointer-events-none" :style="{ opacity: 0 }">
-      <svg width="18" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" class="absolute top-0 left-0 drop-shadow-[0_1px_2px_rgb(0,0,0,0.25)] text-white dark:text-(--ui-bg)">
         <path
-          d="M5.65376 12.3673H5.46026L5.31717 12.4976L0.500002 16.8829L0.500002 1.19841L11.7841 12.3673H5.65376Z"
           fill="var(--ui-info)"
-          stroke="var(--ui-info)"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"
         />
       </svg>
-      <UBadge color="info" class="ml-2">
+      <UBadge color="info" class="absolute top-[18px] left-[18px] py-0.5 px-1 rounded-sm font-semibold">
         Sarah
       </UBadge>
     </div>
     <div id="cursor2" class="absolute z-10 pointer-events-none" :style="{ opacity: 0 }">
-      <svg width="18" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" class="absolute top-0 left-0 drop-shadow-[0_1px_2px_rgb(0,0,0,0.25)] text-white dark:text-(--ui-bg)">
         <path
-          d="M5.65376 12.3673H5.46026L5.31717 12.4976L0.500002 16.8829L0.500002 1.19841L11.7841 12.3673H5.65376Z"
           fill="var(--ui-success)"
-          stroke="var(--ui-success)"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"
         />
       </svg>
-      <UBadge color="success" class="ml-2">
+      <UBadge color="success" class="absolute top-[18px] left-[18px] py-0.5 px-1 rounded-sm font-semibold">
         Sebastien
       </UBadge>
     </div>
@@ -79,11 +87,45 @@ onMounted(async () => {
       <template #description>
         <MDC :value="page.hero.description" unwrap="p" />
       </template>
-      <img src="/pro/figma/nuxt-ui-figma.png" alt="Screnshot of the Nuxt UI Figma design kit" class="w-full h-auto border border-(--ui-border) border-b-0">
+      <!-- <img src="/pro/figma/nuxt-ui-figma.png" alt="Screnshot of the Nuxt UI Figma design kit" class="w-full h-auto border border-(--ui-border) border-b-0"> -->
+      <div class="relative">
+        <video
+          ref="video"
+          :controls="played"
+          playsinline
+          src="https://res.cloudinary.com/nuxt/video/upload/v1739267662/ui-pro/video4_aobki0.mp4"
+          poster="https://res.cloudinary.com/nuxt/video/upload/so_0/v1739267662/ui-pro/video4_aobki0.jpg"
+          :class="{ grayscale: !played }"
+        />
+        <div v-if="!played" class="group cursor-pointer absolute inset-0 flex items-center justify-center backdrop-blur-xs" @click="video?.play(); played = true">
+          <UButton
+            icon="i-heroicons-play-20-solid"
+            size="xl"
+            color="neutral"
+            variant="solid"
+            class="group-hover:scale-105 transition-transform cursor-pointer drop-shadow-xl"
+            aria-label="Play video"
+            :ui="{
+              base: 'p-4'
+            }"
+          >
+            Watch 1 min demo
+          </UButton>
+        </div>
+      </div>
       <div aria-hidden="true" class="absolute z-[-1] border-x border-(--ui-border) inset-0 mx-4 sm:mx-6 lg:mx-8" />
     </UPageHero>
     <UPageSection v-bind="page.features1" :ui="{ container: 'py-16 sm:py-16 lg:py-16', features: 'mt-0' }" class="border-y border-(--ui-border)" />
-    <UPageCTA v-if="page.cta1" variant="naked" :ui="{ container: 'lg:grid-cols-0 !gap-0', wrapper: 'grid grid-cols-1 lg:grid-cols-2', description: 'lg:mt-0' }" orientation="horizontal" class="rounded-none">
+    <UPageCTA
+      v-if="page.cta1"
+      variant="naked"
+      :ui="{
+        container: 'lg:grid-cols-0 !gap-0 px-4 sm:px-6 lg:px-8%',
+        wrapper: 'grid grid-cols-1 lg:grid-cols-2',
+        description: 'lg:mt-0' }"
+      orientation="horizontal"
+      class="rounded-none bg-gradient-to-b from-(--ui-bg-muted) to-(--ui-bg)"
+    >
       <template #title>
         <MDC :value="page.cta1.title" unwrap="p" />
       </template>
@@ -91,7 +133,7 @@ onMounted(async () => {
         <MDC :value="page.cta1.description" unwrap="p" />
       </template>
     </UPageCTA>
-    <UPageSection v-bind="page.section1" orientation="horizontal">
+    <UPageSection v-bind="page.section1" orientation="horizontal" :ui="{ container: 'py-16 sm:py-16 lg:py-16' }">
       <UTabs :items="page.section1.tabs" size="xs" variant="link" color="neutral">
         <template #content="{ item }">
           <NuxtImg
@@ -105,7 +147,7 @@ onMounted(async () => {
         </template>
       </UTabs>
     </UPageSection>
-    <UPageSection v-bind="page.section2" orientation="horizontal">
+    <UPageSection v-bind="page.section2" orientation="horizontal" :ui="{ container: 'py-16 sm:py-16 lg:py-16' }">
       <NuxtImg
         v-if="page.section2.image"
         v-bind="page.section2.image"
@@ -113,7 +155,7 @@ onMounted(async () => {
         lazy
       />
     </UPageSection>
-    <UPageSection v-bind="page.section3" orientation="horizontal">
+    <UPageSection v-bind="page.section3" orientation="horizontal" :ui="{ container: 'py-16 sm:pt-16 lg:pt-16' }">
       <NuxtImg
         v-if="page.section3.image"
         v-bind="page.section3.image"
@@ -181,7 +223,7 @@ onMounted(async () => {
           :billing-period="plan.billing_period"
           :billing-cycle="plan.billing_cycle"
           :highlight="plan.highlight"
-          variant="outline"
+          :variant="plan.variant || 'outline'"
           :features="plan.features"
           :button="plan.button"
           :ui="{ root: 'rounded-none' }"
