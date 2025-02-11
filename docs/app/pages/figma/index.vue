@@ -1,6 +1,16 @@
 <script setup lang="ts">
 import page from '.figma.yml'
 import { animate } from 'motion'
+import { joinURL } from 'ufo'
+
+const { url } = useSiteConfig()
+useSeoMeta({
+  title: page.title,
+  description: page.description,
+  ogTitle: page.title,
+  ogDescription: page.description,
+  ogImage: joinURL(url, '/pro/figma/og-image.png')
+})
 
 const video = ref<HTMLVideoElement | null>(null)
 const played = ref(false)
