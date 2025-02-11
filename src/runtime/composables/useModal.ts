@@ -8,7 +8,7 @@ export interface ModalState {
   props: ModalProps
 }
 
-export const useModal = <T extends Component>(component: T, _options: ManagedOverlayOptions<T, ModalProps>) => {
+export const useModal = <T extends Component>(component: T, _options?: ManagedOverlayOptions<T, ModalProps>) => {
   const managedOverlay = useManagedOverlay()
 
   const modalId: symbol = managedOverlay.create(component, _options)

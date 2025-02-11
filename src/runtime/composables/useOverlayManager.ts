@@ -17,7 +17,7 @@ export type Overlay = ManagedOverlayOptions<Component> & ManagedOverlayOptionsPr
 function _useManagedOverlay() {
   const overlays: Overlay[] = shallowReactive([])
 
-  const create = <T extends Component>(component: T, _options: ManagedOverlayOptions<T>) => {
+  const create = <T extends Component>(component: T, _options?: ManagedOverlayOptions<T>) => {
     const options = reactive<Overlay>({
       id: Symbol(import.meta.dev ? 'useOverlayManager' : ''),
       modelValue: !!_options?.defaultOpen,
