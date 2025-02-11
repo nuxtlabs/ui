@@ -1,19 +1,18 @@
 <script setup lang="ts">
 const route = useRoute()
 const links = [{
-  label: 'Figma Kit',
-  to: 'https://www.figma.com/community/file/1288455405058138934',
-  target: '_blank'
+  label: 'Figma',
+  to: '/figma'
 }, {
   label: 'Roadmap',
   to: '/roadmap'
 }, {
+  label: 'Terms',
+  to: '/pro/terms'
+}, {
   label: 'Releases',
   to: 'https://github.com/nuxt/ui/releases',
   target: '_blank'
-}, {
-  label: 'Terms',
-  to: '/pro/terms'
 }]
 </script>
 

@@ -40,14 +40,13 @@ export function useLinks() {
       to: '/pro/activate'
     }]
   }, {
+    label: 'Figma',
+    icon: 'i-lucide-figma',
+    to: '/figma'
+  }, {
     label: 'Roadmap',
     icon: 'i-lucide-map',
     to: '/roadmap'
-  }, {
-    label: 'Figma',
-    icon: 'i-lucide-figma',
-    to: 'https://www.figma.com/community/file/1288455405058138934',
-    target: '_blank'
   }, {
     label: 'Releases',
     icon: 'i-lucide-rocket',
