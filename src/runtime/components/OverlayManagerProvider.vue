@@ -5,8 +5,10 @@ const { overlays, ...overlayManager } = useManagedOverlay()
 
 const mountedOverlays = computed(() => overlays.filter(overlay => overlay.isMounted))
 
-const onAfterLeave = (id: symbol) => {
-  overlayManager.unMount(id)
+const onAfterLeave = (id: symbol, unMount: boolean) => {
+  if (!unMount) {
+    overlayManager.unMount(id)
+  }
 }
 </script>
 
@@ -17,6 +19,6 @@ const onAfterLeave = (id: symbol) => {
     v-bind="overlay.attrs"
     :key="overlay.id"
     v-model:open="overlay.modelValue"
-    @after:leave="onAfterLeave(overlay.id)"
+    @after:leave="onAfterLeave(overlay.id, !overlay.isMounted)"
   />
 </template>

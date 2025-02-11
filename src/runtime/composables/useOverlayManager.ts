@@ -48,7 +48,7 @@ function _useManagedOverlay() {
     overlay.isMounted = true
   }
 
-  const hide = (id: symbol) => {
+  const close = (id: symbol) => {
     const overlay = overlays.find(overlay => overlay.id === id)
 
     if (!overlay) {
@@ -95,7 +95,7 @@ function _useManagedOverlay() {
   return {
     overlays,
     open,
-    hide,
+    close,
     create,
     patch,
     destroy,

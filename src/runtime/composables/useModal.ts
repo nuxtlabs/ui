@@ -3,11 +3,6 @@ import type { ModalProps } from '../types'
 import type { ManagedOverlayOptions } from './useOverlayManager'
 import { useManagedOverlay } from './useOverlayManager'
 
-export interface ModalState {
-  component: Component | string
-  props: ModalProps
-}
-
 export const useModal = <T extends Component>(component: T, _options?: ManagedOverlayOptions<T, ModalProps>) => {
   const managedOverlay = useManagedOverlay()
 
@@ -21,8 +16,18 @@ export const useModal = <T extends Component>(component: T, _options?: ManagedOv
     managedOverlay.destroy(modalId)
   }
 
+  const close = () => {
+    managedOverlay.close(modalId)
+  }
+
+  const patch = (attrs: Partial<ManagedOverlayOptions<T>['attrs']>) => {
+    managedOverlay.patch(modalId, attrs)
+  }
+
   return {
     open,
-    destroy
+    destroy,
+    close,
+    patch
   }
 }

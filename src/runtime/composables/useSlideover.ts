@@ -1,71 +1,33 @@
-import { ref, inject } from 'vue'
-import type { ShallowRef, Component, InjectionKey } from 'vue'
-import type { ComponentProps } from 'vue-component-type-helpers'
-import { createSharedComposable } from '@vueuse/core'
+import type { Component } from 'vue'
 import type { SlideoverProps } from '../types'
+import type { ManagedOverlayOptions } from './useOverlayManager'
+import { useManagedOverlay } from './useOverlayManager'
 
-export interface SlideoverState {
-  component: Component | string
-  props: SlideoverProps
-}
+export const useSlideover = <T extends Component>(component: T, _options?: ManagedOverlayOptions<T, SlideoverProps>) => {
+  const managedOverlay = useManagedOverlay()
 
-export const slideoverInjectionKey: InjectionKey<ShallowRef<SlideoverState>> = Symbol('nuxt-ui.slideover')
+  const modalId: symbol = managedOverlay.create(component, _options)
 
-function _useSlideover() {
-  const slideoverState = inject(slideoverInjectionKey)
-
-  const isOpen = ref(false)
-
-  function open<T extends Component>(component: T, props?: SlideoverProps & ComponentProps<T>) {
-    if (!slideoverState) {
-      throw new Error('useSlideover() is called without provider')
-    }
-
-    slideoverState.value = {
-      component,
-      props: props ?? {}
-    }
-
-    isOpen.value = true
+  const open = (attrs?: ManagedOverlayOptions<T>['attrs']) => {
+    managedOverlay.open(modalId, attrs)
   }
 
-  async function close() {
-    if (!slideoverState) return
-
-    isOpen.value = false
+  const destroy = () => {
+    managedOverlay.destroy(modalId)
   }
 
-  function reset() {
-    if (!slideoverState) return
-
-    slideoverState.value = {
-      component: 'div',
-      props: {}
-    }
+  const close = () => {
+    managedOverlay.close(modalId)
   }
 
-  /**
-   * Allows updating the slideover props
-   */
-  function patch<T extends Component = Record<string, never>>(props: Partial<SlideoverState & ComponentProps<T>>) {
-    if (!slideoverState) return
-
-    slideoverState.value = {
-      ...slideoverState.value,
-      props: {
-        ...slideoverState.value.props,
-        ...props
-      }
-    }
+  const patch = (attrs: Partial<ManagedOverlayOptions<T>['attrs']>) => {
+    managedOverlay.patch(modalId, attrs)
   }
 
   return {
     open,
+    destroy,
     close,
-    reset,
-    patch,
-    isOpen
+    patch
   }
 }
-
-export const useSlideover = createSharedComposable(_useSlideover)
