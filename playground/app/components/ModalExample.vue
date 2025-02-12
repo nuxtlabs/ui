@@ -5,7 +5,7 @@ const props = defineProps<{
   count: number
 }>()
 
-const modalexample2 = useModal(ModalExample2, {
+const modalexample2 = useOverlayInstance(ModalExample2, {
   attrs: {
     count: props.count
   }

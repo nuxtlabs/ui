@@ -1,10 +1,10 @@
 import { createSharedComposable } from '@vueuse/core'
-import type { ComponentProps } from 'vue-component-type-helpers'
 
-export type ManagedOverlayOptions<T extends Component, OverlayAttrs = Record<string, any>> = {
+export type ManagedOverlayOptions<OverlayAttrs = Record<string, any>> = {
   defaultOpen?: boolean
-  attrs?: ComponentProps<T> & OverlayAttrs
+  attrs?: OverlayAttrs
 }
+
 type ManagedOverlayOptionsPrivate<T extends Component> = {
   component?: T
   id: symbol
@@ -86,7 +86,7 @@ function _useManagedOverlay() {
     }
 
     Object.entries(attrs!).forEach(([key, value]) => {
-      overlay.attrs[key as keyof T] = value as any
+      (overlay.attrs as any)[key] = value
     })
 
     return attrs
