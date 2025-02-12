@@ -92,6 +92,17 @@ function _useManagedOverlay() {
     return attrs
   }
 
+  // Close the top most overlay
+  const pop = () => {
+    const overlay = overlays[overlays.length - 1]
+
+    if (!overlay) {
+      throw new Error('Overlay not found')
+    }
+
+    overlay.modelValue = false
+  }
+
   return {
     overlays,
     open,
@@ -99,7 +110,8 @@ function _useManagedOverlay() {
     create,
     patch,
     destroy,
-    unMount
+    unMount,
+    pop
   }
 }
 
