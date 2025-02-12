@@ -1,3 +1,4 @@
+import type { Component } from 'vue'
 import { createSharedComposable } from '@vueuse/core'
 
 export type ManagedOverlayOptions<OverlayAttrs = Record<string, any>> = {
