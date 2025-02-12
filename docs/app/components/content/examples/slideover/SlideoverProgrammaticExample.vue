@@ -4,20 +4,24 @@ import { LazySlideoverExample } from '#components'
 const count = ref(0)
 
 const toast = useToast()
-const slideover = useSlideover()
-
-function open() {
-  count.value++
-
-  slideover.open(LazySlideoverExample, {
+const slideover = useOverlayInstance(LazySlideoverExample, {
+  attrs: {
     title: 'Slideover',
-    count: count.value,
     onSuccess() {
       toast.add({
         title: 'Success !',
         id: 'modal-success'
       })
     }
+  }
+})
+
+function open() {
+  count.value++
+
+  slideover.open({
+    count: count.value
+
   })
 }
 </script>

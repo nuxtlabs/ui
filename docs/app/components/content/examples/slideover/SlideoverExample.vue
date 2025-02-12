@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const slideover = useSlideover()
+const mangedOverlay = useManagedOverlay()
 
 defineProps<{
   count: number
@@ -20,7 +20,7 @@ function onSuccess() {
 
     <template #footer>
       <div class="flex gap-2">
-        <UButton color="neutral" label="Close" @click="slideover.close()" />
+        <UButton color="neutral" label="Close" @click="mangedOverlay.pop()" />
         <UButton label="Success" @click="onSuccess" />
       </div>
     </template>
