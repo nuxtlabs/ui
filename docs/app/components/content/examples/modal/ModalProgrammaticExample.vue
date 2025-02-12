@@ -4,20 +4,23 @@ import { LazyModalExample } from '#components'
 const count = ref(0)
 
 const toast = useToast()
-const modal = useModal()
-
-function open() {
-  count.value++
-
-  modal.open(LazyModalExample, {
+const modal = useOverlayInstance(LazyModalExample, {
+  attrs: {
     description: 'And you can even provide a description!',
-    count: count.value,
     onSuccess() {
       toast.add({
         title: 'Success !',
         id: 'modal-success'
       })
     }
+  }
+})
+
+function open() {
+  count.value++
+
+  modal.open({
+    count: count.value
   })
 }
 </script>
