@@ -11,7 +11,7 @@ describe('Tree', () => {
       slot: 'app',
       children: [{
         label: 'composables',
-        icon: 'lucide:folder',
+        icon: 'i-lucide-folder',
         children: [
           { label: 'useAuth.ts', icon: 'vscode-icons:file-type-typescript' },
           { label: 'useUser.ts', icon: 'vscode-icons:file-type-typescript' }
@@ -40,19 +40,19 @@ describe('Tree', () => {
     // Disabled
     ['with disabled', { props: { items, disabled: true } }],
     // Parent icon
-    ['with parentIcon', { props: { items, parentIcon: 'lucide:folder' } }],
-    ['with parentLeadingIcon', { props: { items, parentLeadingIcon: 'lucide:folder' } }],
-    ['with parentTrailingIcon', { props: { items, parentTrailingIcon: 'lucide:folder' } }],
+    ['with parentIcon', { props: { items, parentIcon: 'i-lucide-folder' } }],
+    ['with parentLeadingIcon', { props: { items, parentLeadingIcon: 'i-lucide-folder' } }],
+    ['with parentTrailingIcon', { props: { items, parentTrailingIcon: 'i-lucide-folder' } }],
     // Icons
-    ['with icon', { props: { items, icon: 'lucide:dot' } }],
-    ['with leadingIcon', { props: { items, leadingIcon: 'lucide:dot' } }],
-    ['with trailingIcon', { props: { items, trailingIcon: 'lucide:dot' } }],
+    ['with icon', { props: { items, icon: 'i-lucide-dot' } }],
+    ['with leadingIcon', { props: { items, leadingIcon: 'i-lucide-dot' } }],
+    ['with trailingIcon', { props: { items, trailingIcon: 'i-lucide-dot' } }],
     // Item properties
     ['with defaultOpen item', { props: { items: [{ label: 'Default Opened', defaultOpen: true, children: items }] } }],
     ['with disabled item', { props: { items: [{ label: 'Disabled item', disabled: true, children: items }] } }],
-    ['with item icon', { props: { items: [{ label: 'Icon item', icon: 'lucide:folder', children: items }] } }],
-    ['with item leadingIcon', { props: { items: [{ label: 'Leading item', leadingIcon: 'lucide:folder', children: items }] } }],
-    ['with item trailingIcon', { props: { items: [{ label: 'Trailing item', trailingIcon: 'lucide:folder', children: items }] } }],
+    ['with item icon', { props: { items: [{ label: 'Icon item', icon: 'i-lucide-folder', children: items }] } }],
+    ['with item leadingIcon', { props: { items: [{ label: 'Leading item', leadingIcon: 'i-lucide-folder', children: items }] } }],
+    ['with item trailingIcon', { props: { items: [{ label: 'Trailing item', trailingIcon: 'i-lucide-folder', children: items }] } }],
     // Style variants
     ...sizes.map((size: string) => [`with size ${size}`, { props: { items, size } }]),
     ...variants.map((variant: string) => [`with primary variant ${variant}`, { props: { items, variant } }]),

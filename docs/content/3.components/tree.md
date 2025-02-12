@@ -7,6 +7,7 @@ links:
   - label: GitHub
     icon: i-simple-icons-github
     to: https://github.com/nuxt/ui/tree/v3/src/runtime/components/Tree.vue
+navigation.badge: New
 ---
 
 ## Usage
@@ -37,21 +38,21 @@ external:
 props:
   items:
     - label: 'app'
-      icon: 'lucide:folder'
+      icon: 'i-lucide-folder'
       defaultOpen: true
       children:
         - label: 'composables'
-          icon: 'lucide:folder'
+          icon: 'i-lucide-folder'
           children:
             - label: 'useAuth.ts'
               icon: 'vscode-icons:file-type-typescript'
             - label: 'useUser.ts'
               icon: 'vscode-icons:file-type-typescript'
         - label: 'components'
-          icon: 'lucide:folder'
+          icon: 'i-lucide-folder'
           children:
             - label: 'Home'
-              icon: 'lucide:folder'
+              icon: 'i-lucide-folder'
               children:
                 - label: 'Card.vue'
                   icon: 'vscode-icons:file-type-vue'
@@ -78,21 +79,21 @@ props:
   color: info
   items:
     - label: 'app'
-      icon: 'lucide:folder'
+      icon: 'i-lucide-folder'
       defaultOpen: true
       children:
         - label: 'composables'
-          icon: 'lucide:folder'
+          icon: 'i-lucide-folder'
           children:
             - label: 'useAuth.ts'
               icon: 'vscode-icons:file-type-typescript'
             - label: 'useUser.ts'
               icon: 'vscode-icons:file-type-typescript'
         - label: 'components'
-          icon: 'lucide:folder'
+          icon: 'i-lucide-folder'
           children:
             - label: 'Home'
-              icon: 'lucide:folder'
+              icon: 'i-lucide-folder'
               children:
                 - label: 'Card.vue'
                   icon: 'vscode-icons:file-type-vue'
@@ -105,7 +106,6 @@ props:
 ---
 ::
 
-
 ### Variant
 Use the `variant` prop to change the variant of the Tree.
 
@@ -117,25 +117,25 @@ ignore:
 external:
   - items
 props:
-  variant: ghost
+  variant: link
   color: info
   items:
     - label: 'app'
-      icon: 'lucide:folder'
+      icon: 'i-lucide-folder'
       defaultOpen: true
       children:
         - label: 'composables'
-          icon: 'lucide:folder'
+          icon: 'i-lucide-folder'
           children:
             - label: 'useAuth.ts'
               icon: 'vscode-icons:file-type-typescript'
             - label: 'useUser.ts'
               icon: 'vscode-icons:file-type-typescript'
         - label: 'components'
-          icon: 'lucide:folder'
+          icon: 'i-lucide-folder'
           children:
             - label: 'Home'
-              icon: 'lucide:folder'
+              icon: 'i-lucide-folder'
               children:
                 - label: 'Card.vue'
                   icon: 'vscode-icons:file-type-vue'
@@ -162,21 +162,21 @@ props:
   size: md
   items:
     - label: 'app'
-      icon: 'lucide:folder'
+      icon: 'i-lucide-folder'
       defaultOpen: true
       children:
         - label: 'composables'
-          icon: 'lucide:folder'
+          icon: 'i-lucide-folder'
           children:
             - label: 'useAuth.ts'
               icon: 'vscode-icons:file-type-typescript'
             - label: 'useUser.ts'
               icon: 'vscode-icons:file-type-typescript'
         - label: 'components'
-          icon: 'lucide:folder'
+          icon: 'i-lucide-folder'
           children:
             - label: 'Home'
-              icon: 'lucide:folder'
+              icon: 'i-lucide-folder'
               children:
                 - label: 'Card.vue'
                   icon: 'vscode-icons:file-type-vue'
@@ -204,21 +204,21 @@ props:
   multiple: true
   items:
     - label: 'app'
-      icon: 'lucide:folder'
+      icon: 'i-lucide-folder'
       defaultOpen: true
       children:
         - label: 'composables'
-          icon: 'lucide:folder'
+          icon: 'i-lucide-folder'
           children:
             - label: 'useAuth.ts'
               icon: 'vscode-icons:file-type-typescript'
             - label: 'useUser.ts'
               icon: 'vscode-icons:file-type-typescript'
         - label: 'components'
-          icon: 'lucide:folder'
+          icon: 'i-lucide-folder'
           children:
             - label: 'Home'
-              icon: 'lucide:folder'
+              icon: 'i-lucide-folder'
               children:
                 - label: 'Card.vue'
                   icon: 'vscode-icons:file-type-vue'
@@ -249,21 +249,21 @@ props:
   disabled: true
   items:
     - label: 'app'
-      icon: 'lucide:folder'
+      icon: 'i-lucide-folder'
       defaultOpen: true
       children:
         - label: 'composables'
-          icon: 'lucide:folder'
+          icon: 'i-lucide-folder'
           children:
             - label: 'useAuth.ts'
               icon: 'vscode-icons:file-type-typescript'
             - label: 'useUser.ts'
               icon: 'vscode-icons:file-type-typescript'
         - label: 'components'
-          icon: 'lucide:folder'
+          icon: 'i-lucide-folder'
           children:
             - label: 'Home'
-              icon: 'lucide:folder'
+              icon: 'i-lucide-folder'
               children:
                 - label: 'Card.vue'
                   icon: 'vscode-icons:file-type-vue'
@@ -291,9 +291,9 @@ ignore:
 external:
   - items
 props:
-  icon: lucide:dot
+  icon: i-lucide-dot
   trailingIcon: ''
-  parentIcon: lucide:folder
+  parentIcon: i-lucide-folder
   parentTrailingIcon: ''
   items:
     - label: 'app'

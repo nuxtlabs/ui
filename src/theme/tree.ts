@@ -4,7 +4,7 @@ export default (options: Required<ModuleOptions>) => ({
   slots: {
     root: 'relative',
     item: [
-      'group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-[var(--ui-text)] data-disabled:bg-transparent data-disabled:text-[var(--ui-text-elevated)] outline-none',
+      'group relative w-full flex items-center select-none rounded-[calc(var(--ui-radius)*1.5)] data-disabled:cursor-not-allowed data-disabled:opacity-75 text-(--ui-text) data-disabled:bg-transparent data-disabled:text-(--ui-text-elevated) outline-none',
       options.theme.transitions && 'transition-colors before:transition-colors'
     ],
     itemLeadingIcon: 'shrink-0',
@@ -14,16 +14,15 @@ export default (options: Required<ModuleOptions>) => ({
   },
   variants: {
     color: {
-      ...Object.fromEntries((options.theme.colors || []).map((color: string) => [color, `focus-visible:ring-2 focus-visible:ring-[var(--ui-${color})]`])),
+      ...Object.fromEntries((options.theme.colors || []).map((color: string) => [color, `focus-visible:ring-2 focus-visible:ring-(--ui-${color})`])),
       neutral: ''
     },
-
     variant: {
-      ghost: {
-        item: 'hover:not-data-disabled:not-data-selected:bg-[var(--ui-bg-elevated)] hover:not-data-disabled:not-data-selected:text-[var(--ui-text-highlighted)]'
+      pill: {
+        item: 'hover:not-data-disabled:not-data-selected:bg-(--ui-bg-elevated) hover:not-data-disabled:not-data-selected:text-(--ui-text-highlighted)'
       },
       link: {
-        item: 'hover:not-data-disabled:not-data-selected:text-[var(--ui-text-highlighted)]'
+        item: 'hover:not-data-disabled:not-data-selected:text-(--ui-text-highlighted)'
       }
     },
     size: {
@@ -59,38 +58,34 @@ export default (options: Required<ModuleOptions>) => ({
       }
     }
   },
-  compoundVariants: [
-    ...(options.theme.colors || []).map((color: string) => ({
-      color,
-      variant: 'ghost',
-      class: {
-        item: `data-selected:bg-[var(--ui-${color})]/10 data-selected:text-[var(--ui-${color})]`
-      }
-    })),
-    {
-      color: 'neutral', variant: 'ghost',
-      class: {
-        item: 'data-selected:bg-[var(--ui-bg-elevated)]/50 data-selected:text-[var(--ui-text-highlighted)]'
-      }
-    },
-    ...(options.theme.colors || []).map((color: string) => ({
-      color,
-      variant: 'link',
-      class: {
-        item: `data-selected:text-[var(--ui-${color})]`
-      }
-    })),
-    {
-      color: 'neutral', variant: 'link',
-      class: {
-        item: 'data-selected:text-[var(--ui-text-highlighted)]'
-      }
+  compoundVariants: [...(options.theme.colors || []).map((color: string) => ({
+    color,
+    variant: 'pill',
+    class: {
+      item: `data-selected:bg-(--ui-${color})/10 data-selected:text-(--ui-${color})`
     }
-
-  ],
+  })), {
+    color: 'neutral',
+    variant: 'pill',
+    class: {
+      item: 'data-selected:bg-(--ui-bg-elevated)/50 data-selected:text-(--ui-text-highlighted)'
+    }
+  }, ...(options.theme.colors || []).map((color: string) => ({
+    color,
+    variant: 'link',
+    class: {
+      item: `data-selected:text-(--ui-${color})`
+    }
+  })), {
+    color: 'neutral',
+    variant: 'link',
+    class: {
+      item: 'data-selected:text-(--ui-text-highlighted)'
+    }
+  }],
   defaultVariants: {
     color: 'primary',
-    variant: 'link',
+    variant: 'pill',
     size: 'md'
   }
 })

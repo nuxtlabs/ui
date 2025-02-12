@@ -20,12 +20,12 @@ const items: TreeItem[] = [{
 const devItems: TreeItem[] = [
   {
     label: 'app',
-    icon: 'lucide:folder',
+    icon: 'i-lucide-folder',
     defaultOpen: true,
     disabled: false,
     children: [{
       label: 'composables',
-      icon: 'lucide:folder',
+      icon: 'i-lucide-folder',
       defaultOpen: true,
       children: [
         { label: 'useAuth.ts', icon: 'vscode-icons:file-type-typescript' },
@@ -34,11 +34,11 @@ const devItems: TreeItem[] = [
     },
     {
       label: 'components',
-      icon: 'lucide:folder',
+      icon: 'i-lucide-folder',
       children: [
         {
           label: 'Home',
-          icon: 'lucide:folder',
+          icon: 'i-lucide-folder',
           children: [
             { label: 'Card.vue', icon: 'vscode-icons:file-type-vue' },
             { label: 'Button.vue', icon: 'vscode-icons:file-type-vue' }
@@ -69,8 +69,8 @@ const modelValues = ref<TreeItem[]>()
 
       <UTree :items="items">
         <template #item-leading="{ hasChildren, expanded }">
-          <UIcon v-if="hasChildren && expanded" name="lucide:folder-open" />
-          <UIcon v-else-if="hasChildren" name="lucide:folder" />
+          <UIcon v-if="hasChildren && expanded" name="i-lucide-folder-open" />
+          <UIcon v-else-if="hasChildren" name="i-lucide-folder" />
         </template>
       </UTree>
     </div>
@@ -78,8 +78,8 @@ const modelValues = ref<TreeItem[]>()
     <div class="flex gap-4">
       <UTree v-model="modelValue" :default-value="modelValue" :items="devItems" />
       <UTree v-model="modelValues" :items="devItems" multiple @update:model-value="(payload: TreeItem[]) => payload" />
-      <UTree :items="devItems" variant="ghost" />
-      <UTree v-model="modelValue" :items="devItems" variant="ghost" disabled />
+      <UTree :items="devItems" variant="link" />
+      <UTree v-model="modelValue" :items="devItems" variant="link" disabled />
       <UTree :items="devItems" color="error" />
       <UTree :items="devItems" color="neutral" />
     </div>
