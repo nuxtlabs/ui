@@ -130,7 +130,7 @@ onMounted(async () => {
       v-if="page.cta1"
       variant="naked"
       :ui="{
-        container: 'lg:grid-cols-0 !gap-0 px-4 sm:px-6 lg:px-8%',
+        container: 'lg:grid-cols-0 !gap-0 px-4 sm:px-6 lg:px-8',
         wrapper: 'grid grid-cols-1 lg:grid-cols-2',
         description: 'lg:mt-0' }"
       orientation="horizontal"
