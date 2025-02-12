@@ -55,7 +55,9 @@ export interface SlideoverProps extends DialogRootProps {
   ui?: Partial<typeof slideover.slots>
 }
 
-export interface SlideoverEmits extends DialogRootEmits {}
+export interface SlideoverEmits extends DialogRootEmits {
+  'after:leave': []
+}
 
 export interface SlideoverSlots {
   default(props: { open: boolean }): any
