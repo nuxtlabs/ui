@@ -4,6 +4,7 @@ import { createSharedComposable } from '@vueuse/core'
 export type ManagedOverlayOptions<OverlayAttrs = Record<string, any>> = {
   defaultOpen?: boolean
   attrs?: OverlayAttrs
+  destroyOnClose?: boolean
 }
 
 type ManagedOverlayOptionsPrivate<T extends Component> = {
@@ -19,13 +20,14 @@ function _useManagedOverlay() {
   const overlays: Overlay[] = shallowReactive([])
 
   const create = <T extends Component>(component: T, _options?: ManagedOverlayOptions<T>) => {
-    const { attrs, defaultOpen } = _options || {}
+    const { attrs, defaultOpen, destroyOnClose } = _options || {}
 
     const options = reactive<Overlay>({
       id: Symbol(import.meta.dev ? 'useOverlayManager' : ''),
       modelValue: !!defaultOpen,
       component: markRaw(component!),
       isMounted: !!defaultOpen,
+      destroyOnClose: !!destroyOnClose,
       attrs: attrs || {}
     })
 
@@ -68,16 +70,11 @@ function _useManagedOverlay() {
     }
 
     overlay.isMounted = false
-  }
 
-  const destroy = (id: symbol) => {
-    const index = overlays.findIndex(overlay => overlay.id === id)
-
-    if (index === -1) {
-      throw new Error('Overlay not found')
+    if (overlay.destroyOnClose) {
+      const index = overlays.findIndex(overlay => overlay.id === id)
+      overlays.splice(index, 1)
     }
-
-    overlays.splice(index, 1)
   }
 
   const patch = <T extends Component>(id: symbol, attrs: ManagedOverlayOptions<T>['attrs']) => {
@@ -111,7 +108,6 @@ function _useManagedOverlay() {
     close,
     create,
     patch,
-    destroy,
     unMount,
     pop
   }
