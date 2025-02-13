@@ -236,8 +236,29 @@ onMounted(async () => {
           :variant="plan.variant || 'outline'"
           :features="plan.features"
           :button="plan.button"
+          :terms="plan.terms"
           :ui="{ root: 'rounded-none' }"
-        />
+        >
+          <template #features>
+            <li v-for="(feature, i) in plan.features" :key="i" class="flex items-center gap-2 min-w-0">
+              <UIcon name="i-lucide-circle-check" class="size-5 shrink-0 text-(--ui-primary)" />
+              <MDC :value="feature" unwrap="p" tag="span" class="text-sm truncate text-(--ui-text-accented)" />
+            </li>
+          </template>
+          <template #button>
+            <div class="flex flex-col w-full items-center gap-2">
+              <UButton v-bind="plan.button" block size="lg" />
+              <UButton
+                v-if="plan.extraButton"
+                v-bind="plan.extraButton"
+                block
+                size="lg"
+                variant="outline"
+                color="neutral"
+              />
+            </div>
+          </template>
+        </UPricingPlan>
       </UPricingPlans>
     </UPageSection>
     <UPageCTA v-if="page.customers" :title="page.customers.title" :ui="{ title: '!text-base font-medium', container: 'sm:py-12 sm:gap-8' }" variant="outline" class="rounded-none">

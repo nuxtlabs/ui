@@ -20,18 +20,18 @@ export function useLinks() {
     children: [{
       icon: 'i-lucide-sparkles',
       label: 'Features',
-      description: 'Discover why Nuxt UI Pro is the perfect choice for your next project.',
+      description: 'A collection of premium Vue components.',
       to: '/pro'
     }, {
       icon: 'i-lucide-credit-card',
       label: 'Pricing',
-      description: 'Free in development, then purchase a license when you are ready to launch.',
+      description: 'Free in development, buy when ready to launch.',
       to: '/pro/pricing',
       active: route.path.startsWith('/pro/pricing')
     }, {
       icon: 'i-lucide-panels-top-left',
       label: 'Templates',
-      description: 'Explore all the templates made with Nuxt UI Pro.',
+      description: 'Official templates made with Nuxt UI Pro.',
       to: '/pro/templates'
     }, {
       icon: 'i-lucide-circle-check',

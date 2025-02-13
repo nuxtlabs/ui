@@ -194,13 +194,19 @@ faq:
   title: Frequently Asked Questions
   description: If you can't find what you're looking for, email our support team and if you're lucky someone will get back to you.
   items:
+    - label: What is the difference between Nuxt UI Pro and Nuxt UI?
+      content: Nuxt UI Pro is a collection of premium Vue components, composables and utils built on top of Nuxt UI. It includes advanced responsive components ([Header](/components/header), [PageHero](/components/page-hero), [PricingPlan](/components/pricing-plan), [BlogPost](/components/blog-post), etc.) designed ot help you build web applications faster.
+      defaultOpen: true
     - label: Do you have a free trial?
       content: We have much better than a free trial, you can use Nuxt UI Pro for free in development mode. Once you are ready to deploy your application, you can purchase a license.
-      defaultOpen: true
+    - label: What do I get with my license?
+      content: Once you purchase a license, you will receive a license key to [activate](/pro/activate) by inviting the team members to our private GitHub repository. On top of having access to the source code and private roadmap, the license key will allow you to [build your project to production](/getting-started/license#build) with the `nuxt build` command.
     - label: Can I use Nuxt UI Pro for Open Source projects?
       content: Yes, you can use Nuxt UI Pro for your open source projects as well as your commercial projects as long as you don't sell Nuxt UI Pro as a product and that you don't share your license key.
     - label: What does “Unlimited minor & patch updates” include?
       content: We add new components and improvements to Nuxt UI Pro as we get new ideas and feedback, you will receive these updates for the major version you purchased. :br **Your license key will work forever for the major version.** We may release a major version including more advanced components and features in the future, you will be able to upgrade to this version with a generous discount.
+    - label: I purchased Nuxt UI Pro previous versions, do I need to purchase the version 3?
+      content: '**The version 3 is a free upgrade**, so the license you bought on previous versions will be valid for v3.'
     - label: What does “lifetime access” means?
       content: Nuxt UI Pro is a one-time purchase, with no recurring subscription. You will have access to all assets of Nuxt UI Pro forever.
     - label: Do you have discounts for students or non-profits?
