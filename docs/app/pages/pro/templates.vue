@@ -42,16 +42,25 @@ defineOgImageComponent('Docs', {
       orientation="horizontal"
     >
       <template #description>
-        <MDC :value="template.description" />
+        <MDC :value="template.description" unwrap="p" />
       </template>
 
+      <UColorModeImage
+        v-if="template.thumbnail"
+        v-bind="template.thumbnail"
+        class="w-full h-auto rounded-(--ui-radius) border border-(--ui-border)"
+        width="656"
+        height="369"
+      />
       <UCarousel
+        v-else-if="template.images"
         v-slot="{ item }"
         :items="template.images"
         dots
       >
         <NuxtImg v-bind="item" class="w-full h-full object-cover" width="576" height="360" />
       </UCarousel>
+      <Placeholder v-else class="w-full h-full" />
     </UPageSection>
   </div>
 </template>

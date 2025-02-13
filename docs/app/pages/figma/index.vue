@@ -145,7 +145,7 @@ onMounted(async () => {
       </template>
     </UPageCTA>
     <UPageSection v-bind="page.section1" orientation="horizontal" :ui="{ container: 'py-16 sm:py-16 lg:py-16' }">
-      <UTabs :items="page.section1.tabs" size="xs" variant="link" color="neutral">
+      <UTabs :items="page.section1.tabs" size="sm" color="neutral">
         <template #content="{ item }">
           <NuxtImg
             :width="item.width"
