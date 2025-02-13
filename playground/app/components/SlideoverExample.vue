@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const managedOverlay = useManagedOverlay()
+const overlayInstance = useOverlayInstance()
 
 defineProps<{
   count: number
@@ -13,7 +13,7 @@ defineProps<{
     </template>
 
     <template #footer>
-      <UButton color="neutral" label="Close" @click="managedOverlay.pop()" />
+      <UButton color="neutral" label="Close" @click="overlayInstance.close" />
     </template>
   </USlideover>
 </template>

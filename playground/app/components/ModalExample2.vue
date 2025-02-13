@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const managedOverlay = useManagedOverlay()
+const instance = useOverlayInstance()
 
 defineProps<{
   count: number
@@ -9,7 +9,7 @@ defineProps<{
 <template>
   <UModal :title="`This modal was opened programmatically ${count} times`">
     <template #footer>
-      <UButton color="neutral" label="Close" @click="managedOverlay.pop()" />
+      <UButton color="neutral" label="Close" @click="instance.close" />
     </template>
   </UModal>
 </template>

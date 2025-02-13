@@ -4,7 +4,7 @@ import { LazySlideoverExample } from '#components'
 const count = ref(0)
 
 const toast = useToast()
-const slideover = useOverlayInstance(LazySlideoverExample, {
+const slideover = useOverlay().create(LazySlideoverExample, {
   attrs: {
     title: 'Slideover',
     onSuccess() {

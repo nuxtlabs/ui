@@ -4,7 +4,7 @@ import { LazyModalExample } from '#components'
 const count = ref(0)
 
 const toast = useToast()
-const modal = useOverlayInstance(LazyModalExample, {
+const modal = useOverlay().create(LazyModalExample, {
   attrs: {
     description: 'And you can even provide a description!',
     onSuccess() {

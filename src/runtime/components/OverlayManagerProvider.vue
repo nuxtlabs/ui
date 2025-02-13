@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import OverlayInstanceProvider from './OverlayInstanceProvider.vue'
 
-const { overlays, ...overlayManager } = useManagedOverlay()
+const { overlays, unMount } = useOverlay()
 
 const mountedOverlays = computed(() => overlays.filter(overlay => overlay.isMounted))
 
 const onAfterLeave = (id: symbol) => {
-  overlayManager.unMount(id)
+  unMount(id)
 }
 </script>
 

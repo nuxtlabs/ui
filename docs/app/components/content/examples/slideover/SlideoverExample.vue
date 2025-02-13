@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const mangedOverlay = useManagedOverlay()
+const instance = useOverlayInstance()
 
 defineProps<{
   count: number
@@ -20,7 +20,7 @@ function onSuccess() {
 
     <template #footer>
       <div class="flex gap-2">
-        <UButton color="neutral" label="Close" @click="mangedOverlay.pop()" />
+        <UButton color="neutral" label="Close" @click="instance.close" />
         <UButton label="Success" @click="onSuccess" />
       </div>
     </template>

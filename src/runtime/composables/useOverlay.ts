@@ -1,5 +1,9 @@
 import type { Component } from 'vue'
 import { createSharedComposable } from '@vueuse/core'
+import type { ComponentProps } from 'vue-component-type-helpers'
+
+// Allows for additional props to be passed to the overlay
+type WithExtendableAttrs<T, Additional = Record<string, any>> = Partial<ComponentProps<T> | Additional>
 
 export type ManagedOverlayOptions<OverlayAttrs = Record<string, any>> = {
   defaultOpen?: boolean
@@ -16,10 +20,10 @@ type ManagedOverlayOptionsPrivate<T extends Component> = {
 }
 export type Overlay = ManagedOverlayOptions<Component> & ManagedOverlayOptionsPrivate<Component>
 
-function _useManagedOverlay() {
+function _useOverlay() {
   const overlays: Overlay[] = shallowReactive([])
 
-  const create = <T extends Component>(component: T, _options?: ManagedOverlayOptions<T>) => {
+  const create = <T extends Component>(component: T, _options?: ManagedOverlayOptions<WithExtendableAttrs<T>>) => {
     const { attrs, defaultOpen, destroyOnClose } = _options || {}
 
     const options = reactive<Overlay>({
@@ -33,10 +37,14 @@ function _useManagedOverlay() {
 
     overlays.push(options)
 
-    return options.id
+    return {
+      open: <T extends Component>(attrs?: WithExtendableAttrs<T>) => open(options.id, attrs),
+      close: () => close(options.id),
+      patch: <T extends Component>(attrs: WithExtendableAttrs<T>) => patch(options.id, attrs)
+    }
   }
 
-  const open = <T extends Component>(id: symbol, attrs?: ManagedOverlayOptions<T>['attrs']) => {
+  const open = <T extends Component>(id: symbol, attrs?: WithExtendableAttrs<T>) => {
     const overlay = overlays.find(overlay => overlay.id === id)
 
     if (!overlay) {
@@ -91,26 +99,14 @@ function _useManagedOverlay() {
     return attrs
   }
 
-  // Close the top most overlay
-  const pop = () => {
-    const overlay = overlays[overlays.length - 1]
-
-    if (!overlay) {
-      throw new Error('Overlay not found')
-    }
-
-    overlay.modelValue = false
-  }
-
   return {
     overlays,
     open,
     close,
     create,
     patch,
-    unMount,
-    pop
+    unMount
   }
 }
 
-export const useManagedOverlay = createSharedComposable(_useManagedOverlay)
+export const useOverlay = createSharedComposable(_useOverlay)

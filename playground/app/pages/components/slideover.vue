@@ -6,7 +6,7 @@ const LazySlideoverExample = defineAsyncComponent(() => import('../../components
 const open = ref(false)
 const count = ref(0)
 
-const slideover = useOverlayInstance(LazySlideoverExample, {
+const slideover = useOverlay().create(LazySlideoverExample, {
   attrs: {
     title: 'Slideover'
   }

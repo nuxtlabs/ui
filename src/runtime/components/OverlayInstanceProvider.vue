@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-const overlayManager = useManagedOverlay()
+const overlay = useOverlay()
 
 const { id } = defineProps<{ id: symbol }>()
 
 provide(`nuxt-ui.overlay-instance`, {
-  close: () => overlayManager.close(id)
+  close: () => overlay.close(id)
 })
 </script>
 
