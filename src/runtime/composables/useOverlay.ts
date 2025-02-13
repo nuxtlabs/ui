@@ -45,11 +45,7 @@ function _useOverlay() {
   }
 
   const open = <T extends Component>(id: symbol, attrs?: WithExtendableAttrs<T>) => {
-    const overlay = overlays.find(overlay => overlay.id === id)
-
-    if (!overlay) {
-      throw new Error('Overlay not found')
-    }
+    const overlay = getOverlay(id)
 
     // If attrs are provided, update the overlay's attrs
     if (attrs) {
@@ -61,21 +57,13 @@ function _useOverlay() {
   }
 
   const close = (id: symbol) => {
-    const overlay = overlays.find(overlay => overlay.id === id)
-
-    if (!overlay) {
-      throw new Error('Overlay not found')
-    }
+    const overlay = getOverlay(id)
 
     overlay.modelValue = false
   }
 
   const unMount = (id: symbol) => {
-    const overlay = overlays.find(overlay => overlay.id === id)
-
-    if (!overlay) {
-      throw new Error('Overlay not found')
-    }
+    const overlay = getOverlay(id)
 
     overlay.isMounted = false
 
@@ -86,17 +74,23 @@ function _useOverlay() {
   }
 
   const patch = <T extends Component>(id: symbol, attrs: ManagedOverlayOptions<T>['attrs']) => {
-    const overlay = overlays.find(overlay => overlay.id === id)
-
-    if (!overlay) {
-      throw new Error('Overlay not found')
-    }
+    const overlay = getOverlay(id)
 
     Object.entries(attrs!).forEach(([key, value]) => {
       (overlay.attrs as any)[key] = value
     })
 
     return attrs
+  }
+
+  const getOverlay = (id: symbol) => {
+    const overlay = overlays.find(overlay => overlay.id === id)
+
+    if (!overlay) {
+      throw new Error('Overlay not found')
+    }
+
+    return overlay
   }
 
   return {
