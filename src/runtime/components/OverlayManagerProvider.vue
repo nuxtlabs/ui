@@ -11,14 +11,12 @@ const onAfterLeave = (id: symbol) => {
 </script>
 
 <template>
-  <div>
-    <component
-      :is="overlay.component"
-      v-for="overlay in mountedOverlays"
-      v-bind="overlay.attrs"
-      :key="overlay.id"
-      v-model:open="overlay.modelValue"
-      @after:leave="onAfterLeave(overlay.id)"
-    />
-  </div>
+  <component
+    :is="overlay.component"
+    v-for="overlay in mountedOverlays"
+    v-bind="overlay.attrs"
+    :key="overlay.id"
+    v-model:open="overlay.modelValue"
+    @after:leave="onAfterLeave(overlay.id)"
+  />
 </template>
