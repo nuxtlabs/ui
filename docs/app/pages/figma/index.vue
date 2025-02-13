@@ -223,7 +223,7 @@ onMounted(async () => {
       }"
     >
       <div aria-hidden="true" class="absolute z-[-1] border-x border-(--ui-border) inset-0 mx-4 sm:mx-6 lg:mx-8" />
-      <UPricingPlans compact>
+      <UPricingPlans compact class="-space-x-px">
         <UPricingPlan
           v-for="(plan, index) in page.pricing.plans"
           :key="index"
