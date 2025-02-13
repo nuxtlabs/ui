@@ -36,7 +36,7 @@ export function useLinks() {
     }, {
       icon: 'i-lucide-circle-check',
       label: 'Activate',
-      description: 'Enable Nuxt UI Pro in your production projects by activating your license.',
+      description: 'Enable Nuxt UI Pro in your production projects.',
       to: '/pro/activate'
     }]
   }, {

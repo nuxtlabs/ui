@@ -153,10 +153,10 @@ section4:
         height: 230
 pricing:
   title: Pricing plan that scale with you.
-  description: Start for free with essential components, or unlock the complete kit with a one-time Pro purchase.
+  description: Start for free with Nuxt UI components, or unlock the complete Nuxt UI Pro design kit with a one-time purchase.
   plans:
     - title: Free design kit
-      description: Stars with all Nuxt UI components and tokens.
+      description: Start with all Nuxt UI components and tokens.
       price: FREE
       features:
         - Unlimited members
