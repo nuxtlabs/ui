@@ -27,7 +27,7 @@ function _useOverlay() {
     const { attrs, defaultOpen, destroyOnClose } = _options || {}
 
     const options = reactive<Overlay>({
-      id: Symbol(import.meta.dev ? 'useOverlayManager' : ''),
+      id: Symbol(import.meta.dev ? 'useOverlay' : ''),
       modelValue: !!defaultOpen,
       component: markRaw(component!),
       isMounted: !!defaultOpen,
