@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const LazyModalExample = defineAsyncComponent(() => import('./ModalExample2.vue'))
 
-const managedOverlay = useManagedOverlay()
 const modalexample2Instance = useOverlayInstance(LazyModalExample)
+const instanceApi = useOverlayOpenInstance()
 
 const nestedCount = ref(0)
 
@@ -24,7 +24,7 @@ function openModal() {
       </UButton>
     </template>
     <template #footer>
-      <UButton color="neutral" label="Close" @click="managedOverlay.pop()" />
+      <UButton color="neutral" label="Close" @click="instanceApi.close" />
     </template>
   </UModal>
 </template>
