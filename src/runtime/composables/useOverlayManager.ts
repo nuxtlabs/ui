@@ -19,13 +19,14 @@ function _useManagedOverlay() {
   const overlays: Overlay[] = shallowReactive([])
 
   const create = <T extends Component>(component: T, _options?: ManagedOverlayOptions<T>) => {
+    const { attrs, defaultOpen } = _options || {}
+
     const options = reactive<Overlay>({
       id: Symbol(import.meta.dev ? 'useOverlayManager' : ''),
-      modelValue: !!_options?.defaultOpen,
+      modelValue: !!defaultOpen,
       component: markRaw(component!),
-      isMounted: !!_options?.defaultOpen,
-      attrs: {},
-      ..._options
+      isMounted: !!defaultOpen,
+      attrs: attrs || {}
     })
 
     overlays.push(options)
