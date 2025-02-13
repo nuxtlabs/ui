@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// @ts-expect-error yaml is not typed
 import page from '.figma.yml'
 import { animate } from 'motion'
 import { joinURL } from 'ufo'

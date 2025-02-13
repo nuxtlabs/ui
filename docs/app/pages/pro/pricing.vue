@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// @ts-expect-error yaml is not typed
 import page from '.content/pricing.yml'
 
 useSeoMeta({
