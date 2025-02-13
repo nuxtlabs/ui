@@ -5,20 +5,20 @@ const { overlays, ...overlayManager } = useManagedOverlay()
 
 const mountedOverlays = computed(() => overlays.filter(overlay => overlay.isMounted))
 
-const onAfterLeave = (id: symbol, unMount: boolean) => {
-  if (!unMount) {
-    overlayManager.unMount(id)
-  }
+const onAfterLeave = (id: symbol) => {
+  overlayManager.unMount(id)
 }
 </script>
 
 <template>
-  <component
-    :is="overlay.component"
-    v-for="overlay in mountedOverlays"
-    v-bind="overlay.attrs"
-    :key="overlay.id"
-    v-model:open="overlay.modelValue"
-    @after:leave="onAfterLeave(overlay.id, !overlay.isMounted)"
-  />
+  <div>
+    <component
+      :is="overlay.component"
+      v-for="overlay in mountedOverlays"
+      v-bind="overlay.attrs"
+      :key="overlay.id"
+      v-model:open="overlay.modelValue"
+      @after:leave="onAfterLeave(overlay.id)"
+    />
+  </div>
 </template>

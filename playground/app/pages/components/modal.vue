@@ -16,14 +16,6 @@ const modalexampleInstance = useOverlayInstance(LazyModalExample, {
 function openModal() {
   modalexampleInstance.open({ count: count.value })
   count.value++
-
-  // modaalInstance.open()
-
-  // modal.open(ModalExample, {
-  //   description: 'And you can even provide a description!',
-  //   count: count.value,
-  //   dismissible: false
-  // })
 }
 </script>
 
