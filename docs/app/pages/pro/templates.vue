@@ -40,6 +40,7 @@ defineOgImageComponent('Docs', {
       :links="template.links"
       :features="template.features"
       orientation="horizontal"
+      reverse
     >
       <template #description>
         <MDC :value="template.description" unwrap="p" />
