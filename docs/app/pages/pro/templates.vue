@@ -56,7 +56,7 @@ defineOgImageComponent('Docs', {
       <UCarousel
         v-else-if="template.images"
         v-slot="{ item }"
-        :items="template.images"
+        :items="(template.images as any[])"
         dots
       >
         <NuxtImg v-bind="item" class="w-full h-full object-cover" width="576" height="360" />

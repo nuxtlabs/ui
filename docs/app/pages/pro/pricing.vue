@@ -102,14 +102,11 @@ defineOgImageComponent('Docs', {
     >
       <UPageAccordion
         multiple
-        :items="page.faq.items"
+        :items="(page.faq.items as any[])"
         class="max-w-4xl mx-auto"
       >
         <template #body="{ item }">
-          <MDC
-            :value="item.content"
-            unwrap="p"
-          />
+          <MDC :value="item.content" unwrap="p" />
         </template>
       </UPageAccordion>
     </UPageSection>

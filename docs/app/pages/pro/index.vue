@@ -72,7 +72,7 @@ defineOgImageComponent('Docs', {
         arrows
         dots
         :autoplay="{ delay: 3000 }"
-        :items="page.templates.items"
+        :items="(page.templates.items as any[])"
         :ui="{ item: 'basis-1/2', container: 'py-2' }"
       >
         <UPageCard

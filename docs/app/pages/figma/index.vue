@@ -145,7 +145,7 @@ onMounted(async () => {
       </template>
     </UPageCTA>
     <UPageSection v-bind="page.section1" orientation="horizontal" :ui="{ container: 'py-16 sm:py-16 lg:py-16' }">
-      <UTabs :items="page.section1.tabs" size="sm" color="neutral">
+      <UTabs :items="(page.section1.tabs as any[])" size="sm" color="neutral">
         <template #content="{ item }">
           <NuxtImg
             :width="item.width"
@@ -276,7 +276,7 @@ onMounted(async () => {
       <div aria-hidden="true" class="hidden lg:block absolute z-[-1] border-x border-(--ui-border) inset-0 mx-4 sm:mx-6 lg:mx-8" />
       <UPageAccordion
         multiple
-        :items="page.faq.items"
+        :items="(page.faq.items as any[])"
         class="max-w-4xl mx-auto"
       >
         <template #body="{ item }">
