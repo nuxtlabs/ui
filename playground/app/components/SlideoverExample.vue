@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const slideover = useSlideover()
+const overlayInstance = useOverlayInstance()
 
 defineProps<{
   count: number
@@ -13,7 +13,7 @@ defineProps<{
     </template>
 
     <template #footer>
-      <UButton color="neutral" label="Close" @click="slideover.close()" />
+      <UButton color="neutral" label="Close" @click="overlayInstance.close" />
     </template>
   </USlideover>
 </template>
