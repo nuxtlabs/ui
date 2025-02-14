@@ -1,7 +1,7 @@
 import { defineLocale } from '../composables/defineLocale'
 
 export default defineLocale({
-  name: 'Bengali',
+  name: 'বাংলা',
   code: 'bn',
   messages: {
     inputMenu: {
