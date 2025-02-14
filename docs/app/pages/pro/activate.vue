@@ -40,7 +40,7 @@ async function submit(event: FormSubmitEvent<any>) {
   successMessage.value = ''
 
   try {
-    const res: { activationsLeft: number, activationsTotal: number } = await $fetch('https://api.nuxtlabs.com/ui-pro/activate', {
+    const res: { activationsLeft: number, activationsTotal: number } = await $fetch<{ activationsLeft: number, activationsTotal: number }>('https://api.nuxtlabs.com/ui-pro/activate', {
       method: 'POST',
       body: {
         key: event.data.license,
