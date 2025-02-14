@@ -20,5 +20,5 @@ export default defineBuildConfig({
       options.addRelativeDeclarationExtensions = false
     }
   },
-  externals: ['#build/ui', 'vite']
+  externals: ['#build/ui', '#build/app.config', 'vite']
 })

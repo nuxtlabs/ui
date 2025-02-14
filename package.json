@@ -42,7 +42,8 @@
   },
   "imports": {
     "#build/ui/*": "./.nuxt/ui/*.ts",
-    "#build/ui.css": "./.nuxt/ui.css"
+    "#build/ui.css": "./.nuxt/ui.css",
+    "#build/app.config": "./.nuxt/app.config.mjs"
   },
   "bin": {
     "nuxt-ui": "./cli/index.mjs"
