@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { withoutTrailingSlash } from 'ufo'
+// import { withoutTrailingSlash } from 'ufo'
 import colors from 'tailwindcss/colors'
 // import { debounce } from 'perfect-debounce'
 
