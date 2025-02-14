@@ -93,15 +93,17 @@
                 />
               </td>
               <td v-for="(column, subIndex) in columns" :key="subIndex" :class="[ui.td.base, ui.td.padding, ui.td.color, ui.td.font, ui.td.size, column?.rowClass, row[column.key]?.class, column.key === 'select' && ui.checkbox.padding]">
-                <slot v-if="modelValue && column.key === 'select' " name="select-data" :checked="isSelected(row)" :change="(ev: boolean) => onChangeCheckbox(ev, row)">
-                  <UCheckbox
-                    :model-value="isSelected(row)"
-                    v-bind="ui.default.checkbox"
-                    aria-label="Select row"
-                    @change="onChangeCheckbox($event, row)"
-                  />
-                </slot>
-
+                <!-- This is a workaround: Since the @change event doesn't bubble up naturally, we need to wrap it in another element and use @click.capture.stop to simulate event bubbling behavior -->
+                <span v-if="modelValue && column.key === 'select' " @click.capture.stop="() => {}">
+                  <slot name="select-data" :checked="isSelected(row)" :change="(ev: boolean) => onChangeCheckbox(ev, row)">
+                    <UCheckbox
+                      :model-value="isSelected(row)"
+                      v-bind="ui.default.checkbox"
+                      aria-label="Select row"
+                      @change="onChangeCheckbox($event, row)"
+                    />
+                  </slot>
+                </span>
                 <slot
                   v-else
                   :key="retriggerSlot"
