@@ -159,6 +159,9 @@
     "vite": "6.0.11",
     "vue-tsc": "^2.2.0"
   },
+  "pnpm": {
+    "onlyBuiltDependencies": ["better-sqlite3"]
+  },
   "keywords": [
     "nuxt-ui",
     "nuxt",
