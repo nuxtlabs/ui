@@ -180,9 +180,9 @@ pricing:
     - title: Solo License
       description: Design faster with all Nuxt UI Pro components.
       price: $149
-      variant: subtle
       billing_period: one-time payment
       billing_cycle: plus local taxes
+      class: bg-(--ui-bg-elevated)/50
       features:
         - '**1 Designer**'
         - Nuxt UI & Nuxt UI Pro Components
@@ -203,7 +203,7 @@ pricing:
       price: $349
       billing_period: one-time payment
       billing_cycle: plus local taxes
-      variant: subtle
+      class: bg-(--ui-bg-elevated)/50
       features:
         - '**Up to 20 Designers**'
         - Nuxt UI & Nuxt UI Pro Components

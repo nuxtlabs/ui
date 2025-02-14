@@ -152,7 +152,7 @@ onMounted(async () => {
             :height="item.height"
             :src="item.src"
             :alt="item.alt"
-            class="w-full h-auto"
+            class="w-full h-auto rounded-[calc(var(--ui-radius)*2)]"
             lazy
           />
         </template>
@@ -162,7 +162,7 @@ onMounted(async () => {
       <NuxtImg
         v-if="page.section2.image"
         v-bind="page.section2.image"
-        class="w-full h-auto"
+        class="w-full h-auto rounded-[calc(var(--ui-radius)*2)]"
         lazy
       />
     </UPageSection>
@@ -170,7 +170,7 @@ onMounted(async () => {
       <NuxtImg
         v-if="page.section3.image"
         v-bind="page.section3.image"
-        class="w-full h-auto"
+        class="w-full h-auto rounded-[calc(var(--ui-radius)*2)]"
         lazy
       />
     </UPageSection>
@@ -195,7 +195,7 @@ onMounted(async () => {
           <NuxtImg
             v-if="step.image"
             v-bind="step.image"
-            class="rounded"
+            class="rounded-(--ui-radius)"
             lazy
           />
           <div>
@@ -234,11 +234,11 @@ onMounted(async () => {
           :billing-period="plan.billing_period"
           :billing-cycle="plan.billing_cycle"
           :highlight="plan.highlight"
-          :variant="plan.variant || 'outline'"
           :features="plan.features"
           :button="plan.button"
           :terms="plan.terms"
-          :ui="{ root: 'rounded-none' }"
+          class="rounded-none"
+          :class="plan.class"
         >
           <template #features>
             <li v-for="(feature, i) in plan.features" :key="i" class="flex items-center gap-2 min-w-0">
