@@ -110,17 +110,5 @@ defineOgImageComponent('Docs', {
         </template>
       </UPageAccordion>
     </UPageSection>
-
-    <USeparator />
-
-    <UPageCTA
-      v-bind="page.cta"
-      variant="naked"
-      class="overflow-hidden"
-    >
-      <div class="absolute rounded-full dark:bg-[var(--ui-primary)] blur-[250px] size-40 sm:size-50 transform -translate-x-1/2 left-1/2 -translate-y-80" />
-
-      <StarsBg />
-    </UPageCTA>
   </div>
 </template>

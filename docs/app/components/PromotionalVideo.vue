@@ -2,10 +2,10 @@
   <div class="relative">
     <UPageCard
       variant="subtle"
-      class="rounded-2xl"
+      class="rounded-[calc(var(--ui-radius)*6)]"
     >
       <video
-        class="rounded-xl"
+        class="rounded-[calc(var(--ui-radius)*2)]"
         preload="none"
         poster="https://res.cloudinary.com/nuxt/video/upload/so_3.3/v1708511800/ui-pro/video-nuxt-ui-pro_kwfbdh.jpg"
         :controls="true"

@@ -41,6 +41,8 @@ defineOgImageComponent('Docs', {
       :features="template.features"
       orientation="horizontal"
       reverse
+      class="*:!pt-0"
+      :ui="{ title: 'lg:text-4xl' }"
     >
       <template #description>
         <MDC :value="template.description" unwrap="p" />
@@ -61,7 +63,7 @@ defineOgImageComponent('Docs', {
       >
         <NuxtImg v-bind="item" class="w-full h-full object-cover" width="576" height="360" />
       </UCarousel>
-      <Placeholder v-else class="w-full h-full" />
+      <Placeholder v-else class="w-full h-full aspect-video" />
     </UPageSection>
   </div>
 </template>
