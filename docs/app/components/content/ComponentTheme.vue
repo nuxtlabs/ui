@@ -86,12 +86,11 @@ const themeLink = computed(() => {
   return `https://github.com/nuxt/${repo}/blob/v3/src/theme/${slug}.ts`
 })
 
-// if route detect #theme open all collapse blocks
-const themeHash = computed(() => route.hash === '#theme')
+const themeHash = route.hash === '#theme'
 
-const { data: ast } = await useAsyncData(`component-theme-${camelName}-${hash({ props })}`, async () => {
+const { data: ast } = await useAsyncData(`component-theme-${camelName}-${hash({ props, themeHash })}`, async () => {
   const md = `
-::code-collapse{class="nuxt-only" ${themeHash.value ? 'open' : null} }
+::code-collapse{class="nuxt-only" ${themeHash ? 'open' : null} }
 
 \`\`\`ts [app.config.ts]
 export default defineAppConfig(${json5.stringify(component.value, null, 2).replace(/,([ |\t\n]+[}|\])])/g, '$1')})
@@ -99,7 +98,7 @@ export default defineAppConfig(${json5.stringify(component.value, null, 2).repla
 
 ::
 
-::code-collapse{class="vue-only" ${themeHash.value ? 'open' : null} }
+::code-collapse{class="vue-only" ${themeHash ? 'open' : null} }
 
 \`\`\`ts [vite.config.ts]
 import { defineConfig } from 'vite'
