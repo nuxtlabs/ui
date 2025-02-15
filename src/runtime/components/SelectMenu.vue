@@ -136,7 +136,7 @@ extendDevtoolsMeta({ defaultProps: { items: ['Option 1', 'Option 2', 'Option 3']
 import { computed, toRef, toRaw } from 'vue'
 import { ComboboxRoot, ComboboxArrow, ComboboxAnchor, ComboboxInput, ComboboxTrigger, ComboboxPortal, ComboboxContent, ComboboxViewport, ComboboxEmpty, ComboboxGroup, ComboboxLabel, ComboboxSeparator, ComboboxItem, ComboboxItemIndicator, FocusScope, useForwardPropsEmits, useFilter } from 'reka-ui'
 import { defu } from 'defu'
-import { reactivePick, createReusableTemplate } from '@vueuse/core'
+import { reactivePick, createReusableTemplate, isObject } from '@vueuse/core'
 import { useAppConfig } from '#imports'
 import { useButtonGroup } from '../composables/useButtonGroup'
 import { useComponentIcons } from '../composables/useComponentIcons'
@@ -362,27 +362,27 @@ function onUpdateOpen(value: boolean) {
                 <ComboboxItem
                   v-else
                   :class="ui.item({ class: props.ui?.item })"
-                  :disabled="item.disabled"
+                  :disabled="item?.disabled"
                   :value="valueKey && typeof item === 'object' ? get(item, props.valueKey as string) : item"
-                  @select="item.onSelect"
+                  @select="item?.onSelect"
                 >
                   <slot name="item" :item="(item as T)" :index="index">
                     <slot name="item-leading" :item="(item as T)" :index="index">
-                      <UIcon v-if="item.icon" :name="item.icon" :class="ui.itemLeadingIcon({ class: props.ui?.itemLeadingIcon })" />
-                      <UAvatar v-else-if="item.avatar" :size="((props.ui?.itemLeadingAvatarSize || ui.itemLeadingAvatarSize()) as AvatarProps['size'])" v-bind="item.avatar" :class="ui.itemLeadingAvatar({ class: props.ui?.itemLeadingAvatar })" />
+                      <UIcon v-if="item?.icon" :name="item?.icon" :class="ui.itemLeadingIcon({ class: props.ui?.itemLeadingIcon })" />
+                      <UAvatar v-else-if="item?.avatar" :size="((props.ui?.itemLeadingAvatarSize || ui.itemLeadingAvatarSize()) as AvatarProps['size'])" v-bind="item?.avatar" :class="ui.itemLeadingAvatar({ class: props.ui?.itemLeadingAvatar })" />
                       <UChip
-                        v-else-if="item.chip"
+                        v-else-if="item?.chip"
                         :size="((props.ui?.itemLeadingChipSize || ui.itemLeadingChipSize()) as ChipProps['size'])"
                         inset
                         standalone
-                        v-bind="item.chip"
+                        v-bind="item?.chip"
                         :class="ui.itemLeadingChip({ class: props.ui?.itemLeadingChip })"
                       />
                     </slot>
 
                     <span :class="ui.itemLabel({ class: props.ui?.itemLabel })">
                       <slot name="item-label" :item="(item as T)" :index="index">
-                        {{ typeof item === 'object' ? get(item, props.labelKey as string) : item }}
+                        {{ isObject(item) ? get(item, props.labelKey as string) : String(item) }}
                       </slot>
                     </span>
 
