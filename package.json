@@ -118,8 +118,8 @@
     "tailwindcss": "^4.0.6",
     "tinyglobby": "^0.2.10",
     "unplugin": "^2.2.0",
-    "unplugin-auto-import": "^19.0.0",
-    "unplugin-vue-components": "^28.0.0",
+    "unplugin-auto-import": "^19.1.0",
+    "unplugin-vue-components": "^28.1.0",
     "vaul-vue": "^0.2.1"
   },
   "devDependencies": {

@@ -141,11 +141,11 @@ importers:
         specifier: ^2.2.0
         version: 2.2.0
       unplugin-auto-import:
-        specifier: ^19.0.0
-        version: 19.0.0(@nuxt/kit@3.15.4(magicast@0.3.5)(rollup@4.34.1))(@vueuse/core@12.6.1(typescript@5.6.3))(rollup@4.34.1)
+        specifier: ^19.1.0
+        version: 19.1.0(@nuxt/kit@3.15.4(magicast@0.3.5)(rollup@4.34.1))(@vueuse/core@12.6.1(typescript@5.6.3))(rollup@4.34.1)
       unplugin-vue-components:
-        specifier: ^28.0.0
-        version: 28.0.0(@babel/parser@7.26.7)(@nuxt/kit@3.15.4(magicast@0.3.5)(rollup@4.34.1))(rollup@4.34.1)(vue@3.5.13(typescript@5.6.3))
+        specifier: ^28.1.0
+        version: 28.1.0(@babel/parser@7.26.7)(@nuxt/kit@3.15.4(magicast@0.3.5)(rollup@4.34.1))(vue@3.5.13(typescript@5.6.3))
       vaul-vue:
         specifier: ^0.2.1
         version: 0.2.1(radix-vue@1.9.13(vue@3.5.13(typescript@5.6.3)))(vue@3.5.13(typescript@5.6.3))
@@ -277,8 +277,8 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0(magicast@0.3.5)(rollup@4.34.1)
       '@octokit/rest':
-        specifier: ^21.1.0
-        version: 21.1.0
+        specifier: ^21.1.1
+        version: 21.1.1
       '@rollup/plugin-yaml':
         specifier: ^4.1.2
         version: 4.1.2(rollup@4.34.1)
@@ -289,8 +289,8 @@ importers:
         specifier: ^17.13.3
         version: 17.13.3
       motion:
-        specifier: ^12.4.2
-        version: 12.4.2
+        specifier: ^12.4.3
+        version: 12.4.3
       nuxt:
         specifier: ^3.15.4
         version: 3.15.4(@libsql/client@0.14.0)(@parcel/watcher@2.5.1)(@types/node@22.13.0)(better-sqlite3@11.8.1)(db0@0.2.3(@libsql/client@0.14.0)(better-sqlite3@11.8.1))(eslint@9.20.1(jiti@2.4.2))(ioredis@5.4.2)(lightningcss@1.29.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.34.1)(terser@5.37.0)(typescript@5.6.3)(vite@6.0.11(@types/node@22.13.0)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.37.0)(yaml@2.7.0))(vue-tsc@2.2.0(typescript@5.6.3))(yaml@2.7.0)
@@ -323,8 +323,8 @@ importers:
         version: 3.24.2
     devDependencies:
       wrangler:
-        specifier: ^3.109.0
-        version: 3.109.0(@cloudflare/workers-types@4.20250204.0)
+        specifier: ^3.109.1
+        version: 3.109.1(@cloudflare/workers-types@4.20250204.0)
 
   playground:
     dependencies:
@@ -1670,12 +1670,12 @@ packages:
     resolution: {integrity: sha512-JcQDsBdg49Yky2w2ld20IHAlwr8d/d8N6NiOXbtuoPCqzbsiJgF633mVUw3x4mo0H5ypataQIX7SFu3yy44Mpw==}
     engines: {node: '>= 18'}
 
-  '@octokit/core@6.1.3':
-    resolution: {integrity: sha512-z+j7DixNnfpdToYsOutStDgeRzJSMnbj8T1C/oQjB6Aa+kRfNjs/Fn7W6c8bmlt6mfy3FkgeKBRnDjxQow5dow==}
+  '@octokit/core@6.1.4':
+    resolution: {integrity: sha512-lAS9k7d6I0MPN+gb9bKDt7X8SdxknYqAMh44S5L+lNqIN2NuV8nvv3g8rPp7MuRxcOpxpUIATWprO0C34a8Qmg==}
     engines: {node: '>= 18'}
 
-  '@octokit/endpoint@10.1.2':
-    resolution: {integrity: sha512-XybpFv9Ms4hX5OCHMZqyODYqGTZ3H6K6Vva+M9LR7ib/xr1y1ZnlChYv9H680y77Vd/i/k+thXApeRASBQkzhA==}
+  '@octokit/endpoint@10.1.3':
+    resolution: {integrity: sha512-nBRBMpKPhQUxCsQQeW+rCJ/OPSMcj3g0nfHn01zGYZXuNDvvXudF/TYY6APj5THlurerpFN4a/dQAIAaM6BYhA==}
     engines: {node: '>= 18'}
 
   '@octokit/graphql@8.2.0':
@@ -1685,8 +1685,8 @@ packages:
   '@octokit/openapi-types@23.0.1':
     resolution: {integrity: sha512-izFjMJ1sir0jn0ldEKhZ7xegCTj/ObmEDlEfpFrx4k/JyZSMRHbO3/rBwgE7f3m2DHt+RrNGIVw4wSmwnm3t/g==}
 
-  '@octokit/plugin-paginate-rest@11.4.0':
-    resolution: {integrity: sha512-ttpGck5AYWkwMkMazNCZMqxKqIq1fJBNxBfsFwwfyYKTf914jKkLF0POMS3YkPBwp5g1c2Y4L79gDz01GhSr1g==}
+  '@octokit/plugin-paginate-rest@11.4.2':
+    resolution: {integrity: sha512-BXJ7XPCTDXFF+wxcg/zscfgw2O/iDPtNSkwwR1W1W5c4Mb3zav/M2XvxQ23nVmKj7jpweB4g8viMeCQdm7LMVA==}
     engines: {node: '>= 18'}
     peerDependencies:
       '@octokit/core': '>=6'
@@ -1703,20 +1703,20 @@ packages:
     peerDependencies:
       '@octokit/core': '>=6'
 
-  '@octokit/request-error@6.1.6':
-    resolution: {integrity: sha512-pqnVKYo/at0NuOjinrgcQYpEbv4snvP3bKMRqHaD9kIsk9u1LCpb2smHZi8/qJfgeNqLo5hNW4Z7FezNdEo0xg==}
+  '@octokit/request-error@6.1.7':
+    resolution: {integrity: sha512-69NIppAwaauwZv6aOzb+VVLwt+0havz9GT5YplkeJv7fG7a40qpLt/yZKyiDxAhgz0EtgNdNcb96Z0u+Zyuy2g==}
     engines: {node: '>= 18'}
 
-  '@octokit/request@9.2.0':
-    resolution: {integrity: sha512-kXLfcxhC4ozCnAXy2ff+cSxpcF0A1UqxjvYMqNuPIeOAzJbVWQ+dy5G2fTylofB/gTbObT8O6JORab+5XtA1Kw==}
+  '@octokit/request@9.2.2':
+    resolution: {integrity: sha512-dZl0ZHx6gOQGcffgm1/Sf6JfEpmh34v3Af2Uci02vzUYz6qEN6zepoRtmybWXIGXFIK8K9ylE3b+duCWqhArtg==}
     engines: {node: '>= 18'}
 
   '@octokit/rest@21.0.2':
     resolution: {integrity: sha512-+CiLisCoyWmYicH25y1cDfCrv41kRSvTq6pPWtRroRJzhsCZWZyCqGyI8foJT5LmScADSwRAnr/xo+eewL04wQ==}
     engines: {node: '>= 18'}
 
-  '@octokit/rest@21.1.0':
-    resolution: {integrity: sha512-93iLxcKDJboUpmnUyeJ6cRIi7z7cqTZT1K7kRK4LobGxwTwpsa+2tQQbRQNGy7IFDEAmrtkf4F4wBj3D5rVlJQ==}
+  '@octokit/rest@21.1.1':
+    resolution: {integrity: sha512-sTQV7va0IUVZcntzy1q3QqPm/r8rWtDCqpRAmb8eXXnKkjoQEtFe3Nt5GTVsHft+R6jJoHeSiVLcgcvhtue/rg==}
     engines: {node: '>= 18'}
 
   '@octokit/types@13.8.0':
@@ -3933,8 +3933,8 @@ packages:
   fraction.js@4.3.7:
     resolution: {integrity: sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==}
 
-  framer-motion@12.4.2:
-    resolution: {integrity: sha512-pW307cQKjDqEuO1flEoIFf6TkuJRfKr+c7qsHAJhDo4368N/5U8/7WU8J+xhd9+gjmOgJfgp+46evxRRFM39dA==}
+  framer-motion@12.4.3:
+    resolution: {integrity: sha512-rsMeO7w3dKyNG09o3cGwSH49iHU+VgDmfSSfsX+wfkO3zDA6WWkh4sUsMXd155YROjZP+7FTIhDrBYfgZeHjKQ==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -5038,8 +5038,8 @@ packages:
   motion-utils@12.0.0:
     resolution: {integrity: sha512-MNFiBKbbqnmvOjkPyOKgHUp3Q6oiokLkI1bEwm5QA28cxMZrv0CbbBGDNmhF6DIXsi1pCQBSs0dX8xjeER1tmA==}
 
-  motion@12.4.2:
-    resolution: {integrity: sha512-NGocC1zic2hGDEasxS76W5/7JIJ5loKIxawkFoEqk7yTu8yXI+6l6IlEj9u8aPp6tM04DwvuiQcobpw9i0hhiw==}
+  motion@12.4.3:
+    resolution: {integrity: sha512-KeoMpKFEVdofN0v/z1g3tm4cMtk1WAHQ5Pg7M1ElxeRLA8cBSrkmSCJ9q6hLo7spp/n906h2kmeDNvBkysaxcQ==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -6589,8 +6589,8 @@ packages:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
     engines: {node: '>= 10.0.0'}
 
-  unplugin-auto-import@19.0.0:
-    resolution: {integrity: sha512-TREXtXqCM6YLy3rE2tjvKZEaCiPlP2e5bmnRKaS8AM2MlNgjV7UP4RPieWIfs4Isv0GoeHmov956PIIvJYdqpQ==}
+  unplugin-auto-import@19.1.0:
+    resolution: {integrity: sha512-B+TGBEBHqY9aR+7YfShfLujETOHstzpV+yaqgy5PkfV0QG7Py+TYMX7vJ9W4SrysHR+UzR+gzcx/nuZjmPeclA==}
     engines: {node: '>=14'}
     peerDependencies:
       '@nuxt/kit': ^3.2.2
@@ -6601,8 +6601,12 @@ packages:
       '@vueuse/core':
         optional: true
 
-  unplugin-vue-components@28.0.0:
-    resolution: {integrity: sha512-vYe0wSyqTVhyNFIad1iiGyQGhG++tDOMgohqenMDOAooMJP9vvzCdXTqCVx20A0rCQXFNjgoRbSeDAioLPH36Q==}
+  unplugin-utils@0.2.4:
+    resolution: {integrity: sha512-8U/MtpkPkkk3Atewj1+RcKIjb5WBimZ/WSLhhR3w6SsIj8XJuKTacSP8g+2JhfSGw0Cb125Y+2zA/IzJZDVbhA==}
+    engines: {node: '>=18.12.0'}
+
+  unplugin-vue-components@28.1.0:
+    resolution: {integrity: sha512-ScHoDBTf7NVxM+YzzV1b1YNHU1rRnLWIG5hhD8D3hKjgYLd6FNJife0zQhUafv3NKuGLdujRgoqy2vcdt7a55g==}
     engines: {node: '>=14'}
     peerDependencies:
       '@babel/parser': ^7.15.8
@@ -7027,8 +7031,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@3.109.0:
-    resolution: {integrity: sha512-hh/04/2+e8lUHdJhMJTiT7Ea1kt+0b+WVM2u3RKwRBCQ3SaN6jw6h0EX3DJtC1C+wrrzTJYDcsp1tWrcGDMaGA==}
+  wrangler@3.109.1:
+    resolution: {integrity: sha512-1Jx+nZ6eCXPQ2rsGdrV6Qy/LGvhpqudeuTl4AYHl9P8Zugp44Uzxnj5w11qF4v/rv1dOZoA5TydSt9xMFfhpKg==}
     engines: {node: '>=16.17.0'}
     hasBin: true
     peerDependencies:
@@ -8805,68 +8809,68 @@ snapshots:
 
   '@octokit/auth-token@5.1.2': {}
 
-  '@octokit/core@6.1.3':
+  '@octokit/core@6.1.4':
     dependencies:
       '@octokit/auth-token': 5.1.2
       '@octokit/graphql': 8.2.0
-      '@octokit/request': 9.2.0
-      '@octokit/request-error': 6.1.6
+      '@octokit/request': 9.2.2
+      '@octokit/request-error': 6.1.7
       '@octokit/types': 13.8.0
       before-after-hook: 3.0.2
       universal-user-agent: 7.0.2
 
-  '@octokit/endpoint@10.1.2':
+  '@octokit/endpoint@10.1.3':
     dependencies:
       '@octokit/types': 13.8.0
       universal-user-agent: 7.0.2
 
   '@octokit/graphql@8.2.0':
     dependencies:
-      '@octokit/request': 9.2.0
+      '@octokit/request': 9.2.2
       '@octokit/types': 13.8.0
       universal-user-agent: 7.0.2
 
   '@octokit/openapi-types@23.0.1': {}
 
-  '@octokit/plugin-paginate-rest@11.4.0(@octokit/core@6.1.3)':
+  '@octokit/plugin-paginate-rest@11.4.2(@octokit/core@6.1.4)':
     dependencies:
-      '@octokit/core': 6.1.3
+      '@octokit/core': 6.1.4
       '@octokit/types': 13.8.0
 
-  '@octokit/plugin-request-log@5.3.1(@octokit/core@6.1.3)':
+  '@octokit/plugin-request-log@5.3.1(@octokit/core@6.1.4)':
     dependencies:
-      '@octokit/core': 6.1.3
+      '@octokit/core': 6.1.4
 
-  '@octokit/plugin-rest-endpoint-methods@13.3.0(@octokit/core@6.1.3)':
+  '@octokit/plugin-rest-endpoint-methods@13.3.0(@octokit/core@6.1.4)':
     dependencies:
-      '@octokit/core': 6.1.3
+      '@octokit/core': 6.1.4
       '@octokit/types': 13.8.0
 
-  '@octokit/request-error@6.1.6':
+  '@octokit/request-error@6.1.7':
     dependencies:
       '@octokit/types': 13.8.0
 
-  '@octokit/request@9.2.0':
+  '@octokit/request@9.2.2':
     dependencies:
-      '@octokit/endpoint': 10.1.2
-      '@octokit/request-error': 6.1.6
+      '@octokit/endpoint': 10.1.3
+      '@octokit/request-error': 6.1.7
       '@octokit/types': 13.8.0
       fast-content-type-parse: 2.0.1
       universal-user-agent: 7.0.2
 
   '@octokit/rest@21.0.2':
     dependencies:
-      '@octokit/core': 6.1.3
-      '@octokit/plugin-paginate-rest': 11.4.0(@octokit/core@6.1.3)
-      '@octokit/plugin-request-log': 5.3.1(@octokit/core@6.1.3)
-      '@octokit/plugin-rest-endpoint-methods': 13.3.0(@octokit/core@6.1.3)
+      '@octokit/core': 6.1.4
+      '@octokit/plugin-paginate-rest': 11.4.2(@octokit/core@6.1.4)
+      '@octokit/plugin-request-log': 5.3.1(@octokit/core@6.1.4)
+      '@octokit/plugin-rest-endpoint-methods': 13.3.0(@octokit/core@6.1.4)
 
-  '@octokit/rest@21.1.0':
+  '@octokit/rest@21.1.1':
     dependencies:
-      '@octokit/core': 6.1.3
-      '@octokit/plugin-paginate-rest': 11.4.0(@octokit/core@6.1.3)
-      '@octokit/plugin-request-log': 5.3.1(@octokit/core@6.1.3)
-      '@octokit/plugin-rest-endpoint-methods': 13.3.0(@octokit/core@6.1.3)
+      '@octokit/core': 6.1.4
+      '@octokit/plugin-paginate-rest': 11.4.2(@octokit/core@6.1.4)
+      '@octokit/plugin-request-log': 5.3.1(@octokit/core@6.1.4)
+      '@octokit/plugin-rest-endpoint-methods': 13.3.0(@octokit/core@6.1.4)
 
   '@octokit/types@13.8.0':
     dependencies:
@@ -11267,7 +11271,7 @@ snapshots:
 
   fraction.js@4.3.7: {}
 
-  framer-motion@12.4.2:
+  framer-motion@12.4.3:
     dependencies:
       motion-dom: 12.0.0
       motion-utils: 12.0.0
@@ -12633,9 +12637,9 @@ snapshots:
 
   motion-utils@12.0.0: {}
 
-  motion@12.4.2:
+  motion@12.4.3:
     dependencies:
-      framer-motion: 12.4.2
+      framer-motion: 12.4.3
       tslib: 2.8.1
 
   mrmime@2.0.0: {}
@@ -14715,39 +14719,40 @@ snapshots:
 
   universalify@2.0.1: {}
 
-  unplugin-auto-import@19.0.0(@nuxt/kit@3.15.4(magicast@0.3.5)(rollup@4.34.1))(@vueuse/core@12.6.1(typescript@5.6.3))(rollup@4.34.1):
+  unplugin-auto-import@19.1.0(@nuxt/kit@3.15.4(magicast@0.3.5)(rollup@4.34.1))(@vueuse/core@12.6.1(typescript@5.6.3))(rollup@4.34.1):
     dependencies:
-      '@antfu/utils': 0.7.10
-      '@rollup/pluginutils': 5.1.4(rollup@4.34.1)
-      local-pkg: 0.5.1
+      local-pkg: 1.0.0
       magic-string: 0.30.17
       picomatch: 4.0.2
       unimport: 3.14.5(rollup@4.34.1)
       unplugin: 2.2.0
+      unplugin-utils: 0.2.4
     optionalDependencies:
       '@nuxt/kit': 3.15.4(magicast@0.3.5)(rollup@4.34.1)
       '@vueuse/core': 12.6.1(typescript@5.6.3)
     transitivePeerDependencies:
       - rollup
 
-  unplugin-vue-components@28.0.0(@babel/parser@7.26.7)(@nuxt/kit@3.15.4(magicast@0.3.5)(rollup@4.34.1))(rollup@4.34.1)(vue@3.5.13(typescript@5.6.3)):
+  unplugin-utils@0.2.4:
     dependencies:
-      '@antfu/utils': 0.7.10
-      '@rollup/pluginutils': 5.1.4(rollup@4.34.1)
+      pathe: 2.0.3
+      picomatch: 4.0.2
+
+  unplugin-vue-components@28.1.0(@babel/parser@7.26.7)(@nuxt/kit@3.15.4(magicast@0.3.5)(rollup@4.34.1))(vue@3.5.13(typescript@5.6.3)):
+    dependencies:
       chokidar: 3.6.0
       debug: 4.3.7(supports-color@9.4.0)
-      fast-glob: 3.3.3
-      local-pkg: 0.5.1
+      local-pkg: 1.0.0
       magic-string: 0.30.17
-      minimatch: 9.0.5
       mlly: 1.7.4
+      tinyglobby: 0.2.10
       unplugin: 2.2.0
+      unplugin-utils: 0.2.4
       vue: 3.5.13(typescript@5.6.3)
     optionalDependencies:
       '@babel/parser': 7.26.7
       '@nuxt/kit': 3.15.4(magicast@0.3.5)(rollup@4.34.1)
     transitivePeerDependencies:
-      - rollup
       - supports-color
 
   unplugin-vue-router@0.11.2(rollup@4.34.1)(vue-router@4.5.0(vue@3.5.13(typescript@5.6.3)))(vue@3.5.13(typescript@5.6.3)):
@@ -15183,7 +15188,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20250204.0
       '@cloudflare/workerd-windows-64': 1.20250204.0
 
-  wrangler@3.109.0(@cloudflare/workers-types@4.20250204.0):
+  wrangler@3.109.1(@cloudflare/workers-types@4.20250204.0):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
       '@esbuild-plugins/node-globals-polyfill': 0.2.3(esbuild@0.17.19)
